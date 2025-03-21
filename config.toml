@@ -1,1 +1,5 @@
+baseURL = 'https://www.ctrl-alt-gg.hu/'
+languageCode = 'hu-hu'
+title = 'Ctrl-Alt-GG'
+
 theme = "ananke"
