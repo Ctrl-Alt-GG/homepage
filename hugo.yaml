@@ -1,0 +1,13 @@
+baseURL: "https://www.ctrl-alt-gg.hu/"
+languageCode: "hu-hu"
+title: "Ctrl-Alt-GG"
+IsMultiLingual: "false"
+defaultContentLanguage: "hu"
+
+theme: "yuan2" # https://github.com/marcsello/yuan2
+
+params:
+    description: "LanParty"
+
+    assets:
+        logo: "logo.svg"
