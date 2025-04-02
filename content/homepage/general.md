@@ -16,8 +16,7 @@ A helyhez sajnos nem tartozik saját parkoló, így, ha autóval érkezel, a par
 
 ## Időpont
 
-2025 május 24. 13:30 - 23:00
-
+2025 május 24. (szombat) 13:30 - 23:00  
 [Vedd fel a naptáradba!](https://calendar.app.google/9kMYSXeDp8gADAX98)
 
 ## Költségek
