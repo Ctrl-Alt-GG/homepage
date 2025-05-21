@@ -13,6 +13,7 @@ Az alábbi játékok biztosan elérhetőek lesznek:
 - [Satisfactory](https://store.steampowered.com/app/526870/Satisfactory/)
 - [Alien Swarm](https://store.steampowered.com/app/630/Alien_Swarm/)
 - [Xonotic](https://xonotic.org/)
+- [Minecraft](https://www.minecraft.net/)
 - [TrackMania Nations Forever](https://store.steampowered.com/app/11020/TrackMania_Nations_Forever/)
 
 Bárki bármihez csatlakozhat, ha van kedve!
