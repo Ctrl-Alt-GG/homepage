@@ -24,6 +24,11 @@ jobs:
         with:
           hugo-version: '0.150.1'
           extended: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install Dart Sass (npm)
+        run: npm i -g sass
       - name: Build Hugo site
         run: hugo --environment production --minify
       - name: Build And Deploy
