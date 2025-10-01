@@ -1,13 +1,52 @@
+---
 baseURL: "https://www.ctrl-alt-gg.hu/"
 languageCode: "hu-hu"
 title: "Ctrl-Alt-GG"
 IsMultiLingual: "false"
 defaultContentLanguage: "hu"
+copyright: ""
 
-theme: "yuan2" # https://github.com/marcsello/yuan2
+theme: "paige"
 
 params:
-    description: "LanParty"
-
-    assets:
-        logo: "logo-turkix-hollow.svg"
+  assets:
+    logo: "logo-turkix-hollow.svg"
+  paige:
+    site:
+      description: "GG, HF, IRL."
+      disable_credit: true
+      disable_breadcrumbs: true
+    pages:
+      base_schema:
+        isAccessibleForFree: true
+        isFamilyFriendly: true
+      disable_authors: true
+      disable_date: true
+      disable_keywords: true
+      disable_next: true
+      disable_prev: true
+      disable_reading_time: true
+      disable_series: true
+      disable_toc: true
+      disable_word_count: true
+      disable_collections: true
+      disable_pages: true
+      disable_sections: true
+    subpages:
+      disable_authors: true
+      disable_date: true
+      disable_keywords: true
+      disable_next: true
+      disable_prev: true
+      disable_reading_time: true
+      disable_series: true
+      disable_toc: true
+      disable_word_count: true
+      disable_collections: true
+      disable_pages: true
+      disable_sections: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+...
