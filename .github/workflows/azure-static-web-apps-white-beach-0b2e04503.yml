@@ -24,11 +24,12 @@ jobs:
         with:
           hugo-version: '0.150.1'
           extended: true
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-      - name: Install Dart Sass (npm)
-        run: npm i -g sass
+      - name: Install Dart Sass (native)
+        run: |
+          curl -sL https://github.com/sass/dart-sass/releases/download/1.93.2/dart-sass-1.93.2-linux-x64.tar.gz -o dart-sass.tgz
+          mkdir -p /opt/dart-sass && tar -xzf dart-sass.tgz -C /opt/dart-sass --strip-components=1
+          chmod -R 755 /opt/dart-sass
+          echo "/opt/dart-sass" >> $GITHUB_PATH
       - name: Build Hugo site
         run: hugo --environment production --minify
       - name: Build And Deploy
