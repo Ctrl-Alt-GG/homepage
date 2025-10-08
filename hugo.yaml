@@ -4,7 +4,7 @@ languageCode: "hu-hu"
 title: "Ctrl-Alt-GG"
 IsMultiLingual: "false"
 defaultContentLanguage: "hu"
-copyright: ""
+copyright: " 2025 Ctrl-Alt-GG"
 
 theme: "paige"
 
@@ -13,7 +13,7 @@ params:
     logo: "logo-turkix-hollow.svg"
   paige:
     site:
-      description: "GG, HF, IRL."
+      description: "GL&HF, IRL."
       disable_credit: true
       disable_breadcrumbs: true
     pages:
