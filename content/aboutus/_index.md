@@ -8,7 +8,7 @@ Ha bármi további kérdésed merül fel a rendezvénnyel kapcsolatban, a legegy
 
 Emellett elérsz minket {{% paige/email address="szervezok@ctrl-alt-gg.hu" %}}ímélen is.{{% /paige/email %}}
 
-# Ismert meg...
+# Ismerd meg...
 
 # FiNTet
 
