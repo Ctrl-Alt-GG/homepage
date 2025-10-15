@@ -32,4 +32,4 @@ Sci-fi rajongó - Star Trek, Stargate, Battlestar Galactica - ezeket tudom nonst
 
 # és Bencét
 
-Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom.
+Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom. (amúgy, pls kerülhetek az elejére?)
