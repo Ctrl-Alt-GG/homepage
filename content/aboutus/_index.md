@@ -28,3 +28,8 @@ Az IT utáni csillapíthatatlan érdeklődésemből kifolyólag rengeteg kis hob
 Kristóf vagyok, óvodás korom óta különféle videójátékokkal játszom, ezek közül is a Counter-Strike volt az egyik első. Ez óta persze sok idő eltelt, annyi időm nincs játzsani, amennyit szeretnék és akkor is inkább konzolos játékokat játszom. A LAN partyk hangulata mindig megfogott, így jött az ötlet, hogy szervezzünk egyet. Ezen kívül rádióamatőrként is tevékenykedem, amikor nem a szabadidőm töltöm éppen, akkor leginkább a technológia és az informatika világa köt le. Eredetileg DevOps mérnökként dolgoztam, ez a terület áll hozzám a legközelebb, de már egy éve scrum masterként segítem a csapatomat a mindennapokban.
 
 Sci-fi rajongó - Star Trek, Stargate, Battlestar Galactica - ezeket tudom nonstop nézni.
+
+
+# és Bencét
+
+Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom. (amúgy, pls kerülhetek az elejére?)
