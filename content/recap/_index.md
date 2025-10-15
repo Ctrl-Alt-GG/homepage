@@ -14,11 +14,11 @@ A jó hangulat természetesen a minőségi kajával és itallal volt teljes. A r
 
 A barátságos légkör garantálta, hogy mindenki jól érezze magát, és már most várjuk a következő alkalmat...
 
-{{< paige/gallery class="rounded-5" align="center" >}}
-{{< paige/image height="30rem" src="2025-01.jpg" >}}
-{{< paige/image height="30rem" src="2025-02.jpg" >}}
-{{< paige/image height="20rem" src="2025-03.jpg" >}}
-{{< paige/image height="20rem" src="2025-04.jpg" >}}
-{{< paige/image height="40rem" src="2025-05.jpg" >}}
-{{< paige/image height="30rem" src="2025-06.jpg" >}}
+{{< paige/gallery align="center" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-01.jpg" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-02.jpg" >}}
+  {{< paige/image maxheight="20rem" class="rounded-3" src="2025-03.jpg" >}}
+  {{< paige/image maxheight="20rem" class="rounded-3" src="2025-04.jpg" >}}
+  {{< paige/image maxheight="40rem" class="rounded-3" src="2025-05.jpg" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-06.jpg" >}}
 {{< /paige/gallery >}}
