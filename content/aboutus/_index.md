@@ -10,10 +10,6 @@ Emellett elérsz minket {{% paige/email address="szervezok@ctrl-alt-gg.hu" %}}í
 
 # Ismerd meg...
 
-# Bencét
-
-Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom.
-
 # FiNTet
 
 FiNT vagyok, közel 20 év Counter-Strike tapasztalattal (mondjuk ez nem látszódik a skillemen). A játék összes generációjával játszottam, volt saját alapítású klánom, szervert menedzseltem, közösséget építettem. A kompetitív szcénát is követem, a háttérben mindig pörög egy Twitch stream. A lövöldözésen kívül imádom az autós játékokat, a Trackmania nagy kedvenc, korábban pedig a Dirt sorozatban versenyeztem.
@@ -27,8 +23,12 @@ A Counter-Strike-al még általános suliban ismerkedtem meg, sokat játszottam 
 
 Az IT utáni csillapíthatatlan érdeklődésemből kifolyólag rengeteg kis hobbi projektem van, amik gyakran az értékes játéktól veszik el az időt. Az egyik ilyen például, hogy hogyan lehet egy LAN Party teljes IT infrastruktúráját megtervezni, felépíteni és üzemeltetni?
 
-# és TormaKris-t
+# TormaKris-t
 
 Kristóf vagyok, óvodás korom óta különféle videójátékokkal játszom, ezek közül is a Counter-Strike volt az egyik első. Ez óta persze sok idő eltelt, annyi időm nincs játzsani, amennyit szeretnék és akkor is inkább konzolos játékokat játszom. A LAN partyk hangulata mindig megfogott, így jött az ötlet, hogy szervezzünk egyet. Ezen kívül rádióamatőrként is tevékenykedem, amikor nem a szabadidőm töltöm éppen, akkor leginkább a technológia és az informatika világa köt le. Eredetileg DevOps mérnökként dolgoztam, ez a terület áll hozzám a legközelebb, de már egy éve scrum masterként segítem a csapatomat a mindennapokban.
 
 Sci-fi rajongó - Star Trek, Stargate, Battlestar Galactica - ezeket tudom nonstop nézni.
+
+# és Bencét
+
+Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom. (amúgy, pls kerülhetek az elejére?)
