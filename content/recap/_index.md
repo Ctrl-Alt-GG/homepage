@@ -2,17 +2,15 @@
 title: "Az előző rész tartalmából"
 ---
 
-A belvárosban találkoztunk, hogy egy szuper szombatot töltsünk el együtt. A Ctrl-Alt-GG rendezvény minden várakozást felülmúlt.
+Az első Ctrl-Alt-GG alkalmával a belvárosban találkoztunk, hogy egy szuper szombatot töltsünk el együtt.
 
-A Counter-Strike 2 tournament igazi csúcspontja volt a hétvégének. Két tapasztalt csapat mérkőzött meg egymással, és a feszültség minden round után egyre nőtt. A koncentráció és az adrenalin szinte kézzelfogható volt a teremben - ilyen intenzív meccseket ritkán látni.
+Amire a résztvevők jelentős része várt az a hamisítatlan Counter-Strike tournament élmény. A létszámra való tekintettel, a helyszínen két csapat szerveződött, hogy megmérkőzzenek egymással. A feszültség minden kör után egyre nőtt. A koncentráció és az adrenalin szinte kézzelfogható volt a teremben. Végül a két banda nem tudott dűlőre jutni egymással: három meccs után döntetlen eredménnyel zárult a mérkőzés.
 
-Eközben a Minecraft rajongók a saját világukban alkottak. Lenyűgöző volt nézni, ahogy órákig építettek és bányásztak, folyamatosan új ötletekkel rukkolva elő. A kreativitásuk tényleg elismerésre méltó volt.
+Miközben a terem nagyrészében pörögtek a fegyverek, a Minecraft rajongók a saját világukban alkottak. Viszonylag rövid idő alatt jelentősen előre haladtak a játékban. Kreativitásuk elismerésre méltó volt.
 
-A GMod Prop Hunt azonban mindenkit megnevettett. Hihetetlen vicces volt látni, ahogy valaki próbál egy széknek vagy hűtőszekrénynek álcázni magát, miközben a többiek keresik. A váratlan felfedezések és kreatív megoldások folyamatos nevetést biztosítottak.
+A nap végén a Garry's Mod Prop Hunt mindenkit megnevettett. Hihetetlen vicces volt, ahogy valaki próbálja széknek, vagy hűtőszekrénynek álcázni magát, miközben mások konzervdobozként cikáztak fel-alá a pályán magára vonva a teljes kereső csapat figyelmét. A váratlan felfedezések és kreatív rejtekhelyek folyamatos szórakozást biztosítottak.
 
-A jó hangulat természetesen a minőségi kajával és itallal volt teljes. A rövid szünetek alatt kiváló sörök és friss pizza várta a résztvevőket, ami tökéletes kiegészítése volt az egésznek.
-
-A barátságos légkör garantálta, hogy mindenki jól érezze magát, és már most várjuk a következő alkalmat...
+A jó hangulathoz és az igazi lan-party élményhez természetesen elengedhetetlen volt a közös pizza rendelés. Emellett üdítővel és sörrel csillapították szomjúkat a résztvevők. A barátságos légkör garantálta, hogy mindenki jól érezze magát, és mi már most várjuk a következő alkalmat...
 
 {{< paige/gallery align="center" >}}
   {{< paige/image maxheight="30rem" class="rounded-3" src="2025-01.jpg" >}}
