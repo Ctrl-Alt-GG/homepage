@@ -1,0 +1,30 @@
+<!-- TODO: Currently this supports only one countdown element -->
+{{- $targetdate := .Get "target" -}}
+<div id="t-holder">... még <span id="t"></span>!</div>
+<script src="/countdown.min.js"></script>
+<script>
+    (() => {
+        'use strict'
+
+        countdown.setLabels(
+            ' ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred',
+            ' ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred',
+            ' és ',
+            ', ',
+            '',
+            function (n) {
+                return n.toString();
+            }
+        );
+
+        const t = document.getElementById('t');
+
+        const targetDate = new Date("{{ $targetdate }}")
+
+        countdown(targetDate, function (ts) {
+            if (ts.value < 0) {
+                t.innerHTML = ts.toHTML();
+            }
+        }, countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
+    })()
+</script>
