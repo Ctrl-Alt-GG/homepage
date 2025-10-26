@@ -2,6 +2,8 @@
 title: "GY.I.K."
 ---
 
+Gyakran ismétlődő kérdések és kifogások.
+
 ## Mennék, csak nem vagyok jó Counter-Strike játékos...
 
 Őszintén nehéz kijelenteni hogy bárki is jó-e valamiben. Mi nem a következő E-sport bajnokok ligáját szervezzük, nem is a legnagyobb tehetségek összecsapását közvetítjük jelentős bevételért, de még csak egy előselejtező sem vagyunk. A célunk az, hogy összejöjjünk a barátainkkal és együtt jól érezzük magunkat. Skillektől függetlenül.
@@ -11,6 +13,10 @@ Mindemellett bár a Counter-Strike mindenkinek az első játék ami eszébe jut,
 ## Mennék, csak nincs csapatom...
 
 TODO
+
+## Mennék, csak nem tudom elvinni a gépem...
+
+TOOD
 
 ## Lesz internet elérés?
 
