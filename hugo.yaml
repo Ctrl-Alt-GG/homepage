@@ -32,6 +32,8 @@ params:
       disable_collections: true
       disable_pages: true
       disable_sections: true
+      maximize_heading_levels: true
+      maximum_heading_level: 4
     subpages:
       disable_authors: true
       disable_date: true
