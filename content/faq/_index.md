@@ -2,21 +2,23 @@
 title: "GY.I.K."
 ---
 
-Gyakran ismétlődő kérdések és kifogások.
+Gyakran ismétlődő kifogások és kérdések...
 
-## Mennék, csak nem vagyok jó Counter-Strike játékos...
+## Mennék, de nem vagyok jó Counter-Strike játékos...
 
-Őszintén nehéz kijelenteni hogy bárki is jó-e valamiben. Mi nem a következő E-sport bajnokok ligáját szervezzük, nem is a legnagyobb tehetségek összecsapását közvetítjük jelentős bevételért, de még csak egy előselejtező sem vagyunk. A célunk az, hogy összejöjjünk a barátainkkal és együtt jól érezzük magunkat. Skillektől függetlenül.
+Őszintén nehéz kijelenteni hogy bárki is jó-e valamiben. Mi nem a következő E-sport bajnokok ligáját szervezzük, nem is a legnagyobb tehetségek összecsapását közvetítjük jelentős bevételért, de még csak egy helyi bajnokság sem vagyunk. A célunk az, hogy összejöjjünk a barátainkkal és együtt jól érezzük magunkat, skillektől függetlenül.
 
-Mindemellett bár a Counter-Strike mindenkinek az első játék ami eszébe jut, ha meghallja, hogy LAN-Party lesz, nem ez az egyetlen játék amit egy LAN-Party-n játszani lehet. Mi is készülünk több játék szerverrel, de mivel a hálózat adott lesz, igazából bárki hozhat bármit, amivel játszani szeretne.
+Mindemellett bár a Counter-Strike mindenkinek az első ami eszébe jut, mint elengedhetetlen kelléke egy jó LAN-Partynak, nem ez az egyetlen játék amit ilyen környezetben játszani lehet. Mi is készülünk több játék támogatásával is, ezek között a kompetitív mellett, akadnak kooperatív vagy szimplán csak fun játékok, és mivel a hálózat adott lesz, bárki hozhat bármit, amivel játszani szeretne.
 
-## Mennék, csak nincs csapatom...
+## Mennék, de nincs csapatom...
 
-TODO
+Ahogy az előző pontban is említettük, nem csak versenyezni lehet, a rendezvény jó hangulata miatt már érdemes eljönnöd. Biztosak vagyunk benne, hogy lesz olyan játék, amivel te is szívesen fogsz játszani a többiekkel együtt.
 
-## Mennék, csak nem tudom elvinni a gépem...
+Mindemellett ha mégis szívesen részt vennél egy-egy csapatos megmérettetésen javasoljuk, hogy a közösség előtt vesd fel a témát! Biztosan lesznek mások is akik hasonló helyzetben vannak, mint te és szívesen társulnának egy ad-hoc csapatba. Ha időben megteszed ezt, talán még az esemény előtt lesz is időtök párat online játszani, hogy összeszokjatok.
 
-TOOD
+## Mennék, de nem tudom elvinni a gépem...
+
+Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. De a ilyesmi problémád van, mindenképpen vesd fel a közösség előtt! Bízz a közösség erejében! Biztosan lesz valaki, aki tud majd segíteni neked valamilyen formában.
 
 ## Lesz internet elérés?
 
