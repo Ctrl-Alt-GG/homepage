@@ -16,6 +16,7 @@ params:
       description: "GL&HF, IRL."
       disable_credit: true
       disable_breadcrumbs: true
+      color: '#00aa88'
     pages:
       base_schema:
         isAccessibleForFree: true
