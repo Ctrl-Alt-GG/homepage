@@ -9,6 +9,7 @@ copyright: " 2025 Ctrl-Alt-GG"
 theme: "paige"
 
 params:
+  description: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvénye!"
   assets:
     logo: "logo-turkix-hollow.svg"
   paige:
