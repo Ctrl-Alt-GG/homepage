@@ -14,7 +14,8 @@ Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. N�
 
 ## Konzol Kuckó
 
-Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedbetween. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz - úgyhogy foglalj helyet a kanapén, válassz egy játékot, és élvezd a lazább gaming élményt. Itt minden adott, csak te hiányzol a képből!
+Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedben. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz - úgyhogy foglalj helyet a kanapén, válassz egy játékot, és élvezd a lazább gaming élményt. Itt minden adott, csak te hiányzol a képből!
+
 
 ## Chill Sarok
 
