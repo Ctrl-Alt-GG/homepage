@@ -6,13 +6,11 @@ title: "Helyszín"
 
 A Tópart Biatorbágy modern lakónegyede, ahol a Törökbálinti-tó partján találod magad, mégis Budapest csak pár perc autóval. A környék szíve a Tópark Lakópark, egy élő-zöld komplexum, ahol lakások, üzletek és parkosított terek alkotnak egy komplett közösséget. Tökéletes hely, ha a nagyvárosi lüktetést szeretnéd lecserélni egy nyugodtabb, de ugyanúgy modern környezetre.
 
-*GOOGLE MAPS EMBED IDE*
+{{< maps >}}
 
 ## Az Iroda Gaming Arénává Változik
 
 Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. Néhány asztal, rengeteg kábel, és egy sereg számítógép - így néz ki, amikor a PowerPoint prezentációk helyét átveszik a headshot-ok és a strategy rush-ok. Nincs dress code, nincsenek meetingek - csak tiszta játék, ahogy lennie kell. Üdv a mi ideiglenes headquarterünkben!
-
-*EGY KÉT KÉP IDE JÓ LENNE*
 
 ## Konzol Kuckó
 

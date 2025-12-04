@@ -15,6 +15,8 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
 
 **Biatorbágy-Tópart Irodaház** - Modern, kényelmes irodai környezet nagyon kedvező áron. Az egész iroda csak a mienk lesz, konyhástul, mindenestül.
 
+{{< maps >}}
+
 ## Időpont
 
 2026\. február. 7. (szombat) 14:30 - 2026. február. 8. (vasárnap) 14:30 [Vedd fel a naptáradba!](https://fb.me/1XzrC69t2MV47LY)
