@@ -38,7 +38,7 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - [Factorio*](https://store.steampowered.com/app/427520/Factorio/)
 - [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 
-A *-gal jelölt játékokhoz biztos lesz szerver, ahol tudok játszani.
+A *-gal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver.
 
 Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem kötelező!
 
