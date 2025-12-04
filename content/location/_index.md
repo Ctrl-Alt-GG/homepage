@@ -19,4 +19,4 @@ Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Se
 
 ## Chill Sarok
 
-Mindenki számára fontos a pihenés! Ha úgy érzed, hogy szükséged van egy kis szünetre a gaming maratonból, a chill sarok tökéletes visszavonulási lehetőség. Kényelmes ülőhelyek, nyugodt környezet és lehetőség egy gyors alvásra - így frissen térhetsz vissza a játékhoz. Kapcsolj ki, töltődj fel, és aztán vissza a csatába!
+Mindenki számára fontos a pihenés! Ha úgy érzed, hogy szükséged van egy kis szünetre a gaming maratonból, a chill sarok tökéletes visszavonulási lehetőség. Kényelmes ülőhelyek, nyugodt környezet - így frissen térhetsz vissza a játékhoz. Kapcsolj ki, töltődj fel, és aztán vissza a csatába!
