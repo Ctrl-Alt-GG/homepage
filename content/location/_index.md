@@ -4,18 +4,23 @@ title: "Helyszín"
 
 ## A Város Melletti Miniváros
 
-A Tópart Biatorbágy modern lakónegyede, ahol a Törökbálinti-tó partján találod magad, mégis Budapest csak pár perc autóval. A környék szíve a Tópark Lakópark, egy élő-zöld komplexum, ahol lakások, üzletek és parkosított terek alkotnak egy komplett közösséget. Tökéletes hely, ha a nagyvárosi lüktetést szeretnéd lecserélni egy nyugodtabb, de ugyanúgy modern környezetre.
+A Tópart Biatorbágy városának M1 és M0 autópályák melletti, Budapesttől mindössze néhány perces autóútnyira fekvő városrésze. Az autóval érkezők számára a megközelítés rendkívül egyszerű: a bejárattól karnyújtásnyira található az ingyenes parkoló, így a be- és kipakolás villámgyorsan megoldható. A pontos bejárati koordinátákat az alább található térképen láthatod.
 
 {{< maps >}}
 
+Viszont, ha inkább tömegközlekedéssel érkeznél a Volán Kelenföld állomástól induló 764-es busz röpke negyed óra alatt néhány lépésre repít az akcíótól. Leszállás a "Biatorbágy, Tópark" állomáson.
+
+{{< mapsrouteplan >}}
+
+Az épületek között a „G Recepció" felirattal jelzett bejáratot keresd! Google Mapsen a „Regus" pin alapján tervezd meg az útvonalat, vagy add meg a navigációs rendszerben a „Biatorbágy Sasbérc út 1 G" címet. A parkolóhoz közelebbi oldalon találsz majd minket.
+
 ## Az Iroda Gaming Arénává Változik
 
-Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. Néhány asztal, rengeteg kábel, és egy sereg számítógép - így néz ki, amikor a PowerPoint prezentációk helyét átveszik a headshot-ok és a strategy rush-ok. Nincs dress code, nincsenek meetingek - csak tiszta játék, ahogy lennie kell. Üdv a mi ideiglenes headquarterünkben!
+Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. Néhány asztal, rengeteg kábel, és egy sereg számítógép - így néz ki, amikor a PowerPoint prezentációk helyét átveszik a headshot-ok és a strategy rush-ok. Nincs dress code, nincsenek meetingek csak tiszta játék, ahogy lennie kell.
 
 ## Konzol Kuckó
 
-Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedben. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz - úgyhogy foglalj helyet a kanapén, válassz egy játékot, és élvezd a lazább gaming élményt. Itt minden adott, csak te hiányzol a képből!
-
+Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedben. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz. Válassz egy játékot, és élvezd a lazább élményt.
 
 ## Chill Sarok
 

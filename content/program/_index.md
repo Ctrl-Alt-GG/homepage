@@ -2,7 +2,7 @@
 title: "Program"
 ---
 
-A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. A két napban helyi hálózaton keresztül csatázunk, versenyezünk és kooperálunk - mindezt úgy, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
+A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. A két napban helyi hálózaton keresztül csatázunk, versenyezünk és kooperálunk. Mindezt úgy, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
 
 A széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
 
@@ -44,7 +44,7 @@ Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem 
 
 ## Konzolsarok
 
-Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok - a legújabb AAA címektől kezdve az indie kincsekig. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen mecccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazább, kanapéról játszható élményt. Hozzátok a jókedvet - a konzolt, kontrollereket és a játékokat mi biztosítjuk!
+Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen mecccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazább, kanapéról játszható élményt.
 
 ## És ez nem minden
 
