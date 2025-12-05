@@ -9,7 +9,7 @@ A Tópart Biatorbágy városának M1 és M0 autópályák melletti, Budapesttől
 {{< maps >}}
 
 
-Viszont, ha inkább tömegközlekedéssel érkeznél a Volán Kelenföld állomástól induló 764-es busz röpke negyed óra alatt néhány lépésre repít az akcíótól. Leszállás a "Biatorbágy, Tópark" állomáson.
+Viszont, ha inkább tömegközlekedéssel érkeznél a Volán Kelenföld állomástól induló **764-es busz** röpke negyed óra alatt néhány lépésre repít az akcíótól. Leszállás a **"Biatorbágy, Tópark"** állomáson.
 
 Az épületek között a „G Recepció" felirattal jelzett bejáratot keresd! Google Mapsen a „Regus" pin alapján tervezd meg az útvonalat, vagy add meg a navigációs rendszerben a „Biatorbágy Sasbérc út 1 G" címet. A parkolóhoz közelebbi oldalon találsz majd minket.
 
