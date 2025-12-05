@@ -22,7 +22,7 @@ Mivel rendelkezésünkre áll egy hűtő, természetesen lesz benne hideg sör �
 
 ## Csak ezek a játékok lesznek?
 
-Határozottan Nem! Egyrészt, (ha kitöltötted már) a jelentkezési formban te is javasolhattál játékokat, ezeket komolyan vesszük és amit meg tudunk valósítani azt valószínűleg meg is fogjuk.
+Határozottan Nem! Egyrészt, Discordon a #general-ban javasolhattál (és még mindig javasolhatsz) játékokat, ezeket komolyan vesszük, amit meg tudunk valósítani azt valószínűleg meg is fogjuk.
 
 Másrészt ha te pár barátoddal egy olyan játékkal szeretnél játszani, amire mi nem gondoltunk, senki nem fogja megtiltani neked.
 
@@ -32,4 +32,4 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 
 ## Hol tudok aludni?
 
-A chill sarok erre remek lehetőség, de a város sem lesz elég messze, hogy egy rövid powernapre ne lehetne elugrani. ;)
+Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapre ne lehetne elugrani. ;)
