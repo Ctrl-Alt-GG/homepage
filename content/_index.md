@@ -13,10 +13,9 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
 
 ## Helyszín
 
-Jelenleg két lehetséges helyszín van:
+**Biatorbágy-Tópart Irodaház** - Modern, kényelmes irodai környezet nagyon kedvező áron. Az egész iroda csak a mienk lesz, konyhástul, mindenestül.
 
-1. **Biatorbágyi Irodaház** - Modern, kényelmes irodai környezet nagyon kedvező áron. Egyelőre bizonytalan, hogy elérhető lesz.
-2. **Biatorbágyi Középsikola** - Másodlagos helyszín, hasonló színvonalú, mint az első, viszont drágább.
+{{< maps >}}
 
 ## Időpont
 
@@ -24,4 +23,4 @@ Jelenleg két lehetséges helyszín van:
 
 ## Költségek
 
-A részvétel díja a teljes létszám megléte után derül ki, de az átláthatóság jegyében előre szólunk, hogy **várhatóan 10000Ft vagy 6000Ft** körüli díjra lehet számítani helyszíntől függően.
+A részvétel díja a teljes létszám megléte után derül ki, de az átláthatóság jegyében előre szólunk, hogy **5000Ft** díjra lehet számítani.

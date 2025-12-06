@@ -13,3 +13,9 @@ Természetesen a kapcsolódó perifériákat/kiegészítőket se felejtsd otthon
 Amire viszont NEM lesz szükséged, az hálózati (UTP) kábel. Ezt biztosítani fogjuk mindenkinek. Emellett szék és asztal is rendelkezésedre fog állni (reméljük).
 
 Továbbá semmiképp se hozz UPS-t!
+
+## TODO
+
+- Házirend
+- Seat map (nem lesz)
+- Network hype

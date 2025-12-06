@@ -1,7 +1,5 @@
 ---
 title: "GY.I.K."
-# TODO: LEVENNI A DRAFTOT, AMIKOR VEGLEGESITVE VAN A CONTENT
-draft: true
 ---
 
 ## Lesz internet elérés?
@@ -20,10 +18,18 @@ Ha van rá igény, akkor összedobhatjuk a pénzt, csinálhatunk közös pizza r
 
 ## Lesz bármilyen ellátás?
 
-Mivel rendelkezésünkre áll egy hűtő, természetesen lesz benne hideg sör beszerzési áron.
+Mivel rendelkezésünkre áll egy hűtő, természetesen lesz benne hideg sör és üdítő beszerzési áron. Limitált mennyiségben szolgálni fogunk nasival is, hogy zsírosodjon a bal egérgomb.
 
 ## Csak ezek a játékok lesznek?
 
-Határozottan Nem! Egyrészt, (ha kitöltötted már) a jelentkezési formban te is javasolhattál játékokat, ezeket komolyan vesszük és amit meg tudunk valósítani azt valószínűleg meg is fogjuk.
+Határozottan Nem! Egyrészt, Discordon a #general-ban javasolhattál (és még mindig javasolhatsz) játékokat, ezeket komolyan vesszük, amit meg tudunk valósítani azt valószínűleg meg is fogjuk.
 
-Másrészt ha te pár haveroddal egy olyan játékkal szeretnél játszani, amire mi nem gondoltunk, senki nem fogja megtiltani neked. :)
+Másrészt ha te pár barátoddal egy olyan játékkal szeretnél játszani, amire mi nem gondoltunk, senki nem fogja megtiltani neked.
+
+## Mennék, de nem tudom elvinni a gépem...
+
+Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. De ha ilyesmi problémád van, mindenképpen vesd fel a többi résztvevő előtt! Bízz a közösség erejében! Biztosan lesz valaki, aki tud majd segíteni neked valamilyen formában. Nyugodtan dobd be a témát Discordra, biztos egymásra fogtok találni!
+
+## Hol tudok aludni?
+
+Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapre ne lehetne elugrani. ;)
