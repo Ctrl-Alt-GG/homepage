@@ -42,7 +42,7 @@ A *-gal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver
 
 Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem kötelező!
 
-## Konzolsarok
+## Konzol Kuckó
 
 Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen mecccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazább, kanapéról játszható élményt.
 
