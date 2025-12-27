@@ -3,7 +3,7 @@ title: "Ready?"
 summary: "The best gaming event of the year, surpassing our wildest imagination!"
 ---
 
-{{< paige/image breakpoints=true class="mt-3 object-fit-cover rounded-4 shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom-root.webp" >}}
+{{< paige/image breakpoints=true class="mt-3 object-fit-cover rounded-4 shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="/gamingroom.webp" >}}
 
 {{< countdown target="2026-02-07" >}}
 

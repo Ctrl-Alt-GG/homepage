@@ -13,10 +13,10 @@ At the end of the day, Garry's Mod Prop Hunt made everyone laugh. It was incredi
 Of course, a shared pizza order was essential for good vibes and the authentic LAN party experience. Participants quenched their thirst with soft drinks and beer. The friendly atmosphere ensured everyone had a great time, and we're already looking forward to the next opportunity...
 
 {{< paige/gallery align="center" >}}
-  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-01.jpg" >}}
-  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-02.jpg" >}}
-  {{< paige/image maxheight="20rem" class="rounded-3" src="2025-03.jpg" >}}
-  {{< paige/image maxheight="20rem" class="rounded-3" src="2025-04.jpg" >}}
-  {{< paige/image maxheight="40rem" class="rounded-3" src="2025-05.jpg" >}}
-  {{< paige/image maxheight="30rem" class="rounded-3" src="2025-06.jpg" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="/2025-01.jpg" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="/2025-02.jpg" >}}
+  {{< paige/image maxheight="20rem" class="rounded-3" src="/2025-03.jpg" >}}
+  {{< paige/image maxheight="20rem" class="rounded-3" src="/2025-04.jpg" >}}
+  {{< paige/image maxheight="40rem" class="rounded-3" src="/2025-05.jpg" >}}
+  {{< paige/image maxheight="30rem" class="rounded-3" src="/2025-06.jpg" >}}
 {{< /paige/gallery >}}
