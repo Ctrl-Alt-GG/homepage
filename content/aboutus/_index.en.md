@@ -2,7 +2,7 @@
 title: "About Us"
 ---
 
-{{< paige/image height="10rem" src="../logo-turkix-hollow.svg" >}}
+{{< paige/image height="10rem" src="logo-turkix-hollow.svg" >}}
 
 If you have any further questions about the event, the easiest way is to reach out to whoever invited you.
 
