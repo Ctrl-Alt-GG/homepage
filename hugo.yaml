@@ -10,26 +10,6 @@ languages:
     weight: 1
     params:
       description: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvénye!"
-    menu:
-      main:
-        - name: "Rólunk"
-          url: "/hu/aboutus/"
-          weight: 1
-        - name: "Helyszín"
-          url: "/hu/location/"
-          weight: 2
-        - name: "Program"
-          url: "/hu/program/"
-          weight: 3
-        - name: "GY.I.K."
-          url: "/hu/qa/"
-          weight: 4
-        - name: "Recap"
-          url: "/hu/recap/"
-          weight: 5
-        - name: "Stuff"
-          url: "/hu/stuff/"
-          weight: 6
   en:
     languageCode: "en-us"
     languageName: "English"
@@ -37,26 +17,6 @@ languages:
     weight: 2
     params:
       description: "The best gaming event of the year, surpassing our wildest imagination!"
-    menu:
-      main:
-        - name: "About Us"
-          url: "/en/aboutus/"
-          weight: 1
-        - name: "Location"
-          url: "/en/location/"
-          weight: 2
-        - name: "Program"
-          url: "/en/program/"
-          weight: 3
-        - name: "F.A.Q."
-          url: "/en/qa/"
-          weight: 4
-        - name: "Recap"
-          url: "/en/recap/"
-          weight: 5
-        - name: "Stuff"
-          url: "/en/stuff/"
-          weight: 6
 
 copyright: " 2025 Ctrl-Alt-GG"
 
