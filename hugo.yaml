@@ -1,21 +1,26 @@
 baseURL: "https://www.ctrl-alt-gg.hu/"
-languageCode: "hu-hu"
-title: "Ctrl-Alt-GG"
-IsMultiLingual: true
 defaultContentLanguage: "hu"
-copyright: " 2025 Ctrl-Alt-GG"
-languages:
-  hu:
-    languageName: "Magyar"
-    weight: 1
-  en:
-    languageName: "English"
-    weight: 2
-
 theme: "paige"
 
+languages:
+  hu:
+    languageCode: "hu-hu"
+    languageName: "Magyar"
+    title: "Ctrl-Alt-GG"
+    weight: 1
+    params:
+      description: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvénye!"
+  en:
+    languageCode: "en-us"
+    languageName: "English"
+    title: "Ctrl-Alt-GG"
+    weight: 2
+    params:
+      description: "The best gaming event of the year, surpassing our wildest imagination!"
+
+copyright: " 2025 Ctrl-Alt-GG"
+
 params:
-  description: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvénye!"
   assets:
     logo: "logo-turkix-hollow.svg"
   paige:
@@ -55,6 +60,7 @@ params:
       disable_collections: true
       disable_pages: true
       disable_sections: true
+
 markup:
   goldmark:
     renderer:
