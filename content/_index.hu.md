@@ -3,7 +3,7 @@ title: "Készen állsz?"
 summary: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvénye!"
 ---
 
-{{< paige/image breakpoints=true class="mt-3 object-fit-cover rounded-4 shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
+{{< paige/image breakpoints=true class="mt-3 object-fit-cover rounded-4 shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom-root.webp" >}}
 
 {{< countdown target="2026-02-07" >}}
 
