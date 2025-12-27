@@ -1,10 +1,16 @@
----
 baseURL: "https://www.ctrl-alt-gg.hu/"
 languageCode: "hu-hu"
 title: "Ctrl-Alt-GG"
-IsMultiLingual: "false"
+IsMultiLingual: true
 defaultContentLanguage: "hu"
 copyright: " 2025 Ctrl-Alt-GG"
+languages:
+  hu:
+    languageName: "Magyar"
+    weight: 1
+  en:
+    languageName: "English"
+    weight: 2
 
 theme: "paige"
 
@@ -53,4 +59,3 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-...
