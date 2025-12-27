@@ -6,7 +6,17 @@
             {{ if eq $lang.Lang $page.Language.Lang }}
                 <span class="fw-bold">{{ $lang.LanguageName }}</span>
             {{ else }}
-                <a href="{{ $page.Permalink | absLangURL | strings.TrimPrefix (site.BaseURL | strings.TrimSuffix "/") }}{{ $lang.Lang }}{{ strings.TrimPrefix ($lang.Lang | printf "/%s") $page.RelPermalink }}">{{ $lang.LanguageName }}</a>
+                {{ with $page.AllTranslations }}
+                    {{ $altPage := (index . 0) }}
+                    {{ range . }}
+                        {{ if eq .Language.Lang $lang.Lang }}
+                            {{ $altPage = . }}
+                        {{ end }}
+                    {{ end }}
+                    <a href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
+                {{ else }}
+                    <a href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
+                {{ end }}
             {{ end }}
             {{ if ne $lang.Lang (index site.Languages (sub (len site.Languages) 1)).Lang }}
                 <span class="mx-2">·</span>
