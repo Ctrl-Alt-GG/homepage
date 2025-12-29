@@ -2,13 +2,13 @@
 title: "Program"
 ---
 
-A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. A két napban helyi hálózaton keresztül csatázunk, versenyezünk és kooperálunk. Mindezt úgy, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
+The true essence of a LAN party isn't just in the gaming itself, but in the communal experience of sitting together, playing together, and having fun together. Over two days we'll battle, compete, and cooperate through a local network. Just like in the good old days, when the online world wasn't so dominant.
 
-A széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
+We welcome participants with a wide selection of games: from intense FPS battles to strategic challenges to hilarious party games – we've got something for everyone. Whether you're a hardcore gamer or just here to relax, there's a place for you here!
 
-Itt a teljes játéklista, hogy tudd, mire készülhetsz:
+Here's the complete game list so you know what to expect:
 
-## Ingyenes játékok
+## Free Games
 
 - [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**
 - [League of Legends](https://www.leagueoflegends.com/)
@@ -23,7 +23,7 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - [0 A.D.](https://play0ad.com/)
 - [Beyond All Reason](https://www.beyondallreason.info/)
 
-## Fizetős játékok
+## Paid Games
 
 - [Counter-Strike: Source*](https://store.steampowered.com/app/240/CounterStrike_Source/)
 - [Minecraft*](https://www.minecraft.net/)
@@ -38,12 +38,12 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - [Factorio*](https://store.steampowered.com/app/427520/Factorio/)
 - [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 
-A *-gal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver.
+Games marked with * will definitely have at least one server available.
 
-Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem kötelező!
+Anyone can join anything they want – nothing is mandatory besides the fun!
 
-## Konzol Kuckó
+## Console Corner
 
-Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen mecccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazabb, kanapéról játszható élményt.
+We didn't just think about PC gamers! The event will also feature an Xbox Series X console for those who prefer a controller in their hands. With Game Pass Ultimate access, you can choose from tons of games. Two controllers are available, making it the perfect spot for split-screen matches or co-op adventures. Comfortable seating and a large screen guarantee a more relaxed, couch-based gaming experience.
 
-## És ez nem minden
+## And that's not all

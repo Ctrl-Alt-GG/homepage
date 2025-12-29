@@ -32,4 +32,4 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 
 ## Hol tudok aludni?
 
-Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapre ne lehetne elugrani. ;)
+Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapra ne lehetne elugrani. ;)

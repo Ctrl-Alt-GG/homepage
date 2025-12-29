@@ -1,0 +1,26 @@
+{{ $page := . }}
+{{ if gt (len site.Languages) 1 }}
+    <div id="paige-language-selector" class="text-center paige-row-short">
+        {{ range site.Languages }}
+            {{ $lang := . }}
+            {{ if eq $lang.Lang $page.Language.Lang }}
+                <span class="fw-bold">{{ $lang.LanguageName }}</span>
+            {{ else }}
+                {{ with $page.AllTranslations }}
+                    {{ $altPage := (index . 0) }}
+                    {{ range . }}
+                        {{ if eq .Language.Lang $lang.Lang }}
+                            {{ $altPage = . }}
+                        {{ end }}
+                    {{ end }}
+                    <a href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
+                {{ else }}
+                    <a href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
+                {{ end }}
+            {{ end }}
+            {{ if ne $lang.Lang (index site.Languages (sub (len site.Languages) 1)).Lang }}
+                <span class="mx-2">·</span>
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}
