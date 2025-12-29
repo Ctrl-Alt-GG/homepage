@@ -20,10 +20,10 @@ And under no circumstances bring a **UPS**.
 
 ### House rules and other information
 
-1. **Arrival and departure** – Be on time; bring and take away your own equipment.  
-2. **Equipment** – Bring your own PC, cables, and headset. **Speakers are prohibited.**  
-3. **Network** – Do not change network settings or swap cables.  
-4. **While gaming** – Respect others: no cheating, no deliberate disruption.  
-5. **Cleanliness** – Eat and drink only in designated areas; no crumbs at the rigs.  
-6. **Security** – You are responsible for your own gear; do not touch other people’s machines.  
-7. **Atmosphere** – The goal is shared gaming and fun; be fair and be cool.
+1. **Arrival and departure** - Be on time; bring and take away your own equipment.  
+2. **Equipment** - Bring your own PC, cables, and headset. **Speakers are prohibited.**  
+3. **Network** - Do not change network settings or swap cables.  
+4. **While gaming** - Respect others: no cheating, no deliberate disruption.  
+5. **Cleanliness** - Eat and drink only in designated areas; no crumbs at the rigs.  
+6. **Security** - You are responsible for your own gear; do not touch other people’s machines.  
+7. **Atmosphere** - The goal is shared gaming and fun; be fair and be cool.
