@@ -1,21 +1,29 @@
 ---
-title: "What to Bring and What Not to"
-# TODO: REMOVE DRAFT WHEN CONTENT IS FINALIZED
-draft: true
+title: "Practical information"
 ---
 
-Be sure to bring your **gaming computer** – the one you want to use to game with your gamer buddies like the real gamers you are. It can be a desktop or a laptop. The key is that you're responsible for getting it there and back.
+### What to bring and what not to
 
-Whatever you do, don't forget the **power cable or charger** for your computer! If your machine comes with additional components (like a monitor for a desktop), bring a power strip too! And if your computer doesn't have an ethernet port, make sure to bring an appropriate **adapter**!
+Bring your **gaming PC** — the one you want to game on with your gamer friends like a true gamer. It can be a desktop or a laptop. You’re responsible for getting it to and from the venue.
 
-Of course, don't forget the associated peripherals and accessories like mouse, keyboard, mousepad, headphones, etc.
+Don’t forget the **power cable or charger** for your machine. If your setup includes extra gear (for a desktop, for example, a monitor), bring a **power strip**. If your computer lacks an Ethernet port, make sure to bring the right **adapter** — Wi‑Fi is primarily intended for mobile devices and web browsing.
 
-What you DON'T need is a network (UTP) cable. We'll provide that for everyone. You'll also have chairs and tables at your disposal (hopefully).
+Also bring your peripherals and accessories: mouse, keyboard, mousepad, **headset**, etc. Please do not bring speakers.
 
-And definitely don't bring a UPS!
+You **do not** need to bring a network (UTP) cable — we’ll provide those for everyone. Chairs and tables will also be available. Because of the layout we can offer at most up to **two power outlets per person**, so if you need multiple devices, bring a power strip.
 
-## TODO
+Seating is **first come, first served**, so early arrivals have more choice. If you have special needs (for example, a special chair due to back problems), let us know in advance.
 
-- House rules
-- Seat map (not happening)
-- Network hype
+And under no circumstances bring a **UPS**.
+
+---
+
+### House rules and other information
+
+1. **Arrival and departure** - Be on time; bring and take away your own equipment.  
+2. **Equipment** - Bring your own PC, cables, and headset. **Speakers are prohibited.**  
+3. **Network** - Do not change network settings or swap cables.  
+4. **While gaming** - Respect others: no cheating, no deliberate disruption.  
+5. **Cleanliness** - Eat and drink only in designated areas; no crumbs at the rigs.  
+6. **Security** - You are responsible for your own gear; do not touch other people’s machines.  
+7. **Atmosphere** - The goal is shared gaming and fun; be fair and be cool.
