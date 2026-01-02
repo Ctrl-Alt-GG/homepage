@@ -8,7 +8,7 @@ Amit mindeképpen hozz magaddal az a **gémer számítód**, amivel gémelni sze
 
 A számítódhoz semmiképp se felejtsd otthon a **tápkábelt vagy a töltőt**! Ha a gépedhez több is tartozik (asztali gépnél pl. monitor) akkor hozz magadnak elosztót is hozzá! Illetve ha a géped nem rendelkezik ethernet csatlakozóval, akkor mindenképp hozz megfelelő **adaptert** is hozzá! A WiFi használata elő sorban mobileszközökre és webböngészésre szolgál.
 
-Természetesen a kapcsolódó perifériákat/kiegészítőket se felejtsd otthon, mint az egér, billentyűzet, egérpad, **fejhallgató**, stb. Kérjük ne hozz hangfalat!
+Természetesen a kapcsolódó perifériákat/kiegészítőket se felejtsd otthon, mint az egér, billentyűzet, egérpad, **fejhallgató**, stb. Kérjük ne hozz hangfalat, de a mikrofont ne felejtsd otthon!
 
 Amire viszont **NEM** lesz szükséged, az hálózati (UTP) kábel. Ezt biztosítani fogjuk mindenkinek. Emellett szék és asztal is rendelkezésedre fog állni. A helyek kialakítása miatt mindenkinek **legfeljebb két hálózati dugaljt tudunk biztosítani**, így ha több eszközt hozol magaddal, akkor hozz elosztót is!
 

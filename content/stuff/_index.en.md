@@ -8,7 +8,7 @@ Bring your **gaming PC** — the one you want to game on with your gamer friends
 
 Don’t forget the **power cable or charger** for your machine. If your setup includes extra gear (for a desktop, for example, a monitor), bring a **power strip**. If your computer lacks an Ethernet port, make sure to bring the right **adapter** — Wi‑Fi is primarily intended for mobile devices and web browsing.
 
-Also bring your peripherals and accessories: mouse, keyboard, mousepad, **headset**, etc. Please do not bring speakers.
+Also bring your peripherals and accessories: mouse, keyboard, mousepad, **headset**, etc. Please do not bring speakers, but don't leave your microphone at home.
 
 You **do not** need to bring a network (UTP) cable — we’ll provide those for everyone. Chairs and tables will also be available. Because of the layout we can offer at most up to **two power outlets per person**, so if you need multiple devices, bring a power strip.
 
