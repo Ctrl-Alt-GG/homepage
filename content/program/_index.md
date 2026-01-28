@@ -29,7 +29,7 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - [Minecraft*](https://www.minecraft.net/)
 - [Satisfactory*](https://store.steampowered.com/app/526870/Satisfactory/)
 - [Garry's Mod (Prop hunt)*](https://store.steampowered.com/app/4000/Garrys_Mod/)
-- [Don't Starve Together*](https://store.steampowered.com/app/322330/Dont_Starve_Together/)
+- [Don't Starve Together](https://store.steampowered.com/app/322330/Dont_Starve_Together/)
 - [Tempest Rising](https://store.steampowered.com/app/1486920/Tempest_Rising/)
 - [Warhammer: Vermintide 2](https://store.steampowered.com/app/552500/Warhammer_Vermintide_2/)
 - [Left 4 Dead 2](https://store.steampowered.com/app/550/Left_4_Dead_2/)
