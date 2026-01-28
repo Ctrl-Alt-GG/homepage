@@ -13,7 +13,7 @@ Here's the complete game list so you know what to expect:
 - [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**
 - [League of Legends](https://www.leagueoflegends.com/)
 - [SCP: Secret Laboratory*](https://store.steampowered.com/app/700330/SCP_Secret_Laboratory/)
-- [Alien Swarm*](https://store.steampowered.com/app/630/Alien_Swarm/)
+- [Alien Swarm](https://store.steampowered.com/app/630/Alien_Swarm/)
 - [Xonotic*](https://xonotic.org/)
 - [OpenArena*](https://openarena.ws/)
 - [TrackMania Nations Forever](https://store.steampowered.com/app/11020/TrackMania_Nations_Forever/)
@@ -32,7 +32,7 @@ Here's the complete game list so you know what to expect:
 - [Don't Starve Together*](https://store.steampowered.com/app/322330/Dont_Starve_Together/)
 - [Tempest Rising](https://store.steampowered.com/app/1486920/Tempest_Rising/)
 - [Warhammer: Vermintide 2](https://store.steampowered.com/app/552500/Warhammer_Vermintide_2/)
-- [Left 4 Dead 2*](https://store.steampowered.com/app/550/Left_4_Dead_2/)
+- [Left 4 Dead 2](https://store.steampowered.com/app/550/Left_4_Dead_2/)
 - [SWAT 4](https://www.gog.com/en/game/swat_4_gold_edition)
 - [Day of Defeat: Source*](https://store.steampowered.com/app/300/Day_of_Defeat_Source/)
 - [Factorio*](https://store.steampowered.com/app/427520/Factorio/)
