@@ -12,10 +12,10 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
 
 ## Step 2: Check if you're online
 
-- Open the LAN portal (spawn.ctrl-alt-gg.hu)
+- Open the LAN portal ([spawn.ctrl-alt-gg.hu](https://spawn.ctrl-alt-gg.hu))
 - If it loads:
   - Network is working
-  - Check the server status page (servers.ctrl-alt-gg.hu)
+  - Check the server status page ([servers.ctrl-alt-gg.hu](https://servers.ctrl-alt-gg.hu))
 - If it doesn't load:
   - Try unplugging and reconnecting the cable
   - Try a different port
@@ -24,7 +24,7 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
 ## Step 3: Can you reach LAN services?
 
 - Game downloads slow or failing?
-  - Check server status page (servers.ctrl-alt-gg.hu)
+  - Check server status page ([servers.ctrl-alt-gg.hu](https://servers.ctrl-alt-gg.hu))
   - One game server unreachable?
     - Likely that server is restarting or full
   - Everything broken?

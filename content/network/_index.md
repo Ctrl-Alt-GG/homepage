@@ -12,10 +12,10 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
 
 ## 2. lépés: Ellenőrizd, hogy online vagy-e
 
-- Nyisd meg a LAN portált (spawn.ctrl-alt-gg.hu)
+- Nyisd meg a LAN portált ([spawn.ctrl-alt-gg.hu](https://spawn.ctrl-alt-gg.hu))
 - Ha betölt:
   - A hálózat működik
-  - Ellenőrizd a szerver állapot oldalt (servers.ctrl-alt-gg.hu)
+  - Ellenőrizd a szerver állapot oldalt ([servers.ctrl-alt-gg.hu](https://servers.ctrl-alt-gg.hu))
 - Ha nem tölt be:
   - Próbáld kihúzni és visszadugni a kábelt
   - Próbálj ki egy másik portot
@@ -24,7 +24,7 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
 ## 3. lépés: Eléred a LAN szolgáltatásokat?
 
 - Lassú vagy sikertelen a játékletöltés?
-  - Ellenőrizd a szerver állapot oldalt (servers.ctrl-alt-gg.hu)
+  - Ellenőrizd a szerver állapot oldalt ([servers.ctrl-alt-gg.hu](https://servers.ctrl-alt-gg.hu))
   - Egy játékszerver elérhetetlen?
     - Valószínűleg az a szerver újraindul vagy tele van
   - Minden elromlott?
