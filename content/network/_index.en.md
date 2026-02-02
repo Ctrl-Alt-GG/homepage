@@ -9,6 +9,10 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
 - Ethernet cable plugged in firmly
 - Link light on your PC or laptop
 - Disable VPNs, custom firewalls, or network tools
+- Please don't:
+  - Plug in your own switches or routers
+  - Share internet from your device
+  - Run DHCP servers or network tools
 
 ## Step 2: Check if you're online
 
@@ -20,6 +24,7 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
   - Try unplugging and reconnecting the cable
   - Try a different port
   - Try Wi-Fi
+    - Wi-Fi has the same access as wired LAN (games and services work the same)
 
 ## Step 3: Can you reach LAN services?
 
@@ -34,7 +39,11 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
 
 - Restart your network adapter
 - Renew IP address (or reboot)
-- Make sure you didn't set a manual IP earlier
+- Make sure your device is set to automatic IP (DHCP)  
+  - Manual IPs will not work on this network
+- If your port suddenly goes dead after working:
+  - You may have connected too many devices
+  - Tell staff to re-enable the port
 
 ## Step 5: When to ask for help
 
@@ -42,6 +51,13 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
   - You have no network at all
   - You can open the portal but nothing else works
   - Multiple people around you have the same issue
+
+Most issues fall into one of three areas:
+- Your device or cable
+- The access switch you're connected to
+- A specific server or service
+
+Staff can usually identify which within minutes.
 
 ## When asking, say
 
@@ -62,7 +78,8 @@ High-level layout
 
 ### Access VLANs (140-150)
 
-- Guest devices
+- Guest devices on the same switch are on a shared LAN segment.
+- Do not expose services you don't want others to see.
 - DHCP, internet + LAN services only
 - Future: No access to management
 

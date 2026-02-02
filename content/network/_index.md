@@ -9,6 +9,10 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
 - Az Ethernet-kábel megfelelően be van dugva
 - Link-jelző világít a PC-n vagy laptopon
 - VPN-ek, egyéni tűzfalak vagy hálózati eszközök ki vannak kapcsolva
+- Kérjük, ne:
+  - Csatlakoztass saját switchet vagy routert
+  - Ossz meg internetkapcsolatot a saját eszközödről
+  - Futtass DHCP szervert vagy hálózati eszközöket
 
 ## 2. lépés: Ellenőrizd, hogy online vagy-e
 
@@ -20,6 +24,7 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
   - Próbáld kihúzni és visszadugni a kábelt
   - Próbálj ki egy másik portot
   - Próbáld Wi-Fi-n
+    - Wi-Fi-n ugyan úgy éred el a hálózatot, mint vezetékkel (a szolgáltatásokhoz és a játékokhoz ugyanúgy kell csatlakozz)
 
 ## 3. lépés: Eléred a LAN szolgáltatásokat?
 
@@ -35,6 +40,11 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
 - Indítsd újra a hálózati adaptert
 - Újítsd meg az IP-címet (vagy indítsd újra a gépet)
 - Győződj meg róla, hogy nem állítottál be korábban manuális IP-t
+- Győződj meg róla, hogy az eszközöd automatikus IP-cím kiosztásra (DHCP) van állítva
+  - A kézzel beállított IP-címek nem működnek ezen a hálózaton
+- Ha a portod hirtelen megszűnik működni, miután korábban rendben volt:
+  - Lehet, hogy túl sok eszközt csatlakoztattál
+  - Szólj a szervezőknek, hogy újraengedélyezzék a portot
 
 ## 5. lépés: Mikor kérj segítséget
 
@@ -42,6 +52,13 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
   - Egyáltalán nincs hálózatod
   - Megnyílik a portál, de semmi más nem működik
   - Több ember körülötted ugyanezzel a problémával küzd
+
+A legtöbb probléma három terület egyikére vezethető vissza:
+- Az eszközöd vagy a kábeled
+- Az access switch, amelyhez csatlakozol
+- Egy konkrét szerver vagy szolgáltatás
+
+A szervezők általában perceken belül meg tudják állapítani, melyikről van szó.
 
 ## Amikor segítséget kérsz, mondd el
 
@@ -63,7 +80,8 @@ Ez a LAN egyszerű route-olt core architektúrával épült az access, core, bor
 
 ### Access VLAN-ok (140-150)
 
-- Vendég eszközök
+- A vendég eszközök ugyanazon a switchen egy közös LAN szegmensben vannak.
+- Ne tegyél elérhetővé olyan szolgáltatásokat, amelyeket nem szeretnél, hogy mások lássanak.
 - DHCP, internet + LAN szolgáltatások
 - Jövőben: Nincs hozzáférés a menedzsmenthez
 
