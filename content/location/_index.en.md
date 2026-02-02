@@ -22,4 +22,4 @@ Want a controller instead of a keyboard? Our console corner has an Xbox Series X
 
 ## Chill Zone
 
-Rest is important for everyone! If you feel like you need a break from the gaming marathon, the chill zone is the perfect retreat. Comfortable seating, peaceful environment – so you can come back to the action refreshed. Switch off, recharge, and then back to the battle!
+Rest is important for everyone! If you feel like you need a break from the gaming marathon, the chill zone is the perfect retreat. Comfortable seating, peaceful environment - so you can come back to the action refreshed. Switch off, recharge, and then back to the battle!

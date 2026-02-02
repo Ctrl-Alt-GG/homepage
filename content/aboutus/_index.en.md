@@ -27,7 +27,7 @@ Due to my insatiable curiosity about IT, I have a lot of small hobby projects th
 
 I'm Kristóf and I've been playing various video games since kindergarten, with Counter-Strike being one of the first. Of course, a lot of time has passed since then, and I don't have as much time to play as I'd like, and when I do I prefer console games. The atmosphere of LAN parties always got to me, so the idea came up to organize one. Besides that, I'm active as a radio amateur, and when I'm not spending my free time on that, it's mostly the world of technology and IT that captivates me. I originally worked as a DevOps engineer, which is the field closest to my heart, but for the past year I've been helping my team as a scrum master in our daily work.
 
-I'm a sci-fi fanatic – Star Trek, Stargate, Battlestar Galactica – I can watch these nonstop.
+I'm a sci-fi fanatic - Star Trek, Stargate, Battlestar Galactica - I can watch these nonstop.
 
 ### and Bence
 
