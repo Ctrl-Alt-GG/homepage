@@ -74,7 +74,7 @@ Ez a LAN egyszerű route-olt core architektúrával épült az access, core, bor
 
 ## Magas szintű elrendezés
 
-- Internet -> Juniper SRX340 tűzfal -> Arista L3 core -> Juniper EX3300 access switchek
+- Internet -> Juniper SRX340 tűzfal -> Arista DCS-7050SX L3 core -> Juniper EX3300 access switchek
 - Minden eszközök közötti kapcsolat /31 pont-pont útválasztást használ, nincs spanning-tree függőség a switchek között.
 - Az access switchek tisztán edge eszközök; az útválasztási döntések a core-on történnek.
 

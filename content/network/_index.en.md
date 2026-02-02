@@ -72,7 +72,7 @@ Staff can usually identify which within minutes.
 This LAN is built as a simple routed core with clean separation of roles, optimized for reliability and fast fault isolation.
 High-level layout
 
-- Internet -> Juniper SRX340 firewall -> Arista L3 core -> Juniper EX3300 access switches
+- Internet -> Juniper SRX340 firewall -> Arista DCS-7050SX L3 core -> Juniper EX3300 access switches
 - All inter-device links use /31 point-to-point routing, no spanning-tree dependency between switches.
 - Access switches are pure edge devices; routing decisions happen at the core.
 
