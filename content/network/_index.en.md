@@ -26,6 +26,8 @@ Are your packets stuck in the door? Don't worry, here is a quick guide to resolv
   - Try Wi-Fi
     - Wi-Fi has the same access as wired LAN (games and services work the same)
 
+Advanced users: if you know how, try pinging your gateway. If that works, your local connection is fine.
+
 ## Step 3: Can you reach LAN services?
 
 - Game downloads slow or failing?
