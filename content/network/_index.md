@@ -51,7 +51,7 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
 
 ---
 
-Ez a LAN egyszerű útválasztott core architektúrával épült, tiszta szerepelválasztással, megbízhatóságra és gyors hibaelhárításra optimalizálva.
+Ez a LAN egyszerű route-olt core architektúrával épült az access, core, border rétegek szigorú elválasztásával, megbízhatóságra és gyors hibaelhárításra optimalizálva.
 
 ## Magas szintű elrendezés
 
