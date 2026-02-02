@@ -89,7 +89,7 @@ Ez a LAN egyszerű route-olt core architektúrával épült az access, core, bor
 
 ### Szolgáltatások VLAN (130)
 
-- Játékszerverek, fájlszerver, DNS, DHCP (Kea)
+- Játékszerverek, fájlszerver, DNS (Unbound), DHCP (Kea)
 
 ### Menedzsment VLAN (128)
 

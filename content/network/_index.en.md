@@ -87,7 +87,7 @@ High-level layout
 
 ### Services VLAN (130)
 
-- Game servers, file host, DNS, DHCP (Kea)
+- Game servers, file host, DNS (Unbound), DHCP (Kea)
 
 ### Management VLAN (128)
 
