@@ -69,6 +69,8 @@ Staff can usually identify which within minutes.
 
 ---
 
+The following section is for enthusiasts, if you want to know how our network works you're in the right place.
+
 This LAN is built as a simple routed core with clean separation of roles, optimized for reliability and fast fault isolation.
 High-level layout
 

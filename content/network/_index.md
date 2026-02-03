@@ -70,6 +70,8 @@ A szervezők általában perceken belül meg tudják állapítani, melyikről va
 
 ---
 
+Az alábbi részt kifejezetten érdeklődőknek írtuk, ha kíváncsi vagy hogy néz ki a hálózat jó helyen vagy!
+
 Ez a LAN egyszerű route-olt core architektúrával épült az access, core, border rétegek szigorú elválasztásával, megbízhatóságra és gyors hibaelhárításra optimalizálva.
 
 ## Magas szintű elrendezés
