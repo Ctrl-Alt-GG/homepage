@@ -1,5 +1,6 @@
 ---
 title: "Hálózat"
+draft: true
 ---
 
 Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a problémák megoldásához.

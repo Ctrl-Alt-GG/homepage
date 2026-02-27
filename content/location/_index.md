@@ -1,5 +1,6 @@
 ---
 title: "Helyszín"
+draft: true
 ---
 
 ## A Város Melletti Miniváros

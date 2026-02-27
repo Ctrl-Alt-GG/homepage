@@ -1,5 +1,6 @@
 ---
 title: "Network"
+draft: true
 ---
 
 Are your packets stuck in the door? Don't worry, here is a quick guide to resolve any problems.

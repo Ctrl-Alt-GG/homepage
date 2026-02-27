@@ -1,5 +1,6 @@
 ---
 title: "Location"
+draft: true
 ---
 
 ## The Small Town Next to the City
