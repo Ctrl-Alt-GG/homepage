@@ -1,8 +1,402 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+/* --- CSS variables ---------------------------------- */
+:root {
+    --cag-accent:        #00aa88;
+    --cag-accent-bright: #00d4a8;
+    --cag-glow:          rgba(0, 170, 136, 0.30);
+    --cag-glow-subtle:   rgba(0, 170, 136, 0.10);
+    --cag-bg:            #080d16;
+    --cag-bg-surface:    #0d1422;
+    --cag-heading-font:  'Rajdhani', sans-serif;
+    --cag-body-font:     'Inter', sans-serif;
+}
+
+/* --- Global body ------------------------------------ */
+body {
+    font-family: var(--cag-body-font);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    background-color: var(--cag-bg) !important;
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 170, 136, 0.12) 0%, transparent 70%);
+    background-attachment: fixed;
+}
+
+/* --- Headings --------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5 {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+
+/* --- Site title ------------------------------------- */
+#paige-site-title {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#paige-site-title a {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 18px var(--cag-glow));
+}
+
+/* --- Site description ------------------------------- */
+#paige-site-description {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    opacity: 0.55;
+}
+
+/* --- Navigation ------------------------------------- */
+#paige-site-header {
+    padding-top: 1.75rem;
+    padding-bottom: 0.75rem;
+}
+
+#paige-site-menu .nav-link {
+    font-family: var(--cag-heading-font);
+    font-size: 1rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.35rem 1.1rem;
+    border-radius: 2rem;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+#paige-site-menu .nav-link:hover {
+    background: var(--cag-glow-subtle);
+    color: var(--cag-accent) !important;
+    border-color: rgba(0, 170, 136, 0.25);
+}
+
+#paige-site-menu .nav-link.active,
+#paige-site-menu .nav-link[aria-current="page"] {
+    background: var(--cag-glow-subtle);
+    color: var(--cag-accent) !important;
+    border-color: rgba(0, 170, 136, 0.35);
+    box-shadow: 0 0 14px var(--cag-glow), inset 0 0 8px rgba(0, 170, 136, 0.05);
+}
+
+/* --- Language selector ------------------------------ */
+#paige-language-selector {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.65;
+}
+
+/* --- Page heading (h1) ------------------------------ */
+#paige-page-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--cag-accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* --- Section headings inside content --------------- */
+#paige-page-content h2 {
+    color: var(--cag-accent);
+    border-bottom: 1px solid rgba(0, 170, 136, 0.2);
+    padding-bottom: 0.3rem;
+    margin-top: 2.2rem;
+    font-size: 1.6rem;
+}
+
+#paige-page-content h3 {
+    color: var(--cag-accent-bright);
+    margin-top: 1.6rem;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* --- Hero image ------------------------------------- */
+#paige-page-content img.object-fit-cover {
+    border: 1px solid rgba(0, 170, 136, 0.20);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 24px var(--cag-glow) !important;
+    transition: box-shadow 0.3s ease;
+}
+
+#paige-page-content img.object-fit-cover:hover {
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.7),
+        0 0 36px var(--cag-glow) !important;
+}
+
+/* --- Gallery images --------------------------------- */
+.paige-shortcode-image img,
+.paige-shortcode-gallery img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.paige-shortcode-image img:hover,
+.paige-shortcode-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px var(--cag-glow);
+}
+
+/* --- Links ------------------------------------------ */
+#paige-page-content a:not(.btn) {
+    color: var(--cag-accent);
+    text-decoration-color: rgba(0, 170, 136, 0.35);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+#paige-page-content a:not(.btn):hover {
+    color: var(--cag-accent-bright);
+    text-shadow: 0 0 10px var(--cag-glow);
+}
+
+/* --- Lists ------------------------------------------ */
+#paige-page-content ul li {
+    margin-bottom: 0.25rem;
+}
+
+#paige-page-content ul li::marker {
+    color: var(--cag-accent);
+}
+
+/* --- Countdown timer -------------------------------- */
 div#t-holder {
     text-align: right;
     font-size: 1.2rem;
     font-weight: bold;
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.06em;
+    color: var(--cag-accent);
     padding-bottom: 1em;
 }
+
+/* --- Horizontal rule -------------------------------- */
+#paige-page-content hr {
+    border-color: rgba(0, 170, 136, 0.2);
+    opacity: 1;
+}
+
+/* --- Scrollbar (WebKit + Firefox) ------------------- */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 170, 136, 0.25) transparent;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 170, 136, 0.25);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 170, 136, 0.5); }
+</style>
+:root {
+    --cag-accent:        #00aa88;
+    --cag-accent-bright: #00d4a8;
+    --cag-glow:          rgba(0, 170, 136, 0.30);
+    --cag-glow-subtle:   rgba(0, 170, 136, 0.10);
+    --cag-bg:            #080d16;
+    --cag-bg-surface:    #0d1422;
+    --cag-heading-font:  'Rajdhani', sans-serif;
+    --cag-body-font:     'Inter', sans-serif;
+}
+
+/* ─── Global body ───────────────────────────────────── */
+body {
+    font-family: var(--cag-body-font);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    background-color: var(--cag-bg) !important;
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 170, 136, 0.12) 0%, transparent 70%);
+    background-attachment: fixed;
+}
+
+/* ─── Headings ──────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5 {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+
+/* ─── Site title ────────────────────────────────────── */
+#paige-site-title {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#paige-site-title a {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 18px var(--cag-glow));
+}
+
+/* ─── Site description ──────────────────────────────── */
+#paige-site-description {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    opacity: 0.55;
+}
+
+/* ─── Navigation ────────────────────────────────────── */
+#paige-site-header {
+    padding-top: 1.75rem;
+    padding-bottom: 0.75rem;
+}
+
+#paige-site-menu .nav-link {
+    font-family: var(--cag-heading-font);
+    font-size: 1rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.35rem 1.1rem;
+    border-radius: 2rem;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
+}
+
+#paige-site-menu .nav-link:hover {
+    background: var(--cag-glow-subtle);
+    color: var(--cag-accent) !important;
+    border-color: rgba(0, 170, 136, 0.25);
+}
+
+#paige-site-menu .nav-link.active,
+#paige-site-menu .nav-link[aria-current="page"] {
+    background: var(--cag-glow-subtle);
+    color: var(--cag-accent) !important;
+    border-color: rgba(0, 170, 136, 0.35);
+    box-shadow: 0 0 14px var(--cag-glow), inset 0 0 8px rgba(0, 170, 136, 0.05);
+}
+
+/* ─── Language selector ─────────────────────────────── */
+#paige-language-selector {
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.65;
+}
+
+/* ─── Page heading (h1) ─────────────────────────────── */
+#paige-page-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--cag-accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ─── Section headings inside content ──────────────── */
+#paige-page-content h2 {
+    color: var(--cag-accent);
+    border-bottom: 1px solid rgba(0, 170, 136, 0.2);
+    padding-bottom: 0.3rem;
+    margin-top: 2.2rem;
+    font-size: 1.6rem;
+}
+
+#paige-page-content h3 {
+    color: var(--cag-accent-bright);
+    margin-top: 1.6rem;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* ─── Hero image ────────────────────────────────────── */
+#paige-page-content img.object-fit-cover {
+    border: 1px solid rgba(0, 170, 136, 0.20);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 24px var(--cag-glow) !important;
+    transition: box-shadow 0.3s ease;
+}
+
+#paige-page-content img.object-fit-cover:hover {
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.7),
+        0 0 36px var(--cag-glow) !important;
+}
+
+/* ─── Gallery images ────────────────────────────────── */
+.paige-shortcode-image img,
+.paige-shortcode-gallery img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.paige-shortcode-image img:hover,
+.paige-shortcode-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px var(--cag-glow);
+}
+
+/* ─── Links ─────────────────────────────────────────── */
+#paige-page-content a:not(.btn) {
+    color: var(--cag-accent);
+    text-decoration-color: rgba(0, 170, 136, 0.35);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+#paige-page-content a:not(.btn):hover {
+    color: var(--cag-accent-bright);
+    text-shadow: 0 0 10px var(--cag-glow);
+}
+
+/* ─── Lists ─────────────────────────────────────────── */
+#paige-page-content ul li {
+    margin-bottom: 0.25rem;
+}
+
+#paige-page-content ul li::marker {
+    color: var(--cag-accent);
+}
+
+/* ─── Countdown timer ───────────────────────────────── */
+div#t-holder {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--cag-heading-font);
+    letter-spacing: 0.06em;
+    color: var(--cag-accent);
+    padding-bottom: 1em;
+}
+
+/* ─── Horizontal rule ───────────────────────────────── */
+#paige-page-content hr {
+    border-color: rgba(0, 170, 136, 0.2);
+    opacity: 1;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 170, 136, 0.25);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 170, 136, 0.5); }
 </style>

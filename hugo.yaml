@@ -29,6 +29,8 @@ params:
       disable_credit: true
       disable_breadcrumbs: true
       color: '#00aa88'
+      color_scheme: dark
+      menu_style: pills
     pages:
       base_schema:
         isAccessibleForFree: true
