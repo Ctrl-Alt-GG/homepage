@@ -1,4 +1,6 @@
 # Game header image URLs, keyed by slug (filename stem used in markdown ![alt](slug.jpg))
+# Hugo fetches these at build time via resources.GetRemote and processes them to WebP.
+
 # Steam CDN headers (460x215 JPEG, permanent content-addressed URLs)
 cs2:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
 scp:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/700330/header.jpg"
@@ -14,15 +16,25 @@ left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/hea
 dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
 factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
 cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
+# Minecraft Launcher on Steam (App 2448820) – shows Minecraft branding
+minecraft:            "https://cdn.cloudflare.steamstatic.com/steam/apps/2448820/header.jpg"
 
-# Non-Steam games – Wikimedia Commons screenshots (free-licensed, stable CDN)
-lol:                  "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg"
-xonotic:              "https://upload.wikimedia.org/wikipedia/commons/6/68/Xonotic_gameplay.png"
-openarena:            "https://upload.wikimedia.org/wikipedia/commons/5/54/OpenArena-HoppingCorpse.jpg"
-supertuxkart:         "https://upload.wikimedia.org/wikipedia/commons/9/9e/Supertuxkart-0.9-screenshot-2.jpg"
-wz2100:               "https://upload.wikimedia.org/wikipedia/commons/8/8d/Warzone_2100_-_base.jpg"
-openttd:              "https://upload.wikimedia.org/wikipedia/commons/6/6c/OpenTTD_13.0_screenshot.png"
-zeroad:               "https://upload.wikimedia.org/wikipedia/commons/3/3f/0_A.D._screenshot_2022.jpg"
+# Non-Steam games – official sources verified from appstream/metainfo or official repos
+# League of Legends: CommunityDragon uncentered splash (Jinx, champion 222) – stable, landscape
+lol:                  "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/222/222000.jpg"
+# Xonotic: official press screenshots used in Flatpak appstream
+xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
+# OpenArena: Wikimedia Commons (hash 4/46 verified via web search)
+openarena:            "https://upload.wikimedia.org/wikipedia/commons/4/46/OpenArena_0.8.8_gameplay.jpg"
+# SuperTuxKart: official screenshot from game metainfo
+supertuxkart:         "https://supertuxkart.net/assets/wiki/STK1.3_1.jpg"
+# Warzone 2100: official repo docs/images (pinned commit SHA for stability)
+wz2100:               "https://raw.githubusercontent.com/Warzone2100/warzone2100/7d3d8e51a61ceee89e6bf672a41337e1a9cd7392/doc/images/artillery-far-away.jpg"
+# OpenTTD: official screenshot from Flathub appstream
+openttd:              "https://www.openttd.org/screenshots/1.4-02-opengfx-1920x1200.png"
+# 0 A.D.: Wikimedia Commons gameplay screenshot
+zeroad:               "https://upload.wikimedia.org/wikipedia/commons/0/0e/0ad_gameplay_2018-08-30.png"
+# Beyond All Reason: Wikimedia Commons
 beyond-all-reason:    "https://upload.wikimedia.org/wikipedia/commons/2/26/BeyondAllReasonScreenshot1.jpg"
-swat4:                "https://upload.wikimedia.org/wikipedia/en/3/36/SWAT4Screenshot.jpg"
-minecraft:            "https://www.minecraft.net/content/dam/minecraft/pmp/minecraft-og-image.jpg"
+# SWAT 4: Wikipedia (en) Special:FilePath redirect
+swat4:                "https://en.wikipedia.org/wiki/Special:FilePath/SWAT4Screenshot.jpg"
