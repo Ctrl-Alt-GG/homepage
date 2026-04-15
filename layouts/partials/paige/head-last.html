@@ -5,4 +5,130 @@ div#t-holder {
     font-weight: bold;
     padding-bottom: 1em;
 }
+
+:root {
+    --cag-accent: #00aa88;
+    --cag-accent-light: #00c49a;
+    --cag-radius: 14px;
+    --cag-transition: 0.25s ease;
+}
+
+/* Clip gradient fill onto site title text */
+#paige-site-title a {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+/* Reduce visual weight of the site description */
+#paige-site-description {
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Override theme shadow on the hero image */
+#paige-page-content img.rounded-4 {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+    transition: box-shadow var(--cag-transition);
+}
+
+/* .cag-features: wrapper for the heading and card grid */
+.cag-features {
+    margin: 2.5rem 0 1rem;
+}
+
+.cag-features-heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.45rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+/* Centered accent bar rendered via ::after pseudo-element */
+.cag-features-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: 2px;
+}
+
+.cag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.cag-card {
+    border-radius: var(--cag-radius);
+    padding: 1.5rem 1.6rem;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accent bar on the top edge of each card via ::before pseudo-element */
+.cag-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+}
+
+.cag-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(0, 170, 136, 0.18);
+    border-color: rgba(0, 170, 136, 0.4);
+}
+
+.cag-card-icon {
+    font-size: 2.1rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.85rem;
+}
+
+.cag-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    color: var(--cag-accent);
+}
+
+.cag-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin: 0;
+    opacity: 0.75;
+}
+
+/* Left border used as a block-level visual separator for the intro paragraph */
+.cag-intro {
+    border-left: 3px solid var(--cag-accent);
+    padding-left: 1.1rem;
+    margin: 1.5rem 0;
+    font-size: 1.025rem;
+    line-height: 1.75;
+}
+
+/* Collapse to single column below Bootstrap's sm breakpoint */
+@media (max-width: 576px) {
+    .cag-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
