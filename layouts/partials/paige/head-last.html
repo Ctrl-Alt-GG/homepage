@@ -12,6 +12,9 @@ div#t-holder {
     --cag-accent-rgb: 0, 170, 136;
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
+    --cag-gold: #c8960c;
+    --cag-gold-light: #e8b923;
+    --cag-gold-rgb: 200, 150, 12;
 }
 
 /* Clip gradient fill onto site title text */
@@ -381,13 +384,34 @@ div#t-holder {
 }
 
 /* Future image support: image bleeds to card top edge */
-.cag-game-cards li > img:first-child,
-.cag-game-cards li > .paige-shortcode-image:first-child img {
+.cag-game-cards li > img {
     margin: -0.85rem -1.1rem 0.75rem;
     width: calc(100% + 2.2rem);
     max-width: none;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+}
+
+/* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
+.cag-game-cards li:has(strong) {
+    border-color: rgba(var(--cag-gold-rgb), 0.35);
+}
+
+.cag-game-cards li:has(strong)::before {
+    background: linear-gradient(90deg, var(--cag-gold), var(--cag-gold-light));
+}
+
+.cag-game-cards li:has(strong):hover {
+    box-shadow: 0 8px 28px rgba(var(--cag-gold-rgb), 0.28);
+    border-color: rgba(var(--cag-gold-rgb), 0.55);
+}
+
+.cag-game-cards li:has(strong) strong {
+    color: var(--cag-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 </style>

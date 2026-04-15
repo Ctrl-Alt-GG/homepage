@@ -1,0 +1,28 @@
+# Game header image URLs, keyed by slug (filename stem used in markdown ![alt](slug.jpg))
+# Steam CDN headers (460x215 JPEG, permanent content-addressed URLs)
+cs2:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+scp:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/700330/header.jpg"
+alien-swarm:          "https://cdn.cloudflare.steamstatic.com/steam/apps/630/header.jpg"
+trackmania:           "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg"
+css:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg"
+satisfactory:         "https://cdn.cloudflare.steamstatic.com/steam/apps/526870/header.jpg"
+garrys-mod:           "https://cdn.cloudflare.steamstatic.com/steam/apps/4000/header.jpg"
+dont-starve-together: "https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg"
+tempest-rising:       "https://cdn.cloudflare.steamstatic.com/steam/apps/1486920/header.jpg"
+vermintide2:          "https://cdn.cloudflare.steamstatic.com/steam/apps/552500/header.jpg"
+left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg"
+dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
+factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
+cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
+
+# Non-Steam games – Wikimedia Commons screenshots (free-licensed, stable CDN)
+lol:                  "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg"
+xonotic:              "https://upload.wikimedia.org/wikipedia/commons/6/68/Xonotic_gameplay.png"
+openarena:            "https://upload.wikimedia.org/wikipedia/commons/5/54/OpenArena-HoppingCorpse.jpg"
+supertuxkart:         "https://upload.wikimedia.org/wikipedia/commons/9/9e/Supertuxkart-0.9-screenshot-2.jpg"
+wz2100:               "https://upload.wikimedia.org/wikipedia/commons/8/8d/Warzone_2100_-_base.jpg"
+openttd:              "https://upload.wikimedia.org/wikipedia/commons/6/6c/OpenTTD_13.0_screenshot.png"
+zeroad:               "https://upload.wikimedia.org/wikipedia/commons/3/3f/0_A.D._screenshot_2022.jpg"
+beyond-all-reason:    "https://upload.wikimedia.org/wikipedia/commons/2/26/BeyondAllReasonScreenshot1.jpg"
+swat4:                "https://upload.wikimedia.org/wikipedia/en/3/36/SWAT4Screenshot.jpg"
+minecraft:            "https://www.minecraft.net/content/dam/minecraft/pmp/minecraft-og-image.jpg"
