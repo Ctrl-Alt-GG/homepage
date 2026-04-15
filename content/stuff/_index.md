@@ -4,17 +4,33 @@ title: "Praktikus tudnivalók"
 
 ## Mit hozz és mit ne
 
-Amit mindeképpen hozz magaddal az a **gémer számítód**, amivel gémelni szeretnél a gémer haverjaiddal mint az igazi gémerek. Ez lehet asztali számítógép, de lehet laptop is. A lényeg, hogy az oda- és elszállításáról neked kell gondoskodnod.
+<div class="cag-stuff-columns">
+<div class="cag-stuff-bring">
 
-A számítódhoz semmiképp se felejtsd otthon a **tápkábelt vagy a töltőt**! Ha a gépedhez több is tartozik (asztali gépnél pl. monitor) akkor hozz magadnak elosztót is hozzá! Illetve ha a géped nem rendelkezik ethernet csatlakozóval, akkor mindenképp hozz megfelelő **adaptert** is hozzá! A WiFi használata elő sorban mobileszközökre és webböngészésre szolgál.
+### ✅ Hozd el
 
-Természetesen a kapcsolódó perifériákat/kiegészítőket se felejtsd otthon, mint az egér, billentyűzet, egérpad, **fejhallgató**, stb. Kérjük ne hozz hangfalat, de a mikrofont ne felejtsd otthon!
+- Saját **gaming PC** (asztali vagy laptop)
+- **Tápkábel / töltő**
+- **Elosztó** (ha több eszközt hozol)
+- **Ethernet adapter** (ha nincs RJ-45 port)
+- Egér, billentyűzet, egérpad
+- **Fejhallgató** és mikrofon
 
-Amire viszont **NEM** lesz szükséged, az hálózati (UTP) kábel. Ezt biztosítani fogjuk mindenkinek. Emellett szék és asztal is rendelkezésedre fog állni. A helyek kialakítása miatt mindenkinek **legfeljebb két hálózati dugaljt tudunk biztosítani**, így ha több eszközt hozol magaddal, akkor hozz elosztót is!
+</div>
+<div class="cag-stuff-skip">
+
+### ❌ Ne hozd el
+
+- Hangfal
+- UTP / hálózati kábel *(mi biztosítjuk)*
+- **UPS** *(szigorúan tilos!)*
+
+</div>
+</div>
+
+<div class="cag-callout">⚡ <span><strong>Áramforrás:</strong> Személyenként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!</span></div>
 
 Az ülőhelyek az aki kapja marja alapon lesznek kiosztva, így akik korábban érkeznek több hely között tudnak válogatni. Ha valaki különleges igénnyel rendelkezik (pl. gerincprobléma miatt speciális szék szükséges), akkor jelezze előre felénk.
-
-Továbbá semmiképp se hozz **UPS**-t!
 
 ---
 
@@ -27,3 +43,4 @@ Továbbá semmiképp se hozz **UPS**-t!
 5. **Rend és tisztaság** - Ételt, italt csak kijelölt helyen fogyassz, gépnél ne morzsázz.
 6. **Biztonság** - Saját eszközödért te felelsz, más gépéhez ne nyúlj.
 7. **Hangulat** - A cél a közös játék és szórakozás, mindenki legyen fair és jó fej.
+

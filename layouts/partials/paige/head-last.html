@@ -396,6 +396,23 @@ div#t-holder {
     aspect-ratio: 460 / 215;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+    /* Shimmer skeleton shown while loading="lazy" images are still fetching.
+       The browser renders the element's background until the image bitmap is
+       decoded; once loaded the image covers it completely. */
+    background-color: var(--bs-secondary-bg, #e9ecef);
+    background-image: linear-gradient(
+        90deg,
+        transparent 25%,
+        rgba(var(--cag-accent-rgb), 0.12) 50%,
+        transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: cag-img-shimmer 1.5s infinite linear;
+}
+
+@keyframes cag-img-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 /* ── Server badge: SVG icon pinned to top-right of game card ── */
@@ -441,5 +458,75 @@ div#t-holder {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+}
+
+/* ── Stuff page: bring / skip two-column layout ── */
+.cag-stuff-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.cag-stuff-bring,
+.cag-stuff-skip {
+    border-radius: var(--cag-radius);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+}
+
+.cag-stuff-bring { border-top: 3px solid #22c55e; }
+.cag-stuff-skip  { border-top: 3px solid #ef4444; }
+
+/* Override global h3 left-border inside stuff columns */
+#paige-page-content .cag-stuff-bring h3,
+#paige-page-content .cag-stuff-skip h3 {
+    padding-left: 0;
+    border-left: none;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+#paige-page-content .cag-stuff-bring h3 { color: #22c55e; }
+#paige-page-content .cag-stuff-skip h3  { color: #ef4444; }
+
+.cag-stuff-bring ul,
+.cag-stuff-skip ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.cag-stuff-bring ul > li::marker,
+.cag-stuff-skip ul > li::marker {
+    content: '';   /* reset the global ▸ marker inside these columns */
+}
+
+.cag-stuff-bring li,
+.cag-stuff-skip li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.2rem;
+}
+
+/* Callout box for important notes (power outlets, etc.) */
+.cag-callout {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-left: 4px solid var(--cag-accent);
+    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
+    padding: 0.85rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 575.98px) {
+    .cag-stuff-columns { grid-template-columns: 1fr; }
 }
 </style>
