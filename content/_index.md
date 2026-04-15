@@ -17,7 +17,7 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
     <div class="cag-card">
       <span class="cag-card-icon">🎮</span>
       <div class="cag-card-title">Igazi LAN élmény</div>
-      <p class="cag-card-desc">Felejtsd el a lagot és az online bosszúságokat. Helyi hálózaton játszani teljesen más: csak a skill számít, meg persze a hangulat.</p>
+      <p class="cag-card-desc">Felejtsd el a lagot és az online bosszúságokat. LANon játszani teljesen más: csak a skill számít, meg persze a hangulat.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🏆</span>
@@ -27,17 +27,17 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
     <div class="cag-card">
       <span class="cag-card-icon">🎲</span>
       <div class="cag-card-title">Széles játékpaletta</div>
-      <p class="cag-card-desc">Intenzív FPS meccsektől a stratégiai kihívásokon át a vicces party játékokig, ingyenes és fizetős. Mindenki talál kedvencet.</p>
+      <p class="cag-card-desc">Izgalmas FPS meccsektől a stratégiai kihívásokon át a party játékokig, ingyenes és fizetős. Mindenki talál kedvencet.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🕹️</span>
       <div class="cag-card-title">Konzol Kuckó</div>
-      <p class="cag-card-desc">Xbox Series X Game Pass Ultimate előfizetéssel, kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet, te döntöd el.</p>
+      <p class="cag-card-desc">Xbox Series X kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet, te döntöd el.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🌐</span>
       <div class="cag-card-title">Profi hálózat</div>
-      <p class="cag-card-desc">Megszállottan dolgozunk a legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.</p>
+      <p class="cag-card-desc">Keményen dolgozunk a lehető legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🍺</span>

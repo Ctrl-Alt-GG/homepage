@@ -32,7 +32,7 @@ That's why we're inviting you to the best, most incredible, grassroots gaming ev
     <div class="cag-card">
       <span class="cag-card-icon">🕹️</span>
       <div class="cag-card-title">Console Corner</div>
-      <p class="cag-card-desc">An Xbox Series X with Game Pass Ultimate, comfy seating and a big screen. Controller or keyboard, your call.</p>
+      <p class="cag-card-desc">An Xbox Series X, comfy seating and a big screen. Controller or keyboard, your call.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🌐</span>
