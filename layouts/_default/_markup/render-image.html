@@ -39,7 +39,8 @@
 {{- if not $resource -}}
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
   {{- with index site.Data.games $slug -}}
-    {{- with try (resources.GetRemote .) -}}
+    {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://www.ctrl-alt-gg.hu/)") -}}
+    {{- with try (resources.GetRemote . $opts) -}}
       {{- with .Err -}}
         {{- warnf "render-image: cannot fetch remote image for %q: %s" $src . -}}
       {{- else with .Value -}}

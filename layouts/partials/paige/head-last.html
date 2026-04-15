@@ -324,7 +324,7 @@ div#t-holder {
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */
 .cag-game-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 1rem;
     list-style: none;
     padding: 0;
@@ -388,7 +388,7 @@ div#t-holder {
     margin: -0.85rem -1.1rem 0.75rem;
     width: calc(100% + 2.2rem);
     max-width: none;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 460 / 215;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
 }
@@ -396,13 +396,17 @@ div#t-holder {
 /* ── Server badge: SVG icon pinned to top-right of game card ── */
 .cag-server-badge {
     position: absolute;
-    top: 0.45rem;
+    top: 0.5rem;
     right: 0.5rem;
     color: var(--cag-accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px;
     z-index: 2;
     pointer-events: none;
 }
