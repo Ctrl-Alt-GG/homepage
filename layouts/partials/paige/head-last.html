@@ -305,4 +305,89 @@ div#t-holder {
 #paige-page-content .cag-network h2::after {
     display: none;
 }
+
+/* ── Gallery images: grow and glow on hover ── */
+.paige-shortcode-gallery img {
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition);
+    position: relative;
+}
+
+.paige-shortcode-gallery img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 36px rgba(var(--cag-accent-rgb), 0.5);
+    z-index: 1;
+}
+
+/* ── .cag-game-cards: game list styled as image-compatible card grid ── */
+.cag-game-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.cag-game-cards li {
+    border-radius: var(--cag-radius);
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+}
+
+/* Accent top bar matching other cards */
+.cag-game-cards li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+}
+
+.cag-game-cards li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(var(--cag-accent-rgb), 0.15);
+    border-color: rgba(var(--cag-accent-rgb), 0.35);
+}
+
+/* Game name link */
+.cag-game-cards li a {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.cag-game-cards li a:hover {
+    color: var(--cag-accent);
+}
+
+/* Badge text (e.g., Tournament!) */
+.cag-game-cards li strong {
+    color: var(--cag-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Future image support: image bleeds to card top edge */
+.cag-game-cards li > img:first-child,
+.cag-game-cards li > .paige-shortcode-image:first-child img {
+    margin: -0.85rem -1.1rem 0.75rem;
+    width: calc(100% + 2.2rem);
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+}
 </style>

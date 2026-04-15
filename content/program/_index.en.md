@@ -22,6 +22,7 @@ Here's the complete game list so you know what to expect:
 - [OpenTTD*](https://www.openttd.org/)
 - [0 A.D.](https://play0ad.com/)
 - [Beyond All Reason](https://www.beyondallreason.info/)
+{.cag-game-cards}
 
 ## Paid Games
 
@@ -37,6 +38,7 @@ Here's the complete game list so you know what to expect:
 - [Day of Defeat: Source*](https://store.steampowered.com/app/300/Day_of_Defeat_Source/)
 - [Factorio*](https://store.steampowered.com/app/427520/Factorio/)
 - [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
+{.cag-game-cards}
 
 Games marked with * will definitely have at least one server available.
 
