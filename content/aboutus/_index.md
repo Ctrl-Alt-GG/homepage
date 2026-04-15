@@ -35,7 +35,7 @@ Az IT utáni csillapíthatatlan érdeklődésemből kifolyólag rengeteg kis hob
 
 ### TormaKris-t
 
-Kristóf vagyok, óvodás korom óta különféle videójátékokkal játszom, ezek közül is a Counter-Strike volt az egyik első. Ez óta persze sok idő eltelt, annyi időm nincs játzsani, amennyit szeretnék és akkor is inkább konzolos játékokat játszom. A LAN partyk hangulata mindig megfogott, így jött az ötlet, hogy szervezzünk egyet. Ezen kívül rádióamatőrként is tevékenykedem, amikor nem a szabadidőm töltöm éppen, akkor leginkább a technológia és az informatika világa köt le. Eredetileg DevOps mérnökként dolgoztam, ez a terület áll hozzám a legközelebb, de már egy éve scrum masterként segítem a csapatomat a mindennapokban.
+Kristóf vagyok, óvodás korom óta különféle videójátékokkal játszom, ezek közül is a Counter-Strike volt az egyik első. Ez óta persze sok idő eltelt, annyi időm nincs játszani, amennyit szeretnék és akkor is inkább konzolos játékokat játszom. A LAN partyk hangulata mindig megfogott, így jött az ötlet, hogy szervezzünk egyet. Ezen kívül rádióamatőrként is tevékenykedem, amikor nem a szabadidőm töltöm éppen, akkor leginkább a technológia és az informatika világa köt le. Eredetileg DevOps mérnökként dolgoztam, ez a terület áll hozzám a legközelebb, de már egy éve scrum masterként segítem a csapatomat a mindennapokban.
 
 Sci-fi rajongó - Star Trek, Stargate, Battlestar Galactica - ezeket tudom nonstop nézni.
 

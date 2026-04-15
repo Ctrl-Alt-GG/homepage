@@ -7,13 +7,16 @@
     3. Remote URL looked up from data/games.yaml by filename stem
 
   Raster images are resized to at most 460 px wide and converted to WebP for
-  performance.  The output <img> always carries loading="lazy", decoding="async",
-  and intrinsic width/height to prevent Cumulative Layout Shift (CLS).
+  performance.  The output <img> carries loading="lazy" and decoding="async".
+  Raster images additionally include intrinsic width/height to prevent
+  Cumulative Layout Shift (CLS).
 
-  SVG resources are served as-is (no raster processing).
+  SVG resources are served as-is (no raster processing) and rendered with
+  loading="lazy" and decoding="async", but without intrinsic width/height.
 
-  If the image cannot be resolved, a plain <img src="..."> fallback is emitted
-  so existing markdown that references external URLs still renders correctly.
+  If the image cannot be resolved, a plain <img src="..."> fallback is emitted.
+  For game images (resolved via data/games.yaml), the fallback uses the original
+  remote URL so the page remains usable even when the remote fetch fails.
 */ -}}
 
 {{- $alt    := .PlainText -}}
@@ -23,6 +26,7 @@
 
 {{- $resource := "" -}}
 {{- $isGameImage := false -}}
+{{- $remoteURL := "" -}}
 
 {{- /* 1. Page-bundle resource */ -}}
 {{- with $page.Resources.Get $src -}}
@@ -40,6 +44,7 @@
 {{- if not $resource -}}
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
   {{- with index site.Data.games $slug -}}
+    {{- $remoteURL = . -}}
     {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://www.ctrl-alt-gg.hu/)") -}}
     {{- with try (resources.GetRemote . $opts) -}}
       {{- with .Err -}}
@@ -54,7 +59,7 @@
 
 {{- /* Render */ -}}
 {{- if $resource -}}
-  {{- $isSVG := in "svg" (lower $resource.MediaType.SubType) -}}
+  {{- $isSVG := in (lower $resource.MediaType.SubType) "svg" -}}
   {{- if $isSVG -}}
 <img src="{{ $resource.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
   {{- else if $isGameImage -}}
@@ -72,5 +77,9 @@
 <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async" width="{{ $img.Width }}" height="{{ $img.Height }}">
   {{- end -}}
 {{- else -}}
+  {{- if $remoteURL -}}
+<img src="{{ $remoteURL | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- else -}}
 <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+  {{- end -}}
 {{- end -}}

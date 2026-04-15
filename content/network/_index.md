@@ -26,7 +26,7 @@ Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a probl
   - Próbáld kihúzni és visszadugni a kábelt
   - Próbálj ki egy másik portot
   - Próbáld Wi-Fi-n
-    - Wi-Fi-n ugyan úgy éred el a hálózatot, mint vezetékkel (a szolgáltatásokhoz és a játékokhoz ugyanúgy kell csatlakozz)
+    - Wi-Fi-n ugyanúgy éred el a hálózatot, mint vezetékkel (a szolgáltatásokhoz és a játékokhoz ugyanúgy kell csatlakozz)
 
 Haladó felhasználóknak: ha tudod, próbáld meg pingelni az alapértelmezett átjáródat. Ha ez működik, a helyi kapcsolatod rendben van.
 

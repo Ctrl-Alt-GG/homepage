@@ -22,7 +22,7 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
     <div class="cag-card">
       <span class="cag-card-icon">🏆</span>
       <div class="cag-card-title">CS2 Bajnokság</div>
-      <p class="cag-card-desc">Mutasd meg, ki a legjobb! Csapatban versenyzetek egymás ellen, a győztesek pedig meglepetés nyereménnyel zárhatják a napot.</p>
+      <p class="cag-card-desc">Mutasd meg, ki a legjobb! Csapatban versenyeztek egymás ellen, a győztesek pedig meglepetés nyereménnyel zárhatják a napot.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🎲</span>
