@@ -3,6 +3,7 @@ title: "Hálózat"
 draft: true
 ---
 
+<div class="cag-network">
 Elakadtak a csomagjaid az ajtóban? Ne aggódj, itt egy gyors útmutató a problémák megoldásához.
 
 ## 1. lépés: Ellenőrizd az alapokat
@@ -120,3 +121,5 @@ Ez a LAN egyszerű route-olt core architektúrával épült az access, core, bor
 - Kiszámítható hibatartományok
 - Gyors "access / core / tűzfal?" hibaelhárítás
 - Minden megfigyelhető a szerver állapot oldalról + alapvető ping tesztekből
+
+</div>

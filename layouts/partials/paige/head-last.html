@@ -64,8 +64,11 @@ div#t-holder {
 
 .cag-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cag-card {
@@ -126,10 +129,178 @@ div#t-holder {
     line-height: 1.75;
 }
 
+/* Collapse to two columns below Bootstrap's lg breakpoint */
+@media (max-width: 991.98px) {
+    .cag-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Collapse to single column below Bootstrap's sm breakpoint */
-@media (max-width: 576px) {
+@media (max-width: 575.98px) {
     .cag-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ── Sub-page title: gradient text matching site title ── */
+#paige-page-title {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+/* Bottom border separator between page header and body */
+#paige-page-header {
+    padding-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* h2: gradient underbar via ::after */
+#paige-page-content h2 {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+#paige-page-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: 1px;
+}
+
+/* h3: accent left border */
+#paige-page-content h3 {
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--cag-accent);
+    margin-top: 1.75rem;
+    font-weight: 600;
+}
+
+/* hr: fading gradient separator */
+#paige-page-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(var(--cag-accent-rgb), 0.5), transparent);
+    margin: 2.5rem 0;
+}
+
+/* Links in page content: accent colour */
+#paige-page-content a:not([class]) {
+    color: var(--cag-accent);
+    text-decoration-color: rgba(var(--cag-accent-rgb), 0.35);
+    text-underline-offset: 2px;
+    transition: color var(--cag-transition), text-decoration-color var(--cag-transition);
+}
+
+#paige-page-content a:not([class]):hover {
+    color: var(--cag-accent-light);
+    text-decoration-color: var(--cag-accent-light);
+}
+
+/* Unordered list: accent ▸ bullet */
+#paige-page-content ul > li::marker {
+    content: '▸  ';
+    color: var(--cag-accent);
+}
+
+/* Ordered list: accent numbered circles */
+#paige-page-content ol:not([class]) {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: cag-counter;
+}
+
+#paige-page-content ol:not([class]) > li {
+    counter-increment: cag-counter;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 0.9rem;
+}
+
+#paige-page-content ol:not([class]) > li::before {
+    content: counter(cag-counter);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--cag-accent), var(--cag-accent-light));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ── .cag-faq: FAQ question highlight block ── */
+#paige-page-content .cag-faq h2 {
+    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-left: 4px solid var(--cag-accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.7rem 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cag-accent);
+}
+
+#paige-page-content .cag-faq h2::after {
+    display: none;
+}
+
+/* ── .cag-person: person profile card (About Us) ── */
+.cag-person {
+    border-left: 3px solid var(--cag-accent);
+    border-top: 1px solid var(--bs-border-color);
+    border-right: 1px solid var(--bs-border-color);
+    border-bottom: 1px solid var(--bs-border-color);
+    border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow var(--cag-transition);
+}
+
+.cag-person:hover {
+    box-shadow: 0 4px 20px rgba(var(--cag-accent-rgb), 0.1);
+}
+
+/* Override global h3 left-border inside person card */
+#paige-page-content .cag-person h3 {
+    padding-left: 0;
+    border-left: none;
+    color: var(--cag-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+/* ── .cag-network: banner-style h2 for step/section headings ── */
+#paige-page-content .cag-network h2 {
+    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-left: 4px solid var(--cag-accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+}
+
+#paige-page-content .cag-network h2::after {
+    display: none;
 }
 </style>

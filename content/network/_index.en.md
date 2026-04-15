@@ -3,6 +3,7 @@ title: "Network"
 draft: true
 ---
 
+<div class="cag-network">
 Are your packets stuck in the door? Don't worry, here is a quick guide to resolve any problems.
 
 ## Step 1: Check the basics
@@ -118,3 +119,5 @@ High-level layout
 - Predictable failure domains
 - Fast "is it access / core / firewall?" troubleshooting
 - Everything observable from server status + basic ping tests
+
+</div>
