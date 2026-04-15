@@ -20,7 +20,6 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - ![SuperTuxKart](supertuxkart.jpg) [SuperTuxKart*](https://supertuxkart.net/Main_Page)
 - ![Warzone 2100](wz2100.jpg) [Warzone 2100](https://wz2100.net/)
 - ![OpenTTD](openttd.jpg) [OpenTTD*](https://www.openttd.org/)
-- ![0 A.D.](zeroad.jpg) [0 A.D.](https://play0ad.com/)
 - ![Beyond All Reason](beyond-all-reason.jpg) [Beyond All Reason](https://www.beyondallreason.info/)
 {.cag-game-cards}
 

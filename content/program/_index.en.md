@@ -4,7 +4,7 @@ title: "Program"
 
 The true essence of a LAN party isn't just in the gaming itself, but in the communal experience of sitting together, playing together, and having fun together. Over two days we'll battle, compete, and cooperate through a local network. Just like in the good old days, when the online world wasn't so dominant.
 
-We welcome participants with a wide selection of games: from intense FPS battles to strategic challenges to hilarious party games – we've got something for everyone. Whether you're a hardcore gamer or just here to relax, there's a place for you here!
+We welcome participants with a wide selection of games: from intense FPS battles to strategic challenges to hilarious party games, we've got something for everyone. Whether you're a hardcore gamer or just here to relax, there's a place for you here!
 
 Here's the complete game list so you know what to expect:
 
@@ -20,7 +20,6 @@ Here's the complete game list so you know what to expect:
 - ![SuperTuxKart](supertuxkart.jpg) [SuperTuxKart*](https://supertuxkart.net/Main_Page)
 - ![Warzone 2100](wz2100.jpg) [Warzone 2100](https://wz2100.net/)
 - ![OpenTTD](openttd.jpg) [OpenTTD*](https://www.openttd.org/)
-- ![0 A.D.](zeroad.jpg) [0 A.D.](https://play0ad.com/)
 - ![Beyond All Reason](beyond-all-reason.jpg) [Beyond All Reason](https://www.beyondallreason.info/)
 {.cag-game-cards}
 
@@ -42,7 +41,7 @@ Here's the complete game list so you know what to expect:
 
 Games with the server icon in the card corner will definitely have at least one server available.
 
-Anyone can join anything they want – nothing is mandatory besides the fun!
+Anyone can join anything they want, nothing is mandatory besides the fun!
 
 ## Console Corner
 
