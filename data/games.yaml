@@ -16,24 +16,24 @@ left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/hea
 dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
 factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
 cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
-# Minecraft: Wikimedia Commons – Beta 1.8.1 gameplay screenshot (1494×791, verified)
-minecraft:            "https://upload.wikimedia.org/wikipedia/commons/5/53/Minecraft_Beta_1.8.1_Gameplay_Screenshot.png"
+# Minecraft: Wikimedia Commons – official key-art banner (968×251, CC BY 3.0)
+minecraft:            "https://upload.wikimedia.org/wikipedia/commons/3/37/Minecraft_Key-art.png"
 
 # Non-Steam games – official sources verified
-# League of Legends: Wikipedia en – gameplay screenshot 2018 (verified 200)
-lol:                  "https://upload.wikimedia.org/wikipedia/en/c/ca/League_of_Legends_Screenshot_2018.png"
+# League of Legends: Wikimedia Commons – 2019 vector logo rendered as PNG (1200×459)
+lol:                  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/League_of_Legends_2019_vector.svg/1200px-League_of_Legends_2019_vector.svg.png"
 # Xonotic: official press screenshots used in Flatpak appstream
 xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
-# OpenArena: Wikimedia Commons – rocket screenshot (verified 200)
-openarena:            "https://upload.wikimedia.org/wikipedia/commons/a/a0/OpenArena_0.8.8_rocket.jpg"
-# SuperTuxKart: Wikimedia Commons – 0.9 gameplay screenshot (verified via API: 1920×1031)
-supertuxkart:         "https://upload.wikimedia.org/wikipedia/commons/4/4e/Supertuxkart-0.9-screenshot-2.jpg"
+# OpenArena: Wikimedia Commons – official logo SVG rendered as PNG (1200×906)
+openarena:            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Openarena-logo.svg/1200px-Openarena-logo.svg.png"
+# SuperTuxKart: official GitHub repo – slim logo (512×256, ratio 2:1)
+supertuxkart:         "https://raw.githubusercontent.com/supertuxkart/stk-code/master/data/gui/icons/logo_slim.png"
 # Warzone 2100: official repo docs/images (pinned commit SHA for stability)
 wz2100:               "https://raw.githubusercontent.com/Warzone2100/warzone2100/7d3d8e51a61ceee89e6bf672a41337e1a9cd7392/doc/images/artillery-far-away.jpg"
 # OpenTTD: Steam app 1536610 header (460×215, matches card aspect ratio exactly)
 openttd:              "https://cdn.cloudflare.steamstatic.com/steam/apps/1536610/header.jpg"
-# 0 A.D.: Wikimedia Commons – Cycladic Archipelago screenshot (verified 200)
-zeroad:               "https://upload.wikimedia.org/wikipedia/commons/5/52/0_A.D._Cycladic_Archipelago.jpg"
+# 0 A.D.: Wikimedia Commons – official logo SVG rendered as PNG (1200×526)
+zeroad:               "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/0_A.D._logo.svg/1200px-0_A.D._logo.svg.png"
 # Beyond All Reason: not yet on Steam; official website Webflow CDN screenshot (verified 200)
 beyond-all-reason:    "https://cdn.prod.website-files.com/5c68622246b367adf6f3041d/674708c97260fe2584e47e11_screen_2024-11-10_16-32-11-635.jpg"
 # SWAT 4: Steam app 6980 header (verified 200 – SWAT 4 is on Steam)
