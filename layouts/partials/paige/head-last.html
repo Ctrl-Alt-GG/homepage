@@ -393,6 +393,25 @@ div#t-holder {
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
 }
 
+/* ── Server badge: SVG icon pinned to top-right of game card ── */
+.cag-server-badge {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.5rem;
+    color: var(--cag-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* On tournament (gold) cards, tint the badge gold too */
+.cag-game-cards li:has(strong) .cag-server-badge {
+    color: var(--cag-gold);
+}
+
 /* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
 .cag-game-cards li:has(strong) {
     border-color: rgba(var(--cag-gold-rgb), 0.35);
