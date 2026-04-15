@@ -155,6 +155,10 @@ div#t-holder {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: -0.02em;
+    /* Ensure descenders (e.g. the tail of "g") are not clipped by the
+       background-clip boundary. padding-bottom extends the background area
+       below the text baseline without affecting the layout of following elements. */
+    padding-bottom: 0.15em;
     margin-bottom: 1.5rem;
 }
 
