@@ -9,6 +9,7 @@ div#t-holder {
 :root {
     --cag-accent: #00aa88;
     --cag-accent-light: #00c49a;
+    --cag-accent-rgb: 0, 170, 136;
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
 }
@@ -29,8 +30,8 @@ div#t-holder {
 }
 
 /* Override theme shadow on the hero image */
-#paige-page-content img.rounded-4 {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+#paige-page-content > img.rounded-4 {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     transition: box-shadow var(--cag-transition);
 }
 
@@ -91,8 +92,8 @@ div#t-holder {
 
 .cag-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(0, 170, 136, 0.18);
-    border-color: rgba(0, 170, 136, 0.4);
+    box-shadow: 0 18px 40px rgba(var(--cag-accent-rgb), 0.18);
+    border-color: rgba(var(--cag-accent-rgb), 0.4);
 }
 
 .cag-card-icon {
