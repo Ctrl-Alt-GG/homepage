@@ -17,32 +17,32 @@ That's why we're inviting you to the best, most incredible, grassroots gaming ev
     <div class="cag-card">
       <span class="cag-card-icon">🎮</span>
       <div class="cag-card-title">True LAN Experience</div>
-      <p class="cag-card-desc">Forget lag and online frustrations. Playing on a local network is a whole different dimension – where only skill and good vibes matter.</p>
+      <p class="cag-card-desc">Forget lag and online frustrations. Playing on a local network is a completely different world: only skill and good vibes matter.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🏆</span>
       <div class="cag-card-title">CS2 Tournament</div>
-      <p class="cag-card-desc">Show who's the best! Compete in teams against each other, and the winners might just go home with a real surprise prize.</p>
+      <p class="cag-card-desc">Show everyone who's the best! You'll compete in teams, and the winners go home with an actual surprise prize.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🎲</span>
       <div class="cag-card-title">Wide Game Selection</div>
-      <p class="cag-card-desc">From intense FPS matches to strategic challenges to hilarious party games – free and paid titles, there's something for everyone.</p>
+      <p class="cag-card-desc">From intense FPS matches to strategic challenges to hilarious party games, free and paid. There's something for everyone.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🕹️</span>
       <div class="cag-card-title">Console Corner</div>
-      <p class="cag-card-desc">Xbox Series X with Game Pass Ultimate, comfortable seating and a big screen awaits. Controller or keyboard – your call.</p>
+      <p class="cag-card-desc">An Xbox Series X with Game Pass Ultimate, comfy seating and a big screen. Controller or keyboard, your call.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🌐</span>
       <div class="cag-card-title">Pro Network</div>
-      <p class="cag-card-desc">We obsessively work on the best infrastructure because we know: low ping and a stable connection are the foundation of good vibes.</p>
+      <p class="cag-card-desc">We obsessively work on the best infrastructure, because we know good vibes are built on low ping.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🍺</span>
       <div class="cag-card-title">Chill &amp; Beer</div>
-      <p class="cag-card-desc">Not a competition, but a community weekend. Like-minded people, favorite games, and of course beer – because great company is non-negotiable.</p>
+      <p class="cag-card-desc">Not a competition, just a community weekend. Like-minded people, favourite games and beer. Good company is always part of the deal.</p>
     </div>
   </div>
 </div>

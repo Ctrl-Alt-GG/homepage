@@ -17,32 +17,32 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
     <div class="cag-card">
       <span class="cag-card-icon">🎮</span>
       <div class="cag-card-title">Igazi LAN élmény</div>
-      <p class="cag-card-desc">Felejtsd el a lagot és az online bosszúságokat. Helyi hálózaton játszani más dimenzió – ahol csak a skill és a jó hangulat számít.</p>
+      <p class="cag-card-desc">Felejtsd el a lagot és az online bosszúságokat. Helyi hálózaton játszani teljesen más: csak a skill számít, meg persze a hangulat.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🏆</span>
       <div class="cag-card-title">CS2 Bajnokság</div>
-      <p class="cag-card-desc">Mutasd meg ki a legjobb! Csapatokat alkotva versenyzetek egymás ellen, a győztesek pedig igazi meglepetés nyereménnyel zárhatják a napot.</p>
+      <p class="cag-card-desc">Mutasd meg, ki a legjobb! Csapatban versenyzetek egymás ellen, a győztesek pedig meglepetés nyereménnyel zárhatják a napot.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🎲</span>
       <div class="cag-card-title">Széles játékpaletta</div>
-      <p class="cag-card-desc">Intenzív FPS meccsektől a stratégiai kihívásokon át a vicces party játékokig – ingyenes és fizetős címek, mindenki talál kedvencet.</p>
+      <p class="cag-card-desc">Intenzív FPS meccsektől a stratégiai kihívásokon át a vicces party játékokig, ingyenes és fizetős. Mindenki talál kedvencet.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🕹️</span>
       <div class="cag-card-title">Konzol Kuckó</div>
-      <p class="cag-card-desc">Xbox Series X Game Pass Ultimate előfizetéssel, kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet – te döntöd el.</p>
+      <p class="cag-card-desc">Xbox Series X Game Pass Ultimate előfizetéssel, kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet, te döntöd el.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🌐</span>
       <div class="cag-card-title">Profi hálózat</div>
-      <p class="cag-card-desc">Megszállottan dolgozunk a legjobb infrastruktúrán, mert tudjuk: az alacsony ping és a stabil kapcsolat a jó hangulat alapja.</p>
+      <p class="cag-card-desc">Megszállottan dolgozunk a legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.</p>
     </div>
     <div class="cag-card">
       <span class="cag-card-icon">🍺</span>
       <div class="cag-card-title">Lazulás &amp; sör</div>
-      <p class="cag-card-desc">Nem egy verseny, hanem egy közösségi hétvége. Hozzánk hasonló arcok, kedvenc játékok, és persze sör – mert a jó társaság nem kérdés.</p>
+      <p class="cag-card-desc">Nem verseny, hanem egy közösségi hétvége. Hozzánk hasonló arcok, kedvenc játékok és persze sör. A jó társaság nem kérdés.</p>
     </div>
   </div>
 </div>
