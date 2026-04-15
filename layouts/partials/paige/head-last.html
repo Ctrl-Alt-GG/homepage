@@ -383,11 +383,12 @@ div#t-holder {
     letter-spacing: 0.04em;
 }
 
-/* Future image support: image bleeds to card top edge */
+/* Game header image: bleeds to card edges, locked to Steam header ratio (460×215) */
 .cag-game-cards li > img {
     margin: -0.85rem -1.1rem 0.75rem;
     width: calc(100% + 2.2rem);
     max-width: none;
+    height: auto;          /* override the HTML height="" attribute so aspect-ratio controls height */
     aspect-ratio: 460 / 215;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
