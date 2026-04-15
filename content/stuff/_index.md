@@ -19,7 +19,7 @@ title: "Praktikus tudnivalók"
 </div>
 <div class="cag-stuff-skip">
 
-### ❌ Ne hozd el
+### ❌ Hagyd otthon
 
 - Hangfal
 - UTP / hálózati kábel *(mi biztosítjuk)*
@@ -28,7 +28,7 @@ title: "Praktikus tudnivalók"
 </div>
 </div>
 
-<div class="cag-callout">⚡ <span><strong>Áramforrás:</strong> Személyenként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!</span></div>
+<div class="cag-callout">⚡ <span><strong>Áramforrás:</strong> Résztvevőnként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!</span></div>
 
 Az ülőhelyek az aki kapja marja alapon lesznek kiosztva, így akik korábban érkeznek több hely között tudnak válogatni. Ha valaki különleges igénnyel rendelkezik (pl. gerincprobléma miatt speciális szék szükséges), akkor jelezze előre felénk.
 
