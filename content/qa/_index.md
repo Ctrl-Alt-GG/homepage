@@ -2,6 +2,8 @@
 title: "GY.I.K."
 ---
 
+<div class="cag-faq">
+
 ## Lesz internet elérés?
 
 Igen lesz. DE ettől függetlenül megkérünk hogy a játékokat amikkel játszani szeretnél már otthon töltsd le! Emellett mindenképp frissítsd az operációs rendszered is az esemény előtt. Kínos lenne, ha neked a töltőcsíkot kellene nézned, amíg a többiek játszanak.
@@ -33,3 +35,5 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 ## Hol tudok aludni?
 
 Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapra ne lehetne elugrani. ;)
+
+</div>

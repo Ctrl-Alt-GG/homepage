@@ -2,6 +2,8 @@
 title: "F.A.Q."
 ---
 
+<div class="cag-faq">
+
 ## Will there be internet access?
 
 Yes, there will be. But regardless, we ask that you download the games you want to play at home beforehand! Also, make sure to update your operating system before the event. It would be embarrassing if you had to watch the loading screen while everyone else is playing.
@@ -33,3 +35,5 @@ Unfortunately, we organizers might not be able to help directly. But if you have
 ## Where can I sleep?
 
 You can sleep wherever you can find a suitable spot for yourself, but keep in mind that life goes on around you. Of course, the city won't be far enough that you couldn't slip away for a quick power nap. ;)
+
+</div>

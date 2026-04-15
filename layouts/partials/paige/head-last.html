@@ -5,4 +5,515 @@ div#t-holder {
     font-weight: bold;
     padding-bottom: 1em;
 }
+
+:root {
+    --cag-accent: #00aa88;
+    --cag-accent-light: #00c49a;
+    --cag-accent-rgb: 0, 170, 136;
+    --cag-radius: 14px;
+    --cag-transition: 0.25s ease;
+    --cag-gold: #c8960c;
+    --cag-gold-light: #e8b923;
+    --cag-gold-rgb: 200, 150, 12;
+}
+
+/* Clip gradient fill onto site title text */
+#paige-site-title a {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+/* Reduce visual weight of the site description */
+#paige-site-description {
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Override theme shadow on the hero image */
+#paige-page-content > img.rounded-4 {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    transition: box-shadow var(--cag-transition);
+}
+
+/* .cag-features: wrapper for the heading and card grid */
+.cag-features {
+    margin: 2.5rem 0 1rem;
+}
+
+.cag-features-heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.45rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+/* Centered accent bar rendered via ::after pseudo-element */
+.cag-features-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: 2px;
+}
+
+.cag-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cag-card {
+    border-radius: var(--cag-radius);
+    padding: 1.5rem 1.6rem;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accent bar on the top edge of each card via ::before pseudo-element */
+.cag-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+}
+
+.cag-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(var(--cag-accent-rgb), 0.18);
+    border-color: rgba(var(--cag-accent-rgb), 0.4);
+}
+
+.cag-card-icon {
+    font-size: 2.1rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.85rem;
+    text-align: center;
+}
+
+.cag-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    color: var(--cag-accent);
+    text-align: center;
+}
+
+.cag-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin: 0;
+    opacity: 0.75;
+}
+
+/* Left border used as a block-level visual separator for the intro paragraph */
+.cag-intro {
+    border-left: 3px solid var(--cag-accent);
+    padding-left: 1.1rem;
+    margin: 1.5rem 0;
+    font-size: 1.025rem;
+    line-height: 1.75;
+}
+
+/* Collapse to two columns below Bootstrap's lg breakpoint */
+@media (max-width: 991.98px) {
+    .cag-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Collapse to single column below Bootstrap's sm breakpoint */
+@media (max-width: 575.98px) {
+    .cag-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Sub-page title: gradient text matching site title ── */
+#paige-page-title {
+    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    /* Ensure descenders (e.g. the tail of "g") are not clipped by the
+       background-clip boundary. padding-bottom extends the background area
+       below the text baseline without affecting the layout of following elements. */
+    padding-bottom: 0.15em;
+    margin-bottom: 1.5rem;
+}
+
+/* Bottom border separator between page header and body */
+#paige-page-header {
+    padding-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* h2: gradient underbar via ::after */
+#paige-page-content h2 {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+#paige-page-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    border-radius: 1px;
+}
+
+/* h3: accent left border */
+#paige-page-content h3 {
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--cag-accent);
+    margin-top: 1.75rem;
+    font-weight: 600;
+}
+
+/* hr: fading gradient separator */
+#paige-page-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(var(--cag-accent-rgb), 0.5), transparent);
+    margin: 2.5rem 0;
+}
+
+/* Links in page content: accent colour */
+#paige-page-content a:not([class]) {
+    color: var(--cag-accent);
+    text-decoration-color: rgba(var(--cag-accent-rgb), 0.35);
+    text-underline-offset: 2px;
+    transition: color var(--cag-transition), text-decoration-color var(--cag-transition);
+}
+
+#paige-page-content a:not([class]):hover {
+    color: var(--cag-accent-light);
+    text-decoration-color: var(--cag-accent-light);
+}
+
+/* Unordered list: accent ▸ bullet */
+#paige-page-content ul > li::marker {
+    content: '▸  ';
+    color: var(--cag-accent);
+}
+
+/* Ordered list: accent numbered circles */
+#paige-page-content ol:not([class]) {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: cag-counter;
+}
+
+#paige-page-content ol:not([class]) > li {
+    counter-increment: cag-counter;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 0.9rem;
+}
+
+#paige-page-content ol:not([class]) > li::before {
+    content: counter(cag-counter);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--cag-accent), var(--cag-accent-light));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ── .cag-faq: FAQ question highlight block ── */
+#paige-page-content .cag-faq h2 {
+    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-left: 4px solid var(--cag-accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.7rem 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cag-accent);
+}
+
+#paige-page-content .cag-faq h2::after {
+    display: none;
+}
+
+/* ── .cag-person: person profile card (About Us) ── */
+.cag-person {
+    border-left: 3px solid var(--cag-accent);
+    border-top: 1px solid var(--bs-border-color);
+    border-right: 1px solid var(--bs-border-color);
+    border-bottom: 1px solid var(--bs-border-color);
+    border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow var(--cag-transition);
+}
+
+.cag-person:hover {
+    box-shadow: 0 4px 20px rgba(var(--cag-accent-rgb), 0.1);
+}
+
+/* Override global h3 left-border inside person card */
+#paige-page-content .cag-person h3 {
+    padding-left: 0;
+    border-left: none;
+    color: var(--cag-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Gallery images: grow and glow on hover ── */
+.paige-shortcode-gallery img {
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition);
+    position: relative;
+}
+
+.paige-shortcode-gallery img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 36px rgba(var(--cag-accent-rgb), 0.5);
+    z-index: 1;
+}
+
+/* ── .cag-game-cards: game list styled as image-compatible card grid ── */
+.cag-game-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.cag-game-cards li {
+    border-radius: var(--cag-radius);
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    padding: 0.85rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+}
+
+/* Accent top bar matching other cards */
+.cag-game-cards li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+}
+
+.cag-game-cards li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(var(--cag-accent-rgb), 0.15);
+    border-color: rgba(var(--cag-accent-rgb), 0.35);
+}
+
+/* Game name link */
+.cag-game-cards li a {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.cag-game-cards li a:hover {
+    color: var(--cag-accent);
+}
+
+/* Badge text (e.g., Tournament!) */
+.cag-game-cards li strong {
+    color: var(--cag-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Game header image: bleeds to card edges, locked to Steam header ratio (460×215) */
+.cag-game-cards li > img {
+    margin: -0.85rem -1.1rem 0.75rem;
+    width: calc(100% + 2.2rem);
+    max-width: none;
+    height: auto;          /* override the HTML height="" attribute so aspect-ratio controls height */
+    aspect-ratio: 460 / 215;
+    object-fit: cover;
+    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
+    /* Shimmer skeleton shown while loading="lazy" images are still fetching.
+       The browser renders the element's background until the image bitmap is
+       decoded; once loaded the image covers it completely. */
+    background-color: var(--bs-secondary-bg, #e9ecef);
+    background-image: linear-gradient(
+        90deg,
+        transparent 25%,
+        rgba(var(--cag-accent-rgb), 0.12) 50%,
+        transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: cag-img-shimmer 1.5s infinite linear;
+}
+
+@keyframes cag-img-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Server badge: SVG icon pinned to top-right of game card ── */
+.cag-server-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--cag-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* On tournament (gold) cards, tint the badge gold too */
+.cag-game-cards li:has(strong) .cag-server-badge {
+    color: var(--cag-gold);
+}
+
+/* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
+.cag-game-cards li:has(strong) {
+    border-color: rgba(var(--cag-gold-rgb), 0.35);
+}
+
+.cag-game-cards li:has(strong)::before {
+    background: linear-gradient(90deg, var(--cag-gold), var(--cag-gold-light));
+}
+
+.cag-game-cards li:has(strong):hover {
+    box-shadow: 0 8px 28px rgba(var(--cag-gold-rgb), 0.28);
+    border-color: rgba(var(--cag-gold-rgb), 0.55);
+}
+
+.cag-game-cards li:has(strong) strong {
+    color: var(--cag-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Stuff page: bring / skip two-column layout ── */
+.cag-stuff-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.cag-stuff-bring,
+.cag-stuff-skip {
+    border-radius: var(--cag-radius);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+}
+
+.cag-stuff-bring { border-top: 3px solid #22c55e; }
+.cag-stuff-skip  { border-top: 3px solid #ef4444; }
+
+/* Override global h3 left-border inside stuff columns */
+#paige-page-content .cag-stuff-bring h3,
+#paige-page-content .cag-stuff-skip h3 {
+    padding-left: 0;
+    border-left: none;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+#paige-page-content .cag-stuff-bring h3 { color: #22c55e; }
+#paige-page-content .cag-stuff-skip h3  { color: #ef4444; }
+
+.cag-stuff-bring ul,
+.cag-stuff-skip ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.cag-stuff-bring ul > li::marker,
+.cag-stuff-skip ul > li::marker {
+    content: '';   /* reset the global ▸ marker inside these columns */
+}
+
+.cag-stuff-bring li,
+.cag-stuff-skip li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.2rem;
+}
+
+/* Callout box for important notes (power outlets, etc.) */
+.cag-callout {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    border-left: 4px solid var(--cag-accent);
+    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
+    padding: 0.85rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 575.98px) {
+    .cag-stuff-columns { grid-template-columns: 1fr; }
+}
 </style>

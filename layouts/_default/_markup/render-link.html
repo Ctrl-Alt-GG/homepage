@@ -1,0 +1,32 @@
+{{- /*
+  render-link.html – Markdown link render hook.
+
+  Extends the Paige theme behaviour with server-badge support:
+  if the link text ends with a literal "*" (used in the game list to mark
+  games that will have a hosted server at the event), the asterisk is stripped
+  from the visible label and a small SVG server icon is injected as an
+  absolutely-positioned badge in the top-right corner of the parent card.
+*/ -}}
+
+{{- $destURL  := urls.Parse .Destination -}}
+{{- $siteURL  := urls.Parse site.BaseURL -}}
+{{- $external := cond $destURL.IsAbs (ne $destURL.Host $siteURL.Host) false -}}
+{{- $target   := partial "paige/func-target.html" (dict "page" .Page "url" .Destination) -}}
+{{- $plain    := .PlainText -}}
+{{- $hasServer := strings.HasSuffix $plain "*" -}}
+{{- $label    := cond $hasServer (strings.TrimSuffix "*" $plain) $plain -}}
+<a {{ with .Destination }}href="{{ . }}" {{ end -}}
+   {{- if $external }}rel="external" {{ end -}}
+   {{- with $target }}target="{{ . }}" {{ end -}}
+   {{- with .Title }}title="{{ . }}" {{ end -}}
+   >{{ $label }}</a>
+{{- if $hasServer -}}
+<span class="cag-server-badge" role="img" aria-label="Hosted server available" title="A server will be hosted at the event">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+    <line x1="6" y1="6" x2="6.01" y2="6"/>
+    <line x1="6" y1="18" x2="6.01" y2="18"/>
+  </svg>
+</span>
+{{- end -}}

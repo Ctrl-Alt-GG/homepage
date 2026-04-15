@@ -15,7 +15,7 @@ Look for the entrance marked "G Reception" among the buildings! Plan your route 
 
 ## The Office Transforms into a Gaming Arena
 
-A regular weekday office space that we'll transform into your gaming sanctuary. A few tables, tons of cables, and a bunch of computers – that's what it looks like when PowerPoint presentations are replaced by headshots and strategy rushes. No dress code, no meetings – just pure gaming, as it should be.
+A regular weekday office space that we'll transform into your gaming sanctuary. A few tables, tons of cables, and a bunch of computers. That's what it looks like when PowerPoint presentations are replaced by headshots and strategy rushes. No dress code, no meetings, just pure gaming, as it should be.
 
 ## Console Corner
 

@@ -1,0 +1,85 @@
+{{- /*
+  render-image.html – Markdown image render hook.
+
+  Resolution order for the image resource:
+    1. Page-bundle resource (local file alongside the content file)
+    2. Global asset (assets/ directory)
+    3. Remote URL looked up from data/games.yaml by filename stem
+
+  Raster images are resized to at most 460 px wide and converted to WebP for
+  performance.  The output <img> carries loading="lazy" and decoding="async".
+  Raster images additionally include intrinsic width/height to prevent
+  Cumulative Layout Shift (CLS).
+
+  SVG resources are served as-is (no raster processing) and rendered with
+  loading="lazy" and decoding="async", but without intrinsic width/height.
+
+  If the image cannot be resolved, a plain <img src="..."> fallback is emitted.
+  For game images (resolved via data/games.yaml), the fallback uses the original
+  remote URL so the page remains usable even when the remote fetch fails.
+*/ -}}
+
+{{- $alt    := .PlainText -}}
+{{- $title  := .Title -}}
+{{- $src    := .Destination -}}
+{{- $page   := .Page -}}
+
+{{- $resource := "" -}}
+{{- $isGameImage := false -}}
+{{- $remoteURL := "" -}}
+
+{{- /* 1. Page-bundle resource */ -}}
+{{- with $page.Resources.Get $src -}}
+  {{- $resource = . -}}
+{{- end -}}
+
+{{- /* 2. Global asset */ -}}
+{{- if not $resource -}}
+  {{- with resources.Get $src -}}
+    {{- $resource = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 3. Remote URL via data/games.yaml, keyed by the filename stem */ -}}
+{{- if not $resource -}}
+  {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
+  {{- with index site.Data.games $slug -}}
+    {{- $remoteURL = . -}}
+    {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://www.ctrl-alt-gg.hu/)") -}}
+    {{- with try (resources.GetRemote . $opts) -}}
+      {{- with .Err -}}
+        {{- warnf "render-image: cannot fetch remote image for %q: %s" $src . -}}
+      {{- else with .Value -}}
+        {{- $resource = . -}}
+        {{- $isGameImage = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Render */ -}}
+{{- if $resource -}}
+  {{- $isSVG := in (lower $resource.MediaType.SubType) "svg" -}}
+  {{- if $isSVG -}}
+<img src="{{ $resource.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- else if $isGameImage -}}
+    {{- /* Game card images: fill to Steam header dimensions (460×215) so nothing is cropped client-side */ -}}
+    {{- $img := $resource.Fill "460x215 webp" -}}
+    {{- $img = fingerprint $img -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async" width="{{ $img.Width }}" height="{{ $img.Height }}">
+  {{- else -}}
+    {{- $w := 460 -}}
+    {{- if and (gt $resource.Width 0) (lt $resource.Width 460) -}}
+      {{- $w = $resource.Width -}}
+    {{- end -}}
+    {{- $img := $resource.Resize (printf "%dx webp" $w) -}}
+    {{- $img = fingerprint $img -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async" width="{{ $img.Width }}" height="{{ $img.Height }}">
+  {{- end -}}
+{{- else -}}
+  {{- if $remoteURL -}}
+<img src="{{ $remoteURL | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- else -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+  {{- end -}}
+{{- end -}}

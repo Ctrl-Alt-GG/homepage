@@ -1,0 +1,32 @@
+# Game header image URLs, keyed by slug (filename stem used in markdown ![alt](slug.jpg))
+# Hugo fetches these at build time via resources.GetRemote and processes them to WebP.
+
+# Steam CDN headers (460x215 JPEG, permanent content-addressed URLs)
+cs2:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+scp:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/700330/header.jpg"
+alien-swarm:          "https://cdn.cloudflare.steamstatic.com/steam/apps/630/header.jpg"
+trackmania:           "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg"
+css:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg"
+satisfactory:         "https://cdn.cloudflare.steamstatic.com/steam/apps/526870/header.jpg"
+garrys-mod:           "https://cdn.cloudflare.steamstatic.com/steam/apps/4000/header.jpg"
+dont-starve-together: "https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg"
+tempest-rising:       "https://cdn.cloudflare.steamstatic.com/steam/apps/1486920/header.jpg"
+vermintide2:          "https://cdn.cloudflare.steamstatic.com/steam/apps/552500/header.jpg"
+left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg"
+dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
+factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
+cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
+minecraft:            "https://linuxgsm.com/wp-content/uploads/2021/02/mcje-header.jpg"
+
+# Non-Steam games – official sources verified
+lol:                  "https://prod.assets.earlygamecdn.com/images/League-of-Legends-Logo.jpg?x=0.5&y=0.5"
+# Xonotic: official press screenshots used in Flatpak appstream
+xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
+openarena:            "https://4.bp.blogspot.com/_X56mregoBL4/TIMjeiFkHXI/AAAAAAAAB60/pEG6r8j24To/s1600/openarenalogo.png"
+supertuxkart:         "https://www.omgubuntu.co.uk/wp-content/uploads/2024/05/supertuxkart-logo-CARRINO.jpg"
+wz2100:               "https://img.itch.zone/aW1nLzM5NTM0MTIucG5n/original/6SwHkl.png"
+# OpenTTD: Steam app 1536610 header (460×215, matches card aspect ratio exactly)
+openttd:              "https://cdn.cloudflare.steamstatic.com/steam/apps/1536610/header.jpg"
+# Beyond All Reason: not yet on Steam; official website Webflow CDN screenshot (verified 200)
+beyond-all-reason:    "https://cdn.prod.website-files.com/5c68622246b367adf6f3041d/674708c97260fe2584e47e11_screen_2024-11-10_16-32-11-635.jpg"
+swat4:                "https://img.youtube.com/vi/ckoTyKG2ka0/hqdefault.jpg"
