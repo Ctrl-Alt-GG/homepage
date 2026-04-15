@@ -16,25 +16,25 @@ left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/hea
 dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
 factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
 cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
-# Minecraft: official Mojang promotional key art (landscape, ~896×504, ~2.14:1)
-minecraft:            "https://www.minecraft.net/content/dam/games/minecraft/key-art/MC-Vanilla_Exploration-Biomes_MCLive2023_896x504.jpg"
+# Minecraft: Wikimedia Commons – Beta 1.8.1 gameplay screenshot (1494×791, verified)
+minecraft:            "https://upload.wikimedia.org/wikipedia/commons/5/53/Minecraft_Beta_1.8.1_Gameplay_Screenshot.png"
 
-# Non-Steam games – official sources verified from appstream/metainfo or official repos
-# League of Legends: Riot Data Dragon champion splash (Jinx, 1215×717 landscape)
-lol:                  "https://ddragon.leagueoflegends.com/cdn/img/champion-splash/Jinx_0.jpg"
+# Non-Steam games – official sources verified
+# League of Legends: Wikipedia en – gameplay screenshot 2018 (verified 200)
+lol:                  "https://upload.wikimedia.org/wikipedia/en/c/ca/League_of_Legends_Screenshot_2018.png"
 # Xonotic: official press screenshots used in Flatpak appstream
 xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
-# OpenArena: Wikimedia Commons – fetched with proper User-Agent in render-image.html
-openarena:            "https://upload.wikimedia.org/wikipedia/commons/4/46/OpenArena_0.8.8_gameplay.jpg"
-# SuperTuxKart: official screenshot from game website (updated to STK 1.4)
-supertuxkart:         "https://supertuxkart.net/assets/wiki/STK1.4_1.jpg"
+# OpenArena: Wikimedia Commons – rocket screenshot (verified 200)
+openarena:            "https://upload.wikimedia.org/wikipedia/commons/a/a0/OpenArena_0.8.8_rocket.jpg"
+# SuperTuxKart: Wikimedia Commons – 0.9 gameplay screenshot (verified via API: 1920×1031)
+supertuxkart:         "https://upload.wikimedia.org/wikipedia/commons/4/4e/Supertuxkart-0.9-screenshot-2.jpg"
 # Warzone 2100: official repo docs/images (pinned commit SHA for stability)
 wz2100:               "https://raw.githubusercontent.com/Warzone2100/warzone2100/7d3d8e51a61ceee89e6bf672a41337e1a9cd7392/doc/images/artillery-far-away.jpg"
 # OpenTTD: Steam app 1536610 header (460×215, matches card aspect ratio exactly)
 openttd:              "https://cdn.cloudflare.steamstatic.com/steam/apps/1536610/header.jpg"
-# 0 A.D.: Wikimedia Commons gameplay screenshot – fetched with proper User-Agent
-zeroad:               "https://upload.wikimedia.org/wikipedia/commons/0/0e/0ad_gameplay_2018-08-30.png"
-# Beyond All Reason: Wikimedia Commons – fetched with proper User-Agent
-beyond-all-reason:    "https://upload.wikimedia.org/wikipedia/commons/2/26/BeyondAllReasonScreenshot1.jpg"
-# SWAT 4: Wikimedia Commons (direct URL, avoids Wikipedia Special:FilePath redirect)
-swat4:                "https://upload.wikimedia.org/wikipedia/en/5/5a/SWAT4Screenshot.jpg"
+# 0 A.D.: Wikimedia Commons – Cycladic Archipelago screenshot (verified 200)
+zeroad:               "https://upload.wikimedia.org/wikipedia/commons/5/52/0_A.D._Cycladic_Archipelago.jpg"
+# Beyond All Reason: not yet on Steam; official website Webflow CDN screenshot (verified 200)
+beyond-all-reason:    "https://cdn.prod.website-files.com/5c68622246b367adf6f3041d/674708c97260fe2584e47e11_screen_2024-11-10_16-32-11-635.jpg"
+# SWAT 4: Steam app 6980 header (verified 200 – SWAT 4 is on Steam)
+swat4:                "https://cdn.cloudflare.steamstatic.com/steam/apps/6980/header.jpg"

@@ -22,6 +22,7 @@
 {{- $page   := .Page -}}
 
 {{- $resource := "" -}}
+{{- $isGameImage := false -}}
 
 {{- /* 1. Page-bundle resource */ -}}
 {{- with $page.Resources.Get $src -}}
@@ -45,6 +46,7 @@
         {{- warnf "render-image: cannot fetch remote image for %q: %s" $src . -}}
       {{- else with .Value -}}
         {{- $resource = . -}}
+        {{- $isGameImage = true -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
@@ -55,6 +57,11 @@
   {{- $isSVG := in "svg" (lower $resource.MediaType.SubType) -}}
   {{- if $isSVG -}}
 <img src="{{ $resource.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- else if $isGameImage -}}
+    {{- /* Game card images: fill to Steam header dimensions (460×215) so nothing is cropped client-side */ -}}
+    {{- $img := $resource.Fill "460x215 webp" -}}
+    {{- $img = fingerprint $img -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async" width="{{ $img.Width }}" height="{{ $img.Height }}">
   {{- else -}}
     {{- $w := 460 -}}
     {{- if and (gt $resource.Width 0) (lt $resource.Width 460) -}}
