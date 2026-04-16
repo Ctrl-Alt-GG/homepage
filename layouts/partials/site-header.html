@@ -13,6 +13,7 @@
 
 {{ if or $description $menu $title }}
     <header id="paige-site-header">
+        <div class="container">
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }} paige-row-tall {{ end }} text-center" id="paige-site-title">
                 <a class="text-body text-decoration-none" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
@@ -92,5 +93,6 @@
                 {{ end }}
             </div>
         {{ end }}
+        </div>
     </header>
 {{ end }}

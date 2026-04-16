@@ -8,12 +8,13 @@
     </linearGradient>
   </defs>
 
-  <!-- CTRL-ALT — bold text, teal gradient, fixed width via textLength -->
+  <!-- CTRL-ALT — bold text; fill is controlled by CSS (currentColor) so it
+       is black in light mode and white in dark mode -->
   <text x="0" y="122"
         font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif"
         font-weight="700"
         font-size="130"
-        fill="url(#cag-logo-gradient)"
+        fill="currentColor"
         textLength="556"
         lengthAdjust="spacingAndGlyphs">CTRL-ALT</text>
 

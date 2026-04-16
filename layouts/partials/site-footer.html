@@ -13,12 +13,14 @@
 
 {{ if or $copyright $credit }}
     <footer id="paige-site-footer">
+        <div class="container">
         {{ with $copyright }}
-            <p class="paige-row-short text-center text-secondary" id="paige-site-copyright">{{ . }}</p>
+            <p class="paige-row-short text-center" id="paige-site-copyright">{{ . }}</p>
         {{ end }}
 
         {{ with $credit }}
-            <p class="paige-row-short text-center text-secondary" id="paige-site-credit">{{ . }}</p>
+            <p class="paige-row-short text-center" id="paige-site-credit">{{ . }}</p>
         {{ end }}
+        </div>
     </footer>
 {{ end }}
