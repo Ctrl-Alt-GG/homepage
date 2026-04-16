@@ -361,6 +361,17 @@ div#t-holder {
     line-height: 1.4;
 }
 
+/* Stretched-link: invisible overlay covers the entire card so the image
+   and all whitespace are also clickable, pointing to the same URL as the
+   game title. z-index:1 keeps it below the server badge (z-index:3). */
+.cag-game-cards li a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: var(--cag-radius);
+}
+
 .cag-game-cards li a:hover {
     color: var(--cag-accent);
 }
@@ -415,9 +426,8 @@ div#t-holder {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 6px;
-    padding: 4px;
-    z-index: 2;
-    pointer-events: none;
+    padding: 5px;
+    z-index: 3;
 }
 
 /* On tournament (gold) cards, tint the badge gold too */

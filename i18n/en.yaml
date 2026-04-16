@@ -1,0 +1,4 @@
+- id: server_badge_tooltip
+  translation: "A server for this game will be hosted at the event"
+- id: server_badge_aria
+  translation: "Hosted server available"
