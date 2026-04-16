@@ -13,7 +13,7 @@
  *    the first or last image
  *  - Smooth CSS-driven slide transition between images
  *  - Backdrop click or close button closes the lightbox
- *  - Focus is trapped inside the lightbox while open; restored on close
+ *  - Focus is restored on close
  */
 (function () {
   'use strict';
@@ -38,6 +38,7 @@
   var dragging   = false;
   var dragStartX = 0;
   var dragDeltaX = 0;
+  var downTarget = null;   // element under the pointer at pointerdown
 
   /* ── Helpers ──────────────────────────────────────────────────────────────── */
   function isHu() {
@@ -238,9 +239,13 @@
     if (hide) {
       el.classList.add('cag-lb-hidden');
       el.setAttribute('aria-hidden', 'true');
+      el.disabled = true;
+      el.setAttribute('tabindex', '-1');
     } else {
       el.classList.remove('cag-lb-hidden');
       el.removeAttribute('aria-hidden');
+      el.disabled = false;
+      el.removeAttribute('tabindex');
     }
   }
 
@@ -260,6 +265,7 @@
     dragging   = true;
     dragStartX = e.clientX;
     dragDeltaX = 0;
+    downTarget = e.target;   // save before pointer capture redirects events
     lbTrack.style.transition = 'none';
     e.currentTarget.setPointerCapture(e.pointerId);
   }
@@ -290,7 +296,7 @@
       navigate(1);                    // swiped left → next image
     } else if (dragDeltaX > SWIPE_THRESHOLD) {
       navigate(-1);                   // swiped right → previous image
-    } else if (!wasDrag && e.target.classList.contains('cag-lb-slide')) {
+    } else if (!wasDrag && downTarget && downTarget.classList.contains('cag-lb-slide')) {
       // Tap on the empty area of the slide (outside the image) → close lightbox
       closeLightbox();
     } else {
@@ -299,6 +305,7 @@
     }
 
     dragDeltaX = 0;
+    downTarget = null;
   }
 
   /* ── Gallery click delegation ─────────────────────────────────────────────── */
