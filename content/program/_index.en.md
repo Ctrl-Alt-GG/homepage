@@ -39,7 +39,7 @@ Here's the complete game list so you know what to expect:
 - ![Call of Duty: Modern Warfare 2](cod-mw2.jpg) [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 {.cag-game-cards}
 
-Games with the server icon in the card corner will definitely have at least one server available.
+{{< callout icon="server" >}}Games with the server icon in the card corner will definitely have at least one server available.{{< /callout >}}
 
 Anyone can join anything they want, nothing is mandatory besides the fun!
 

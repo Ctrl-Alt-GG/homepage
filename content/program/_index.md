@@ -39,7 +39,7 @@ Itt a teljes játéklista, hogy tudd, mire készülhetsz:
 - ![Call of Duty: Modern Warfare 2](cod-mw2.jpg) [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 {.cag-game-cards}
 
-A szerver ikonnal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver.
+{{< callout icon="server" >}}A szerver ikonnal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver.{{< /callout >}}
 
 Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem kötelező!
 
