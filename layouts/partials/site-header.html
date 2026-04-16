@@ -35,11 +35,11 @@
             {{ $pages = sort $pages "LinkTitle" }}
 
             <nav aria-label="{{ i18n `paige_menu` }}" class="paige-row-tall" id="paige-site-menu">
-                <ul class="align-items-center justify-content-center nav">
+                <ul class="align-items-center justify-content-center nav ">
                     {{ $active := eq $page.Section "" }}
 
                     <li class="nav-item">
-                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
+                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline " href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
                     </li>
 
                     {{ range $pages }}
@@ -52,7 +52,7 @@
                         {{ $active := or $home $menuMatch $section }}
 
                         <li class="nav-item">
-                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline " href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                         </li>
                     {{ end }}
                 </ul>
