@@ -6,9 +6,24 @@ div#t-holder {
 }
 
 :root {
-    --cag-accent: #aa0000;
-    --cag-accent-light: #cc1111;
-    --cag-accent-rgb: 170, 0, 0;
+    /* ── Monochromatic red palette (hue 0°, lightest → darkest) ──────────────
+     *  --cag-accent-struct  : darkest   – structural borders, dividers
+     *  --cag-accent         : base      – card/section top-bar framing
+     *  --cag-accent-light   : mid-bright – text accents (titles, badges, bullets)
+     *  --cag-accent-link    : bright    – interactive links, active nav (light bg)
+     *  --cag-accent-display : vibrant   – display/page-title gradient peak
+     *  --cag-accent-ondark  : lightest  – accents rendered on dark surfaces
+     * ──────────────────────────────────────────────────────────────────────── */
+    --cag-accent-struct:     #770000;
+    --cag-accent-struct-rgb: 119, 0, 0;
+    --cag-accent:            #aa0000;
+    --cag-accent-rgb:        170, 0, 0;
+    --cag-accent-light:      #cc1111;
+    --cag-accent-link:       #dd2525;
+    --cag-accent-link-rgb:   221, 37, 37;
+    --cag-accent-display:    #ff4444;
+    --cag-accent-ondark:     #ff7777;
+    --cag-accent-ondark-rgb: 255, 119, 119;
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
     --cag-gold: #c8960c;
@@ -117,7 +132,7 @@ div#t-holder {
     font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.45rem;
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
     text-align: center;
 }
 
@@ -130,7 +145,7 @@ div#t-holder {
 
 /* Left border used as a block-level visual separator for the intro paragraph */
 .cag-intro {
-    border-left: 3px solid var(--cag-accent);
+    border-left: 3px solid var(--cag-accent-struct);
     padding-left: 1.1rem;
     margin: 1.5rem 0;
     font-size: 1.025rem;
@@ -153,7 +168,7 @@ div#t-holder {
 
 /* ── Sub-page title: gradient text matching site title ── */
 #paige-page-title {
-    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
+    background: linear-gradient(135deg, var(--cag-accent-light) 0%, var(--cag-accent-display) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -195,7 +210,7 @@ div#t-holder {
 /* h3: accent left border */
 #paige-page-content h3 {
     padding-left: 0.75rem;
-    border-left: 3px solid var(--cag-accent);
+    border-left: 3px solid var(--cag-accent-struct);
     margin-top: 1.75rem;
     font-weight: 600;
 }
@@ -204,27 +219,27 @@ div#t-holder {
 #paige-page-content hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(var(--cag-accent-rgb), 0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--cag-accent-struct-rgb), 0.45), transparent);
     margin: 2.5rem 0;
 }
 
 /* Links in page content: accent colour */
 #paige-page-content a:not([class]) {
-    color: var(--cag-accent);
-    text-decoration-color: rgba(var(--cag-accent-rgb), 0.35);
+    color: var(--cag-accent-link);
+    text-decoration-color: rgba(var(--cag-accent-link-rgb), 0.35);
     text-underline-offset: 2px;
     transition: color var(--cag-transition), text-decoration-color var(--cag-transition);
 }
 
 #paige-page-content a:not([class]):hover {
-    color: var(--cag-accent-light);
-    text-decoration-color: var(--cag-accent-light);
+    color: var(--cag-accent-display);
+    text-decoration-color: var(--cag-accent-display);
 }
 
 /* Unordered list: accent ▸ bullet */
 #paige-page-content ul > li::marker {
     content: '▸  ';
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
 }
 
 /* Ordered list: accent numbered circles */
@@ -261,15 +276,15 @@ div#t-holder {
 
 /* ── .cag-faq: FAQ question highlight block ── */
 #paige-page-content .cag-faq h2 {
-    background: rgba(var(--cag-accent-rgb), 0.07);
-    border-left: 4px solid var(--cag-accent);
+    background: rgba(var(--cag-accent-struct-rgb), 0.07);
+    border-left: 4px solid var(--cag-accent-struct);
     border-radius: 0 8px 8px 0;
     padding: 0.7rem 1.1rem;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
 }
 
 #paige-page-content .cag-faq h2::after {
@@ -278,7 +293,7 @@ div#t-holder {
 
 /* ── .cag-person: person profile card (About Us) ── */
 .cag-person {
-    border-left: 3px solid var(--cag-accent);
+    border-left: 3px solid var(--cag-accent-struct);
     border-top: 1px solid var(--bs-border-color);
     border-right: 1px solid var(--bs-border-color);
     border-bottom: 1px solid var(--bs-border-color);
@@ -296,7 +311,7 @@ div#t-holder {
 #paige-page-content .cag-person h3 {
     padding-left: 0;
     border-left: none;
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
     font-size: 1.1rem;
     font-weight: 700;
     margin-top: 0;
@@ -555,12 +570,12 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li a:hover {
-    color: var(--cag-accent);
+    color: var(--cag-accent-link);
 }
 
 /* Badge text (e.g., Tournament!) */
 .cag-game-cards li strong {
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -597,7 +612,7 @@ body.cag-lb-active {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -693,8 +708,8 @@ body.cag-lb-active {
     display: flex;
     gap: 0.75rem;
     align-items: flex-start;
-    border-left: 4px solid var(--cag-accent);
-    background: rgba(var(--cag-accent-rgb), 0.07);
+    border-left: 4px solid var(--cag-accent-struct);
+    background: rgba(var(--cag-accent-struct-rgb), 0.07);
     border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
     padding: 0.85rem 1.25rem;
     margin: 1.25rem 0;
@@ -705,7 +720,7 @@ body.cag-lb-active {
 /* SVG server icon used as the callout icon on the Program page */
 .cag-callout-server-icon {
     flex-shrink: 0;
-    color: var(--cag-accent);
+    color: var(--cag-accent-light);
     margin-top: 0.1em;
 }
 
@@ -763,9 +778,9 @@ body.cag-lb-active {
 
 #paige-site-header #paige-site-menu .nav-link.active,
 #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
-    color: var(--cag-accent) !important;
+    color: var(--cag-accent-link) !important;
     font-weight: 600;
-    background: rgba(170, 0, 0, 0.08);
+    background: rgba(var(--cag-accent-rgb), 0.08);
 }
 
 /* Language selector: muted dark */
@@ -786,7 +801,7 @@ body.cag-lb-active {
 }
 
 #paige-site-header #paige-language-selector a:hover {
-    color: var(--cag-accent);
+    color: var(--cag-accent-link);
 }
 
 #paige-site-header #paige-language-selector .fw-bold {
@@ -824,8 +839,8 @@ body.cag-lb-active {
 
     #paige-site-header #paige-site-menu .nav-link.active,
     #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
-        color: var(--cag-accent) !important;
-        background: rgba(170, 0, 0, 0.12);
+        color: var(--cag-accent-ondark) !important;
+        background: rgba(var(--cag-accent-ondark-rgb), 0.12);
     }
 
     #paige-site-header #paige-language-selector,
@@ -873,7 +888,7 @@ body.cag-lb-active {
 }
 
 #paige-site-footer a:hover {
-    color: var(--cag-accent) !important;
+    color: var(--cag-accent-ondark) !important;
 }
 
 /* ══════════════════════════════════════════════════════════════════
