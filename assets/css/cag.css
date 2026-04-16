@@ -6,9 +6,9 @@ div#t-holder {
 }
 
 :root {
-    --cag-accent: #00aa88;
-    --cag-accent-light: #00c49a;
-    --cag-accent-rgb: 0, 170, 136;
+    --cag-accent: #aa0000;
+    --cag-accent-light: #cc1111;
+    --cag-accent-rgb: 170, 0, 0;
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
     --cag-gold: #c8960c;
@@ -724,7 +724,7 @@ body.cag-lb-active {
 #paige-site-header {
     background: #ffffff;
     padding: 1.75rem 0 1.25rem;
-    border-bottom: 1px solid rgba(0, 170, 136, 0.2);
+    border-bottom: 1px solid rgba(170, 0, 0, 0.2);
 }
 
 /* Logo text: black on white header (CSS fill overrides SVG currentColor) */
@@ -765,7 +765,7 @@ body.cag-lb-active {
 #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
     color: var(--cag-accent) !important;
     font-weight: 600;
-    background: rgba(0, 170, 136, 0.08);
+    background: rgba(170, 0, 0, 0.08);
 }
 
 /* Language selector: muted dark */
@@ -796,8 +796,8 @@ body.cag-lb-active {
 /* ── Dark-mode overrides ───────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
     #paige-site-header {
-        background: linear-gradient(160deg, #091712 0%, #0d2219 100%);
-        border-bottom-color: rgba(0, 170, 136, 0.2);
+        background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
+        border-bottom-color: rgba(170, 0, 0, 0.2);
         color-scheme: dark;
     }
 
@@ -825,7 +825,7 @@ body.cag-lb-active {
     #paige-site-header #paige-site-menu .nav-link.active,
     #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
         color: var(--cag-accent) !important;
-        background: rgba(0, 170, 136, 0.12);
+        background: rgba(170, 0, 0, 0.12);
     }
 
     #paige-site-header #paige-language-selector,
@@ -851,10 +851,10 @@ body.cag-lb-active {
    ══════════════════════════════════════════════════════════════════ */
 
 #paige-site-footer {
-    background: linear-gradient(160deg, #091712 0%, #0d2219 100%);
+    background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
     padding: 1.25rem 0;
     margin-top: 3rem;
-    border-top: 1px solid rgba(0, 170, 136, 0.2);
+    border-top: 1px solid rgba(170, 0, 0, 0.2);
     color-scheme: dark;
 }
 
