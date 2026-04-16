@@ -1,9 +1,9 @@
 {{ $page := . }}
 
 {{ $basePath := path.Clean (urls.Parse (relLangURL "")).Path }}
-{{ $description := $page.Param "paige.site.description" | markdownify | and ($page.Param "paige.site.disable_description" | not) }}
+{{ $description := and ($page.Param "paige.site.disable_description" | not) ($page.Param "paige.site.description" | markdownify) }}
 {{ $menu := $page.Param "paige.site.disable_menu" | not }}
-{{ $title := site.Title | markdownify | and ($page.Param "paige.site.disable_title" | not) }}
+{{ $title := and ($page.Param "paige.site.disable_title" | not) (site.Title | markdownify) }}
 
 {{ if eq $basePath "/" }}
     {{ $basePath = "" }}

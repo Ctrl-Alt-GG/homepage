@@ -12,6 +12,9 @@
 {{ $process := .Get "process" }}
 {{ $sizes := .Get "sizes" }}
 {{ $src := .Get 0 | default (.Get "src") }}
+{{ if not $src }}
+    {{ errorf "layouts/shortcodes/paige/image.html: no src" }}
+{{ end }}
 {{ $srcset := .Get "srcset" }}
 {{ $style := .Get "style" }}
 {{ $title := .Get "title" }}

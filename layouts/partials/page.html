@@ -44,7 +44,7 @@
 
 {{ $class = delimit ($class | uniq | sort) " " }}
 
-{{ $title := $page.Title | markdownify | and ($page.Param "paige.pages.disable_title" | not) }}
+{{ $title := and ($page.Param "paige.pages.disable_title" | not) ($page.Title | markdownify) }}
 
 <article class="{{ if $min }} align-items-center d-flex flex-column {{ end }} {{ $class }}" id="paige-page">
     {{ if $title }}

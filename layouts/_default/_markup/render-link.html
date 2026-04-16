@@ -16,7 +16,7 @@
 {{- $hasServer := strings.HasSuffix $plain "*" -}}
 {{- $label    := cond $hasServer (strings.TrimSuffix "*" $plain) $plain -}}
 <a {{ with .Destination }}href="{{ . }}" {{ end -}}
-   {{- if $external }}rel="external" {{ end -}}
+   {{- if $external }}rel="external{{ with $target }} noopener noreferrer{{ end }}" {{ end -}}
    {{- with $target }}target="{{ . }}" {{ end -}}
    {{- with .Title }}title="{{ . }}" {{ end -}}
    >{{ $label -}}
