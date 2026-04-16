@@ -1,2 +1,4 @@
-server_badge_tooltip: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
-server_badge_aria:    "Hosztolt szerver elérhető"
+- id: server_badge_tooltip
+  translation: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
+- id: server_badge_aria
+  translation: "Hosztolt szerver elérhető"
