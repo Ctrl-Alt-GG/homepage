@@ -1,0 +1,24 @@
+{{ $page := . }}
+
+{{ $copyright := site.Copyright | markdownify | and ($page.Param "paige.site.disable_copyright" | not) }}
+{{ $credit := $page.Param "paige.site.credit" }}
+
+{{ if $credit }}
+    {{ $credit = markdownify $credit }}
+{{ else }}
+    {{ $credit = `<a class="link-secondary text-decoration-none" href="https://github.com/willfaught/paige">Paige Theme</a>` | safeHTML }}
+{{ end }}
+
+{{ $credit = $credit | and ($page.Param "paige.site.disable_credit" | not) }}
+
+{{ if or $copyright $credit }}
+    <footer id="paige-site-footer">
+        {{ with $copyright }}
+            <p class="paige-row-short text-center text-secondary" id="paige-site-copyright">{{ . }}</p>
+        {{ end }}
+
+        {{ with $credit }}
+            <p class="paige-row-short text-center text-secondary" id="paige-site-credit">{{ . }}</p>
+        {{ end }}
+    </footer>
+{{ end }}

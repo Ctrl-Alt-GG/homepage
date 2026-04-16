@@ -1,0 +1,7 @@
+{{ $page := . }}
+
+<script src="{{ relURL `vendor/bootstrap.bundle.min.js` }}"></script>
+
+{{ partial "schema.html" $page }}
+
+<noscript>{{ i18n "paige_javascript_is_required" }}</noscript>

@@ -1,0 +1,103 @@
+{{ $page := . }}
+
+{{ $titles := slice }}
+
+{{ if $page.IsHome }}
+    {{ $same := and $page.Title site.Title (eq $page.Title site.Title) }}
+
+    {{ if $same }}
+        {{ $titles = slice (site.Title | markdownify | plainify | htmlUnescape) }}
+    {{ else }}
+        {{ if $page.Title }}
+            {{ $titles = $titles | append ($page.Title | markdownify | plainify | htmlUnescape) }}
+        {{ end }}
+
+        {{ if site.Title }}
+            {{ $titles = $titles | append (site.Title | markdownify | plainify | htmlUnescape) }}
+        {{ end }}
+    {{ end }}
+{{ else }}
+    {{ with $page.Title }}
+        {{ $titles = slice (. | markdownify | plainify | htmlUnescape) }}
+    {{ end }}
+
+    {{ range .Ancestors }}
+        {{ $title := cond .IsHome (site.Title | default .Title) .Title }}
+
+        {{ with $title }}
+            {{ $titles = $titles | append (. | markdownify | plainify | htmlUnescape) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ $title := delimit $titles " · " }}
+
+{{ $color := $page.Param `paige.site.color` | default `#0d6efd` }}
+{{ $description := cond $page.IsHome ($page.Description | default ($page.Param "paige.site.description")) $page.Description | markdownify | plainify | htmlUnescape }}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="{{ site.Title | markdownify | plainify | htmlUnescape }}" name="apple-mobile-web-app-title">
+
+    {{ with $description }}
+        <meta content="{{ . }}" name="description">
+    {{ end }}
+
+    <meta content="{{ $color }}" name="theme-color">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    {{ template "_internal/opengraph.html" $page }}
+    {{ template "_internal/twitter_cards.html" $page }}
+
+    {{ with $title }}
+        <title>{{ . }}</title>
+    {{ end }}
+
+    {{/* Favicon links */}}
+    {{ if fileExists "static/apple-touch-icon.png" }}
+        <link href="{{ relLangURL `apple-touch-icon.png` }}" rel="apple-touch-icon" sizes="180x180">
+    {{ end }}
+
+    {{ if fileExists "static/favicon-96x96.png" }}
+        <link href="{{ relLangURL `favicon-96x96.png` }}" rel="icon" sizes="96x96" type="image/png">
+    {{ end }}
+
+    {{ if fileExists "static/favicon.ico" }}
+        <link href="{{ relLangURL `favicon.ico` }}" rel="shortcut icon">
+    {{ end }}
+
+    {{ if fileExists "static/favicon.svg" }}
+        <link href="{{ relLangURL `favicon.svg` }}" rel="icon" type="image/svg+xml">
+    {{ end }}
+
+    {{ if fileExists "static/web-app-manifest-192x192.png" }}
+        <link href="{{ relLangURL `web-app-manifest-192x192.png` }}" rel="icon" type="image/png">
+    {{ end }}
+
+    {{ if fileExists "static/web-app-manifest-512x512.png" }}
+        <link href="{{ relLangURL `web-app-manifest-512x512.png` }}" rel="icon" type="image/png">
+    {{ end }}
+
+    {{ if fileExists "assets/site.webmanifest" }}
+        <link href="{{ (resources.Get `site.webmanifest` | resources.ExecuteAsTemplate `site.webmanifest` .).RelPermalink }}" rel="manifest">
+    {{ end }}
+
+    {{/* CSS: paige.css (template asset, fingerprinted) */}}
+    {{ $paigeCss := resources.Get "css/paige.css" | resources.ExecuteAsTemplate "css/paige.css" $page | resources.Minify | resources.Fingerprint }}
+    <link href="{{ $paigeCss.RelPermalink }}" rel="stylesheet">
+
+    {{/* CSS: Bootstrap (static vendor file) */}}
+    <link href="{{ relURL `vendor/bootstrap.min.css` }}" rel="stylesheet">
+
+    {{/* CSS: Bootstrap Icons (static vendor file) */}}
+    <link href="{{ relURL `vendor/bootstrap-icons.min.css` }}" rel="stylesheet">
+
+    {{/* CSS: cag.css (custom styles, fingerprinted) */}}
+    {{ $cagCss := resources.Get "css/cag.css" | resources.Minify | resources.Fingerprint }}
+    <link href="{{ $cagCss.RelPermalink }}" rel="stylesheet">
+
+    {{/* RSS alternate link */}}
+    {{ range $page.AlternativeOutputFormats }}
+        <link href="{{ .RelPermalink }}" rel="{{ .Rel }}" type="{{ .MediaType }}">
+    {{ end }}
+</head>

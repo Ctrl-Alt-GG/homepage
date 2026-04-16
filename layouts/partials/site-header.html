@@ -1,0 +1,89 @@
+{{ $page := . }}
+
+{{ $basePath := path.Clean (urls.Parse (relLangURL "")).Path }}
+{{ $description := $page.Param "paige.site.description" | markdownify | and ($page.Param "paige.site.disable_description" | not) }}
+{{ $menu := $page.Param "paige.site.disable_menu" | not }}
+{{ $title := site.Title | markdownify | and ($page.Param "paige.site.disable_title" | not) }}
+
+{{ if eq $basePath "/" }}
+    {{ $basePath = "" }}
+{{ end }}
+
+{{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
+
+{{ if or $description $menu $title }}
+    <header id="paige-site-header">
+        {{ with $title }}
+            <div class="display-1 fw-bold {{ if not (or $description $menu) }} paige-row-tall {{ end }} text-center" id="paige-site-title">
+                <a class="text-body text-decoration-none" href="{{ relLangURL `` }}">{{ . }}</a>
+            </div>
+        {{ end }}
+
+        {{ with $description }}
+            <div class="lead paige-row-tall text-center" id="paige-site-description">{{ . }}</div>
+        {{ end }}
+
+        {{ if $menu }}
+            {{ $pages := site.Sections }}
+
+            {{ range $name, $taxonomy := site.Taxonomies }}
+                {{ if and $taxonomy.Page $taxonomy.Page.RelPermalink }}
+                    {{ $pages = $pages | append $taxonomy.Page }}
+                {{ end }}
+            {{ end }}
+
+            {{ $pages = sort $pages "LinkTitle" }}
+
+            <nav aria-label="{{ i18n `paige_menu` }}" class="paige-row-tall" id="paige-site-menu">
+                <ul class="align-items-center justify-content-center nav">
+                    {{ $active := eq $page.Section "" }}
+
+                    <li class="nav-item">
+                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
+                    </li>
+
+                    {{ range $pages }}
+                        {{ $menuPath := strings.TrimPrefix $basePath .RelPermalink }}
+
+                        {{ $home := and (eq $menuPath "/") (eq $page.Section "") }}
+                        {{ $menuMatch := and (ne $menuPath "/") (hasPrefix $pagePath $menuPath) }}
+                        {{ $section := and (ne $menuPath "/") (hasPrefix $menuPath (printf "/%s/" $page.Section)) }}
+
+                        {{ $active := or $home $menuMatch $section }}
+
+                        <li class="nav-item">
+                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        {{ end }}
+
+        {{/* Language selector */}}
+        {{ if gt (len site.Languages) 1 }}
+            <div id="paige-language-selector" class="text-center paige-row-short">
+                {{ range site.Languages }}
+                    {{ $lang := . }}
+                    {{ if eq $lang.Lang $page.Language.Lang }}
+                        <span class="fw-bold">{{ $lang.LanguageName }}</span>
+                    {{ else }}
+                        {{ with $page.AllTranslations }}
+                            {{ $altPage := (index . 0) }}
+                            {{ range . }}
+                                {{ if eq .Language.Lang $lang.Lang }}
+                                    {{ $altPage = . }}
+                                {{ end }}
+                            {{ end }}
+                            <a href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
+                        {{ else }}
+                            <a href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
+                        {{ end }}
+                    {{ end }}
+                    {{ if ne $lang.Lang (index site.Languages (sub (len site.Languages) 1)).Lang }}
+                        <span class="mx-2">·</span>
+                    {{ end }}
+                {{ end }}
+            </div>
+        {{ end }}
+    </header>
+{{ end }}

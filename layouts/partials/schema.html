@@ -1,0 +1,91 @@
+{{ $page := . }}
+
+{{ $auto := $page.Param "paige.pages.disable_auto_schema" | not }}
+{{ $pageBase := $page.Param "paige.pages.base_schema" }}
+{{ $siteBase := $page.Param "paige.site.base_schema" }}
+
+{{ range $page.Param "paige.site.schemas" }}
+    <script type="application/ld+json">{{ merge $siteBase . | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ range $page.Param "paige.pages.schemas" }}
+    <script type="application/ld+json">{{ merge $pageBase . | jsonify | safeJS }}</script>
+{{ end }}
+
+{{ if $auto }}
+    {{ $copyright := site.Copyright | markdownify | plainify | htmlUnescape }}
+    {{ $created := $page.Date }}
+    {{ $description := $page.Description | markdownify | plainify | htmlUnescape }}
+    {{ $expires := cond (not $page.ExpiryDate.IsZero) $page.ExpiryDate false }}
+    {{ $language := site.LanguageCode }}
+    {{ $modified := cond (not $page.Lastmod.IsZero) $page.Lastmod false }}
+    {{ $published := cond (and (not $page.PublishDate.IsZero) (ne $page.Date $page.PublishDate)) $page.PublishDate false }}
+    {{ $schema := newScratch }}
+    {{ $section := $page.CurrentSection.Title | markdownify | plainify | htmlUnescape }}
+    {{ $summary := $page.Summary | markdownify | plainify | htmlUnescape | chomp }}
+    {{ $time := printf "PT%dM" $page.ReadingTime }}
+    {{ $title := $page.Title | markdownify | plainify | htmlUnescape }}
+    {{ $words := $page.WordCount }}
+
+    {{ $schema.Set "@context" "https://schema.org" }}
+    {{ $schema.Set "@type" "Article" }}
+    {{ $schema.Set "url" $page.Permalink }}
+
+    {{ with $summary }}
+        {{ $schema.Set "abstract" . }}
+    {{ end }}
+
+    {{ with $description }}
+        {{ $schema.Set "alternativeHeadline" . }}
+    {{ end }}
+
+    {{ with $section }}
+        {{ $schema.Set "articleSection" . }}
+    {{ end }}
+
+    {{ with $copyright }}
+        {{ $schema.Set "copyrightNotice" . }}
+    {{ end }}
+
+    {{ with $created }}
+        {{ $schema.Set "dateCreated" . }}
+    {{ end }}
+
+    {{ with $modified }}
+        {{ $schema.Set "dateModified" . }}
+    {{ end }}
+
+    {{ with $published }}
+        {{ $schema.Set "datePublished" . }}
+    {{ end }}
+
+    {{ with $description }}
+        {{ $schema.Set "description" . }}
+    {{ end }}
+
+    {{ with $expires }}
+        {{ $schema.Set "expiresAt" . }}
+    {{ end }}
+
+    {{ with $title }}
+        {{ $schema.Set "headline" . }}
+    {{ end }}
+
+    {{ with $language }}
+        {{ $schema.Set "inLanguage" . }}
+    {{ end }}
+
+    {{ with $title }}
+        {{ $schema.Set "name" . }}
+    {{ end }}
+
+    {{ with $time }}
+        {{ $schema.Set "timeRequired" . }}
+    {{ end }}
+
+    {{ with $words }}
+        {{ $schema.Set "wordCount" . }}
+    {{ end }}
+
+    <script type="application/ld+json">{{ merge $pageBase $schema.Values | jsonify | safeJS }}</script>
+{{ end }}

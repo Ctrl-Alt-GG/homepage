@@ -1,0 +1,168 @@
+{{ $alt := .Get "alt" }}
+{{ $breakpoints := .Get "breakpoints" }}
+{{ $class := .Get "class" }}
+{{ $densities := .Get "densities" }}
+{{ $height := .Get "height" }}
+{{ $link := .Get "link" }}
+{{ $linked := .Get "linked" }}
+{{ $loading := .Get "loading" | default "eager" }}
+{{ $maxHeight := .Get "maxheight" }}
+{{ $maxWidth := .Get "maxwidth" }}
+{{ $priority := .Get "fetchpriority" }}
+{{ $process := .Get "process" }}
+{{ $sizes := .Get "sizes" }}
+{{ $src := .Get 0 | default (.Get "src") }}
+{{ $srcset := .Get "srcset" }}
+{{ $style := .Get "style" }}
+{{ $title := .Get "title" }}
+{{ $width := .Get "width" }}
+{{ $page := .Page }}
+
+{{/* Resolve resource */}}
+{{ $resource := false }}
+{{ if $src }}
+    {{ with $page.Resources.GetMatch $src }}
+        {{ $resource = . }}
+    {{ else with $page.Resources.Get $src }}
+        {{ $resource = . }}
+    {{ else with resources.GetMatch $src }}
+        {{ $resource = . }}
+    {{ else with resources.Get $src }}
+        {{ $resource = . }}
+    {{ end }}
+{{ end }}
+
+{{/* Build inline style */}}
+{{ $styleSlice := slice }}
+{{ if and (or $height $maxHeight) (not (or $maxWidth $width)) }}
+    {{ $width = "auto" }}
+{{ end }}
+{{ if and (or $maxWidth $width) (not (or $height $maxHeight)) }}
+    {{ $height = "auto" }}
+{{ end }}
+
+{{ if $style }}
+    {{ range split $style ";" }}
+        {{ $s := . | strings.TrimLeft " " | strings.TrimRight " " }}
+        {{ if $s }}
+            {{ $styleSlice = $styleSlice | append $s }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ with $height }}{{ $styleSlice = $styleSlice | append (print "height: " .) }}{{ end }}
+{{ with $maxHeight }}{{ $styleSlice = $styleSlice | append (print "max-height: " .) }}{{ end }}
+{{ with $maxWidth }}{{ $styleSlice = $styleSlice | append (print "max-width: " .) }}{{ end }}
+{{ with $width }}{{ $styleSlice = $styleSlice | append (print "width: " .) }}{{ end }}
+{{ $computedStyle := delimit ($styleSlice | uniq | sort) "; " }}
+
+{{ $imgSrc := "" }}
+{{ $intrinsicWidth := "" }}
+{{ $intrinsicHeight := "" }}
+{{ $computedSrcset := "" }}
+{{ $computedSizes := "" }}
+
+{{ if and $resource (ne $resource.MediaType.SubType "svg") }}
+    {{/* Raster image processing */}}
+    {{ $method := "" }}
+    {{ $options := slice }}
+    {{ $quality := "" }}
+    {{ $size := "" }}
+    {{ $smallerResource := $resource }}
+
+    {{ if $process }}
+        {{ range split (lower (cond (eq $process "default") "" $process)) " " }}
+            {{ if or (eq . "crop") (eq . "fill") (eq . "fit") (eq . "resize") }}
+                {{ $method = . }}
+            {{ else }}
+                {{ with findRE `q\d+` . 1 }}
+                    {{ $quality = index . 0 }}
+                {{ else with findRE `\d+x\d+|\d+x|x\d+` . 1 }}
+                    {{ $size = index . 0 }}
+                {{ else }}
+                    {{ $options = $options | append . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ $options = delimit $options " " }}
+
+        {{ if not $method }}{{ $method = "resize" }}{{ end }}
+        {{ if not $size }}{{ $size = print $resource.Width "x" $resource.Height }}{{ end }}
+
+        {{ $smallerOptions := print $size " " $quality " " $options }}
+
+        {{ if eq $method "crop" }}
+            {{ $smallerResource = $resource.Crop $smallerOptions }}
+        {{ else if eq $method "fill" }}
+            {{ $smallerResource = $resource.Fill $smallerOptions }}
+        {{ else if eq $method "fit" }}
+            {{ $smallerResource = $resource.Fit $smallerOptions }}
+        {{ else if eq $method "resize" }}
+            {{ $smallerResource = $resource.Resize $smallerOptions }}
+        {{ end }}
+    {{ end }}
+
+    {{ $smallerResource = fingerprint $smallerResource }}
+    {{ $intrinsicHeight = $smallerResource.Height }}
+    {{ $intrinsicWidth = $smallerResource.Width }}
+    {{ $imgSrc = $smallerResource.RelPermalink }}
+
+    {{ if and (not $sizes) (not $srcset) }}
+        {{ $partialResource := false }}
+
+        {{ if and $method (or $breakpoints $densities) (ne $method "resize") }}
+            {{ $partialOptions := print $size " q100 " $options }}
+            {{ if eq $method "crop" }}
+                {{ $partialResource = $resource.Crop $partialOptions }}
+            {{ else if eq $method "fill" }}
+                {{ $partialResource = $resource.Fill $partialOptions }}
+            {{ else if eq $method "fit" }}
+                {{ $partialResource = $resource.Fit $partialOptions }}
+            {{ end }}
+        {{ end }}
+
+        {{ if $breakpoints }}
+            {{ $bpSizes := slice }}
+            {{ $bpSrcset := slice }}
+            {{ $maxW := 0 }}
+
+            {{ range slice (slice 550 576) (slice 696 768) (slice 936 992) (slice 1116 1200) (slice 1296 1400) }}
+                {{ $imageWidth := index . 0 }}
+                {{ $viewWidth := index . 1 }}
+
+                {{ if gt $imageWidth $smallerResource.Width }}
+                    {{ continue }}
+                {{ end }}
+
+                {{ $resized := false }}
+                {{ with $partialResource }}
+                    {{ $resized = .Resize (print $imageWidth "x " $quality " " $options) }}
+                {{ else }}
+                    {{ $resized = $smallerResource.Resize (print $imageWidth "x q100 " $options) }}
+                {{ end }}
+
+                {{ $resized = fingerprint $resized }}
+                {{ $maxW = math.Max $maxW $imageWidth }}
+                {{ $bpSizes = $bpSizes | append (printf "(max-width: %dpx) %dpx" $viewWidth $imageWidth) }}
+                {{ $bpSrcset = $bpSrcset | append (printf "%s %dw" $resized.RelPermalink $imageWidth) }}
+            {{ end }}
+
+            {{ if $bpSizes }}
+                {{ $bpSizes = $bpSizes | append (print $maxW "px") }}
+                {{ $computedSizes = delimit $bpSizes ", " }}
+                {{ $computedSrcset = delimit $bpSrcset ", " }}
+            {{ end }}
+        {{ end }}
+    {{ else }}
+        {{ $computedSizes = $sizes }}
+        {{ $computedSrcset = $srcset }}
+    {{ end }}
+{{ else if $resource }}
+    {{ $imgSrc = $resource.RelPermalink }}
+{{ else }}
+    {{ $imgSrc = relLangURL $src }}
+{{ end }}
+
+<div class="paige-shortcode-image">
+<img {{ with $alt }} alt="{{ . }}" {{ end }} {{ with (printf "img-fluid %s" $class) }} class="{{ . }}" {{ end }} crossorigin="anonymous" {{ if and $priority (ne $priority "auto") }} fetchpriority="{{ $priority }}" {{ end }} {{ with $intrinsicHeight }} height="{{ . }}" {{ end }} {{ if ne $loading "eager" }} loading="{{ $loading }}" {{ end }} referrerpolicy="no-referrer" {{ with $computedSizes }} sizes="{{ . }}" {{ end }} src="{{ $imgSrc }}" {{ with $computedSrcset }} {{ printf `srcset="%s"` . | safeHTMLAttr }} {{ end }} {{ with $computedStyle }} style="{{ . | safeCSS }}" {{ end }} {{ with $title }} title="{{ . }}" {{ end }} {{ with $intrinsicWidth }} width="{{ . }}" {{ end }}>
+</div>

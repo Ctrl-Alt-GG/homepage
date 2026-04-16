@@ -2,3 +2,11 @@
   translation: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
 - id: server_badge_aria
   translation: "Hosztolt szerver elérhető"
+- id: paige_home
+  translation: "Főoldal"
+- id: paige_menu
+  translation: "Menü"
+- id: paige_figure
+  translation: "Ábra"
+- id: paige_javascript_is_required
+  translation: "A JavaScript használata szükséges"

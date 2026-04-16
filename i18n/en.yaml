@@ -2,3 +2,11 @@
   translation: "A server for this game will be hosted at the event"
 - id: server_badge_aria
   translation: "Hosted server available"
+- id: paige_home
+  translation: "Home"
+- id: paige_menu
+  translation: "Menu"
+- id: paige_figure
+  translation: "Figure"
+- id: paige_javascript_is_required
+  translation: "JavaScript is required"
