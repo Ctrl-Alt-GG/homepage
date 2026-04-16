@@ -20,7 +20,7 @@
 
   /* ── Constants ────────────────────────────────────────────────────────────── */
   var SWIPE_THRESHOLD   = 60;   // px of drag required to trigger a slide
-  var ANIM_DURATION_MS  = 320;  // must match --cag-lb-transition in CSS
+  var ANIM_DURATION_MS  = 320;  // must match --cag-lb-transition-duration in :root of cag.css
   var BOUNCE_PX         = 38;   // how far the track overshoots on edge bounce
   var RUBBER_BAND_RATIO = 3;    // divides drag distance past an edge
 
@@ -290,8 +290,8 @@
       navigate(1);                    // swiped left → next image
     } else if (dragDeltaX > SWIPE_THRESHOLD) {
       navigate(-1);                   // swiped right → previous image
-    } else if (!wasDrag && e.target.tagName !== 'IMG') {
-      // Tap on empty space around the image → close lightbox
+    } else if (!wasDrag && e.target.classList.contains('cag-lb-slide')) {
+      // Tap on the empty area of the slide (outside the image) → close lightbox
       closeLightbox();
     } else {
       // Not a full swipe – spring back to current position
