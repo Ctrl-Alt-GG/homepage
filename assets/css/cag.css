@@ -14,15 +14,26 @@ div#t-holder {
     --cag-gold: #c8960c;
     --cag-gold-light: #e8b923;
     --cag-gold-rgb: 200, 150, 12;
+    --cag-lb-transition-duration: 320ms;
 }
 
-/* Clip gradient fill onto site title text */
+/* Logo link wrapper */
 #paige-site-title a {
-    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.02em;
+    display: inline-block;
+    transition: opacity var(--cag-transition);
+}
+
+#paige-site-title a:hover {
+    opacity: 0.85;
+}
+
+/* Inline SVG logo: height matches Bootstrap display-1 (5 rem), width scales proportionally */
+#cag-logo-svg {
+    height: 5rem;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Reduce visual weight of the site description */
@@ -78,7 +89,6 @@ div#t-holder {
     padding: 1.5rem 1.6rem;
     border: 1px solid var(--bs-border-color);
     background: var(--bs-body-bg);
-    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
     position: relative;
     overflow: hidden;
 }
@@ -93,12 +103,6 @@ div#t-holder {
     height: 3px;
     background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-}
-
-.cag-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(var(--cag-accent-rgb), 0.18);
-    border-color: rgba(var(--cag-accent-rgb), 0.4);
 }
 
 .cag-card-icon {
@@ -299,16 +303,197 @@ div#t-holder {
     margin-bottom: 0.75rem;
 }
 
-/* ── Gallery images: grow and glow on hover ── */
+/* ── Gallery images: grow and glow on hover; zoom cursor ── */
 .paige-shortcode-gallery img {
     transition: transform var(--cag-transition), box-shadow var(--cag-transition);
     position: relative;
+    cursor: zoom-in;
 }
 
 .paige-shortcode-gallery img:hover {
     transform: scale(1.04);
     box-shadow: 0 10px 36px rgba(var(--cag-accent-rgb), 0.5);
     z-index: 1;
+}
+
+/* ── Lightbox ─────────────────────────────────────────────────────────────── */
+
+/*
+ * #cag-lb        – the dialog root, covers the full viewport, hidden by default
+ * #cag-lb-backdrop – semi-transparent blurring layer, click = close
+ * #cag-lb-viewport – invisible wrapper that captures pointer events for swipe
+ * #cag-lb-track    – flex row of slides; animated via translateX
+ * .cag-lb-slide    – one slide per image, exactly one viewport wide
+ * #cag-lb-prev/next – edge arrow buttons
+ * #cag-lb-close    – top-right close button
+ */
+
+#cag-lb {
+    position: fixed;
+    inset: 0;
+    z-index: 1060;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+#cag-lb.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+}
+
+/* Prevent body scroll while lightbox is open */
+body.cag-lb-active {
+    overflow: hidden;
+}
+
+/* Blurred / darkened backdrop */
+#cag-lb-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: zoom-out;
+}
+
+/* Viewport – covers the full screen, passes pointer events to children */
+#cag-lb-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    touch-action: none; /* we handle pan ourselves */
+}
+
+/* Track – horizontal flex row of all slides */
+#cag-lb-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transition: transform var(--cag-lb-transition-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Individual slide – exactly one viewport wide, centres the image */
+.cag-lb-slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 5vw;
+    box-sizing: border-box;
+}
+
+/* The displayed image – fills as much screen as possible */
+.cag-lb-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 24px 72px rgba(0, 0, 0, 0.6);
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none; /* prevent drag interference on the img itself */
+}
+
+/* ── Close button (top-right) ────────────────────────────────────────────── */
+#cag-lb-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1061;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#cag-lb-close:hover {
+    background: rgba(255, 255, 255, 0.24);
+    transform: scale(1.1);
+}
+
+#cag-lb-close svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* ── Prev / Next arrow buttons ────────────────────────────────────────────── */
+#cag-lb-prev,
+#cag-lb-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1061;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 5rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#cag-lb-prev {
+    left: 0;
+    border-radius: 0 6px 6px 0;
+}
+
+#cag-lb-next {
+    right: 0;
+    border-radius: 6px 0 0 6px;
+}
+
+#cag-lb-prev:hover,
+#cag-lb-next:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+#cag-lb-prev svg,
+#cag-lb-next svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Hidden state for edge arrows */
+#cag-lb-prev.cag-lb-hidden,
+#cag-lb-next.cag-lb-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Scale down arrow buttons on small screens */
+@media (max-width: 575.98px) {
+    #cag-lb-prev,
+    #cag-lb-next {
+        width: 2.25rem;
+        height: 4rem;
+    }
+
+    #cag-lb-prev svg,
+    #cag-lb-next svg {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    .cag-lb-slide {
+        padding: 4rem 2.5rem;
+    }
 }
 
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */
@@ -515,6 +700,13 @@ div#t-holder {
     margin: 1.25rem 0;
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* SVG server icon used as the callout icon on the Program page */
+.cag-callout-server-icon {
+    flex-shrink: 0;
+    color: var(--cag-accent);
+    margin-top: 0.1em;
 }
 
 @media (max-width: 575.98px) {

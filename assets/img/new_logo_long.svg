@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 150"
+     role="img" aria-label="Ctrl-Alt-GG" id="cag-logo-svg">
+  <title>Ctrl-Alt-GG</title>
+  <defs>
+    <linearGradient id="cag-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00aa88"/>
+      <stop offset="100%" stop-color="#00c49a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- CTRL-ALT — bold text, teal gradient, fixed width via textLength -->
+  <text x="0" y="122"
+        font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif"
+        font-weight="700"
+        font-size="130"
+        fill="url(#cag-logo-gradient)"
+        textLength="556"
+        lengthAdjust="spacingAndGlyphs">CTRL-ALT</text>
+
+  <!--
+    GG icon — path data extracted from favicon.svg and normalised to the
+    origin by applying translate(-146.00019, -126.41079) to every
+    absolute start-point (all relative commands are unchanged).
+
+    Original viewBox: 0 0 50.59972 37.429928
+    Scale factor to reach 150 px height: 150 / 37.429928 ≈ 4.0074
+  -->
+  <g transform="translate(576,0) scale(4.0074)">
+    <!-- Red trapezoid background -->
+    <path d="m 5.89176,0.00001 c -3.11916,0 -4.50545,1.73287 -4.50545,4.15888 l -1.3863,29.11216 c 0,2.77261 1.73287,4.15888 4.50546,4.15888 h 41.58881 c 2.77258,0 4.50545,-1.38627 4.50545,-4.15888 l -1.38629,-29.11216 c 0,-2.42601 -1.3863,-4.15888 -4.50546,-4.15888 z"
+          fill="#aa0000"/>
+    <!-- First G (upper-left) -->
+    <path d="m 5.21674,14.22936 c 0,6.30944 5.11182,11.21679 11.74258,11.21679 6.36787,0 11.27522,-4.99498 11.27522,-10.86627 v -0.52579 h -14.10862 v 3.73893 h 8.93838 c -1.16842,2.39526 -3.50525,3.79736 -6.33866,3.79736 -4.23551,0 -7.47786,-3.18394 -7.47786,-7.3026 0,-4.06025 2.97946,-7.33181 7.24418,-7.33181 2.51209,0 4.58603,0.99315 5.92971,2.86261 h 4.70287 c -1.4021,-3.88498 -5.84208,-6.71839 -10.54495,-6.71839 -6.30945,0 -11.36285,4.93656 -11.36285,11.12917 z"
+          fill="#ffffff"/>
+    <!-- Second G (lower-right) -->
+    <path d="m 22.77033,23.48244 c 0,6.30944 5.11182,11.21679 11.74258,11.21679 6.36787,0 11.27522,-4.99498 11.27522,-10.86627 v -0.52579 h -14.10863 v 3.73894 h 8.93839 c -1.16842,2.39525 -3.50525,3.79735 -6.33866,3.79735 -4.23551,0 -7.47786,-3.18394 -7.47786,-7.3026 0,-4.06025 2.97946,-7.33181 7.24418,-7.33181 2.51209,0 4.58603,0.99315 5.92971,2.86262 h 4.70287 c -1.4021,-3.88499 -5.84208,-6.71839 -10.54495,-6.71839 -6.30945,0 -11.36285,4.93655 -11.36285,11.12916 z"
+          fill="#ffffff"/>
+  </g>
+</svg>
