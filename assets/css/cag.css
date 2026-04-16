@@ -712,3 +712,187 @@ body.cag-lb-active {
 @media (max-width: 575.98px) {
     .cag-stuff-columns { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   PREMIUM HEADER — full-width branded bar, adapts to colour scheme.
+
+   Light mode : white background, black CTRL-ALT text.
+   Dark mode  : deep dark-teal background, white CTRL-ALT text.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Light-mode defaults ───────────────────────────────────────── */
+#paige-site-header {
+    background: #ffffff;
+    padding: 1.75rem 0 1.25rem;
+    border-bottom: 1px solid rgba(0, 170, 136, 0.2);
+}
+
+/* Logo text: black on white header (CSS fill overrides SVG currentColor) */
+#cag-logo-svg text {
+    fill: #111111;
+}
+
+/* Logo link: suppress Bootstrap text-body colour override */
+#paige-site-header #paige-site-title a {
+    color: #111111 !important;
+}
+
+/* Site description: muted dark */
+#paige-site-header #paige-site-description {
+    color: rgba(17, 17, 17, 0.55) !important;
+    opacity: 1;
+    font-style: italic;
+}
+
+/* Navigation links: dark on light header, no underline */
+#paige-site-header #paige-site-menu .nav-link {
+    color: rgba(17, 17, 17, 0.65) !important;
+    text-decoration: none !important;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    transition: color var(--cag-transition), background var(--cag-transition);
+}
+
+#paige-site-header #paige-site-menu .nav-link:hover {
+    color: #111111 !important;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#paige-site-header #paige-site-menu .nav-link.active,
+#paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
+    color: var(--cag-accent) !important;
+    font-weight: 600;
+    background: rgba(0, 170, 136, 0.08);
+}
+
+/* Language selector: muted dark */
+#paige-site-header #paige-language-selector {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: rgba(17, 17, 17, 0.38);
+}
+
+#paige-site-header #paige-language-selector .mx-2 {
+    color: rgba(17, 17, 17, 0.3);
+}
+
+#paige-site-header #paige-language-selector a {
+    color: rgba(17, 17, 17, 0.5);
+    text-decoration: none;
+    transition: color var(--cag-transition);
+}
+
+#paige-site-header #paige-language-selector a:hover {
+    color: var(--cag-accent);
+}
+
+#paige-site-header #paige-language-selector .fw-bold {
+    color: rgba(17, 17, 17, 0.8);
+}
+
+/* ── Dark-mode overrides ───────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+    #paige-site-header {
+        background: linear-gradient(160deg, #091712 0%, #0d2219 100%);
+        border-bottom-color: rgba(0, 170, 136, 0.2);
+        color-scheme: dark;
+    }
+
+    #cag-logo-svg text {
+        fill: #ffffff;
+    }
+
+    #paige-site-header #paige-site-title a {
+        color: #ffffff !important;
+    }
+
+    #paige-site-header #paige-site-description {
+        color: rgba(255, 255, 255, 0.62) !important;
+    }
+
+    #paige-site-header #paige-site-menu .nav-link {
+        color: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    #paige-site-header #paige-site-menu .nav-link:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    #paige-site-header #paige-site-menu .nav-link.active,
+    #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
+        color: var(--cag-accent) !important;
+        background: rgba(0, 170, 136, 0.12);
+    }
+
+    #paige-site-header #paige-language-selector,
+    #paige-site-header #paige-language-selector .mx-2 {
+        color: rgba(255, 255, 255, 0.38);
+    }
+
+    #paige-site-header #paige-language-selector a {
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    #paige-site-header #paige-language-selector a:hover {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    #paige-site-header #paige-language-selector .fw-bold {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PREMIUM FOOTER — full-width dark bar (consistent in both modes)
+   ══════════════════════════════════════════════════════════════════ */
+
+#paige-site-footer {
+    background: linear-gradient(160deg, #091712 0%, #0d2219 100%);
+    padding: 1.25rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(0, 170, 136, 0.2);
+    color-scheme: dark;
+}
+
+#paige-site-footer #paige-site-copyright,
+#paige-site-footer #paige-site-credit {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+}
+
+#paige-site-footer a {
+    color: rgba(255, 255, 255, 0.5) !important;
+    text-decoration: none;
+    transition: color var(--cag-transition);
+}
+
+#paige-site-footer a:hover {
+    color: var(--cag-accent) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PREMIUM POLISH — subtle card lift, refined spacing
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Feature cards: hover lift */
+.cag-card {
+    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+}
+
+.cag-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(var(--cag-accent-rgb), 0.12);
+    border-color: rgba(var(--cag-accent-rgb), 0.3);
+}
+
+/* Hero image: generous bottom margin */
+#paige-page-content > img.rounded-4 {
+    margin-bottom: 2rem;
+}
+

@@ -7,15 +7,15 @@
 <html {{ if $dark }} data-bs-theme="dark" {{ end }} {{ with $lang }} lang="{{ . }}" {{ end }}>
   {{ partial "head.html" $page }}
   <body>
+    {{ partial "site-header.html" $page }}
     <div class="container">
       <div class="row">
-        <div class="col mt-3" id="paige-site">
-          {{ partial "site-header.html" $page }}
+        <div class="col mt-4" id="paige-site">
           {{ block "main" $page }}{{ end }}
-          {{ partial "site-footer.html" $page }}
         </div>
       </div>
     </div>
+    {{ partial "site-footer.html" $page }}
     {{ partial "scripts.html" $page }}
   </body>
 </html>
