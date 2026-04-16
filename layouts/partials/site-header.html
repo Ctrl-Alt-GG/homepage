@@ -17,7 +17,11 @@
             <div class="{{ if not (or $description $menu) }} paige-row-tall {{ end }} text-center" id="paige-site-title">
                 <a class="text-decoration-none" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
-                    {{ with $logo }}{{ .Content | safeHTML }}{{ end }}
+                    {{ if $logo }}
+                        {{ $logo.Content | safeHTML }}
+                    {{ else }}
+                        {{ . }}
+                    {{ end }}
                 </a>
             </div>
         {{ end }}
