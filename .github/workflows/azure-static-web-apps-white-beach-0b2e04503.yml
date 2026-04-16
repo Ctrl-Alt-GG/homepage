@@ -15,21 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
           lfs: false
       - name: Install Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.150.1'
+          hugo-version: '0.160.1'
           extended: true
-      - name: Install Dart Sass (native)
-        run: |
-          curl -sL https://github.com/sass/dart-sass/releases/download/1.93.2/dart-sass-1.93.2-linux-x64.tar.gz -o dart-sass.tgz
-          mkdir -p /opt/dart-sass && tar -xzf dart-sass.tgz -C /opt/dart-sass --strip-components=1
-          chmod -R 755 /opt/dart-sass
-          echo "/opt/dart-sass" >> $GITHUB_PATH
       - name: Build Hugo site
         run: hugo --environment production --minify
       - name: Build And Deploy
