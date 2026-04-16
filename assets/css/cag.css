@@ -732,7 +732,7 @@ body.cag-lb-active {
    PREMIUM HEADER — full-width branded bar, adapts to colour scheme.
 
    Light mode : white background, black CTRL-ALT text.
-   Dark mode  : deep dark-teal background, white CTRL-ALT text.
+   Dark mode  : dark red gradient background (#130404 → #1e0606), white CTRL-ALT text.
    ══════════════════════════════════════════════════════════════════ */
 
 /* ── Light-mode defaults ───────────────────────────────────────── */
@@ -808,7 +808,64 @@ body.cag-lb-active {
     color: rgba(17, 17, 17, 0.8);
 }
 
-/* ── Dark-mode overrides ───────────────────────────────────────── */
+/* ── Dark-mode overrides ─────────────────────────────────────────
+   Applies when Bootstrap sets data-bs-theme="dark" on the <html>
+   element (e.g. via paige.site.color_scheme = dark) OR when the
+   OS/browser prefers a dark colour scheme.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Bootstrap-controlled dark mode: html[data-bs-theme="dark"] */
+html[data-bs-theme="dark"] #paige-site-header {
+    background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
+    border-bottom-color: rgba(170, 0, 0, 0.2);
+    color-scheme: dark;
+}
+
+html[data-bs-theme="dark"] #cag-logo-svg text {
+    fill: #ffffff;
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-site-title a {
+    color: #ffffff !important;
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-site-description {
+    color: rgba(255, 255, 255, 0.62) !important;
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link.active,
+html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
+    color: var(--cag-accent-ondark) !important;
+    background: rgba(var(--cag-accent-ondark-rgb), 0.12);
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-language-selector,
+html[data-bs-theme="dark"] #paige-site-header #paige-language-selector .mx-2 {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-language-selector a {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-language-selector a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-bs-theme="dark"] #paige-site-header #paige-language-selector .fw-bold {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* OS/browser dark preference */
 @media (prefers-color-scheme: dark) {
     #paige-site-header {
         background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
