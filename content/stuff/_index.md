@@ -4,8 +4,8 @@ title: "Praktikus tudnivalók"
 
 ## Mit hozz és mit ne
 
-<div class="cag-stuff-columns">
-<div class="cag-stuff-bring">
+{{< stuff-columns >}}
+{{< stuff-bring >}}
 
 ### ✅ Hozd el
 
@@ -16,8 +16,8 @@ title: "Praktikus tudnivalók"
 - Egér, billentyűzet, egérpad
 - **Fejhallgató** és mikrofon
 
-</div>
-<div class="cag-stuff-skip">
+{{< /stuff-bring >}}
+{{< stuff-skip >}}
 
 ### ❌ Hagyd otthon
 
@@ -25,10 +25,10 @@ title: "Praktikus tudnivalók"
 - UTP / hálózati kábel *(mi biztosítjuk)*
 - **UPS** *(szigorúan tilos!)*
 
-</div>
-</div>
+{{< /stuff-skip >}}
+{{< /stuff-columns >}}
 
-<div class="cag-callout">⚡ <span><strong>Áramforrás:</strong> Résztvevőnként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!</span></div>
+{{< callout icon="⚡" >}}<strong>Áramforrás:</strong> Résztvevőnként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!{{< /callout >}}
 
 Az ülőhelyek az aki kapja marja alapon lesznek kiosztva, így akik korábban érkeznek több hely között tudnak válogatni. Ha valaki különleges igénnyel rendelkezik (pl. gerincprobléma miatt speciális szék szükséges), akkor jelezze előre felénk.
 

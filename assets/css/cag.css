@@ -1,4 +1,3 @@
-<style>
 div#t-holder {
     text-align: right;
     font-size: 1.2rem;
@@ -361,9 +360,7 @@ div#t-holder {
     line-height: 1.4;
 }
 
-/* Stretched-link: invisible overlay covers the entire card so the image
-   and all whitespace are also clickable, pointing to the same URL as the
-   game title. z-index:1 keeps it below the server badge (z-index:3). */
+/* Stretched-link: invisible overlay covers the entire card */
 .cag-game-cards li a::after {
     content: '';
     position: absolute;
@@ -390,13 +387,10 @@ div#t-holder {
     margin: -0.85rem -1.1rem 0.75rem;
     width: calc(100% + 2.2rem);
     max-width: none;
-    height: auto;          /* override the HTML height="" attribute so aspect-ratio controls height */
+    height: auto;
     aspect-ratio: 460 / 215;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-    /* Shimmer skeleton shown while loading="lazy" images are still fetching.
-       The browser renders the element's background until the image bitmap is
-       decoded; once loaded the image covers it completely. */
     background-color: var(--bs-secondary-bg, #e9ecef);
     background-image: linear-gradient(
         90deg,
@@ -526,4 +520,3 @@ div#t-holder {
 @media (max-width: 575.98px) {
     .cag-stuff-columns { grid-template-columns: 1fr; }
 }
-</style>

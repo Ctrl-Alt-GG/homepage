@@ -1,6 +1,6 @@
 baseURL: "https://www.ctrl-alt-gg.hu/"
 defaultContentLanguage: "hu"
-theme: "paige"
+# theme: "paige"  # Migrated to embedded theme
 
 languages:
   hu:

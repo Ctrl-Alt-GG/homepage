@@ -1,0 +1,7 @@
+{{ $icon := .Get "icon" }}
+{{ $title := .Get "title" }}
+<div class="cag-card">
+  <span class="cag-card-icon">{{ $icon }}</span>
+  <div class="cag-card-title">{{ $title | htmlUnescape }}</div>
+  <p class="cag-card-desc">{{ .Inner }}</p>
+</div>

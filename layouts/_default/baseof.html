@@ -1,0 +1,21 @@
+{{ $page := . }}
+
+{{ $dark := eq ($page.Param "paige.site.color_scheme") "dark" }}
+{{ $lang := site.LanguageCode }}
+
+<!doctype html>
+<html {{ if $dark }} data-bs-theme="dark" {{ end }} {{ with $lang }} lang="{{ . }}" {{ end }}>
+  {{ partial "head.html" $page }}
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col mt-3" id="paige-site">
+          {{ partial "site-header.html" $page }}
+          {{ block "main" $page }}{{ end }}
+          {{ partial "site-footer.html" $page }}
+        </div>
+      </div>
+    </div>
+    {{ partial "scripts.html" $page }}
+  </body>
+</html>

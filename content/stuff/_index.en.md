@@ -4,8 +4,8 @@ title: "Practical information"
 
 ## What to bring and what not to
 
-<div class="cag-stuff-columns">
-<div class="cag-stuff-bring">
+{{< stuff-columns >}}
+{{< stuff-bring >}}
 
 ### ✅ Bring
 
@@ -16,8 +16,8 @@ title: "Practical information"
 - Mouse, keyboard, mousepad
 - **Headset** and microphone
 
-</div>
-<div class="cag-stuff-skip">
+{{< /stuff-bring >}}
+{{< stuff-skip >}}
 
 ### ❌ Leave at home
 
@@ -25,10 +25,10 @@ title: "Practical information"
 - UTP / network cable *(we provide these)*
 - **UPS** *(strictly forbidden!)*
 
-</div>
-</div>
+{{< /stuff-skip >}}
+{{< /stuff-columns >}}
 
-<div class="cag-callout">⚡ <span><strong>Power outlets:</strong> We can offer at most <strong>two outlets per person</strong>. If you need more, bring a power strip.</span></div>
+{{< callout icon="⚡" >}}<strong>Power outlets:</strong> We can offer at most <strong>two outlets per person</strong>. If you need more, bring a power strip.{{< /callout >}}
 
 Seating is **first come, first served**, so early arrivals have more choice. If you have special needs (for example, a special chair due to back problems), let us know in advance.
 

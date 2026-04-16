@@ -1,0 +1,17 @@
+{{ $address := .Get 0 | default (.Get "address") }}
+{{ $content := .InnerDeindent | markdownify }}
+
+{{ if not $address }}
+    {{ errorf "layouts/shortcodes/paige/email.html: no address" }}
+{{ end }}
+
+{{ if not $content }}
+    {{ errorf "layouts/shortcodes/paige/email.html: no content" }}
+{{ end }}
+
+{{ $parts := split $address "@" }}
+{{ if ne (len $parts) 2 }}
+    {{ errorf "layouts/shortcodes/paige/email.html: invalid email address %q (must contain exactly one @)" $address }}
+{{ end }}
+
+<span class="paige-shortcode-email"><a href="" data-a="{{ base64Encode (index $parts 0) }}" data-b="{{ base64Encode `@` }}" data-c="{{ base64Encode (index $parts 1) }}" onclick="this.href = 'mailto:' + atob(this.dataset.a) + atob(this.dataset.b) + atob(this.dataset.c)">{{ $content }}</a></span>

@@ -2,7 +2,7 @@
 title: "GY.I.K."
 ---
 
-<div class="cag-faq">
+{{< faq >}}
 
 ## Lesz internet elérés?
 
@@ -36,4 +36,4 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 
 Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. Persze a város sem lesz elég messze, hogy egy rövid powernapra ne lehetne elugrani. ;)
 
-</div>
+{{< /faq >}}

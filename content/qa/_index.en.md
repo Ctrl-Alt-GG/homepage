@@ -2,7 +2,7 @@
 title: "F.A.Q."
 ---
 
-<div class="cag-faq">
+{{< faq >}}
 
 ## Will there be internet access?
 
@@ -36,4 +36,4 @@ Unfortunately, we organizers might not be able to help directly. But if you have
 
 You can sleep wherever you can find a suitable spot for yourself, but keep in mind that life goes on around you. Of course, the city won't be far enough that you couldn't slip away for a quick power nap. ;)
 
-</div>
+{{< /faq >}}

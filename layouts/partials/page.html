@@ -1,0 +1,61 @@
+{{ $page := . }}
+
+{{ $class := slice }}
+{{ $content := $page.Content }}
+{{ $draft := $page.Draft }}
+{{ $expired := and $page.ExpiryDate (lt $page.ExpiryDate now) }}
+{{ $future := and $page.PublishDate (gt $page.PublishDate now) }}
+{{ $min := $page.Param `paige.pages.full_width` | not }}
+{{ $modified := and $page.PublishDate $page.Lastmod (lt $page.PublishDate $page.Lastmod) }}
+
+{{ if $draft }}
+    {{ $class = $class | append "paige-status-draft" "paige-status-unpublished" }}
+{{ end }}
+
+{{ if $expired }}
+    {{ $class = $class | append "paige-status-expired" "paige-status-unpublished" }}
+{{ end }}
+
+{{ if $future }}
+    {{ $class = $class | append "paige-status-future" "paige-status-unpublished" }}
+{{ end }}
+
+{{ if $modified }}
+    {{ $class = $class | append "paige-status-modified" }}
+{{ end }}
+
+{{ if not (or $draft $expired $future) }}
+    {{ $class = $class | append "paige-status-published" }}
+{{ end }}
+
+{{ with $page.Kind }}
+    {{ if eq . "home" }}
+        {{ $class = $class | append "paige-kind-home" }}
+    {{ else if eq . "section" }}
+        {{ $class = $class | append "paige-kind-section" }}
+    {{ else if eq . "page" }}
+        {{ $class = $class | append "paige-kind-page" }}
+    {{ else if eq . "taxonomy" }}
+        {{ $class = $class | append "paige-kind-taxonomy" }}
+    {{ else if eq . "term" }}
+        {{ $class = $class | append "paige-kind-term" }}
+    {{ end }}
+{{ end }}
+
+{{ $class = delimit ($class | uniq | sort) " " }}
+
+{{ $title := and ($page.Param "paige.pages.disable_title" | not) ($page.Title | markdownify) }}
+
+<article class="{{ if $min }} align-items-center d-flex flex-column {{ end }} {{ $class }}" id="paige-page">
+    {{ if $title }}
+        <header class="mw-100 text-center" id="paige-page-header">
+            <h1 class="fw-bold" id="paige-page-title">{{ $title }}</h1>
+        </header>
+    {{ end }}
+
+    <main class="mw-100" id="paige-page-content">
+        {{ with $content }}
+            {{ . | safeHTML }}
+        {{ end }}
+    </main>
+</article>

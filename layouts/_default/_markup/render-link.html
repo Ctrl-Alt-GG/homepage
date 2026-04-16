@@ -11,12 +11,12 @@
 {{- $destURL  := urls.Parse .Destination -}}
 {{- $siteURL  := urls.Parse site.BaseURL -}}
 {{- $external := cond $destURL.IsAbs (ne $destURL.Host $siteURL.Host) false -}}
-{{- $target   := partial "paige/func-target.html" (dict "page" .Page "url" .Destination) -}}
+{{- $target   := cond (and $external (.Page.Param "paige.site.external_link_new_tab" | not | not)) "_blank" "" -}}
 {{- $plain    := .PlainText -}}
 {{- $hasServer := strings.HasSuffix $plain "*" -}}
 {{- $label    := cond $hasServer (strings.TrimSuffix "*" $plain) $plain -}}
 <a {{ with .Destination }}href="{{ . }}" {{ end -}}
-   {{- if $external }}rel="external" {{ end -}}
+   {{- if $external }}rel="external{{ with $target }} noopener noreferrer{{ end }}" {{ end -}}
    {{- with $target }}target="{{ . }}" {{ end -}}
    {{- with .Title }}title="{{ . }}" {{ end -}}
    >{{ $label -}}
