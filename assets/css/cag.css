@@ -89,7 +89,6 @@ div#t-holder {
     padding: 1.5rem 1.6rem;
     border: 1px solid var(--bs-border-color);
     background: var(--bs-body-bg);
-    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
     position: relative;
     overflow: hidden;
 }
@@ -104,12 +103,6 @@ div#t-holder {
     height: 3px;
     background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-}
-
-.cag-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(var(--cag-accent-rgb), 0.18);
-    border-color: rgba(var(--cag-accent-rgb), 0.4);
 }
 
 .cag-card-icon {
