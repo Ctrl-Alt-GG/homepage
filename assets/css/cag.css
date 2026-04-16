@@ -16,13 +16,23 @@ div#t-holder {
     --cag-gold-rgb: 200, 150, 12;
 }
 
-/* Clip gradient fill onto site title text */
+/* Logo link wrapper */
 #paige-site-title a {
-    background: linear-gradient(135deg, var(--cag-accent) 0%, var(--cag-accent-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.02em;
+    display: inline-block;
+    transition: opacity var(--cag-transition);
+}
+
+#paige-site-title a:hover {
+    opacity: 0.85;
+}
+
+/* Inline SVG logo: height matches Bootstrap display-1 (5 rem), width scales proportionally */
+#cag-logo-svg {
+    height: 5rem;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Reduce visual weight of the site description */
