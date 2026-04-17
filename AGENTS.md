@@ -21,7 +21,7 @@ Do not hard-code versions or commands in docs or code. Read them from:
 
 | Fact | Pinned in |
 |---|---|
-| Node.js version | `engines.node` in `package.json` |
+| Node.js version | `.nvmrc` and `engines.node` in `package.json` |
 | Hugo version floor | `.github/workflows/azure-static-web-apps-*.yml` |
 | Dev / build commands | `scripts` in `package.json` |
 | Deploy pipeline | `.github/workflows/azure-static-web-apps-*.yml` |
@@ -57,6 +57,7 @@ not a pinned inventory.
 ## 4. Running the project
 
 ```bash
+nvm use              # honours .nvmrc (Node 24 LTS)
 npm ci               # install locked deps
 npm run dev          # Tailwind --watch + hugo server
 npm run build        # production build (build:css then build:hugo)
