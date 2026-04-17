@@ -3,7 +3,7 @@ title: "Ready?"
 summary: "The best gaming event of the year, surpassing our wildest imagination!"
 ---
 
-{{< paige/image breakpoints=true class="mt-3 object-fit-cover rounded-4 shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
+{{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
 
 {{< intro >}}
 Ready for the biggest gaming event of the year, the ultimate LAN party where everyone who matters will be there? Well, this isn't that. But don't worry, you matter to us. <3

@@ -1,52 +1,45 @@
-div#t-holder {
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding-bottom: 1em;
-}
+/* ──────────────────────────────────────────────────────────────────
+   cag.css — Ctrl-Alt-GG homepage visual components.
 
+   Brand colors come from the --color-brand-* scale declared in the
+   @theme block of main.css. Remaining --cag-* variables here cover
+   tokens that aren't representable in Tailwind theme yet: rgb-triplet
+   forms used with rgba(), the gold tournament accent, the "bring/skip"
+   stuff palette, and lightbox transition timing.
+   ────────────────────────────────────────────────────────────────── */
 :root {
-    /* ── Monochromatic red palette (hue 0°, lightest → darkest) ──────────────
-     *  --cag-accent-struct  : darkest   – structural borders, dividers
-     *  --cag-accent         : base      – card/section top-bar framing
-     *  --cag-accent-light   : mid-bright – text accents (titles, badges, bullets)
-     *  --cag-accent-link    : bright    – interactive links, active nav (light bg)
-     *  --cag-accent-display : vibrant   – display/page-title gradient peak
-     *  --cag-accent-ondark  : lightest  – accents rendered on dark surfaces
-     * ──────────────────────────────────────────────────────────────────────── */
-    --cag-accent-struct:     #770000;
-    --cag-accent-struct-rgb: 119, 0, 0;
-    --cag-accent:            #aa0000;
-    --cag-accent-rgb:        170, 0, 0;
-    --cag-accent-light:      #cc1111;
-    --cag-accent-link:       #dd2525;
-    --cag-accent-link-rgb:   221, 37, 37;
-    --cag-accent-display:    #ff4444;
-    --cag-accent-ondark:     #ff7777;
-    --cag-accent-ondark-rgb: 255, 119, 119;
-    --cag-stuff-bring:       #22c55e;
-    --cag-stuff-skip:        #ef4444;
-    --cag-header-text-light: #111111;
-    --cag-white:             #ffffff;
+    /* Rgb triplets for rgba() usage (Tailwind's opacity syntax can't be
+       used inside custom CSS values; color-mix() would work but keeps
+       these declarations close to the -rgb consumers below). */
+    --cag-brand-struct-rgb: 119, 0, 0;
+    --cag-brand-rgb:        170, 0, 0;
+    --cag-brand-link-rgb:   221, 37, 37;
+    --cag-brand-ondark-rgb: 255, 119, 119;
+
+    --cag-stuff-bring: #22c55e;
+    --cag-stuff-skip:  #ef4444;
+
+    /* Gold tournament accent (homepage-only, not a brand color). */
+    --cag-gold:       #c8960c;
+    --cag-gold-light: #e8b923;
+    --cag-gold-rgb:   200, 150, 12;
+
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
-    --cag-gold: #c8960c;
-    --cag-gold-light: #e8b923;
-    --cag-gold-rgb: 200, 150, 12;
     --cag-lb-transition-duration: 320ms;
 }
 
 /* Logo link wrapper */
-#paige-site-title a {
+#cag-site-title a {
     display: inline-block;
     transition: opacity var(--cag-transition);
 }
 
-#paige-site-title a:hover {
+#cag-site-title a:hover {
     opacity: 0.85;
 }
 
-/* Inline SVG logo: height matches Bootstrap display-1 (5 rem), width scales proportionally */
+/* Inline SVG logo: height fixed at 5 rem, width scales proportionally. */
 #cag-logo-svg {
     height: 5rem;
     width: auto;
@@ -56,15 +49,16 @@ div#t-holder {
 }
 
 /* Reduce visual weight of the site description */
-#paige-site-description {
+#cag-site-description {
     opacity: 0.8;
     font-style: italic;
 }
 
 /* Override theme shadow on the hero image */
-#paige-page-content > img.rounded-4 {
+#cag-page-content > img.rounded-4 {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     transition: box-shadow var(--cag-transition);
+    margin-bottom: 2rem;
 }
 
 /* .cag-features: wrapper for the heading and card grid */
@@ -90,7 +84,7 @@ div#t-holder {
     transform: translateX(-50%);
     width: 48px;
     height: 3px;
-    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
     border-radius: 2px;
 }
 
@@ -106,8 +100,8 @@ div#t-holder {
 .cag-card {
     border-radius: var(--cag-radius);
     padding: 1.5rem 1.6rem;
-    border: 1px solid var(--bs-border-color);
-    background: var(--bs-body-bg);
+    border: 1px solid var(--cag-border-color);
+    background: var(--cag-body-bg);
     position: relative;
     overflow: hidden;
 }
@@ -120,7 +114,7 @@ div#t-holder {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
 }
 
@@ -136,7 +130,7 @@ div#t-holder {
     font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.45rem;
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
     text-align: center;
 }
 
@@ -149,21 +143,21 @@ div#t-holder {
 
 /* Left border used as a block-level visual separator for the intro paragraph */
 .cag-intro {
-    border-left: 3px solid var(--cag-accent-struct);
+    border-left: 3px solid var(--color-brand-700);
     padding-left: 1.1rem;
     margin: 1.5rem 0;
     font-size: 1.025rem;
     line-height: 1.75;
 }
 
-/* Collapse to two columns below Bootstrap's lg breakpoint */
+/* Collapse to two columns below the lg breakpoint (992px). */
 @media (max-width: 991.98px) {
     .cag-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Collapse to single column below Bootstrap's sm breakpoint */
+/* Collapse to single column below the sm breakpoint (576px). */
 @media (max-width: 575.98px) {
     .cag-grid {
         grid-template-columns: 1fr;
@@ -171,8 +165,8 @@ div#t-holder {
 }
 
 /* ── Sub-page title: gradient text matching site title ── */
-#paige-page-title {
-    background: linear-gradient(135deg, var(--cag-accent-light) 0%, var(--cag-accent-display) 100%);
+#cag-page-title {
+    background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-400) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -185,14 +179,14 @@ div#t-holder {
 }
 
 /* Bottom border separator between page header and body */
-#paige-page-header {
+#cag-page-header {
     padding-bottom: 1.5rem;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--bs-border-color);
+    border-bottom: 1px solid var(--cag-border-color);
 }
 
-/* h2: gradient underbar via ::after */
-#paige-page-content h2 {
+/* .prose-cag: reusable long-form body scope (applied to #cag-page-content) */
+.prose-cag h2 {
     font-weight: 700;
     position: relative;
     padding-bottom: 0.5rem;
@@ -200,67 +194,62 @@ div#t-holder {
     margin-bottom: 1rem;
 }
 
-#paige-page-content h2::after {
+.prose-cag h2::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 36px;
     height: 2px;
-    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
     border-radius: 1px;
 }
 
-/* h3: accent left border */
-#paige-page-content h3 {
+.prose-cag h3 {
     padding-left: 0.75rem;
-    border-left: 3px solid var(--cag-accent-struct);
+    border-left: 3px solid var(--color-brand-700);
     margin-top: 1.75rem;
     font-weight: 600;
 }
 
-/* hr: fading gradient separator */
-#paige-page-content hr {
+.prose-cag hr {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(var(--cag-accent-struct-rgb), 0.45), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--cag-brand-struct-rgb), 0.45), transparent);
     margin: 2.5rem 0;
 }
 
-/* Links in page content: accent colour */
-#paige-page-content a:not([class]) {
-    color: var(--cag-accent-link);
-    text-decoration-color: rgba(var(--cag-accent-link-rgb), 0.35);
+.prose-cag a:not([class]) {
+    color: var(--color-brand-500);
+    text-decoration-color: rgba(var(--cag-brand-link-rgb), 0.35);
     text-underline-offset: 2px;
     transition: color var(--cag-transition), text-decoration-color var(--cag-transition);
 }
 
-#paige-page-content a:not([class]):hover {
-    color: var(--cag-accent-display);
-    text-decoration-color: var(--cag-accent-display);
+.prose-cag a:not([class]):hover {
+    color: var(--color-brand-400);
+    text-decoration-color: var(--color-brand-400);
 }
 
-/* Unordered list: accent ▸ bullet */
-#paige-page-content ul > li::marker {
+.prose-cag ul > li::marker {
     content: '▸  ';
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
 }
 
-/* Ordered list: accent numbered circles */
-#paige-page-content ol:not([class]) {
+.prose-cag ol:not([class]) {
     list-style: none;
     padding-left: 0;
     counter-reset: cag-counter;
 }
 
-#paige-page-content ol:not([class]) > li {
+.prose-cag ol:not([class]) > li {
     counter-increment: cag-counter;
     position: relative;
     padding-left: 3rem;
     margin-bottom: 0.9rem;
 }
 
-#paige-page-content ol:not([class]) > li::before {
+.prose-cag ol:not([class]) > li::before {
     content: counter(cag-counter);
     position: absolute;
     left: 0;
@@ -270,7 +259,7 @@ div#t-holder {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--cag-accent), var(--cag-accent-light));
+    background: linear-gradient(135deg, var(--color-brand-600), var(--color-brand-500));
     color: #fff;
     border-radius: 50%;
     font-size: 0.8rem;
@@ -279,28 +268,28 @@ div#t-holder {
 }
 
 /* ── .cag-faq: FAQ question highlight block ── */
-#paige-page-content .cag-faq h2 {
-    background: rgba(var(--cag-accent-struct-rgb), 0.07);
-    border-left: 4px solid var(--cag-accent-struct);
+.prose-cag .cag-faq h2 {
+    background: rgba(var(--cag-brand-struct-rgb), 0.07);
+    border-left: 4px solid var(--color-brand-700);
     border-radius: 0 8px 8px 0;
     padding: 0.7rem 1.1rem;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
 }
 
-#paige-page-content .cag-faq h2::after {
+.prose-cag .cag-faq h2::after {
     display: none;
 }
 
 /* ── .cag-person: person profile card (About Us) ── */
 .cag-person {
-    border-left: 3px solid var(--cag-accent-struct);
-    border-top: 1px solid var(--bs-border-color);
-    border-right: 1px solid var(--bs-border-color);
-    border-bottom: 1px solid var(--bs-border-color);
+    border-left: 3px solid var(--color-brand-700);
+    border-top: 1px solid var(--cag-border-color);
+    border-right: 1px solid var(--cag-border-color);
+    border-bottom: 1px solid var(--cag-border-color);
     border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
     padding: 1.25rem 1.5rem;
     margin-bottom: 1.5rem;
@@ -308,14 +297,14 @@ div#t-holder {
 }
 
 .cag-person:hover {
-    box-shadow: 0 4px 20px rgba(var(--cag-accent-rgb), 0.1);
+    box-shadow: 0 4px 20px rgba(var(--cag-brand-rgb), 0.1);
 }
 
 /* Override global h3 left-border inside person card */
-#paige-page-content .cag-person h3 {
+.prose-cag .cag-person h3 {
     padding-left: 0;
     border-left: none;
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
     font-size: 1.1rem;
     font-weight: 700;
     margin-top: 0;
@@ -323,15 +312,15 @@ div#t-holder {
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
-.paige-shortcode-gallery img {
+.cag-shortcode-gallery img {
     transition: transform var(--cag-transition), box-shadow var(--cag-transition);
     position: relative;
     cursor: zoom-in;
 }
 
-.paige-shortcode-gallery img:hover {
+.cag-shortcode-gallery img:hover {
     transform: scale(1.04);
-    box-shadow: 0 10px 36px rgba(var(--cag-accent-rgb), 0.5);
+    box-shadow: 0 10px 36px rgba(var(--cag-brand-rgb), 0.5);
     z-index: 1;
 }
 
@@ -527,8 +516,8 @@ body.cag-lb-active {
 
 .cag-game-cards li {
     border-radius: var(--cag-radius);
-    border: 1px solid var(--bs-border-color);
-    background: var(--bs-body-bg);
+    border: 1px solid var(--cag-border-color);
+    background: var(--cag-body-bg);
     padding: 0.85rem 1.1rem;
     display: flex;
     flex-direction: column;
@@ -546,18 +535,18 @@ body.cag-lb-active {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--cag-accent), var(--cag-accent-light));
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
 }
 
 .cag-game-cards li:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(var(--cag-accent-rgb), 0.15);
-    border-color: rgba(var(--cag-accent-rgb), 0.35);
+    box-shadow: 0 8px 24px rgba(var(--cag-brand-rgb), 0.15);
+    border-color: rgba(var(--cag-brand-rgb), 0.35);
 }
 
 /* Game name link */
 .cag-game-cards li a {
-    color: var(--bs-body-color);
+    color: var(--cag-body-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem;
@@ -574,12 +563,12 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li a:hover {
-    color: var(--cag-accent-link);
+    color: var(--color-brand-500);
 }
 
 /* Badge text (e.g., Tournament!) */
 .cag-game-cards li strong {
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -595,11 +584,11 @@ body.cag-lb-active {
     aspect-ratio: 460 / 215;
     object-fit: cover;
     border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-    background-color: var(--bs-secondary-bg, #e9ecef);
+    background-color: var(--cag-surface-alt);
     background-image: linear-gradient(
         90deg,
         transparent 25%,
-        rgba(var(--cag-accent-rgb), 0.12) 50%,
+        rgba(var(--cag-brand-rgb), 0.12) 50%,
         transparent 75%
     );
     background-size: 200% 100%;
@@ -616,7 +605,7 @@ body.cag-lb-active {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -667,16 +656,16 @@ body.cag-lb-active {
 .cag-stuff-skip {
     border-radius: var(--cag-radius);
     padding: 1.25rem 1.5rem;
-    border: 1px solid var(--bs-border-color);
-    background: var(--bs-body-bg);
+    border: 1px solid var(--cag-border-color);
+    background: var(--cag-body-bg);
 }
 
 .cag-stuff-bring { border-top: 3px solid var(--cag-stuff-bring); }
 .cag-stuff-skip  { border-top: 3px solid var(--cag-stuff-skip); }
 
 /* Override global h3 left-border inside stuff columns */
-#paige-page-content .cag-stuff-bring h3,
-#paige-page-content .cag-stuff-skip h3 {
+.prose-cag .cag-stuff-bring h3,
+.prose-cag .cag-stuff-skip h3 {
     padding-left: 0;
     border-left: none;
     font-size: 1rem;
@@ -685,8 +674,8 @@ body.cag-lb-active {
     margin-bottom: 0.75rem;
 }
 
-#paige-page-content .cag-stuff-bring h3 { color: var(--cag-stuff-bring); }
-#paige-page-content .cag-stuff-skip h3  { color: var(--cag-stuff-skip); }
+.prose-cag .cag-stuff-bring h3 { color: var(--cag-stuff-bring); }
+.prose-cag .cag-stuff-skip h3  { color: var(--cag-stuff-skip); }
 
 .cag-stuff-bring ul,
 .cag-stuff-skip ul {
@@ -712,8 +701,8 @@ body.cag-lb-active {
     display: flex;
     gap: 0.75rem;
     align-items: flex-start;
-    border-left: 4px solid var(--cag-accent-struct);
-    background: rgba(var(--cag-accent-struct-rgb), 0.07);
+    border-left: 4px solid var(--color-brand-700);
+    background: rgba(var(--cag-brand-struct-rgb), 0.07);
     border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
     padding: 0.85rem 1.25rem;
     margin: 1.25rem 0;
@@ -724,240 +713,10 @@ body.cag-lb-active {
 /* SVG server icon used as the callout icon on the Program page */
 .cag-callout-server-icon {
     flex-shrink: 0;
-    color: var(--cag-accent-light);
+    color: var(--color-brand-500);
     margin-top: 0.1em;
 }
 
 @media (max-width: 575.98px) {
     .cag-stuff-columns { grid-template-columns: 1fr; }
 }
-
-/* ══════════════════════════════════════════════════════════════════
-   PREMIUM HEADER — full-width branded bar, adapts to colour scheme.
-
-   Light mode : white background, black CTRL-ALT text.
-   Dark mode  : dark red gradient background (#130404 → #1e0606), white CTRL-ALT text.
-   ══════════════════════════════════════════════════════════════════ */
-
-/* ── Light-mode defaults ───────────────────────────────────────── */
-#paige-site-header {
-    background: var(--cag-white);
-    padding: 1.75rem 0 1.25rem;
-    border-bottom: 1px solid rgba(170, 0, 0, 0.2);
-}
-
-/* Logo text: black on white header (CSS fill overrides SVG currentColor) */
-#cag-logo-svg text {
-    fill: var(--cag-header-text-light);
-}
-
-/* Logo link: suppress Bootstrap text-body colour override */
-#paige-site-header #paige-site-title a {
-    color: var(--cag-header-text-light) !important;
-}
-
-/* Site description: muted dark */
-#paige-site-header #paige-site-description {
-    color: rgba(17, 17, 17, 0.55) !important;
-    opacity: 1;
-    font-style: italic;
-}
-
-/* Navigation links: dark on light header, no underline */
-#paige-site-header #paige-site-menu .nav-link {
-    color: rgba(17, 17, 17, 0.65) !important;
-    text-decoration: none !important;
-    font-size: 0.875rem;
-    letter-spacing: 0.04em;
-    font-weight: 400;
-    padding: 0.4rem 0.85rem;
-    border-radius: 6px;
-    transition: color var(--cag-transition), background var(--cag-transition);
-}
-
-#paige-site-header #paige-site-menu .nav-link:hover {
-    color: var(--cag-header-text-light) !important;
-    background: rgba(0, 0, 0, 0.05);
-}
-
-#paige-site-header #paige-site-menu .nav-link.active,
-#paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
-    color: var(--cag-accent-link) !important;
-    font-weight: 600;
-    background: rgba(var(--cag-accent-rgb), 0.08);
-}
-
-/* Language selector: muted dark */
-#paige-site-header #paige-language-selector {
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    color: rgba(17, 17, 17, 0.38);
-}
-
-#paige-site-header #paige-language-selector .mx-2 {
-    color: rgba(17, 17, 17, 0.3);
-}
-
-#paige-site-header #paige-language-selector a {
-    color: rgba(17, 17, 17, 0.5);
-    text-decoration: none;
-    transition: color var(--cag-transition);
-}
-
-#paige-site-header #paige-language-selector a:hover {
-    color: var(--cag-accent-link);
-}
-
-#paige-site-header #paige-language-selector .fw-bold {
-    color: rgba(17, 17, 17, 0.8);
-}
-
-/* ── Dark-mode overrides ─────────────────────────────────────────
-   Applies when Bootstrap sets data-bs-theme="dark" on the <html>
-   element (e.g. via paige.site.color_scheme = dark) OR when the
-   OS/browser prefers a dark colour scheme.
-   ──────────────────────────────────────────────────────────────── */
-
-/* Bootstrap-controlled dark mode: html[data-bs-theme="dark"] */
-html[data-bs-theme="dark"] #paige-site-header {
-    background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
-    border-bottom-color: rgba(170, 0, 0, 0.2);
-    color-scheme: dark;
-}
-
-html[data-bs-theme="dark"] #cag-logo-svg text {
-    fill: var(--cag-white);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-site-title a {
-    color: var(--cag-white) !important;
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-site-description {
-    color: rgba(255, 255, 255, 0.62) !important;
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link {
-    color: rgba(255, 255, 255, 0.72) !important;
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link:hover {
-    color: var(--cag-white) !important;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link.active,
-html[data-bs-theme="dark"] #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
-    color: var(--cag-accent-ondark) !important;
-    background: rgba(var(--cag-accent-ondark-rgb), 0.12);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-language-selector,
-html[data-bs-theme="dark"] #paige-site-header #paige-language-selector .mx-2 {
-    color: rgba(255, 255, 255, 0.38);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-language-selector a {
-    color: rgba(255, 255, 255, 0.55);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-language-selector a:hover {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-html[data-bs-theme="dark"] #paige-site-header #paige-language-selector .fw-bold {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* OS/browser dark preference */
-@media (prefers-color-scheme: dark) {
-    #paige-site-header {
-        background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
-        border-bottom-color: rgba(170, 0, 0, 0.2);
-        color-scheme: dark;
-    }
-
-    #cag-logo-svg text {
-        fill: var(--cag-white);
-    }
-
-    #paige-site-header #paige-site-title a {
-        color: var(--cag-white) !important;
-    }
-
-    #paige-site-header #paige-site-description {
-        color: rgba(255, 255, 255, 0.62) !important;
-    }
-
-    #paige-site-header #paige-site-menu .nav-link {
-        color: rgba(255, 255, 255, 0.72) !important;
-    }
-
-    #paige-site-header #paige-site-menu .nav-link:hover {
-        color: var(--cag-white) !important;
-        background: rgba(255, 255, 255, 0.08);
-    }
-
-    #paige-site-header #paige-site-menu .nav-link.active,
-    #paige-site-header #paige-site-menu .nav-link[aria-current="page"] {
-        color: var(--cag-accent-ondark) !important;
-        background: rgba(var(--cag-accent-ondark-rgb), 0.12);
-    }
-
-    #paige-site-header #paige-language-selector,
-    #paige-site-header #paige-language-selector .mx-2 {
-        color: rgba(255, 255, 255, 0.38);
-    }
-
-    #paige-site-header #paige-language-selector a {
-        color: rgba(255, 255, 255, 0.55);
-    }
-
-    #paige-site-header #paige-language-selector a:hover {
-        color: rgba(255, 255, 255, 0.9);
-    }
-
-    #paige-site-header #paige-language-selector .fw-bold {
-        color: rgba(255, 255, 255, 0.9);
-    }
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   PREMIUM FOOTER — full-width dark bar (consistent in both modes)
-   ══════════════════════════════════════════════════════════════════ */
-
-#paige-site-footer {
-    background: linear-gradient(160deg, #130404 0%, #1e0606 100%);
-    padding: 1.25rem 0;
-    margin-top: 3rem;
-    border-top: 1px solid rgba(170, 0, 0, 0.2);
-    color-scheme: dark;
-}
-
-#paige-site-footer #paige-site-copyright,
-#paige-site-footer #paige-site-credit {
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.25rem;
-}
-
-#paige-site-footer a {
-    color: rgba(255, 255, 255, 0.5) !important;
-    text-decoration: none;
-    transition: color var(--cag-transition);
-}
-
-#paige-site-footer a:hover {
-    color: var(--cag-accent-ondark) !important;
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   PREMIUM POLISH — refined spacing
-   ══════════════════════════════════════════════════════════════════ */
-
-/* Hero image: generous bottom margin */
-#paige-page-content > img.rounded-4 {
-    margin-bottom: 2rem;
-}
-

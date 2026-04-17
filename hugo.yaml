@@ -1,6 +1,5 @@
 baseURL: "https://www.ctrl-alt-gg.hu/"
 defaultContentLanguage: "hu"
-# theme: "paige"  # Migrated to embedded theme
 
 languages:
   hu:
@@ -23,7 +22,7 @@ copyright: "2025-2026 Ctrl-Alt-GG"
 params:
   assets:
     logo: "logo-turkix-hollow.svg"
-  paige:
+  cag:
     site:
       description: "GL&HF, IRL."
       disable_credit: true

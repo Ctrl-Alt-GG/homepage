@@ -2,11 +2,19 @@
   translation: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
 - id: server_badge_aria
   translation: "Hosztolt szerver elérhető"
-- id: paige_home
+- id: home
   translation: "Főoldal"
-- id: paige_menu
+- id: menu
   translation: "Menü"
-- id: paige_figure
+- id: figure
   translation: "Ábra"
-- id: paige_javascript_is_required
+- id: javascript_is_required
   translation: "A JavaScript használata szükséges"
+- id: footer_family_label
+  translation: "A Ctrl-Alt-GG család további oldalai"
+- id: family_care
+  translation: "Care"
+- id: family_spawn
+  translation: "Spawn"
+- id: family_lobby
+  translation: "Lobby"

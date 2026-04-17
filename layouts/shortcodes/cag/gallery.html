@@ -1,0 +1,37 @@
+{{ $align := .Get "align" | default "center" }}
+{{ $justify := .Get "justify" | default "center" }}
+{{ $type := .Get "type" | default "rows" }}
+{{ $inner := chomp .InnerDeindent }}
+
+{{ if not $inner }}
+    {{ errorf "layouts/shortcodes/cag/gallery.html: no inner content (image shortcodes required)" }}
+{{ end }}
+
+{{/* Tailwind alignment helpers. Classes must be literals so Tailwind's
+     content scanner picks them up from the template source. */}}
+{{ $alignClass := "items-center" }}
+{{ if eq $align "start" }}{{ $alignClass = "items-start" }}{{ end }}
+{{ if eq $align "end" }}{{ $alignClass = "items-end" }}{{ end }}
+
+{{ $justifyClass := "justify-center" }}
+{{ if eq $justify "start" }}{{ $justifyClass = "justify-start" }}{{ end }}
+{{ if eq $justify "end" }}{{ $justifyClass = "justify-end" }}{{ end }}
+{{ if eq $justify "between" }}{{ $justifyClass = "justify-between" }}{{ end }}
+
+{{/* The markup below cannot be indented due to nested shortcodes within Markdown. */}}
+
+<div class="cag-shortcode-gallery">
+{{ if eq $type "grid" }}
+<div class="w-full overflow-hidden">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 {{ $alignClass }} {{ $justifyClass }}">
+{{ $inner }}
+</div>
+</div>
+{{ else if eq $type "rows" }}
+<div class="flex flex-wrap gap-4 {{ $alignClass }} {{ $justifyClass }}">
+{{ $inner }}
+</div>
+{{ else }}
+{{ errorf "layouts/shortcodes/cag/gallery.html: invalid type: %q" $type }}
+{{ end }}
+</div>

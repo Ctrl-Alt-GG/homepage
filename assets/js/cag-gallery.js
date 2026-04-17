@@ -1,8 +1,8 @@
 /**
- * cag-gallery.js – Lightbox for .paige-shortcode-gallery images.
+ * cag-gallery.js – Lightbox for .cag-shortcode-gallery images.
  *
  * Standalone images (rendered via the render-image hook) are NOT wrapped in
- * .paige-shortcode-gallery, so they are completely unaffected.
+ * .cag-shortcode-gallery, so they are completely unaffected.
  *
  * Features:
  *  - Click a gallery image → opens full-screen lightbox with blurred backdrop
@@ -311,7 +311,7 @@
   /* ── Gallery click delegation ─────────────────────────────────────────────── */
   function onDocumentClick(e) {
     if (e.target.tagName !== 'IMG') return;
-    var gallery = e.target.closest('.paige-shortcode-gallery');
+    var gallery = e.target.closest('.cag-shortcode-gallery');
     if (!gallery) return;
 
     var galleryImages = Array.from(gallery.querySelectorAll('img'));

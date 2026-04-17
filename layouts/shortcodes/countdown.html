@@ -1,7 +1,19 @@
-<!-- TODO: Currently this supports only one countdown element -->
+{{- /* TODO: Currently this supports only one countdown element */ -}}
 {{- $targetdate := .Get "target" -}}
 <div id="t-holder">... még <span id="t"></span>!</div>
-<script src="/countdown.min.js"></script>
+{{- /*
+  countdown.min.js must load synchronously before the inline script below,
+  which calls countdown() at parse time. Do NOT add defer/async here.
+*/ -}}
+{{- with resources.Get "js/countdown.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
 <script>
     (() => {
         'use strict'

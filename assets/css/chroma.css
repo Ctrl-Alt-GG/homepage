@@ -1,0 +1,81 @@
+{{ $page := . }}
+
+.cag-shortcode-figure-numbered {
+    counter-increment: cag-shortcode-figure-numbered;
+}
+
+.cag-shortcode-figure-numbered > div > figure > figcaption::before {
+    content: "{{ i18n `figure` | safeCSS }} " counter(cag-shortcode-figure-numbered) ": ";
+}
+
+.cag-shortcode-figure-numbered > div > figure > figcaption:empty::before {
+    content: "{{ i18n `figure` | safeCSS }} " counter(cag-shortcode-figure-numbered);
+}
+
+.cag-shortcode-quote .blockquote-footer {
+    margin-top: 0;
+}
+
+.cag-shortcode-quote blockquote {
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+blockquote {
+    padding: 0.5rem 1rem;
+    border-left: 0.25rem solid var(--cag-border-color);
+    border-right: 0.25rem solid var(--cag-body-bg);
+}
+
+td,
+th {
+    padding: 0.25rem;
+}
+
+.highlight .chroma .hl,
+.highlight .chroma .lnt {
+    display: flex;
+}
+
+.cag-row-short:not(:last-child),
+.cag-shortcode-figure .cag-shortcode-quote,
+.cag-shortcode-figure .cag-video,
+.cag-shortcode-figure .highlight pre.chroma,
+.cag-shortcode-figure .highlight .chroma pre,
+.cag-shortcode-figure .cag-shortcode-quote blockquote,
+.cag-shortcode-figure figure > div > :last-child,
+.cag-shortcode-gallery .cag-shortcode-figure,
+.cag-shortcode-gallery .cag-shortcode-image,
+blockquote > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.cag-shortcode-figure,
+.cag-shortcode-gallery,
+.cag-shortcode-image,
+.cag-shortcode-quote,
+.cag-row-short:last-child,
+.cag-row-tall,
+.cag-video,
+#cag-page-content > *,
+table {
+    margin-bottom: 1rem;
+}
+
+{{ $colorscheme := $page.Param "cag.site.color_scheme" }}
+
+{{ if eq $colorscheme "dark" }}
+    {{ partial "chroma/dark.css" $page | safeCSS }}
+{{ else if eq $colorscheme "light" }}
+    {{ partial "chroma/light.css" $page | safeCSS }}
+{{ else }}
+    @media (prefers-color-scheme: dark) {
+        {{ partial "chroma/dark.css" $page | safeCSS }}
+    }
+
+    @media (prefers-color-scheme: light) {
+        {{ partial "chroma/light.css" $page | safeCSS }}
+    }
+{{ end }}

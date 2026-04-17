@@ -1,0 +1,19 @@
+{{ $page := . }}
+
+{{ $copyright := and ($page.Param "cag.site.disable_copyright" | not) (site.Copyright | markdownify) }}
+
+<footer id="cag-site-footer" class="bg-gradient-to-br from-[#130404] to-[#1e0606] py-5 mt-12 border-t border-brand-600/20 text-white/40 text-sm [color-scheme:dark]">
+    <div class="cag-container">
+        {{ if $copyright }}
+            <p class="cag-row-short text-center tracking-wider" id="cag-site-copyright">{{ $copyright }}</p>
+        {{ end }}
+        <nav aria-label="{{ i18n `footer_family_label` }}" class="cag-row-short flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm">
+            <span class="text-white/60">{{ i18n "footer_family_label" }}:</span>
+            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://care.ctrl-alt-gg.hu/">{{ i18n "family_care" }}</a>
+            <span aria-hidden="true" class="text-white/30">·</span>
+            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://spawn.ctrl-alt-gg.hu/">{{ i18n "family_spawn" }}</a>
+            <span aria-hidden="true" class="text-white/30">·</span>
+            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://lobby.ctrl-alt-gg.hu/">{{ i18n "family_lobby" }}</a>
+        </nav>
+    </div>
+</footer>

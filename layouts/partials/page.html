@@ -5,55 +5,55 @@
 {{ $draft := $page.Draft }}
 {{ $expired := and $page.ExpiryDate (lt $page.ExpiryDate now) }}
 {{ $future := and $page.PublishDate (gt $page.PublishDate now) }}
-{{ $min := $page.Param `paige.pages.full_width` | not }}
+{{ $min := $page.Param `cag.pages.full_width` | not }}
 {{ $modified := and $page.PublishDate $page.Lastmod (lt $page.PublishDate $page.Lastmod) }}
 
 {{ if $draft }}
-    {{ $class = $class | append "paige-status-draft" "paige-status-unpublished" }}
+    {{ $class = $class | append "cag-status-draft" "cag-status-unpublished" }}
 {{ end }}
 
 {{ if $expired }}
-    {{ $class = $class | append "paige-status-expired" "paige-status-unpublished" }}
+    {{ $class = $class | append "cag-status-expired" "cag-status-unpublished" }}
 {{ end }}
 
 {{ if $future }}
-    {{ $class = $class | append "paige-status-future" "paige-status-unpublished" }}
+    {{ $class = $class | append "cag-status-future" "cag-status-unpublished" }}
 {{ end }}
 
 {{ if $modified }}
-    {{ $class = $class | append "paige-status-modified" }}
+    {{ $class = $class | append "cag-status-modified" }}
 {{ end }}
 
 {{ if not (or $draft $expired $future) }}
-    {{ $class = $class | append "paige-status-published" }}
+    {{ $class = $class | append "cag-status-published" }}
 {{ end }}
 
 {{ with $page.Kind }}
     {{ if eq . "home" }}
-        {{ $class = $class | append "paige-kind-home" }}
+        {{ $class = $class | append "cag-kind-home" }}
     {{ else if eq . "section" }}
-        {{ $class = $class | append "paige-kind-section" }}
+        {{ $class = $class | append "cag-kind-section" }}
     {{ else if eq . "page" }}
-        {{ $class = $class | append "paige-kind-page" }}
+        {{ $class = $class | append "cag-kind-page" }}
     {{ else if eq . "taxonomy" }}
-        {{ $class = $class | append "paige-kind-taxonomy" }}
+        {{ $class = $class | append "cag-kind-taxonomy" }}
     {{ else if eq . "term" }}
-        {{ $class = $class | append "paige-kind-term" }}
+        {{ $class = $class | append "cag-kind-term" }}
     {{ end }}
 {{ end }}
 
 {{ $class = delimit ($class | uniq | sort) " " }}
 
-{{ $title := and ($page.Param "paige.pages.disable_title" | not) ($page.Title | markdownify) }}
+{{ $title := and ($page.Param "cag.pages.disable_title" | not) ($page.Title | markdownify) }}
 
-<article class="{{ if $min }} align-items-center d-flex flex-column {{ end }} {{ $class }}" id="paige-page">
+<article class="{{ if $min }} flex flex-col items-center {{ end }} {{ $class }}" id="cag-page">
     {{ if $title }}
-        <header class="mw-100 text-center" id="paige-page-header">
-            <h1 class="fw-bold" id="paige-page-title">{{ $title }}</h1>
+        <header class="max-w-full text-center" id="cag-page-header">
+            <h1 class="font-bold" id="cag-page-title">{{ $title }}</h1>
         </header>
     {{ end }}
 
-    <main class="mw-100" id="paige-page-content">
+    <main class="max-w-full prose-cag" id="cag-page-content">
         {{ with $content }}
             {{ . | safeHTML }}
         {{ end }}

@@ -6,21 +6,21 @@
 {{ $page := $context.Page }}
 {{ $text := $context.Text }}
 
-{{ $maximize := $page.Param "paige.pages.maximize_heading_levels" }}
-{{ $minimize := $page.Param "paige.pages.minimize_heading_levels" }}
-{{ $normalize := $page.Param "paige.pages.normalize_heading_levels" }}
+{{ $maximize := $page.Param "cag.pages.maximize_heading_levels" }}
+{{ $minimize := $page.Param "cag.pages.minimize_heading_levels" }}
+{{ $normalize := $page.Param "cag.pages.normalize_heading_levels" }}
 
 {{ $attrs = merge $attrs (dict "id" $anchor) }}
 
 {{ if and (or $maximize $minimize $normalize) (len $page.Fragments.HeadingsMap) }}
     {{ $levels := dict }}
 
-    {{ with $page.Store.Get "paige-render-heading" }}
+    {{ with $page.Store.Get "cag-render-heading" }}
         {{ $levels = .levels }}
     {{ else }}
         {{ $largest := 0 }}
-        {{ $maximum := $page.Param "paige.pages.maximum_heading_level" }}
-        {{ $minimum := $page.Param "paige.pages.minimum_heading_level" }}
+        {{ $maximum := $page.Param "cag.pages.maximum_heading_level" }}
+        {{ $minimum := $page.Param "cag.pages.minimum_heading_level" }}
         {{ $smallest := 7 }}
 
         {{ range $k, $v := $page.Fragments.HeadingsMap }}
@@ -69,7 +69,7 @@
             {{ end }}
         {{ end }}
 
-        {{ $page.Store.Set "paige-render-heading" (dict "levels" $levels) }}
+        {{ $page.Store.Set "cag-render-heading" (dict "levels" $levels) }}
     {{ end }}
 
     {{ $new := index $levels (string $level) }}
@@ -105,5 +105,5 @@
 {{ end }}
 
 <h{{ $level }} {{ range $k, $v := $attrs }} {{ printf `%s="%s"` $k $v | safeHTMLAttr }} {{ end }}>
-    <a href="#{{ $anchor }}" style="color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)); text-decoration: none">{{ $text }}</a>
+    <a class="no-underline text-inherit" href="#{{ $anchor }}">{{ $text }}</a>
 </h{{ $level }}>

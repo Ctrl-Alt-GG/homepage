@@ -2,11 +2,19 @@
   translation: "A server for this game will be hosted at the event"
 - id: server_badge_aria
   translation: "Hosted server available"
-- id: paige_home
+- id: home
   translation: "Home"
-- id: paige_menu
+- id: menu
   translation: "Menu"
-- id: paige_figure
+- id: figure
   translation: "Figure"
-- id: paige_javascript_is_required
+- id: javascript_is_required
   translation: "JavaScript is required"
+- id: footer_family_label
+  translation: "Also in the Ctrl-Alt-GG family"
+- id: family_care
+  translation: "Care"
+- id: family_spawn
+  translation: "Spawn"
+- id: family_lobby
+  translation: "Lobby"

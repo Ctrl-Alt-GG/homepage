@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+/* ──────────────────────────────────────────────────────────────────
+   Ctrl-Alt-GG shared design tokens
+   The palette, font stack, radii, shadows and elevation scale below
+   are identical across all three CAG properties (homepage, care,
+   link-collection). Each site then layers its own *accent* palette
+   (homepage → red+gold, care → blue, spawn → purple) so the three
+   sites feel like siblings without losing their distinct identity.
+   ────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Ctrl-Alt-GG brand red (primary brand palette, homepage dominant). */
+  --color-brand-50:  #fff1f1;
+  --color-brand-100: #ffd9d9;
+  --color-brand-200: #ffb3b3;
+  --color-brand-300: #ff7676;
+  --color-brand-400: #f14848;
+  --color-brand-500: #dd2525;
+  --color-brand-600: #aa0000;
+  --color-brand-700: #770000;
+  --color-brand-800: #560000;
+  --color-brand-900: #3d0000;
+  --color-brand-950: #160505;
+
+  /* Homepage-specific accent: celebratory gold. */
+  --color-accent-400: #e8b923;
+  --color-accent-500: #c8960c;
+
+  /* Typography — Inter first, system fallback keeps the page legible if
+     Google Fonts is blocked. */
+  --font-sans: "Inter", "Inter var", system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Shared radius & elevation scale — cards, callouts and buttons all
+     pick from the same visual language. */
+  --radius-pill: 9999px;
+  --radius-card: 0.875rem;
+  --radius-panel: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.08);
+  --shadow-panel: 0 2px 4px rgb(0 0 0 / 0.05), 0 20px 50px rgb(0 0 0 / 0.12);
+}
+
+/* ── CAG design-token surface palette ────────────────────────────
+   Hand-authored replacement for Bootstrap 5.3's `--bs-*` surface
+   variables; consumed by cag.css and the chroma color schemes.
+   ───────────────────────────────────────────────────────────────── */
+:root {
+  --cag-border-color: #dee2e6;
+  --cag-body-bg: #fff;
+  --cag-body-color: #212529;
+  --cag-surface-alt: #e9ecef;
+  --cag-link: #0d6efd;
+  --cag-link-hover: #0a58ca;
+}
+
+[data-theme="dark"],
+.dark {
+  --cag-border-color: #495057;
+  --cag-body-bg: #212529;
+  --cag-body-color: #dee2e6;
+  --cag-surface-alt: #343a40;
+  --cag-link: #6ea8fe;
+  --cag-link-hover: #8bb9fe;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cag-border-color: #495057;
+    --cag-body-bg: #212529;
+    --cag-body-color: #dee2e6;
+    --cag-surface-alt: #343a40;
+    --cag-link: #6ea8fe;
+    --cag-link-hover: #8bb9fe;
+  }
+}
+
+@layer base {
+  /* Body defaults matching Bootstrap 5.3 Reboot so the removal of BS is a
+     pixel-level no-op. */
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--cag-body-color);
+    background-color: var(--cag-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Responsive heading sizes from Bootstrap 5.3 RFS (Responsive Font Sizes). */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  h1 { font-size: calc(1.375rem + 1.5vw); }
+  h2 { font-size: calc(1.325rem + 0.9vw); }
+  h3 { font-size: calc(1.3rem + 0.6vw); }
+  h4 { font-size: calc(1.275rem + 0.3vw); }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1rem; }
+
+  @media (min-width: 1200px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+  }
+
+  ul {
+    list-style: disc;
+    list-style-position: outside;
+  }
+
+  ol {
+    list-style: decimal;
+    list-style-position: outside;
+  }
+
+  ul ul,
+  ul ol,
+  ol ul,
+  ol ol {
+    margin-bottom: 0;
+  }
+
+  blockquote {
+    margin: 0 0 1rem;
+  }
+
+  hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 1px solid;
+    opacity: 0.25;
+  }
+
+  a {
+    color: var(--cag-link);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--cag-link-hover);
+  }
+
+  /* Keep Bootstrap's img/svg vertical alignment instead of Tailwind's
+     Preflight default (display: block), which would cause layout
+     regressions on inline images. */
+  img,
+  svg {
+    vertical-align: middle;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  table {
+    caption-side: bottom;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+@layer components {
+  /* Responsive centered container — replicates Bootstrap 5.3 `.container` so that
+     swapping the class in templates is a visual no-op when Bootstrap CSS is removed. */
+  .cag-container {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 576px) {
+    .cag-container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .cag-container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .cag-container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .cag-container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 1400px) {
+    .cag-container {
+      max-width: 1320px;
+    }
+  }
+
+  .cag-container-fluid {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* Horizontal nav container used by the site header menu. */
+  .cag-nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  /* Base reset for header nav links. */
+  .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out;
+  }
+
+  /* Homepage site-header nav links: colour, hover, active, and language-aware
+     variants. Declared once here so the template markup stays readable. */
+  .cag-nav-link {
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .cag-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .cag-nav-link[aria-current="page"] {
+    color: #fff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Vertical rhythm helpers used by the site header/footer. */
+  .cag-row-tall {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cag-row-short {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Countdown holder block used by the countdown shortcode. */
+  #t-holder {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 1em;
+  }
+}
+
+/* Existing hand-authored design system — loaded as a component layer so Tailwind
+   utilities can still override individual properties at call-sites. */
+@import "./cag.css" layer(components);

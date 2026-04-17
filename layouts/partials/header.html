@@ -1,9 +1,9 @@
 {{ $page := . }}
 
 {{ $basePath := path.Clean (urls.Parse (relLangURL "")).Path }}
-{{ $description := and ($page.Param "paige.site.disable_description" | not) ($page.Param "paige.site.description" | markdownify) }}
-{{ $menu := $page.Param "paige.site.disable_menu" | not }}
-{{ $title := and ($page.Param "paige.site.disable_title" | not) (site.Title | markdownify) }}
+{{ $description := and ($page.Param "cag.site.disable_description" | not) ($page.Param "cag.site.description" | markdownify) }}
+{{ $menu := $page.Param "cag.site.disable_menu" | not }}
+{{ $title := and ($page.Param "cag.site.disable_title" | not) (site.Title | markdownify) }}
 
 {{ if eq $basePath "/" }}
     {{ $basePath = "" }}
@@ -12,11 +12,11 @@
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
 {{ if or $description $menu $title }}
-    <header id="paige-site-header">
-        <div class="container">
+    <header id="cag-site-header" class="bg-brand-950 dark:bg-gradient-to-br dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 dark:[color-scheme:dark]">
+        <div class="cag-container">
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }}paige-row-tall{{ end }} text-center" id="paige-site-title">
-                <a class="text-body text-decoration-none" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
+            <div class="{{ if not (or $description $menu) }}cag-row-tall{{ end }} text-center" id="cag-site-title">
+                <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
                         {{ $logo.Content | safeHTML }}
@@ -28,7 +28,7 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="lead paige-row-tall text-center" id="paige-site-description">{{ . }}</div>
+            <div class="text-xl font-light italic cag-row-tall text-center text-white/75" id="cag-site-description">{{ . }}</div>
         {{ end }}
 
         {{ if $menu }}
@@ -42,12 +42,12 @@
 
             {{ $pages = sort $pages "LinkTitle" }}
 
-            <nav aria-label="{{ i18n `paige_menu` }}" class="paige-row-tall" id="paige-site-menu">
-                <ul class="align-items-center justify-content-center nav ">
+            <nav aria-label="{{ i18n `menu` }}" class="cag-row-tall" id="cag-site-menu">
+                <ul class="cag-nav items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
-                    <li class="nav-item">
-                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
+                    <li>
+                        <a {{ if $active }} aria-current="page" {{ end }} class="nav-link cag-nav-link" href="{{ relLangURL `` }}">{{ i18n "home" }}</a>
                     </li>
 
                     {{ range $pages }}
@@ -59,8 +59,8 @@
 
                         {{ $active := or $home $menuMatch $section }}
 
-                        <li class="nav-item">
-                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                        <li>
+                            <a {{ if $active }} aria-current="page" {{ end }} class="nav-link cag-nav-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                         </li>
                     {{ end }}
                 </ul>
@@ -69,11 +69,11 @@
 
         {{/* Language selector */}}
         {{ if gt (len site.Languages) 1 }}
-            <div id="paige-language-selector" class="text-center paige-row-short">
+            <div id="cag-language-selector" class="text-center cag-row-short text-xs tracking-wider text-white/55">
                 {{ range site.Languages }}
                     {{ $lang := . }}
                     {{ if eq $lang.Lang $page.Language.Lang }}
-                        <span class="fw-bold">{{ $lang.LanguageName }}</span>
+                        <span class="font-bold text-white/90">{{ $lang.LanguageName }}</span>
                     {{ else }}
                         {{ with $page.AllTranslations }}
                             {{ $altPage := (index . 0) }}
@@ -82,13 +82,13 @@
                                     {{ $altPage = . }}
                                 {{ end }}
                             {{ end }}
-                            <a href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
+                            <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
                         {{ else }}
-                            <a href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
+                            <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
                         {{ end }}
                     {{ end }}
                     {{ if ne $lang.Lang (index site.Languages (sub (len site.Languages) 1)).Lang }}
-                        <span class="mx-2">·</span>
+                        <span class="mx-2 text-white/30">·</span>
                     {{ end }}
                 {{ end }}
             </div>

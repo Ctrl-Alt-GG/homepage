@@ -1,21 +1,21 @@
 {{ $page := . }}
 
-{{ $dark := eq ($page.Param "paige.site.color_scheme") "dark" }}
+{{ $dark := eq ($page.Param "cag.site.color_scheme") "dark" }}
 {{ $lang := site.LanguageCode }}
 
 <!doctype html>
-<html {{ if $dark }} data-bs-theme="dark" {{ end }} {{ with $lang }} lang="{{ . }}" {{ end }}>
+<html {{ if $dark }} data-theme="dark" {{ end }} {{ with $lang }} lang="{{ . }}" {{ end }}>
   {{ partial "head.html" $page }}
-  <body>
-    {{ partial "site-header.html" $page }}
-    <div class="container">
-      <div class="row">
-        <div class="col mt-4" id="paige-site">
-          {{ block "main" $page }}{{ end }}
-        </div>
+  <body class="font-sans antialiased">
+    {{- /* Ctrl-Alt-GG family hairline — the shared brand signature across all three CAG sites. */ -}}
+    <div class="h-1 bg-brand-600" aria-hidden="true"></div>
+    {{ partial "header.html" $page }}
+    <div class="cag-container">
+      <div class="mt-6" id="cag-site">
+        {{ block "main" $page }}{{ end }}
       </div>
     </div>
-    {{ partial "site-footer.html" $page }}
-    {{ partial "scripts.html" $page }}
+    {{ partial "footer.html" $page }}
+    {{ partialCached "footer/js.html" $page }}
   </body>
 </html>

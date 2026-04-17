@@ -1,8 +1,8 @@
 /* Generated using: hugo gen chromastyles --style=github */
-/* Edited Background and PreWrapper to use the Bootstrap background color */
+/* Edited Background and PreWrapper to use the page background color */
 
-/* Background (edited) */ .bg { background-color:var(--bs-body-bg); }
-/* PreWrapper (edited) */ .chroma { background-color:var(--bs-body-bg); }
+/* Background (edited) */ .bg { background-color:var(--cag-body-bg); }
+/* PreWrapper (edited) */ .chroma { background-color:var(--cag-body-bg); }
 /* Other */ .chroma .x {  }
 /* Error */ .chroma .err { color:#f6f8fa;background-color:#82071e }
 /* CodeLine */ .chroma .cl {  }

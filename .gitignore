@@ -2,3 +2,6 @@ public/
 .DS_Store
 .hugo_build.lock
 _gen/
+resources/
+assets/css/compiled/
+node_modules/
