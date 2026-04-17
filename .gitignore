@@ -4,3 +4,4 @@ public/
 _gen/
 resources/
 assets/css/compiled/
+node_modules/

@@ -271,40 +271,16 @@
     font-weight: 400;
     padding: 0.4rem 0.85rem;
     border-radius: 6px;
-    color: rgba(17, 17, 17, 0.65);
-  }
-  .cag-nav-link:hover {
-    color: rgba(17, 17, 17, 1);
-    background: rgba(0, 0, 0, 0.05);
-  }
-  .cag-nav-link[aria-current="page"] {
-    color: var(--color-brand-500);
-    font-weight: 600;
-    background: rgba(var(--cag-brand-rgb), 0.08);
-  }
-  :is([data-theme="dark"], .dark) .cag-nav-link {
     color: rgba(255, 255, 255, 0.72);
   }
-  :is([data-theme="dark"], .dark) .cag-nav-link:hover {
+  .cag-nav-link:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.15);
   }
-  :is([data-theme="dark"], .dark) .cag-nav-link[aria-current="page"] {
-    color: var(--color-brand-300);
-    background: rgba(var(--cag-brand-ondark-rgb), 0.12);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .cag-nav-link {
-      color: rgba(255, 255, 255, 0.72);
-    }
-    :root:not([data-theme="light"]) .cag-nav-link:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    :root:not([data-theme="light"]) .cag-nav-link[aria-current="page"] {
-      color: var(--color-brand-300);
-      background: rgba(var(--cag-brand-ondark-rgb), 0.12);
-    }
+  .cag-nav-link[aria-current="page"] {
+    color: #fff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
   }
 
   /* Vertical rhythm helpers used by the site header/footer. */
