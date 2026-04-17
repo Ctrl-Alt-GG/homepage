@@ -129,6 +129,16 @@
     padding-left: 2rem;
   }
 
+  ul {
+    list-style: disc;
+    list-style-position: outside;
+  }
+
+  ol {
+    list-style: decimal;
+    list-style-position: outside;
+  }
+
   ul ul,
   ul ol,
   ol ul,

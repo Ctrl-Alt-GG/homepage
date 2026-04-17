@@ -14,9 +14,9 @@
 */ -}}
 
 {{- $name := .name -}}
-{{- $class := .class | default "" -}}
-{{- $label := .label -}}
-{{- $size := .size -}}
+{{- $class := .class | default "" | htmlEscape -}}
+{{- $label := .label | htmlEscape -}}
+{{- $size := .size | htmlEscape -}}
 
 {{- with resources.Get (printf "icons/%s.svg" $name) -}}
   {{- $svg := .Content -}}

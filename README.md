@@ -10,14 +10,15 @@ Hugo (extended) + Tailwind CSS v4 + Node.js, deployed to Azure Static Web Apps.
 
 Tool versions and build commands are pinned in the repo — don't copy them into docs. Read them from:
 
-- `.nvmrc` and `engines.node` in `package.json` — Node version
-- `module.hugoVersion` in `hugo.yaml` — Hugo version floor
+- `engines.node` in `package.json` — supported Node.js version range
 - `scripts` in `package.json` — dev and build commands
+- `.github/workflows/` — CI/deployment build environment and command order
 
 ## Local development
 
+Use a Node.js version compatible with `engines.node` in `package.json`, then run:
+
 ```bash
-nvm use
 npm ci
 npm run dev
 ```

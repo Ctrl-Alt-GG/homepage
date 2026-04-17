@@ -21,8 +21,8 @@ Do not hard-code versions or commands in docs or code. Read them from:
 
 | Fact | Pinned in |
 |---|---|
-| Node.js version | `.nvmrc` and `engines.node` in `package.json` |
-| Hugo version floor | `module.hugoVersion` in `hugo.yaml` |
+| Node.js version | `engines.node` in `package.json` |
+| Hugo version floor | `.github/workflows/azure-static-web-apps-*.yml` |
 | Dev / build commands | `scripts` in `package.json` |
 | Deploy pipeline | `.github/workflows/azure-static-web-apps-*.yml` |
 | Site languages, params, flags | `hugo.yaml` (`[languages]`, `params.cag.*`) |
@@ -45,7 +45,7 @@ If a change would contradict any of these, update the pinned source.
   (`intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`,
   `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`). Content authors
   compose pages out of these.
-- `assets/css/` — Tailwind source; `assets/css/compiled/` is **git-ignored**.
+- `assets/css/` — Tailwind source; `assets/css/compiled/` is **git-ignored** (generated during build).
 - `assets/img/`, `assets/js/` — small hand-authored static assets.
 - `i18n/` — per-locale string tables (`<lang>.yaml`).
 - `static/` — files copied verbatim to the site root.
@@ -57,7 +57,6 @@ not a pinned inventory.
 ## 4. Running the project
 
 ```bash
-nvm use              # honours .nvmrc
 npm ci               # install locked deps
 npm run dev          # Tailwind --watch + hugo server
 npm run build        # production build (build:css then build:hugo)
