@@ -24,11 +24,17 @@ div#t-holder {
     --cag-accent-display:    #ff4444;
     --cag-accent-ondark:     #ff7777;
     --cag-accent-ondark-rgb: 255, 119, 119;
+    --cag-stuff-bring:       #22c55e;
+    --cag-stuff-skip:        #ef4444;
+    --cag-header-text-light: #111111;
+    --cag-white:             #ffffff;
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
     --cag-gold: #c8960c;
     --cag-gold-light: #e8b923;
     --cag-gold-rgb: 200, 150, 12;
+    --cag-color-success: #22c55e;
+    --cag-color-danger: #ef4444;
     --cag-lb-transition-duration: 320ms;
 }
 
@@ -667,8 +673,8 @@ body.cag-lb-active {
     background: var(--bs-body-bg);
 }
 
-.cag-stuff-bring { border-top: 3px solid #22c55e; }
-.cag-stuff-skip  { border-top: 3px solid #ef4444; }
+.cag-stuff-bring { border-top: 3px solid var(--cag-stuff-bring); }
+.cag-stuff-skip  { border-top: 3px solid var(--cag-stuff-skip); }
 
 /* Override global h3 left-border inside stuff columns */
 #paige-page-content .cag-stuff-bring h3,
@@ -681,8 +687,8 @@ body.cag-lb-active {
     margin-bottom: 0.75rem;
 }
 
-#paige-page-content .cag-stuff-bring h3 { color: #22c55e; }
-#paige-page-content .cag-stuff-skip h3  { color: #ef4444; }
+#paige-page-content .cag-stuff-bring h3 { color: var(--cag-stuff-bring); }
+#paige-page-content .cag-stuff-skip h3  { color: var(--cag-stuff-skip); }
 
 .cag-stuff-bring ul,
 .cag-stuff-skip ul {
@@ -693,7 +699,7 @@ body.cag-lb-active {
 
 .cag-stuff-bring ul > li::marker,
 .cag-stuff-skip ul > li::marker {
-    content: '';   /* reset the global ▸ marker inside these columns */
+    content: ''; /* reset the global ▸ marker inside these columns */
 }
 
 .cag-stuff-bring li,
@@ -744,12 +750,12 @@ body.cag-lb-active {
 
 /* Logo text: black on white header (CSS fill overrides SVG currentColor) */
 #cag-logo-svg text {
-    fill: #111111;
+    fill: var(--cag-header-text-light);
 }
 
 /* Logo link: suppress Bootstrap text-body colour override */
 #paige-site-header #paige-site-title a {
-    color: #111111 !important;
+    color: var(--cag-header-text-light) !important;
 }
 
 /* Site description: muted dark */
@@ -822,11 +828,11 @@ html[data-bs-theme="dark"] #paige-site-header {
 }
 
 html[data-bs-theme="dark"] #cag-logo-svg text {
-    fill: #ffffff;
+    fill: var(--cag-white);
 }
 
 html[data-bs-theme="dark"] #paige-site-header #paige-site-title a {
-    color: #ffffff !important;
+    color: var(--cag-white) !important;
 }
 
 html[data-bs-theme="dark"] #paige-site-header #paige-site-description {
