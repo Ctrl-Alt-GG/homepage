@@ -949,19 +949,8 @@ html[data-bs-theme="dark"] #paige-site-header #paige-language-selector .fw-bold 
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   PREMIUM POLISH — subtle card lift, refined spacing
+   PREMIUM POLISH — refined spacing
    ══════════════════════════════════════════════════════════════════ */
-
-/* Feature cards: hover lift */
-.cag-card {
-    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
-}
-
-.cag-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(var(--cag-accent-rgb), 0.12);
-    border-color: rgba(var(--cag-accent-rgb), 0.3);
-}
 
 /* Hero image: generous bottom margin */
 #paige-page-content > img.rounded-4 {
