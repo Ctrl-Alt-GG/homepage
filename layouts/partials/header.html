@@ -42,12 +42,15 @@
 
             {{ $pages = sort $pages "LinkTitle" }}
 
+            {{/* Shared class list for every header nav link (active state via aria-current). */}}
+            {{ $navLinkClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px] text-white/[72%] hover:text-white hover:bg-white/15 aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+
             <nav aria-label="{{ i18n `menu` }}" class="my-8" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
                     <li>
-                        <a {{ if $active }} aria-current="page" {{ end }} class="block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px] text-white/[72%] hover:text-white hover:bg-white/15 aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" href="{{ relLangURL `` }}">{{ i18n "home" }}</a>
+                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ relLangURL `` }}">{{ i18n "home" }}</a>
                     </li>
 
                     {{ range $pages }}
@@ -60,7 +63,7 @@
                         {{ $active := or $home $menuMatch $section }}
 
                         <li>
-                            <a {{ if $active }} aria-current="page" {{ end }} class="block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px] text-white/[72%] hover:text-white hover:bg-white/15 aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                         </li>
                     {{ end }}
                 </ul>
