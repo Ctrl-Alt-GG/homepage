@@ -16,3 +16,5 @@
   translation: "Care"
 - id: family_spawn
   translation: "Spawn"
+- id: family_lobby
+  translation: "Lobby"
