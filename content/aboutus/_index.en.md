@@ -2,11 +2,11 @@
 title: "About Us"
 ---
 
-{{< paige/image height="10rem" src="logo-turkix-hollow.svg" >}}
+{{< cag/image height="10rem" src="logo-turkix-hollow.svg" >}}
 
 If you have any further questions about the event, the easiest way is to reach out to whoever invited you.
 
-You can also reach us {{< paige/email address="szervezok@ctrl-alt-gg.hu" >}}by email.{{< /paige/email >}}
+You can also reach us {{< cag/email address="szervezok@ctrl-alt-gg.hu" >}}by email.{{< /cag/email >}}
 
 ## Meet...
 

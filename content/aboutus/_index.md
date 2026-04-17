@@ -2,11 +2,11 @@
 title: "Rólunk"
 ---
 
-{{< paige/image height="10rem" src="logo-turkix-hollow.svg" >}}
+{{< cag/image height="10rem" src="logo-turkix-hollow.svg" >}}
 
 Ha bármi további kérdésed merül fel a rendezvénnyel kapcsolatban, a legegyszerűbb ha megkeresed azt aki meghívott.
 
-Emellett elérsz minket {{< paige/email address="szervezok@ctrl-alt-gg.hu" >}}emailen is.{{< /paige/email >}}
+Emellett elérsz minket {{< cag/email address="szervezok@ctrl-alt-gg.hu" >}}emailen is.{{< /cag/email >}}
 
 ## Ismerd meg...
 

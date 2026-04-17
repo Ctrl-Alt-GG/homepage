@@ -13,7 +13,7 @@
 {{ $sizes := .Get "sizes" }}
 {{ $src := .Get 0 | default (.Get "src") }}
 {{ if not $src }}
-    {{ errorf "layouts/shortcodes/paige/image.html: no src" }}
+    {{ errorf "layouts/shortcodes/cag/image.html: no src" }}
 {{ end }}
 {{ $srcset := .Get "srcset" }}
 {{ $style := .Get "style" }}
@@ -166,6 +166,6 @@
     {{ $imgSrc = relLangURL $src }}
 {{ end }}
 
-<div class="paige-shortcode-image">
-<img {{ with $alt }} alt="{{ . }}" {{ end }} {{ with (printf "img-fluid %s" $class) }} class="{{ . }}" {{ end }} crossorigin="anonymous" {{ if and $priority (ne $priority "auto") }} fetchpriority="{{ $priority }}" {{ end }} {{ with $intrinsicHeight }} height="{{ . }}" {{ end }} {{ if ne $loading "eager" }} loading="{{ $loading }}" {{ end }} referrerpolicy="no-referrer" {{ with $computedSizes }} sizes="{{ . }}" {{ end }} src="{{ $imgSrc }}" {{ with $computedSrcset }} {{ printf `srcset="%s"` . | safeHTMLAttr }} {{ end }} {{ with $computedStyle }} style="{{ . | safeCSS }}" {{ end }} {{ with $title }} title="{{ . }}" {{ end }} {{ with $intrinsicWidth }} width="{{ . }}" {{ end }}>
+<div class="cag-shortcode-image">
+<img {{ with $alt }} alt="{{ . }}" {{ end }} {{ with (printf "max-w-full h-auto %s" $class) }} class="{{ . }}" {{ end }} crossorigin="anonymous" {{ if and $priority (ne $priority "auto") }} fetchpriority="{{ $priority }}" {{ end }} {{ with $intrinsicHeight }} height="{{ . }}" {{ end }} {{ if ne $loading "eager" }} loading="{{ $loading }}" {{ end }} referrerpolicy="no-referrer" {{ with $computedSizes }} sizes="{{ . }}" {{ end }} src="{{ $imgSrc }}" {{ with $computedSrcset }} {{ printf `srcset="%s"` . | safeHTMLAttr }} {{ end }} {{ with $computedStyle }} style="{{ . | safeCSS }}" {{ end }} {{ with $title }} title="{{ . }}" {{ end }} {{ with $intrinsicWidth }} width="{{ . }}" {{ end }}>
 </div>

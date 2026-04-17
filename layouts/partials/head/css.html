@@ -1,0 +1,30 @@
+{{- /*
+  Standardized CSS loading partial.
+  - Development: plain <link>, no fingerprint (fast rebuilds, easy debugging).
+  - Production: minified + fingerprinted + subresource integrity.
+
+  Loads:
+    1) css/chroma.css   — template asset for chroma syntax-highlighting themes.
+    2) css/compiled/main.css — Tailwind v4 bundle (includes cag.css).
+*/ -}}
+{{- $isDev := eq hugo.Environment "development" -}}
+
+{{- with resources.Get "css/chroma.css" | resources.ExecuteAsTemplate "css/chroma.css" . -}}
+  {{- if $isDev -}}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else -}}
+    {{- with . | resources.Minify | resources.Fingerprint -}}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with resources.Get "css/compiled/main.css" -}}
+  {{- if $isDev -}}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else -}}
+    {{- with . | resources.Minify | resources.Fingerprint -}}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

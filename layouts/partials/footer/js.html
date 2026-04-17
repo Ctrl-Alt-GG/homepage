@@ -1,0 +1,23 @@
+{{- $page := . -}}
+
+{{- /*
+  Gallery lightbox. In development we ship the source unminified so the
+  browser devtools show readable stacks; in production we minify + fingerprint
+  and emit a subresource integrity hash.
+*/ -}}
+{{- with resources.Get "js/cag-gallery.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{ partial "schema.html" $page }}
+
+<noscript>{{ i18n "javascript_is_required" }}</noscript>
