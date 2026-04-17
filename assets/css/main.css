@@ -246,44 +246,6 @@
     margin-left: auto;
   }
 
-  /* Horizontal nav container used by the site header menu. */
-  .cag-nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-
-  /* Base reset for header nav links. */
-  .nav-link {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out;
-  }
-
-  /* Homepage site-header nav links: colour, hover, active, and language-aware
-     variants. Declared once here so the template markup stays readable. */
-  .cag-nav-link {
-    font-size: 0.875rem;
-    letter-spacing: 0.04em;
-    font-weight: 400;
-    padding: 0.4rem 0.85rem;
-    border-radius: 6px;
-    color: rgba(255, 255, 255, 0.72);
-  }
-  .cag-nav-link:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-  }
-  .cag-nav-link[aria-current="page"] {
-    color: #fff;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.2);
-  }
-
   /* Vertical rhythm helpers used by the site header/footer. */
   .cag-row-tall {
     margin-top: 2rem;
@@ -293,14 +255,6 @@
   .cag-row-short {
     margin-top: 1rem;
     margin-bottom: 1rem;
-  }
-
-  /* Countdown holder block used by the countdown shortcode. */
-  #t-holder {
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding-bottom: 1em;
   }
 }
 

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 150"
-     role="img" aria-label="Ctrl-Alt-GG" id="cag-logo-svg">
+     role="img" aria-label="Ctrl-Alt-GG" id="cag-logo-svg" class="h-20 w-auto max-w-full block mx-auto">
   <title>Ctrl-Alt-GG</title>
   <defs>
     <linearGradient id="cag-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">

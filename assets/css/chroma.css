@@ -39,7 +39,6 @@ th {
     display: flex;
 }
 
-.cag-row-short:not(:last-child),
 .cag-shortcode-figure .cag-shortcode-quote,
 .cag-shortcode-figure .cag-video,
 .cag-shortcode-figure .highlight pre.chroma,
@@ -56,8 +55,6 @@ blockquote > p:last-of-type {
 .cag-shortcode-gallery,
 .cag-shortcode-image,
 .cag-shortcode-quote,
-.cag-row-short:last-child,
-.cag-row-tall,
 .cag-video,
 #cag-page-content > *,
 table {
