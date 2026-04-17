@@ -15,7 +15,7 @@
     <header id="paige-site-header">
         <div class="container">
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }} paige-row-tall {{ end }} text-center" id="paige-site-title">
+            <div class="{{ if not (or $description $menu) }}paige-row-tall{{ end }} text-center" id="paige-site-title">
                 <a class="text-body text-decoration-none" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
@@ -47,7 +47,7 @@
                     {{ $active := eq $page.Section "" }}
 
                     <li class="nav-item">
-                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline " href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
+                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ relLangURL `` }}">{{ i18n "paige_home" }}</a>
                     </li>
 
                     {{ range $pages }}
@@ -60,7 +60,7 @@
                         {{ $active := or $home $menuMatch $section }}
 
                         <li class="nav-item">
-                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline " href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ if $active }} active fw-bold text-body {{ end }} nav-link text-decoration-underline" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                         </li>
                     {{ end }}
                 </ul>
