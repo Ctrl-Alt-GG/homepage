@@ -1,10 +1,10 @@
 {{ $icon := .Get "icon" | default "⚡" -}}
-<div class="cag-callout">
+<div class="cag-callout flex gap-3 items-start border-l-4 border-l-brand-700 bg-brand-700/7 rounded-r-card py-[0.85rem] px-5 my-5 text-[0.95rem] leading-[1.6]">
   {{- if eq $icon "server" -}}
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
        fill="none" stroke="currentColor" stroke-width="2.5"
        stroke-linecap="round" stroke-linejoin="round"
-       aria-hidden="true" class="cag-callout-server-icon">
+       aria-hidden="true" class="cag-callout-server-icon shrink-0 text-brand-500 mt-[0.1em]">
     <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
     <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
     <line x1="6" y1="6" x2="6.01" y2="6"/>

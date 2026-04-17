@@ -1,6 +1,6 @@
 {{- /* TODO: Currently this supports only one countdown element */ -}}
 {{- $targetdate := .Get "target" -}}
-<div id="t-holder">... még <span id="t"></span>!</div>
+<div id="t-holder" class="text-right text-[1.2rem] font-bold pb-[1em]">... még <span id="t"></span>!</div>
 {{- /*
   countdown.min.js must load synchronously before the inline script below,
   which calls countdown() at parse time. Do NOT add defer/async here.

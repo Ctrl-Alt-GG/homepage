@@ -15,7 +15,7 @@
     <header id="cag-site-header" class="bg-brand-950 dark:bg-gradient-to-br dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 dark:[color-scheme:dark]">
         <div class="cag-container">
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }}cag-row-tall{{ end }} text-center" id="cag-site-title">
+            <div class="{{ if not (or $description $menu) }}my-8{{ end }} text-center" id="cag-site-title">
                 <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
@@ -28,7 +28,7 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="text-xl font-light italic cag-row-tall text-center text-white/75" id="cag-site-description">{{ . }}</div>
+            <div class="text-xl font-light italic my-8 text-center text-white/75" id="cag-site-description">{{ . }}</div>
         {{ end }}
 
         {{ if $menu }}
@@ -42,12 +42,15 @@
 
             {{ $pages = sort $pages "LinkTitle" }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="cag-row-tall" id="cag-site-menu">
-                <ul class="cag-nav items-center justify-center">
+            {{/* Shared class list for every header nav link (active state via aria-current). */}}
+            {{ $navLinkClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px] text-white/[72%] hover:text-white hover:bg-white/15 aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+
+            <nav aria-label="{{ i18n `menu` }}" class="my-8" id="cag-site-menu">
+                <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
                     <li>
-                        <a {{ if $active }} aria-current="page" {{ end }} class="nav-link cag-nav-link" href="{{ relLangURL `` }}">{{ i18n "home" }}</a>
+                        <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ relLangURL `` }}">{{ i18n "home" }}</a>
                     </li>
 
                     {{ range $pages }}
@@ -60,7 +63,7 @@
                         {{ $active := or $home $menuMatch $section }}
 
                         <li>
-                            <a {{ if $active }} aria-current="page" {{ end }} class="nav-link cag-nav-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                         </li>
                     {{ end }}
                 </ul>
@@ -69,7 +72,7 @@
 
         {{/* Language selector */}}
         {{ if gt (len site.Languages) 1 }}
-            <div id="cag-language-selector" class="text-center cag-row-short text-xs tracking-wider text-white/55">
+            <div id="cag-language-selector" class="text-center my-4 text-xs tracking-wider text-white/55">
                 {{ range site.Languages }}
                     {{ $lang := . }}
                     {{ if eq $lang.Lang $page.Language.Lang }}
