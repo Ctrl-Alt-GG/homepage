@@ -45,7 +45,8 @@
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
   {{- with index hugo.Data.games $slug -}}
     {{- $remoteURL = . -}}
-    {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://www.ctrl-alt-gg.hu/)") -}}
+    {{- $ua := printf "Mozilla/5.0 (compatible; Hugo; +%s)" site.BaseURL -}}
+    {{- $opts := dict "headers" (dict "User-Agent" $ua) -}}
     {{- with try (resources.GetRemote . $opts) -}}
       {{- with .Err -}}
         {{- warnf "render-image: cannot fetch remote image for %q: %s" $src . -}}

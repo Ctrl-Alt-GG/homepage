@@ -27,6 +27,8 @@
     --cag-radius: 14px;
     --cag-transition: 0.25s ease;
     --cag-lb-transition-duration: 320ms;
+    /* Smooth, quick slide settling for lightbox track movement. */
+    --cag-lb-easing-slide: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* .cag-features-heading: centered section heading with decorative accent bar */
@@ -256,7 +258,7 @@ body.cag-lb-active {
     width: 100%;
     height: 100%;
     will-change: transform;
-    transition: transform var(--cag-lb-transition-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform var(--cag-lb-transition-duration) var(--cag-lb-easing-slide);
 }
 
 /* Individual slide – exactly one viewport wide, centres the image */
