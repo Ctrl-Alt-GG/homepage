@@ -1,7 +1,7 @@
 {{ $heading := .Get "heading" }}
 <div class="cag-features mt-10 mb-4">
-  <div class="cag-features-heading text-center font-bold text-[1.45rem] mb-7 pb-3 relative">{{ $heading }}</div>
-  <div class="cag-grid grid grid-cols-1 min-[576px]:grid-cols-2 min-[992px]:grid-cols-3 gap-5 max-w-[900px] mx-auto">
+  <div class="cag-features-heading text-center font-bold text-[1.45rem] mb-7 pb-3 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[3px] after:bg-gradient-to-r after:from-brand-600 after:to-brand-500 after:rounded-[2px]">{{ $heading }}</div>
+  <div class="cag-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[900px] mx-auto">
     {{ .Inner }}
   </div>
 </div>

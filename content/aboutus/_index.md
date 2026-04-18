@@ -10,7 +10,7 @@ Emellett elérsz minket {{< cag/email address="szervezok@ctrl-alt-gg.hu" >}}emai
 
 ## Ismerd meg...
 
-<div class="cag-person">
+{{< person >}}
 
 ### FiNTet
 
@@ -18,9 +18,9 @@ FiNT vagyok, közel 20 év Counter-Strike tapasztalattal (mondjuk ez nem látsz�
 
 ❤️: CS2, Satisfactory, GTA5
 
-</div>
+{{< /person >}}
 
-<div class="cag-person">
+{{< person >}}
 
 ### Marcsellot
 
@@ -29,9 +29,9 @@ A Counter-Strike-al még általános suliban ismerkedtem meg, sokat játszottam 
 
 Az IT utáni csillapíthatatlan érdeklődésemből kifolyólag rengeteg kis hobbi projektem van, amik gyakran az értékes játéktól veszik el az időt. Az egyik ilyen például, hogy hogyan lehet egy LAN Party teljes IT infrastruktúráját megtervezni, felépíteni és üzemeltetni?
 
-</div>
+{{< /person >}}
 
-<div class="cag-person">
+{{< person >}}
 
 ### TormaKris-t
 
@@ -39,12 +39,12 @@ Kristóf vagyok, óvodás korom óta különféle videójátékokkal játszom, e
 
 Sci-fi rajongó - Star Trek, Stargate, Battlestar Galactica - ezeket tudom nonstop nézni.
 
-</div>
+{{< /person >}}
 
-<div class="cag-person">
+{{< person >}}
 
 ### és Bencét
 
 Én már nagyon kevés évesen is az infótanár idegeit húztam azzal, hogy odafigyelés helyett Counter-Strike 1.6-oztam órán. Sokféle játékos közösségben megfordultam az évek alatt, ahol rengeteg remek embert ismertem meg. Ide úgy kerültem, hogy a srácok azt mondták szervezzünk LAN partit, én meg azt mondtam oké. Én vagyok a csapat kabalája. Jelenlétemmel szerencsét hozok és időnként design-on is dolgozom. (amúgy, pls kerülhetek az elejére?)
 
-</div>
+{{< /person >}}

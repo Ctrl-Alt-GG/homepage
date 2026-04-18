@@ -1,556 +1,305 @@
 /* ──────────────────────────────────────────────────────────────────
    cag.css — Ctrl-Alt-GG homepage visual components.
 
-   Brand colors come from the --color-brand-* scale declared in the
-   @theme block of main.css. Remaining --cag-* variables here cover
-   tokens that aren't representable in Tailwind theme yet: rgb-triplet
-   forms used with rgba(), the gold tournament accent, the "bring/skip"
-   stuff palette, and lightbox transition timing.
+   Brand and accent colors are referenced via the @theme tokens
+   declared in main.css (--color-brand-*, --color-accent-*).
+   Adaptive surface/border/link tokens (--surface, --border, etc.)
+   are CSS custom properties defined in main.css that switch between
+   light and dark values and are available as Tailwind utilities.
    ────────────────────────────────────────────────────────────────── */
-:root {
-    /* Rgb triplets for rgba() usage (Tailwind's opacity syntax can't be
-       used inside custom CSS values; color-mix() would work but keeps
-       these declarations close to the -rgb consumers below). */
-    --cag-brand-struct-rgb: 119, 0, 0;
-    --cag-brand-rgb:        170, 0, 0;
-    --cag-brand-link-rgb:   221, 37, 37;
-    --cag-brand-ondark-rgb: 255, 119, 119;
 
-    --cag-stuff-bring: #22c55e;
-    --cag-stuff-skip:  #ef4444;
-
-    /* Gold tournament accent (homepage-only, not a brand color). */
-    --cag-gold:       #c8960c;
-    --cag-gold-light: #e8b923;
-    --cag-gold-rgb:   200, 150, 12;
-
-    --cag-radius: 14px;
-    --cag-transition: 0.25s ease;
-    --cag-lb-transition-duration: 320ms;
-    /* Smooth, quick slide settling for lightbox track movement. */
-    --cag-lb-easing-slide: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* .prose-cag: reusable long-form body scope (applied to #cag-page-content).
+   Provides base typography for Markdown-rendered content since Tailwind
+   Preflight strips all browser defaults. */
+.prose-cag p {
+    @apply mb-4;
 }
 
-/* .cag-features-heading: centered section heading with decorative accent bar */
-.cag-features-heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
-    border-radius: 2px;
-}
-
-/* Accent bar on the top edge of each card via ::before pseudo-element */
-.cag-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
-    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-}
-
-/* Override theme shadow on the hero image */
-#cag-page-content > img.rounded-4 {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-    transition: box-shadow var(--cag-transition);
-    margin-bottom: 2rem;
-}
-
-/* .prose-cag: reusable long-form body scope (applied to #cag-page-content) */
-.prose-cag h2 {
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 0.5rem;
-    margin-top: 2.25rem;
-    margin-bottom: 1rem;
-}
-
-.prose-cag h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 36px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
-    border-radius: 1px;
-}
-
-.prose-cag h3 {
-    padding-left: 0.75rem;
-    border-left: 3px solid var(--color-brand-700);
-    margin-top: 1.75rem;
-    font-weight: 600;
-}
-
-.prose-cag hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(var(--cag-brand-struct-rgb), 0.45), transparent);
-    margin: 2.5rem 0;
-}
-
-.prose-cag a:not([class]) {
-    color: var(--color-brand-500);
-    text-decoration-color: rgba(var(--cag-brand-link-rgb), 0.35);
-    text-underline-offset: 2px;
-    transition: color var(--cag-transition), text-decoration-color var(--cag-transition);
-}
-
-.prose-cag a:not([class]):hover {
-    color: var(--color-brand-400);
-    text-decoration-color: var(--color-brand-400);
-}
-
-.prose-cag ul > li::marker {
-    content: '▸  ';
-    color: var(--color-brand-500);
+.prose-cag ul {
+    @apply list-disc list-outside pl-8 mb-4;
 }
 
 .prose-cag ol:not([class]) {
-    list-style: none;
-    padding-left: 0;
+    @apply mb-4;
+}
+
+.prose-cag h2 {
+    @apply text-[2rem] font-bold leading-tight relative pb-2 mt-9 mb-4;
+}
+
+.prose-cag h2::after {
+    @apply content-[''] absolute bottom-0 left-0 w-9 h-[2px] rounded-[1px];
+    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
+}
+
+.prose-cag h3 {
+    @apply text-[1.75rem] leading-tight pl-3 border-l-[3px] border-l-brand-700 mt-7 font-semibold;
+}
+
+.prose-cag hr {
+    @apply border-none h-px my-10;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-brand-700) 45%, transparent), transparent);
+}
+
+.prose-cag a:not([class]) {
+    @apply text-brand-500 underline decoration-brand-500/35 underline-offset-[2px] transition-[color,text-decoration-color] duration-[250ms] ease-[ease];
+}
+
+.prose-cag a:not([class]):hover {
+    @apply text-brand-400 decoration-brand-400;
+}
+
+.prose-cag ul > li::marker {
+    @apply text-brand-500;
+    content: '▸  ';
+}
+
+.prose-cag ol:not([class]) {
+    @apply list-none pl-0;
     counter-reset: cag-counter;
 }
 
 .prose-cag ol:not([class]) > li {
+    @apply relative pl-12 mb-[0.9rem];
     counter-increment: cag-counter;
-    position: relative;
-    padding-left: 3rem;
-    margin-bottom: 0.9rem;
 }
 
 .prose-cag ol:not([class]) > li::before {
+    @apply absolute left-0 top-[0.1em] size-8 flex items-center justify-center text-white rounded-full text-[0.8rem] font-bold leading-none;
     content: counter(cag-counter);
-    position: absolute;
-    left: 0;
-    top: 0.1em;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: linear-gradient(135deg, var(--color-brand-600), var(--color-brand-500));
-    color: #fff;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-/* ── .cag-faq: FAQ question highlight block ── */
-.prose-cag .cag-faq h2 {
-    background: rgba(var(--cag-brand-struct-rgb), 0.07);
-    border-left: 4px solid var(--color-brand-700);
-    border-radius: 0 8px 8px 0;
-    padding: 0.7rem 1.1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--color-brand-500);
-}
-
-.prose-cag .cag-faq h2::after {
-    display: none;
-}
-
-/* ── .cag-person: person profile card (About Us) ── */
-.cag-person {
-    border-left: 3px solid var(--color-brand-700);
-    border-top: 1px solid var(--cag-border-color);
-    border-right: 1px solid var(--cag-border-color);
-    border-bottom: 1px solid var(--cag-border-color);
-    border-radius: 0 var(--cag-radius) var(--cag-radius) 0;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: box-shadow var(--cag-transition);
-}
-
-.cag-person:hover {
-    box-shadow: 0 4px 20px rgba(var(--cag-brand-rgb), 0.1);
-}
-
-/* Override global h3 left-border inside person card */
-.prose-cag .cag-person h3 {
-    padding-left: 0;
-    border-left: none;
-    color: var(--color-brand-500);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.75rem;
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
 .cag-shortcode-gallery img {
-    transition: transform var(--cag-transition), box-shadow var(--cag-transition);
-    position: relative;
-    cursor: zoom-in;
+    @apply transition-[transform,box-shadow] duration-[250ms] ease-[ease] relative cursor-zoom-in;
 }
 
 .cag-shortcode-gallery img:hover {
-    transform: scale(1.04);
-    box-shadow: 0 10px 36px rgba(var(--cag-brand-rgb), 0.5);
-    z-index: 1;
+    @apply scale-[1.04] z-[1];
+    box-shadow: 0 10px 36px color-mix(in srgb, var(--color-brand-600) 50%, transparent);
+}
+
+/* ── .cag-person: team member card heading ── */
+.cag-person h3 {
+    @apply pl-0 border-l-0 text-brand-500 text-[1.1rem] font-bold mt-0 mb-5;
+}
+
+/* ── .cag-faq: FAQ question highlight block ── */
+.cag-faq h2 {
+    @apply bg-brand-700/7 border-l-4 border-l-brand-700 rounded-r-[8px] py-[0.7rem] px-[1.1rem] mt-6 mb-3 text-[1.05rem] font-bold text-brand-500;
+}
+
+.cag-faq h2::after {
+    @apply hidden;
+}
+
+/* ── Stuff page: prose-cag overrides inside bring/skip columns ── */
+.cag-stuff-bring h3,
+.cag-stuff-skip h3 {
+    @apply pl-0 border-l-0 text-base font-bold mt-0 mb-3;
+}
+
+.cag-stuff-bring h3 { @apply text-stuff-bring; }
+.cag-stuff-skip h3  { @apply text-stuff-skip; }
+
+.cag-stuff-bring ul,
+.cag-stuff-skip ul {
+    @apply m-0 pl-5 list-disc;
+}
+
+.cag-stuff-bring li,
+.cag-stuff-skip li {
+    @apply text-[0.9rem] leading-[1.6] mb-[0.2rem];
 }
 
 /* ── Lightbox ─────────────────────────────────────────────────────────────── */
 
-/*
- * #cag-lb        – the dialog root, covers the full viewport, hidden by default
- * #cag-lb-backdrop – semi-transparent blurring layer, click = close
- * #cag-lb-viewport – invisible wrapper that captures pointer events for swipe
- * #cag-lb-track    – flex row of slides; animated via translateX
- * .cag-lb-slide    – one slide per image, exactly one viewport wide
- * #cag-lb-prev/next – edge arrow buttons
- * #cag-lb-close    – top-right close button
- */
-
 #cag-lb {
-    position: fixed;
-    inset: 0;
-    z-index: 1060;
-    opacity: 0;
-    visibility: hidden;
+    @apply fixed inset-0 z-[1060] opacity-0 invisible;
     transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 
 #cag-lb.is-open {
-    opacity: 1;
-    visibility: visible;
+    @apply opacity-100 visible;
     transition: opacity 0.25s ease;
 }
 
-/* Prevent body scroll while lightbox is open */
 body.cag-lb-active {
-    overflow: hidden;
+    @apply overflow-hidden;
 }
 
-/* Blurred / darkened backdrop */
 #cag-lb-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.82);
+    @apply fixed inset-0 cursor-zoom-out;
+    background: rgb(0 0 0 / 82%);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    cursor: zoom-out;
 }
 
-/* Viewport – covers the full screen, passes pointer events to children */
 #cag-lb-viewport {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    touch-action: none; /* we handle pan ourselves */
+    @apply fixed inset-0 overflow-hidden;
+    touch-action: none;
 }
 
-/* Track – horizontal flex row of all slides */
 #cag-lb-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
+    @apply flex size-full;
     will-change: transform;
-    transition: transform var(--cag-lb-transition-duration) var(--cag-lb-easing-slide);
+    transition: transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Individual slide – exactly one viewport wide, centres the image */
 .cag-lb-slide {
-    flex: 0 0 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 5vw;
-    box-sizing: border-box;
+    @apply shrink-0 basis-full flex items-center justify-center p-[3rem_5vw] box-border;
 }
 
-/* The displayed image – fills as much screen as possible */
 .cag-lb-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 24px 72px rgba(0, 0, 0, 0.6);
-    user-select: none;
+    @apply max-w-full max-h-full object-contain rounded-[6px] select-none pointer-events-none;
+    box-shadow: 0 24px 72px rgb(0 0 0 / 60%);
     -webkit-user-drag: none;
-    pointer-events: none; /* prevent drag interference on the img itself */
 }
 
 /* ── Close button (top-right) ────────────────────────────────────────────── */
 #cag-lb-close {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1061;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease];
+    background: rgb(255 255 255 / 12%);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
 
 #cag-lb-close:hover {
-    background: rgba(255, 255, 255, 0.24);
-    transform: scale(1.1);
+    @apply scale-110;
+    background: rgb(255 255 255 / 24%);
 }
 
 #cag-lb-close svg {
-    width: 1.25rem;
-    height: 1.25rem;
+    @apply size-5;
 }
 
 /* ── Prev / Next arrow buttons ────────────────────────────────────────────── */
 #cag-lb-prev,
 #cag-lb-next {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1061;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 5rem;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s ease, opacity 0.2s ease;
+    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-[200ms] ease-[ease];
+    background: rgb(255 255 255 / 10%);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
 
 #cag-lb-prev {
-    left: 0;
-    border-radius: 0 6px 6px 0;
+    @apply left-0 rounded-r-[6px];
 }
 
 #cag-lb-next {
-    right: 0;
-    border-radius: 6px 0 0 6px;
+    @apply right-0 rounded-l-[6px];
 }
 
 #cag-lb-prev:hover,
 #cag-lb-next:hover {
-    background: rgba(255, 255, 255, 0.22);
+    background: rgb(255 255 255 / 22%);
 }
 
 #cag-lb-prev svg,
 #cag-lb-next svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    @apply size-6;
 }
 
-/* Hidden state for edge arrows */
 #cag-lb-prev.cag-lb-hidden,
 #cag-lb-next.cag-lb-hidden {
-    opacity: 0;
-    pointer-events: none;
+    @apply opacity-0 pointer-events-none;
 }
 
-/* Scale down arrow buttons on small screens */
 @media (max-width: 575.98px) {
     #cag-lb-prev,
     #cag-lb-next {
-        width: 2.25rem;
-        height: 4rem;
+        @apply w-9 h-16;
     }
 
     #cag-lb-prev svg,
     #cag-lb-next svg {
-        width: 1.1rem;
-        height: 1.1rem;
+        @apply size-[1.1rem];
     }
 
     .cag-lb-slide {
-        padding: 4rem 2.5rem;
+        @apply p-[4rem_2.5rem];
     }
 }
 
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */
 .cag-game-cards {
-    display: grid;
+    @apply grid gap-4 list-none p-0 my-4 mb-6;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 1.5rem;
 }
 
 .cag-game-cards li {
-    border-radius: var(--cag-radius);
-    border: 1px solid var(--cag-border-color);
-    background: var(--cag-body-bg);
-    padding: 0.85rem 1.1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--cag-transition), box-shadow var(--cag-transition), border-color var(--cag-transition);
+    @apply rounded-card border border-border bg-surface py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
 }
 
-/* Accent top bar matching other cards */
 .cag-game-cards li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
+    @apply content-[''] absolute top-0 inset-x-0 h-[2px];
     background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
 }
 
 .cag-game-cards li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(var(--cag-brand-rgb), 0.15);
-    border-color: rgba(var(--cag-brand-rgb), 0.35);
+    @apply -translate-y-[3px];
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-brand-600) 15%, transparent);
+    border-color: color-mix(in srgb, var(--color-brand-600) 35%, transparent);
 }
 
-/* Game name link */
 .cag-game-cards li a {
-    color: var(--cag-body-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.4;
+    @apply text-on-surface no-underline font-semibold text-sm leading-snug;
 }
 
-/* Stretched-link: invisible overlay covers the entire card */
 .cag-game-cards li a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    border-radius: var(--cag-radius);
+    @apply content-[''] absolute inset-0 z-[1] rounded-card;
 }
 
 .cag-game-cards li a:hover {
-    color: var(--color-brand-500);
+    @apply text-brand-500;
 }
 
-/* Badge text (e.g., Tournament!) */
 .cag-game-cards li strong {
-    color: var(--color-brand-500);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    @apply text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
 }
 
-/* Game header image: bleeds to card edges, locked to Steam header ratio (460×215) */
 .cag-game-cards li > img {
-    margin: -0.85rem -1.1rem 0.75rem;
+    @apply -mt-[0.85rem] -mx-[1.1rem] mb-3 h-auto bg-surface-alt;
     width: calc(100% + 2.2rem);
     max-width: none;
-    height: auto;
     aspect-ratio: 460 / 215;
     object-fit: cover;
-    border-radius: var(--cag-radius) var(--cag-radius) 0 0;
-    background-color: var(--cag-surface-alt);
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
     background-image: linear-gradient(
         90deg,
         transparent 25%,
-        rgba(var(--cag-brand-rgb), 0.12) 50%,
+        color-mix(in srgb, var(--color-brand-600) 12%, transparent) 50%,
         transparent 75%
     );
     background-size: 200% 100%;
-    animation: cag-img-shimmer 1.5s infinite linear;
+    @apply animate-shimmer;
 }
 
-@keyframes cag-img-shimmer {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* ── Server badge: SVG icon pinned to top-right of game card ── */
-.cag-server-badge {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    color: var(--color-brand-500);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 6px;
-    padding: 5px;
-    z-index: 3;
-}
-
-/* On tournament (gold) cards, tint the badge gold too */
+/* ── Server badge: colour override for tournament (gold) cards ── */
 .cag-game-cards li:has(strong) .cag-server-badge {
-    color: var(--cag-gold);
+    @apply text-accent-500;
 }
 
 /* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
 .cag-game-cards li:has(strong) {
-    border-color: rgba(var(--cag-gold-rgb), 0.35);
+    border-color: color-mix(in srgb, var(--color-accent-500) 35%, transparent);
 }
 
 .cag-game-cards li:has(strong)::before {
-    background: linear-gradient(90deg, var(--cag-gold), var(--cag-gold-light));
+    background: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-400));
 }
 
 .cag-game-cards li:has(strong):hover {
-    box-shadow: 0 8px 28px rgba(var(--cag-gold-rgb), 0.28);
-    border-color: rgba(var(--cag-gold-rgb), 0.55);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--color-accent-500) 28%, transparent);
+    border-color: color-mix(in srgb, var(--color-accent-500) 55%, transparent);
 }
 
 .cag-game-cards li:has(strong) strong {
-    color: var(--cag-gold);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* ── Stuff page: prose-cag overrides inside bring/skip columns ── */
-.prose-cag .cag-stuff-bring h3,
-.prose-cag .cag-stuff-skip h3 {
-    padding-left: 0;
-    border-left: none;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-}
-
-.prose-cag .cag-stuff-bring h3 { color: var(--cag-stuff-bring); }
-.prose-cag .cag-stuff-skip h3  { color: var(--cag-stuff-skip); }
-
-.cag-stuff-bring ul,
-.cag-stuff-skip ul {
-    margin: 0;
-    padding-left: 1.25rem;
-    list-style: disc;
+    @apply text-accent-500 text-xs font-bold uppercase tracking-[0.05em];
 }
 
 .cag-stuff-bring ul > li::marker,
 .cag-stuff-skip ul > li::marker {
     content: ''; /* reset the global ▸ marker inside these columns */
-}
-
-.cag-stuff-bring li,
-.cag-stuff-skip li {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.2rem;
 }

@@ -25,8 +25,8 @@
 
 blockquote {
     padding: 0.5rem 1rem;
-    border-left: 0.25rem solid var(--cag-border-color);
-    border-right: 0.25rem solid var(--cag-body-bg);
+    border-left: 0.25rem solid var(--border);
+    border-right: 0.25rem solid var(--surface);
 }
 
 td,

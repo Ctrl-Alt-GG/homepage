@@ -2,8 +2,8 @@
 
 {{ $copyright := and ($page.Param "cag.site.disable_copyright" | not) (site.Copyright | markdownify) }}
 
-<footer id="cag-site-footer" class="bg-gradient-to-br from-[#130404] to-[#1e0606] py-5 mt-12 border-t border-brand-600/20 text-white/40 text-sm [color-scheme:dark]">
-    <div class="cag-container">
+<footer id="cag-site-footer" class="bg-gradient-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] py-5 mt-12 border-t border-brand-600/20 text-white/40 text-sm [color-scheme:dark]">
+    <div class="container">
         {{ if $copyright }}
             <p class="my-4 text-center tracking-wider" id="cag-site-copyright">{{ $copyright }}</p>
         {{ end }}
