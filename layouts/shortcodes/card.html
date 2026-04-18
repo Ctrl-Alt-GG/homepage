@@ -5,7 +5,7 @@
     icon  (string, required) — a single emoji character displayed as the card icon.
     title (string, required) — card heading shown below the icon.
 
-  Inner: plain text or inline Markdown displayed as the card description.
+  Inner: inline Markdown (piped through .Page.RenderString).
 
   Usage:
     {{< card icon="🎮" title="True LAN Experience" >}}
@@ -16,9 +16,8 @@
 {{- $title := .Get "title" -}}
 {{- if not $icon  }}{{ errorf "card shortcode: required parameter 'icon' is missing (page: %s)" .Page.File.Path }}{{ end -}}
 {{- if not $title }}{{ errorf "card shortcode: required parameter 'title' is missing (page: %s)" .Page.File.Path }}{{ end -}}
-{{- if gt (strings.RuneCount $icon) 2 }}{{ warnf "card shortcode: 'icon' should be a single emoji character, got %q (page: %s)" $icon .Page.File.Path }}{{ end -}}
 <div class="cag-card cag-card-frame">
   <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center">{{ $icon }}</span>
   <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title | htmlEscape }}</div>
-  <p class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ .Inner }}</p>
+  <div class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ .Inner | .Page.RenderString }}</div>
 </div>
