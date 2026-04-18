@@ -17,5 +17,5 @@ That's why we're inviting you to the best, most incredible, grassroots gaming ev
   {{< card icon="🎲" title="Wide Game Selection" >}}From intense FPS matches to strategic challenges to hilarious party games, free and paid. There's something for everyone.{{< /card >}}
   {{< card icon="🕹️" title="Console Corner" >}}An Xbox Series X, comfy seating and a big screen. Controller or keyboard, your call.{{< /card >}}
   {{< card icon="🌐" title="Pro Network" >}}We obsessively work on the best infrastructure, because we know good vibes are built on low ping.{{< /card >}}
-  {{< card icon="🍺" title="Chill &amp; Beer" >}}Not a competition, just a community weekend. Like-minded people, favourite games and beer. Good company is always part of the deal.{{< /card >}}
+  {{< card icon="🍺" title="Chill & Beer" >}}Not a competition, just a community weekend. Like-minded people, favourite games and beer. Good company is always part of the deal.{{< /card >}}
 {{< /features >}}

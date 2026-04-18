@@ -17,5 +17,5 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
   {{< card icon="🎲" title="Széles játékpaletta" >}}Izgalmas FPS meccsektől a stratégiai kihívásokon át a party játékokig, ingyenes és fizetős. Mindenki talál kedvencet.{{< /card >}}
   {{< card icon="🕹️" title="Konzol Kuckó" >}}Xbox Series X kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet, te döntöd el.{{< /card >}}
   {{< card icon="🌐" title="Profi hálózat" >}}Keményen dolgozunk a lehető legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.{{< /card >}}
-  {{< card icon="🍺" title="Lazulás &amp; sör" >}}Nem verseny, hanem egy közösségi hétvége. Hozzánk hasonló arcok, kedvenc játékok és persze sör. A jó társaság nem kérdés.{{< /card >}}
+  {{< card icon="🍺" title="Lazulás & sör" >}}Nem verseny, hanem egy közösségi hétvége. Hozzánk hasonló arcok, kedvenc játékok és persze sör. A jó társaság nem kérdés.{{< /card >}}
 {{< /features >}}

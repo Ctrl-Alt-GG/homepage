@@ -2,6 +2,6 @@
 {{ $title := .Get "title" }}
 <div class="cag-card cag-card-frame">
   <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center">{{ $icon | htmlEscape }}</span>
-  <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title | htmlUnescape }}</div>
+  <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title | htmlEscape }}</div>
   <p class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ .Inner }}</p>
 </div>
