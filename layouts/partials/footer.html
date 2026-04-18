@@ -27,7 +27,7 @@
                         <a class="no-underline text-white/40 hover:text-white/80 transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
                     {{ end }}
                     {{ if lt $i (sub (len $rotated) 1) }}
-                        <span class="mx-2 text-white/20">·</span>
+                        <span aria-hidden="true" class="mx-2 text-white/20">·</span>
                     {{ end }}
                 {{ end }}
             </div>
