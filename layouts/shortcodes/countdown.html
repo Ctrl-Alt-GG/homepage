@@ -34,7 +34,7 @@
         const targetDate = new Date("{{ $targetdate }}")
 
         countdown(targetDate, function (ts) {
-            if (ts.value > 0) {
+            if (ts.value < 0) {
                 t.innerHTML = ts.toHTML();
             }
         }, countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
