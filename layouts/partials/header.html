@@ -43,7 +43,10 @@
             {{ $pages = sort $pages "LinkTitle" }}
 
             {{/* Shared class list for every header nav link (active state via aria-current). */}}
-            {{ $navLinkClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px] text-white/[72%] hover:text-white hover:bg-white/15 aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+            {{ $navLinkBaseClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px]" }}
+            {{ $navLinkInteractionClass := "text-white/[72%] hover:text-white hover:bg-white/15" }}
+            {{ $navLinkActiveClass := "aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+            {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
             <nav aria-label="{{ i18n `menu` }}" class="my-8" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
