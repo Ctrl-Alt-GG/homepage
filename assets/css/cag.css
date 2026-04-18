@@ -223,8 +223,7 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li:hover {
-    @apply -translate-y-[3px] shadow-game-card-hover;
-    border-color: color-mix(in srgb, var(--color-brand-600) 35%, transparent);
+    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
 .cag-game-cards li a {
@@ -263,7 +262,7 @@ body.cag-lb-active {
 
 /* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
 .cag-game-cards li:has(strong) {
-    border-color: color-mix(in srgb, var(--color-accent-500) 35%, transparent);
+    @apply border-tournament-card-border;
 }
 
 .cag-game-cards li:has(strong)::before {
@@ -271,8 +270,7 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li:has(strong):hover {
-    @apply shadow-tournament-card-hover;
-    border-color: color-mix(in srgb, var(--color-accent-500) 55%, transparent);
+    @apply shadow-tournament-card-hover border-tournament-card-hover-border;
 }
 
 .cag-game-cards li:has(strong) strong {
