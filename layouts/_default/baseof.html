@@ -6,11 +6,11 @@
 <!doctype html>
 <html {{ if $dark }} data-theme="dark" {{ end }} {{ with $lang }} lang="{{ . }}" {{ end }}>
   {{ partial "head.html" $page }}
-  <body class="font-sans antialiased">
+  <body class="font-sans antialiased bg-surface text-on-surface">
     {{- /* Ctrl-Alt-GG family hairline — the shared brand signature across all three CAG sites. */ -}}
     <div class="h-1 bg-brand-600" aria-hidden="true"></div>
     {{ partial "header.html" $page }}
-    <div class="cag-container">
+    <div class="container">
       <div class="mt-6" id="cag-site">
         {{ block "main" $page }}{{ end }}
       </div>
