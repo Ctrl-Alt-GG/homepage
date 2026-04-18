@@ -12,7 +12,8 @@
   Cumulative Layout Shift (CLS).
 
   SVG resources are served as-is (no raster processing) and rendered with
-  loading="lazy" and decoding="async", but without intrinsic width/height.
+  loading="lazy" and decoding="async", including intrinsic width/height when
+  the SVG declares them (to prevent CLS).
 
   If the image cannot be resolved, a plain <img src="..."> fallback is emitted.
   For game images (resolved via data/games.yaml), the fallback uses the original
@@ -62,7 +63,7 @@
 {{- if $resource -}}
   {{- $isSVG := in (lower $resource.MediaType.SubType) "svg" -}}
   {{- if $isSVG -}}
-<img src="{{ $resource.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+<img src="{{ $resource.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async"{{ with $resource.Width }} width="{{ . }}"{{ end }}{{ with $resource.Height }} height="{{ . }}"{{ end }}>
   {{- else if $isGameImage -}}
     {{- /* Game card images: fill to Steam header dimensions (460×215) so nothing is cropped client-side */ -}}
     {{- $img := $resource.Fill "460x215 webp" -}}
@@ -79,7 +80,8 @@
   {{- end -}}
 {{- else -}}
   {{- if $remoteURL -}}
-<img src="{{ $remoteURL | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+    {{- /* Remote game-image URL from data/games.yaml: use Steam header aspect ratio (460×215) */ -}}
+<img src="{{ $remoteURL | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async" width="460" height="215">
   {{- else -}}
 <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
   {{- end -}}

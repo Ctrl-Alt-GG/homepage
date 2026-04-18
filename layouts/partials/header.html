@@ -1,7 +1,10 @@
 {{ $page := . }}
 
 {{ $basePath := path.Clean (urls.Parse (relLangURL "")).Path }}
-{{ $description := and ($page.Param "cag.site.disable_description" | not) ($page.Param "cag.site.description" | markdownify) }}
+{{ $description := "" }}
+{{ if ($page.Param "cag.site.disable_description" | not) }}
+    {{ $description = ($page.Param "cag.site.description" | markdownify) }}
+{{ end }}
 {{ $menu := $page.Param "cag.site.disable_menu" | not }}
 {{ $title := and ($page.Param "cag.site.disable_title" | not) (site.Title | markdownify) }}
 
