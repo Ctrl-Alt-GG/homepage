@@ -29,7 +29,7 @@
 
 .prose-cag h2::after {
     @apply content-[''] absolute bottom-0 left-0 w-9 h-[2px] rounded-[1px];
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
+    @apply bg-gradient-to-r from-brand-600 to-brand-500;
 }
 
 .prose-cag h3 {
@@ -38,7 +38,7 @@
 
 .prose-cag hr {
     @apply border-none h-px my-10;
-    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-brand-700) 45%, transparent), transparent);
+    @apply bg-gradient-to-r from-transparent via-brand-700/45 to-transparent;
 }
 
 .prose-cag a:not([class]) {
@@ -66,8 +66,8 @@
 
 .prose-cag ol:not([class]) > li::before {
     @apply absolute left-0 top-[0.1em] size-8 flex items-center justify-center text-white rounded-full text-[0.8rem] font-bold leading-none;
+    @apply bg-gradient-to-br from-brand-600 to-brand-500;
     content: counter(cag-counter);
-    background: linear-gradient(135deg, var(--color-brand-600), var(--color-brand-500));
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
@@ -76,8 +76,7 @@
 }
 
 .cag-shortcode-gallery img:hover {
-    @apply scale-[1.04] z-[1];
-    box-shadow: 0 10px 36px color-mix(in srgb, var(--color-brand-600) 50%, transparent);
+    @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
 /* ── .cag-person: team member card heading ── */
@@ -121,8 +120,7 @@
 }
 
 #cag-lb.is-open {
-    @apply opacity-100 visible;
-    transition: opacity 0.25s ease;
+    @apply opacity-100 visible transition-opacity duration-[250ms] ease-[ease];
 }
 
 body.cag-lb-active {
@@ -130,10 +128,7 @@ body.cag-lb-active {
 }
 
 #cag-lb-backdrop {
-    @apply fixed inset-0 cursor-zoom-out;
-    background: rgb(0 0 0 / 82%);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    @apply fixed inset-0 cursor-zoom-out bg-black/[82%] backdrop-blur-[6px];
 }
 
 #cag-lb-viewport {
@@ -142,9 +137,7 @@ body.cag-lb-active {
 }
 
 #cag-lb-track {
-    @apply flex size-full;
-    will-change: transform;
-    transition: transform 320ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @apply flex size-full will-change-transform transition-transform duration-[320ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
 }
 
 .cag-lb-slide {
@@ -152,22 +145,17 @@ body.cag-lb-active {
 }
 
 .cag-lb-slide img {
-    @apply max-w-full max-h-full object-contain rounded-[6px] select-none pointer-events-none;
-    box-shadow: 0 24px 72px rgb(0 0 0 / 60%);
+    @apply max-w-full max-h-full object-contain rounded-[6px] select-none pointer-events-none shadow-lb-slide;
     -webkit-user-drag: none;
 }
 
 /* ── Close button (top-right) ────────────────────────────────────────────── */
 #cag-lb-close {
-    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease];
-    background: rgb(255 255 255 / 12%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease] bg-white/[12%] backdrop-blur-[4px];
 }
 
 #cag-lb-close:hover {
-    @apply scale-110;
-    background: rgb(255 255 255 / 24%);
+    @apply scale-110 bg-white/[24%];
 }
 
 #cag-lb-close svg {
@@ -177,10 +165,7 @@ body.cag-lb-active {
 /* ── Prev / Next arrow buttons ────────────────────────────────────────────── */
 #cag-lb-prev,
 #cag-lb-next {
-    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-[200ms] ease-[ease];
-    background: rgb(255 255 255 / 10%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-[200ms] ease-[ease] bg-white/10 backdrop-blur-[4px];
 }
 
 #cag-lb-prev {
@@ -193,7 +178,7 @@ body.cag-lb-active {
 
 #cag-lb-prev:hover,
 #cag-lb-next:hover {
-    background: rgb(255 255 255 / 22%);
+    @apply bg-white/[22%];
 }
 
 #cag-lb-prev svg,
@@ -206,7 +191,7 @@ body.cag-lb-active {
     @apply opacity-0 pointer-events-none;
 }
 
-@media (max-width: 575.98px) {
+@media (width < 576px) {
     #cag-lb-prev,
     #cag-lb-next {
         @apply w-9 h-16;
@@ -234,13 +219,11 @@ body.cag-lb-active {
 
 .cag-game-cards li::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[2px];
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
+    @apply bg-gradient-to-r from-brand-600 to-brand-500;
 }
 
 .cag-game-cards li:hover {
-    @apply -translate-y-[3px];
-    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-brand-600) 15%, transparent);
-    border-color: color-mix(in srgb, var(--color-brand-600) 35%, transparent);
+    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
 .cag-game-cards li a {
@@ -261,11 +244,7 @@ body.cag-lb-active {
 
 .cag-game-cards li > img {
     @apply -mt-[0.85rem] -mx-[1.1rem] mb-3 h-auto bg-surface-alt;
-    width: calc(100% + 2.2rem);
-    max-width: none;
-    aspect-ratio: 460 / 215;
-    object-fit: cover;
-    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    @apply w-[calc(100%+2.2rem)] max-w-none aspect-[460/215] object-cover rounded-t-card;
     background-image: linear-gradient(
         90deg,
         transparent 25%,
@@ -283,16 +262,15 @@ body.cag-lb-active {
 
 /* ── Tournament card: gold accent for any card containing a badge (<strong>) ── */
 .cag-game-cards li:has(strong) {
-    border-color: color-mix(in srgb, var(--color-accent-500) 35%, transparent);
+    @apply border-tournament-card-border;
 }
 
 .cag-game-cards li:has(strong)::before {
-    background: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-400));
+    @apply bg-gradient-to-r from-accent-500 to-accent-400;
 }
 
 .cag-game-cards li:has(strong):hover {
-    box-shadow: 0 8px 28px color-mix(in srgb, var(--color-accent-500) 28%, transparent);
-    border-color: color-mix(in srgb, var(--color-accent-500) 55%, transparent);
+    @apply shadow-tournament-card-hover border-tournament-card-hover-border;
 }
 
 .cag-game-cards li:has(strong) strong {
