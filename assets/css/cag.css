@@ -277,6 +277,16 @@ body.cag-lb-active {
     @apply text-accent-500 text-xs font-bold uppercase tracking-[0.05em];
 }
 
+/* ── .cag-card-frame: visual shell shared by all .cag-card components ── */
+.cag-card-frame {
+    @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden;
+}
+
+.cag-card-frame::before {
+    @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
+    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+}
+
 .cag-stuff-bring ul > li::marker,
 .cag-stuff-skip ul > li::marker {
     content: ''; /* reset the global ▸ marker inside these columns */

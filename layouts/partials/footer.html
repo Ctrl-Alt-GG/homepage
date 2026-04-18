@@ -17,6 +17,9 @@
         </nav>
 
         {{/* Language selector */}}
+        {{/* `Rotate` is a project/theme-specific page helper (not a standard Hugo Page method).
+             With the "language" key it returns this page's language variants in a rotated order
+             (used here to build the language switcher from the current page's translations). */}}
         {{ $rotated := $page.Rotate "language" }}
         {{ if gt (len $rotated) 1 }}
             <div id="cag-language-selector" class="text-center mb-4 text-xs tracking-wider text-white/40">
