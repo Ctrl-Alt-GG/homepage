@@ -12,7 +12,7 @@
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
 {{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-brand-950 dark:bg-gradient-to-br dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 dark:[color-scheme:dark]">
+    <header id="cag-site-header" class="bg-gradient-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 [color-scheme:dark]">
         <div class="container">
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-8{{ end }} text-center" id="cag-site-title">
