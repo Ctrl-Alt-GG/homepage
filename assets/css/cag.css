@@ -16,7 +16,7 @@
 }
 
 .prose-cag ul {
-    @apply pl-8 mb-4;
+    @apply list-disc list-outside pl-8 mb-4;
 }
 
 .prose-cag ol:not([class]) {
