@@ -20,6 +20,11 @@
   --color-accent-400: #e8b923;
   --color-accent-500: #c8960c;
 
+  /* Stuff-page semantic colours — reuse Tailwind's green/red but give
+     them a site-specific name so they can be changed in one place. */
+  --color-stuff-bring: var(--color-green-500);
+  --color-stuff-skip:  var(--color-red-500);
+
   --font-sans: "Inter", "Inter var", system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

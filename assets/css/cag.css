@@ -505,8 +505,8 @@ body.cag-lb-active {
     margin-bottom: 0.75rem;
 }
 
-.prose-cag .cag-stuff-bring h3 { color: var(--color-green-500); }
-.prose-cag .cag-stuff-skip h3  { color: var(--color-red-500); }
+.prose-cag .cag-stuff-bring h3 { color: var(--color-stuff-bring); }
+.prose-cag .cag-stuff-skip h3  { color: var(--color-stuff-skip); }
 
 .cag-stuff-bring ul,
 .cag-stuff-skip ul {
