@@ -20,8 +20,8 @@
   remote URL so the page remains usable even when the remote fetch fails.
 */ -}}
 
-{{- $alt    := .PlainText -}}
-{{- $title  := .Title -}}
+{{- $alt    := .PlainText | markdownify | plainify | htmlUnescape -}}
+{{- $title  := .Title    | markdownify | plainify | htmlUnescape -}}
 {{- $src    := .Destination -}}
 {{- $page   := .Page -}}
 
