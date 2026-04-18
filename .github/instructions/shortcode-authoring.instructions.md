@@ -19,13 +19,22 @@ and their root CSS class. Treat every rename as a breaking change.
   (document them in the leading comment).
 - Accept `class=` as an additive parameter (appended to the root, never
   replacing) when the shortcode renders a visual primitive.
+- Do **not** validate emoji parameters with `strings.RuneCount`: many
+  valid single grapheme clusters (ZWJ sequences, flag emojis) are more
+  than 2 runes. Only warn on clearly wrong input such as multi-word
+  strings containing whitespace.
 
 ## Inner content
 
 - `{{ .Inner }}` may or may not be Markdown. Pick one and document it
   in the leading comment.
+- **Never output `{{ .Inner }}` directly** when the contract says it
+  accepts Markdown — always pipe it through `.Page.RenderString` or
+  `markdownify` so authors get the expected rendering.
 - For block-level Markdown, prefer `{{ .Inner | .Page.RenderString }}`
-  over raw `markdownify` — it respects per-page Markdown config.
+  over raw `markdownify` — it respects per-page Markdown config. Wrap
+  the output in a `<div>`, not `<p>`, so the block-level `<p>` elements
+  that `RenderString` produces are valid.
 - For attribute-safe text, use `{{ .Inner | markdownify | plainify }}`.
 
 ## Styling contract
