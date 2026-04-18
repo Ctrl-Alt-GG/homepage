@@ -273,12 +273,7 @@ body.cag-lb-active {
         transparent 75%
     );
     background-size: 200% 100%;
-    animation: cag-img-shimmer 1.5s infinite linear;
-}
-
-@keyframes cag-img-shimmer {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    @apply animate-shimmer;
 }
 
 /* ── Server badge: colour override for tournament (gold) cards ── */
