@@ -71,26 +71,16 @@
         {{ end }}
 
         {{/* Language selector */}}
-        {{ if gt (len site.Languages) 1 }}
+        {{ $rotated := $page.Rotate "language" }}
+        {{ if gt (len $rotated) 1 }}
             <div id="cag-language-selector" class="text-center my-4 text-xs tracking-wider text-white/55">
-                {{ range site.Languages }}
-                    {{ $lang := . }}
-                    {{ if eq $lang.Lang $page.Language.Lang }}
-                        <span class="font-bold text-white/90">{{ $lang.LanguageName }}</span>
+                {{ range $i, $t := $rotated }}
+                    {{ if eq $t.Site.Language.Lang $page.Language.Lang }}
+                        <span class="font-bold text-white/90">{{ $t.Site.Language.LanguageName }}</span>
                     {{ else }}
-                        {{ with $page.AllTranslations }}
-                            {{ $altPage := (index . 0) }}
-                            {{ range . }}
-                                {{ if eq .Language.Lang $lang.Lang }}
-                                    {{ $altPage = . }}
-                                {{ end }}
-                            {{ end }}
-                            <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ $altPage.RelPermalink }}">{{ $lang.LanguageName }}</a>
-                        {{ else }}
-                            <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ (relLangURL "" $lang.Lang) }}">{{ $lang.LanguageName }}</a>
-                        {{ end }}
+                        <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
                     {{ end }}
-                    {{ if ne $lang.Lang (index site.Languages (sub (len site.Languages) 1)).Lang }}
+                    {{ if lt $i (sub (len $rotated) 1) }}
                         <span class="mx-2 text-white/30">·</span>
                     {{ end }}
                 {{ end }}
