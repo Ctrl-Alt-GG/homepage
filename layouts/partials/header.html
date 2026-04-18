@@ -13,7 +13,7 @@
 
 {{ if or $description $menu $title }}
     <header id="cag-site-header" class="bg-brand-950 dark:bg-gradient-to-br dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 dark:[color-scheme:dark]">
-        <div class="container mx-auto px-4">
+        <div class="container">
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-8{{ end }} text-center" id="cag-site-title">
                 <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
