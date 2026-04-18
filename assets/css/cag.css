@@ -8,38 +8,6 @@
    light and dark values and are available as Tailwind utilities.
    ────────────────────────────────────────────────────────────────── */
 
-/* .cag-features-heading: centered section heading with decorative accent bar */
-.cag-features-heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
-    border-radius: 2px;
-}
-
-/* Accent bar on the top edge of each card via ::before pseudo-element */
-.cag-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-brand-600), var(--color-brand-500));
-    border-radius: var(--radius-card) var(--radius-card) 0 0;
-}
-
-/* Override theme shadow on the hero image */
-#cag-page-content > img.rounded-4 {
-    box-shadow: 0 20px 60px rgb(0 0 0 / 25%);
-    transition: box-shadow 0.25s ease;
-    margin-bottom: 2rem;
-}
-
 /* .prose-cag: reusable long-form body scope (applied to #cag-page-content).
    Provides base typography for Markdown-rendered content since Tailwind
    Preflight strips all browser defaults. */
@@ -156,33 +124,6 @@
 
 .prose-cag .cag-faq h2::after {
     display: none;
-}
-
-/* ── .cag-person: person profile card (About Us) ── */
-.cag-person {
-    border-left: 3px solid var(--color-brand-700);
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    border-radius: 0 var(--radius-card) var(--radius-card) 0;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: box-shadow 0.25s ease;
-}
-
-.cag-person:hover {
-    box-shadow: 0 4px 20px color-mix(in srgb, var(--color-brand-600) 10%, transparent);
-}
-
-/* Override global h3 left-border inside person card */
-.prose-cag .cag-person h3 {
-    padding-left: 0;
-    border-left: none;
-    color: var(--color-brand-500);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.75rem;
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
@@ -451,23 +392,7 @@ body.cag-lb-active {
     100% { background-position: -200% 0; }
 }
 
-/* ── Server badge: SVG icon pinned to top-right of game card ── */
-.cag-server-badge {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    color: var(--color-brand-500);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgb(0 0 0 / 55%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 6px;
-    padding: 5px;
-    z-index: 3;
-}
-
+/* ── Server badge: colour override for tournament (gold) cards ── */
 .cag-game-cards li:has(strong) .cag-server-badge {
     color: var(--color-accent-500);
 }
