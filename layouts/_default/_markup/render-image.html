@@ -43,7 +43,7 @@
 {{- /* 3. Remote URL via data/games.yaml, keyed by the filename stem */ -}}
 {{- if not $resource -}}
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
-  {{- with index site.Data.games $slug -}}
+  {{- with index hugo.Data.games $slug -}}
     {{- $remoteURL = . -}}
     {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; Hugo; +https://www.ctrl-alt-gg.hu/)") -}}
     {{- with try (resources.GetRemote . $opts) -}}
