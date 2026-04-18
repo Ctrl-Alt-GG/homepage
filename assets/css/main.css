@@ -66,45 +66,49 @@
    Exposed as Tailwind utilities via @theme inline below.
    ───────────────────────────────────────────────────────────────── */
 :root {
-  --surface:     var(--color-white);
-  --on-surface:  var(--color-gray-900);
-  --surface-alt: var(--color-gray-100);
-  --border:      var(--color-gray-200);
-  --link:        var(--color-blue-600);
-  --link-hover:  var(--color-blue-700);
+  --surface:      var(--color-gray-50);
+  --on-surface:   var(--color-gray-900);
+  --surface-alt:  var(--color-gray-100);
+  --surface-card: var(--color-white);
+  --border:       var(--color-gray-200);
+  --link:         var(--color-blue-600);
+  --link-hover:   var(--color-blue-700);
 }
 
 [data-theme="dark"],
 .dark {
-  --surface:     var(--color-gray-900);
-  --on-surface:  var(--color-gray-200);
-  --surface-alt: var(--color-gray-800);
-  --border:      var(--color-gray-600);
-  --link:        var(--color-blue-400);
-  --link-hover:  var(--color-blue-300);
+  --surface:      var(--color-gray-900);
+  --on-surface:   var(--color-gray-200);
+  --surface-alt:  var(--color-gray-800);
+  --surface-card: var(--color-gray-800);
+  --border:       var(--color-gray-600);
+  --link:         var(--color-blue-400);
+  --link-hover:   var(--color-blue-300);
 }
 
 /* Honour OS-level dark preference when no explicit data-theme has been set */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --surface:     var(--color-gray-900);
-    --on-surface:  var(--color-gray-200);
-    --surface-alt: var(--color-gray-800);
-    --border:      var(--color-gray-600);
-    --link:        var(--color-blue-400);
-    --link-hover:  var(--color-blue-300);
+    --surface:      var(--color-gray-900);
+    --on-surface:   var(--color-gray-200);
+    --surface-alt:  var(--color-gray-800);
+    --surface-card: var(--color-gray-800);
+    --border:       var(--color-gray-600);
+    --link:         var(--color-blue-400);
+    --link-hover:   var(--color-blue-300);
   }
 }
 
 /* Make adaptive tokens available as Tailwind utility classes
    (bg-surface, text-on-surface, border-border, etc.) */
 @theme inline {
-  --color-surface:     var(--surface);
-  --color-on-surface:  var(--on-surface);
-  --color-surface-alt: var(--surface-alt);
-  --color-border:      var(--border);
-  --color-link:        var(--link);
-  --color-link-hover:  var(--link-hover);
+  --color-surface:      var(--surface);
+  --color-on-surface:   var(--on-surface);
+  --color-surface-alt:  var(--surface-alt);
+  --color-surface-card: var(--surface-card);
+  --color-border:       var(--border);
+  --color-link:         var(--link);
+  --color-link-hover:   var(--link-hover);
 }
 
 /* ── Container utility ───────────────────────────────────────────────

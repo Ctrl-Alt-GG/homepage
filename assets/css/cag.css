@@ -229,7 +229,7 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li {
-    @apply rounded-card border border-border bg-surface py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply rounded-card border border-border bg-surface-card py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
 }
 
 .cag-game-cards li::before {
