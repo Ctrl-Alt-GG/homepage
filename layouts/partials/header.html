@@ -12,10 +12,10 @@
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
 {{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-gradient-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-7 pb-5 border-b border-white/20 [color-scheme:dark]">
+    <header id="cag-site-header" class="bg-gradient-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-5 pb-3 border-b border-white/20 [color-scheme:dark]">
         <div class="container">
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }}my-8{{ end }} text-center" id="cag-site-title">
+            <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
                 <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
@@ -28,7 +28,7 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="text-xl font-light italic my-8 text-center text-white/75" id="cag-site-description">{{ . }}</div>
+            <div class="text-xl font-light italic my-3 text-center text-white/75" id="cag-site-description">{{ . }}</div>
         {{ end }}
 
         {{ if $menu }}
@@ -48,7 +48,7 @@
             {{ $navLinkActiveClass := "aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="my-8" id="cag-site-menu">
+            <nav aria-label="{{ i18n `menu` }}" class="my-4" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
@@ -73,22 +73,6 @@
             </nav>
         {{ end }}
 
-        {{/* Language selector */}}
-        {{ $rotated := $page.Rotate "language" }}
-        {{ if gt (len $rotated) 1 }}
-            <div id="cag-language-selector" class="text-center my-4 text-xs tracking-wider text-white/55">
-                {{ range $i, $t := $rotated }}
-                    {{ if eq $t.Site.Language.Lang $page.Language.Lang }}
-                        <span class="font-bold text-white/90">{{ $t.Site.Language.LanguageName }}</span>
-                    {{ else }}
-                        <a class="no-underline text-white/60 hover:text-white transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
-                    {{ end }}
-                    {{ if lt $i (sub (len $rotated) 1) }}
-                        <span class="mx-2 text-white/30">·</span>
-                    {{ end }}
-                {{ end }}
-            </div>
-        {{ end }}
         </div>
     </header>
 {{ end }}

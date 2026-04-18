@@ -15,5 +15,22 @@
             <span aria-hidden="true" class="text-white/30">·</span>
             <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://lobby.ctrl-alt-gg.hu/">{{ i18n "family_lobby" }}</a>
         </nav>
+
+        {{/* Language selector */}}
+        {{ $rotated := $page.Rotate "language" }}
+        {{ if gt (len $rotated) 1 }}
+            <div id="cag-language-selector" class="text-center mb-4 text-xs tracking-wider text-white/40">
+                {{ range $i, $t := $rotated }}
+                    {{ if eq $t.Site.Language.Lang $page.Language.Lang }}
+                        <span class="font-bold text-white/70">{{ $t.Site.Language.LanguageName }}</span>
+                    {{ else }}
+                        <a class="no-underline text-white/40 hover:text-white/80 transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
+                    {{ end }}
+                    {{ if lt $i (sub (len $rotated) 1) }}
+                        <span class="mx-2 text-white/20">·</span>
+                    {{ end }}
+                {{ end }}
+            </div>
+        {{ end }}
     </div>
 </footer>
