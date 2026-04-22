@@ -18,6 +18,6 @@
 {{- if not $title }}{{ errorf "card shortcode: required parameter 'title' is missing (page: %s)" .Page.File.Path }}{{ end -}}
 <div class="cag-card cag-card-frame">
   <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center">{{ $icon }}</span>
-  <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title | htmlEscape }}</div>
+  <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title }}</div>
   <div class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ .Inner | .Page.RenderString }}</div>
 </div>
