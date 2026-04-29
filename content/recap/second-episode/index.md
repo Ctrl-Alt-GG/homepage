@@ -10,15 +10,15 @@ Ahogy beindultak a gépek, a résztvevők kisebb csapatokba rendeződtek: volt, 
 
 Ez a rövid galéria csak ízelítő abból, milyen volt a legutóbbi találkozó. A részletesebb beszámolót még csiszoljuk, de addig is itt marad néhány kép emlékeztetőnek arról, miért szeretjük ezt a kis LAN közösséget.
 
-{{< cag/gallery align="center" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-01.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-02.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-03.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-04.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-05.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-06.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-07.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-08.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-09.jpg" breakpoints=true >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-10.jpg" breakpoints=true >}}
+{{< cag/gallery type="masonry" >}}
+  {{< cag/image class="rounded-lg" src="2026-01.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-02.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-03.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-04.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-05.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-06.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-07.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-08.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-09.jpg" breakpoints=true >}}
+  {{< cag/image class="rounded-lg" src="2026-10.jpg" breakpoints=true >}}
 {{< /cag/gallery >}}

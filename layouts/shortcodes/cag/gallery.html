@@ -31,6 +31,10 @@
 <div class="flex flex-wrap gap-4 {{ $alignClass }} {{ $justifyClass }}">
 {{ $inner }}
 </div>
+{{ else if eq $type "masonry" }}
+<div class="cag-gallery-masonry">
+{{ $inner }}
+</div>
 {{ else }}
 {{ errorf "layouts/shortcodes/cag/gallery.html: invalid type: %q" $type }}
 {{ end }}

@@ -79,6 +79,30 @@
     @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
+/* ── .cag-gallery-masonry: CSS-columns masonry layout ── */
+.cag-gallery-masonry {
+    columns: 2;
+    column-gap: 1rem;
+}
+
+@media (width >= 48rem) {
+    .cag-gallery-masonry {
+        columns: 3;
+    }
+}
+
+.cag-gallery-masonry > .cag-shortcode-image {
+    break-inside: avoid;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.cag-gallery-masonry > .cag-shortcode-image > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ── .cag-person: team member card heading ── */
 .cag-person h3 {
     @apply pl-0 border-l-0 text-brand-500 text-[1.1rem] font-bold mt-0 mb-5;
