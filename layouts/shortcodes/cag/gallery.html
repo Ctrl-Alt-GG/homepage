@@ -11,12 +11,12 @@
     align   (string, optional, default "center") — cross-axis alignment: "start"|"center"|"end".
     justify (string, optional, default "center") — main-axis justification: "start"|"center"|"end"|"between".
 
-  Inner: one or more {{</* cag/image */>}} shortcodes.
+  Inner: one or more cag/image shortcodes.
 
   Usage:
-    {{</* cag/gallery type="masonry" */>}}
-      {{</* cag/image src="photo.jpg" breakpoints=true */>}}
-    {{</* /cag/gallery */>}}
+    {{< cag/gallery type="masonry" >}}
+      {{< cag/image src="photo.jpg" breakpoints=true >}}
+    {{< /cag/gallery >}}
 */ -}}
 {{ $align := .Get "align" | default "center" }}
 {{ $justify := .Get "justify" | default "center" }}
