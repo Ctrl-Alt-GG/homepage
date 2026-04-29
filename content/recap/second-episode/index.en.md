@@ -11,8 +11,8 @@ Once the machines were up and running, people naturally split into smaller group
 This short gallery is only a first taste of what the latest meetup felt like. The full recap can still be rewritten and polished later, but until then these photos keep a few reminders of why we enjoy this small LAN community so much.
 
 {{< cag/gallery align="center" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-01.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-02.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-03.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-04.jpg" >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-01.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-02.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-03.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-04.jpg" breakpoints=true >}}
 {{< /cag/gallery >}}

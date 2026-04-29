@@ -4,20 +4,39 @@
   Params (named):
     icon  (string, required) — a single emoji character displayed as the card icon.
     title (string, required) — card heading shown below the icon.
+    href  (string, optional) — when provided, wraps the entire card in an <a> tag
+                               so the whole card is a clickable link. Pass a
+                               site-root-relative path (e.g. "recap/first-episode/");
+                               the language prefix is added automatically.
 
   Inner: inline Markdown (piped through .Page.RenderString).
+         When href is set, avoid placing <a> links inside the inner content to
+         prevent invalid nested anchors.
 
   Usage:
     {{< card icon="🎮" title="True LAN Experience" >}}
       Body text goes here.
     {{< /card >}}
+
+    {{< card icon="🕹️" title="First Episode" href="recap/first-episode/" >}}
+      Episode description.
+    {{< /card >}}
 */ -}}
 {{- $icon  := .Get "icon" -}}
 {{- $title := .Get "title" -}}
+{{- $href  := .Get "href" -}}
 {{- if not $icon  }}{{ errorf "card shortcode: required parameter 'icon' is missing (page: %s)" .Page.File.Path }}{{ end -}}
 {{- if not $title }}{{ errorf "card shortcode: required parameter 'title' is missing (page: %s)" .Page.File.Path }}{{ end -}}
+{{ if $href -}}
+<a class="cag-card cag-card-frame cag-card-link" href="{{ relLangURL $href }}">
+{{- else -}}
 <div class="cag-card cag-card-frame">
+{{- end }}
   <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center">{{ $icon }}</span>
   <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title }}</div>
-  <div class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ .Inner | .Page.RenderString }}</div>
+  <div class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75">{{ strings.TrimSpace .Inner | .Page.RenderString }}</div>
+{{ if $href -}}
+</a>
+{{- else -}}
 </div>
+{{- end }}

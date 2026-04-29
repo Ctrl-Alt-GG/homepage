@@ -15,10 +15,10 @@ A nap végén a Garry's Mod Prop Hunt mindenkit megnevettett. Hihetetlen vicces 
 A jó hangulathoz és az igazi lan-party élményhez természetesen elengedhetetlen volt a közös pizza rendelés. Emellett üdítővel és sörrel csillapították szomjúkat a résztvevők. A barátságos légkör garantálta, hogy mindenki jól érezze magát, és mi már most várjuk a következő alkalmat...
 
 {{< cag/gallery align="center" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-01.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-02.jpg" >}}
-  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-03.jpg" >}}
-  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-04.jpg" >}}
-  {{< cag/image maxheight="40rem" class="rounded-lg" src="2025-05.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-06.jpg" >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-01.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-02.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-03.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-04.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="40rem" class="rounded-lg" src="2025-05.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-06.jpg" breakpoints=true >}}
 {{< /cag/gallery >}}

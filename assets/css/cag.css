@@ -287,6 +287,29 @@ body.cag-lb-active {
     @apply bg-gradient-to-r from-brand-600 to-brand-500;
 }
 
+/* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
+   and remain centered when fewer cards than columns are present ── */
+.cag-grid > .cag-card {
+    flex: 1 1 15rem;   /* grow/shrink; basis keeps ≥240 px before wrapping */
+    max-width: 100%;   /* mobile: full width */
+}
+
+@media (width >= 640px) {
+    .cag-grid > .cag-card {
+        max-width: 21.25rem; /* ≈340 px cap so cards don't stretch too wide */
+    }
+}
+
+/* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
+a.cag-card-link {
+    @apply block no-underline text-on-surface;
+    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+}
+
+a.cag-card-link:hover {
+    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
+}
+
 .cag-stuff-bring ul > li::marker,
 .cag-stuff-skip ul > li::marker {
     content: ''; /* reset the global ▸ marker inside these columns */
