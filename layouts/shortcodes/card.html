@@ -6,8 +6,9 @@
     title (string, required) — card heading shown below the icon.
     href  (string, optional) — when provided, wraps the entire card in an <a> tag
                                so the whole card is a clickable link. Pass a
-                               site-root-relative path (e.g. "recap/first-episode/");
-                               the language prefix is added automatically.
+                               site-root-relative path WITHOUT a leading slash
+                               (e.g. "recap/first-episode/"); the language prefix
+                               is added automatically via relLangURL.
 
   Inner: inline Markdown (piped through .Page.RenderString).
          When href is set, avoid placing <a> links inside the inner content to

@@ -290,13 +290,13 @@ body.cag-lb-active {
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */
 .cag-grid > .cag-card {
-    flex: 1 1 15rem;   /* grow/shrink; basis keeps ≥240 px before wrapping */
+    flex: 1 1 15rem;   /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping */
     max-width: 100%;   /* mobile: full width */
 }
 
 @media (width >= 640px) {
     .cag-grid > .cag-card {
-        max-width: 21.25rem; /* ≈340 px cap so cards don't stretch too wide */
+        max-width: 21.25rem; /* 340px cap so cards don't stretch too wide */
     }
 }
 
