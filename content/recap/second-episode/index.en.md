@@ -15,4 +15,8 @@ This short gallery is only a first taste of what the latest meetup felt like. Th
   {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-02.jpg" breakpoints=true >}}
   {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-03.jpg" breakpoints=true >}}
   {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-04.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-05.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-06.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-07.jpg" breakpoints=true >}}
+  {{< cag/image maxheight="30rem" class="rounded-lg" src="2026-08.jpg" breakpoints=true >}}
 {{< /cag/gallery >}}
