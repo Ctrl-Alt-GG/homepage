@@ -79,28 +79,35 @@
     @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
-/* ── .cag-gallery-masonry: CSS-columns masonry layout ── */
+/* ── .cag-gallery-masonry: CSS Grid gallery with varied column spans ──────
+   Mobile  : 2 equal columns, images at natural aspect ratio.
+   Desktop : 12-column sub-grid; images cycle through a 5 : 4 : 3 span
+             pattern so every trio of images has noticeably different widths.
+             `align-items: start` keeps each image at its natural height —
+             no cropping, no fixed row heights, no column-break overlap.
+   ──────────────────────────────────────────────────────────────────────── */
 .cag-gallery-masonry {
-    columns: 2;
-    column-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    align-items: start;
 }
 
 @media (width >= 48rem) {
     .cag-gallery-masonry {
-        columns: 3;
+        grid-template-columns: repeat(12, 1fr);
     }
-}
 
-.cag-gallery-masonry > .cag-shortcode-image {
-    break-inside: avoid;
-    display: block;
-    margin-bottom: 1rem;
+    /* 5 : 4 : 3 width ratio (sums to 12) per group of three images */
+    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n+1) { grid-column: span 5; }
+    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n+2) { grid-column: span 4; }
+    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n)   { grid-column: span 3; }
 }
 
 .cag-gallery-masonry > .cag-shortcode-image > img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
 }
 
 /* ── .cag-person: team member card heading ── */
