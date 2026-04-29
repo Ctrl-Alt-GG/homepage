@@ -105,6 +105,13 @@
         {{ end }}
     {{ end }}
 
+    {{/* Auto-convert raster images to WebP for better compression.
+         Skip animated GIFs (conversion would break the animation) and
+         sources already in WebP (nothing to gain). */}}
+    {{ if not (in (slice "gif" "webp") $resource.MediaType.SubType) }}
+        {{ $smallerResource = $smallerResource.Process "webp" }}
+    {{ end }}
+
     {{ $smallerResource = fingerprint $smallerResource }}
     {{ $intrinsicHeight = $smallerResource.Height }}
     {{ $intrinsicWidth = $smallerResource.Width }}
@@ -121,6 +128,10 @@
                 {{ $partialResource = $resource.Fill $partialOptions }}
             {{ else if eq $method "fit" }}
                 {{ $partialResource = $resource.Fit $partialOptions }}
+            {{ end }}
+            {{/* Keep $partialResource in the same format as $smallerResource (WebP). */}}
+            {{ if and $partialResource (not (in (slice "gif" "webp") $resource.MediaType.SubType)) }}
+                {{ $partialResource = $partialResource.Process "webp" }}
             {{ end }}
         {{ end }}
 

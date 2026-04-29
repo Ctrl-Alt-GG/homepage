@@ -61,6 +61,10 @@
 
                     {{ range $pages }}
                         {{ $menuPath := strings.TrimPrefix $basePath .RelPermalink }}
+                        {{ $children := slice }}
+                        {{ with .RegularPages }}
+                            {{ $children = sort . "Weight" }}
+                        {{ end }}
 
                         {{ $home := and (eq $menuPath "/") (eq $page.Section "") }}
                         {{ $menuMatch := and (ne $menuPath "/") (hasPrefix $pagePath $menuPath) }}
@@ -68,8 +72,18 @@
 
                         {{ $active := or $home $menuMatch $section }}
 
-                        <li>
-                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                        <li class="{{ if $children }}relative group{{ end }}">
+                            <a {{ if $active }} aria-current="page" {{ end }}{{ if $children }} aria-haspopup="true"{{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            {{ with $children }}
+                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-white/20 bg-brand-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block dark:bg-brand-950/95">
+                                    {{ range . }}
+                                        {{ $childActive := eq $page.RelPermalink .RelPermalink }}
+                                        <li>
+                                            <a {{ if $childActive }} aria-current="page" {{ end }} class="{{ $navLinkClass }} whitespace-nowrap" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                                        </li>
+                                    {{ end }}
+                                </ul>
+                            {{ end }}
                         </li>
                     {{ end }}
                 </ul>

@@ -79,6 +79,47 @@
     @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
+/* ── .cag-gallery-masonry: CSS Grid gallery with template-computed column spans ─
+   Mobile  : 2 equal columns, images at natural aspect ratio.
+   Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
+             injected by the gallery shortcode at build time using a
+             justified-row packing algorithm — rows hold a *variable*
+             number of images chosen so the row's aspect-ratio sum hits a
+             target, and per-image spans within a row stay AR-proportional.
+             This produces irregular row counts and noticeable size
+             variance across the gallery.
+             Images without inline span (e.g. remote/SVG sources whose
+             dimensions cannot be computed at build time) fall back to
+             a half-width span (2 per row) so they still feel generous.
+             `align-items: start` keeps each image at its natural height —
+             no cropping, no fixed row heights, no column-break overlap.
+   ─────────────────────────────────────────────────────────────────────────── */
+.cag-gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    align-items: start;
+}
+
+@media (width >= 48rem) {
+    .cag-gallery-masonry {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    /* Equal-width fallback for images whose dimensions could not be computed
+       (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
+       span 6 on a 12-column grid = 2 images per row. */
+    .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
+        grid-column: span 6;
+    }
+}
+
+.cag-gallery-masonry > .cag-shortcode-image > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 /* ── .cag-person: team member card heading ── */
 .cag-person h3 {
     @apply pl-0 border-l-0 text-brand-500 text-[1.1rem] font-bold mt-0 mb-5;
@@ -285,6 +326,29 @@ body.cag-lb-active {
 .cag-card-frame::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
     @apply bg-gradient-to-r from-brand-600 to-brand-500;
+}
+
+/* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
+   and remain centered when fewer cards than columns are present ── */
+.cag-grid > .cag-card {
+    flex: 1 1 15rem;   /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping */
+    max-width: 100%;   /* mobile: full width */
+}
+
+@media (width >= 640px) {
+    .cag-grid > .cag-card {
+        max-width: 21.25rem; /* 340px cap so cards don't stretch too wide */
+    }
+}
+
+/* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
+a.cag-card-link {
+    @apply block no-underline text-on-surface;
+    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+}
+
+a.cag-card-link:hover {
+    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
 .cag-stuff-bring ul > li::marker,

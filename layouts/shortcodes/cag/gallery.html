@@ -1,6 +1,27 @@
+{{- /*
+  Renders a group of cag/image shortcodes in one of three layouts.
+
+  Params (named):
+    type    (string, optional, default "rows") — layout variant:
+              "rows"    — flex-wrap row (images at natural height, aligned by `align`/`justify`).
+              "grid"    — responsive fixed-column grid.
+              "masonry" — CSS Grid where column count and per-image spans are
+                          computed from each image's intrinsic aspect ratio so
+                          wider images get more horizontal space than tall ones.
+    align   (string, optional, default "center") — cross-axis alignment: "start"|"center"|"end".
+    justify (string, optional, default "center") — main-axis justification: "start"|"center"|"end"|"between".
+
+  Inner: one or more cag/image shortcodes.
+
+  Usage:
+    {{< cag/gallery type="masonry" >}}
+      {{< cag/image src="photo.jpg" breakpoints=true >}}
+    {{< /cag/gallery >}}
+*/ -}}
 {{ $align := .Get "align" | default "center" }}
 {{ $justify := .Get "justify" | default "center" }}
 {{ $type := .Get "type" | default "rows" }}
+
 {{ $inner := chomp .InnerDeindent }}
 
 {{ if not $inner }}
@@ -31,7 +52,120 @@
 <div class="flex flex-wrap gap-4 {{ $alignClass }} {{ $justifyClass }}">
 {{ $inner }}
 </div>
+{{ else if eq $type "masonry" }}
+{{- /*
+  Layout algorithm — justified-row packing
+  ────────────────────────────────────────
+  1.  Extract intrinsic {w, h} from each <img> tag in the rendered inner
+      HTML by parsing the `height="…"` and `width="…"` attributes that
+      cag/image always emits (in alphabetical order, so height precedes
+      width — a single regex captures both per image).
+  2.  Walk images, greedily packing each row by accumulating aspect ratios
+      until the running sum reaches $targetRowAr (≈ 2.6). This produces
+      rows of *variable* image count: a row of 2 wide landscapes, a row
+      of 4 portraits, a row of 1 ultra-wide, etc. — driven by content,
+      not by a fixed column count.
+      Lower $targetRowAr → fewer images per row → taller, larger images
+      and more visual variance.
+  3.  Within each row, spans are AR-proportional, scaled to sum to 12
+      (clamped to [$minSpan, 12]); rounding remainder is absorbed into
+      the widest image so the row always fills the sub-grid width.
+  4.  A trailing partial row (sumAR much smaller than the target) is
+      sized using a per-AR scale factor instead, so a single leftover
+      image does not blow up to full width.
+  5.  Split the rendered inner HTML on '<div class="cag-shortcode-image">'
+      and re-join each piece with an injected style="grid-column: span N"
+      attribute. Inline styles override any CSS fallback.
+*/ -}}
+{{- $dims := slice }}
+{{- range findRESubmatch `height="(\d+)"[^>]*width="(\d+)"` $inner }}
+    {{- $dims = $dims | append (dict "w" (int (index . 2)) "h" (int (index . 1))) }}
+{{- end }}
+{{- $n := len $dims }}
+{{- $spans := slice }}
+{{- $targetRowAr := 2.6 }}
+{{- $minSpan := 3 }}
+{{- $trailingScale := 4.0 }}
+{{- if gt $n 0 }}
+    {{- $rowBuf := slice }}
+    {{- $rowAr := 0.0 }}
+    {{- range $i, $dim := $dims }}
+        {{- $ar := div (float $dim.w) (float $dim.h) }}
+        {{- $rowBuf = $rowBuf | append $dim }}
+        {{- $rowAr = add $rowAr $ar }}
+        {{- $isLast := eq (add $i 1) $n }}
+        {{- $rowFull := ge $rowAr $targetRowAr }}
+        {{- if or $isLast $rowFull }}
+            {{- $rowSpans := slice }}
+            {{- $spanSum := 0 }}
+            {{- $partial := and $isLast (lt $rowAr (mul $targetRowAr 0.7)) }}
+            {{- range $rowBuf }}
+                {{- $iar := div (float .w) (float .h) }}
+                {{- $s := 0 }}
+                {{- if $partial }}
+                    {{- /* Trailing partial row: scale by AR, do not fill width */}}
+                    {{- $s = int (math.Round (mul $iar $trailingScale)) }}
+                {{- else }}
+                    {{- $s = int (math.Round (mul (div $iar $rowAr) 12.0)) }}
+                {{- end }}
+                {{- if lt $s $minSpan }}{{- $s = $minSpan }}{{- end }}
+                {{- if gt $s 12 }}{{- $s = 12 }}{{- end }}
+                {{- $rowSpans = $rowSpans | append $s }}
+                {{- $spanSum = add $spanSum $s }}
+            {{- end }}
+            {{- if not $partial }}
+                {{- /* Absorb rounding remainder into the widest image so the row
+                       sums to exactly 12 (the sub-grid width on desktop). */}}
+                {{- $diff := sub 12 $spanSum }}
+                {{- if ne $diff 0 }}
+                    {{- $maxSpan := 0 }}
+                    {{- $maxIdx := 0 }}
+                    {{- range $j, $s := $rowSpans }}
+                        {{- if gt $s $maxSpan }}
+                            {{- $maxSpan = $s }}
+                            {{- $maxIdx = $j }}
+                        {{- end }}
+                    {{- end }}
+                    {{- $adjusted := slice }}
+                    {{- range $j, $s := $rowSpans }}
+                        {{- if eq $j $maxIdx }}
+                            {{- $adj := add $s $diff }}
+                            {{- if lt $adj $minSpan }}{{- $adj = $minSpan }}{{- end }}
+                            {{- if gt $adj 12 }}{{- $adj = 12 }}{{- end }}
+                            {{- $adjusted = $adjusted | append $adj }}
+                        {{- else }}
+                            {{- $adjusted = $adjusted | append $s }}
+                        {{- end }}
+                    {{- end }}
+                    {{- $rowSpans = $adjusted }}
+                {{- end }}
+            {{- end }}
+            {{- range $s := $rowSpans }}
+                {{- $spans = $spans | append $s }}
+            {{- end }}
+            {{- $rowBuf = slice }}
+            {{- $rowAr = 0.0 }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+{{- /* Inject grid-column spans into the rendered inner HTML */}}
+{{- $html := $inner }}
+{{- if gt (len $spans) 0 }}
+    {{- $parts := split $inner `<div class="cag-shortcode-image">` }}
+    {{- $html = index $parts 0 }}
+    {{- range $i, $part := after 1 $parts }}
+        {{- $span := 6 }}
+        {{- if lt $i (len $spans) }}
+            {{- $span = index $spans $i }}
+        {{- end }}
+        {{- $html = printf "%s<div class=\"cag-shortcode-image\" style=\"grid-column: span %d\">%s" $html $span $part }}
+    {{- end }}
+{{- end }}
+<div class="cag-gallery-masonry">
+{{ $html | safeHTML }}
+</div>
 {{ else }}
 {{ errorf "layouts/shortcodes/cag/gallery.html: invalid type: %q" $type }}
 {{ end }}
 </div>
+

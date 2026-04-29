@@ -1,7 +1,23 @@
+{{- /*
+  Renders a section of "feature" cards (cag/card shortcodes) under a centred,
+  underlined heading. Used on landing pages to surface child content.
+
+  Params (named):
+    heading (string, required) — section heading rendered above the card grid.
+
+  Inner: one or more cag/card shortcodes (Markdown is not rendered; the inner
+         content is emitted verbatim and the nested shortcodes do their own
+         rendering).
+
+  Usage:
+    {{< features heading="Az előző részek tartalmából" >}}
+      {{< card href="/recap/first-episode/" title="Első epizód" >}}…{{< /card >}}
+    {{< /features >}}
+*/ -}}
 {{ $heading := .Get "heading" }}
 <div class="cag-features mt-10 mb-4">
   <div class="cag-features-heading text-center font-bold text-[1.45rem] mb-7 pb-3 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[3px] after:bg-gradient-to-r after:from-brand-600 after:to-brand-500 after:rounded-[2px]">{{ $heading }}</div>
-  <div class="cag-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[900px] mx-auto">
+  <div class="cag-grid flex flex-wrap justify-center gap-5 max-w-[900px] mx-auto">
     {{ .Inner }}
   </div>
 </div>
