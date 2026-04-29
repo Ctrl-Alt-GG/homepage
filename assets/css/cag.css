@@ -79,13 +79,16 @@
     @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
-/* ── .cag-gallery-masonry: CSS Grid gallery with varied column spans ──────
+/* ── .cag-gallery-masonry: CSS Grid gallery with template-computed column spans ─
    Mobile  : 2 equal columns, images at natural aspect ratio.
-   Desktop : 12-column sub-grid; images cycle through a 5 : 4 : 3 span
-             pattern so every trio of images has noticeably different widths.
+   Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
+             injected by the gallery shortcode at build time, proportional to
+             each image's intrinsic aspect ratio so wider images get more space.
+             Images without inline span (e.g. remote/SVG sources) fall back to
+             equal 4-column spans (3 per row).
              `align-items: start` keeps each image at its natural height —
              no cropping, no fixed row heights, no column-break overlap.
-   ──────────────────────────────────────────────────────────────────────── */
+   ─────────────────────────────────────────────────────────────────────────── */
 .cag-gallery-masonry {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -98,10 +101,13 @@
         grid-template-columns: repeat(12, 1fr);
     }
 
-    /* 5 : 4 : 3 width ratio (sums to 12) per group of three images */
-    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n+1) { grid-column: span 5; }
-    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n+2) { grid-column: span 4; }
-    .cag-gallery-masonry > .cag-shortcode-image:nth-child(3n)   { grid-column: span 3; }
+    /* Equal-width fallback for images whose dimensions could not be computed
+       (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
+       span 4 on a 12-column grid = 3 images per row, matching the default
+       column count the algorithm selects for mixed / standard-landscape sets. */
+    .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
+        grid-column: span 4;
+    }
 }
 
 .cag-gallery-masonry > .cag-shortcode-image > img {

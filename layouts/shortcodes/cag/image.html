@@ -117,6 +117,12 @@
     {{ $intrinsicWidth = $smallerResource.Width }}
     {{ $imgSrc = $smallerResource.RelPermalink }}
 
+    {{/* Notify parent gallery (if any) of this image's intrinsic dimensions */}}
+    {{ if .Page.Store.Get "cag-gal-active" }}
+        {{- $key := printf "cag-gal-%d-dims" (.Page.Store.Get "cag-gal-current") }}
+        {{- .Page.Store.Set $key ((.Page.Store.Get $key | default (slice)) | append (dict "w" $intrinsicWidth "h" $intrinsicHeight)) }}
+    {{ end }}
+
     {{ if and (not $sizes) (not $srcset) }}
         {{ $partialResource := false }}
 
