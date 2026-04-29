@@ -1,22 +1,16 @@
 ---
-title: "Az előző rész tartalmából"
+title: "Az előző részek tartalmából"
+summary: "A Ctrl-Alt-GG korábbi LAN eseményeinek összefoglalói és galériái."
+weight: 50
 ---
 
-Az első Ctrl-Alt-GG alkalmával a belvárosban találkoztunk, hogy egy szuper szombatot töltsünk el együtt.
+Itt gyűjtjük a Ctrl-Alt-GG korábbi alkalmainak rövid összefoglalóit, képeit és azt a hangulatot, amiért újra és újra érdemes összepakolni a gépet.
 
-Amire a résztvevők jelentős része várt az a hamisítatlan Counter-Strike tournament élmény. A létszámra való tekintettel, a helyszínen két csapat szerveződött, hogy megmérkőzzenek egymással. A feszültség minden kör után egyre nőtt. A koncentráció és az adrenalin szinte kézzelfogható volt a teremben. Végül a két banda nem tudott dűlőre jutni egymással: három meccs után döntetlen eredménnyel zárult a mérkőzés.
-
-Miközben a terem nagyrészében pörögtek a fegyverek, a Minecraft rajongók a saját világukban alkottak. Viszonylag rövid idő alatt jelentősen előre haladtak a játékban. Kreativitásuk elismerésre méltó volt.
-
-A nap végén a Garry's Mod Prop Hunt mindenkit megnevettett. Hihetetlen vicces volt, ahogy valaki próbálja széknek, vagy hűtőszekrénynek álcázni magát, miközben mások konzervdobozként cikáztak fel-alá a pályán magára vonva a teljes kereső csapat figyelmét. A váratlan felfedezések és kreatív rejtekhelyek folyamatos szórakozást biztosítottak.
-
-A jó hangulathoz és az igazi lan-party élményhez természetesen elengedhetetlen volt a közös pizza rendelés. Emellett üdítővel és sörrel csillapították szomjúkat a résztvevők. A barátságos légkör garantálta, hogy mindenki jól érezze magát, és mi már most várjuk a következő alkalmat...
-
-{{< cag/gallery align="center" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-01.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-02.jpg" >}}
-  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-03.jpg" >}}
-  {{< cag/image maxheight="20rem" class="rounded-lg" src="2025-04.jpg" >}}
-  {{< cag/image maxheight="40rem" class="rounded-lg" src="2025-05.jpg" >}}
-  {{< cag/image maxheight="30rem" class="rounded-lg" src="2025-06.jpg" >}}
-{{< /cag/gallery >}}
+{{< features heading="Epizódok" >}}
+  {{< card icon="🕹️" title="Első epizód" >}}
+    Az első belvárosi összejövetelünk története Counter-Strike-kal, Minecrafttal, Prop Hunttal és közös pizzával. [Megnézem]({{< relref "first-episode" >}})
+  {{< /card >}}
+  {{< card icon="🎮" title="Második epizód" >}}
+    Egy újabb közös LAN pillanatképei és egy rövid hangulatjelentés a legutóbbi találkozóról. [Megnézem]({{< relref "second-episode" >}})
+  {{< /card >}}
+{{< /features >}}
