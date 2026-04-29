@@ -82,10 +82,15 @@
 /* ── .cag-gallery-masonry: CSS Grid gallery with template-computed column spans ─
    Mobile  : 2 equal columns, images at natural aspect ratio.
    Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
-             injected by the gallery shortcode at build time, proportional to
-             each image's intrinsic aspect ratio so wider images get more space.
-             Images without inline span (e.g. remote/SVG sources) fall back to
-             equal 4-column spans (3 per row).
+             injected by the gallery shortcode at build time using a
+             justified-row packing algorithm — rows hold a *variable*
+             number of images chosen so the row's aspect-ratio sum hits a
+             target, and per-image spans within a row stay AR-proportional.
+             This produces irregular row counts and noticeable size
+             variance across the gallery.
+             Images without inline span (e.g. remote/SVG sources whose
+             dimensions cannot be computed at build time) fall back to
+             a half-width span (2 per row) so they still feel generous.
              `align-items: start` keeps each image at its natural height —
              no cropping, no fixed row heights, no column-break overlap.
    ─────────────────────────────────────────────────────────────────────────── */
@@ -103,10 +108,9 @@
 
     /* Equal-width fallback for images whose dimensions could not be computed
        (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
-       span 4 on a 12-column grid = 3 images per row, matching the default
-       column count the algorithm selects for mixed / standard-landscape sets. */
+       span 6 on a 12-column grid = 2 images per row. */
     .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
-        grid-column: span 4;
+        grid-column: span 6;
     }
 }
 
