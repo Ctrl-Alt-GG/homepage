@@ -10,7 +10,7 @@ A tight group launched a Factorio server and set themselves a bold target: finis
 
 Elsewhere the weekend split into dozens of smaller stories. A group lost hours to OpenTTD building transport empires, another squad tore through Team Fortress 2 with ridiculous plays and louder taunts, some stuck with Counter-Strike: Source for the classics, and others locked into League of Legends, drafting, arguing, and celebrating tiny victories between matches. People swapped tips, showed off mods, and drifted from station to station, finding new obsessions and old comforts in equal measure.
 
-A group of us decided to interpret the LAN party in an unortodox way and threw a board game party in a quiet corner. This same corner was utilized to enjoy some chit chat or recharge their bellies with Mountain Dew or pizzas.
+A group of us decided to interpret the LAN party in an unorthodox way and threw a board game party in a quiet corner. This same corner was utilized to enjoy some chit chat or recharge their bellies with Mountain Dew or pizzas.
 
 By the end everyone - organizers most of all - was hella tired in the best possible way. The exhaustion only underscored how successful the weekend had been: full of stories, new friendships, and plans for the next time. People left buzzing and nostalgic, already scheming how to top it, and honestly wishing the whole thing could have lasted forever.
 

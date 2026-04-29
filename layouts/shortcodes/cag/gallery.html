@@ -154,7 +154,10 @@
     {{- $parts := split $inner `<div class="cag-shortcode-image">` }}
     {{- $html = index $parts 0 }}
     {{- range $i, $part := after 1 $parts }}
-        {{- $span := index $spans $i | default 6 }}
+        {{- $span := 6 }}
+        {{- if lt $i (len $spans) }}
+            {{- $span = index $spans $i }}
+        {{- end }}
         {{- $html = printf "%s<div class=\"cag-shortcode-image\" style=\"grid-column: span %d\">%s" $html $span $part }}
     {{- end }}
 {{- end }}

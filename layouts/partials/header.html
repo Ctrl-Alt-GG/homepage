@@ -73,9 +73,9 @@
                         {{ $active := or $home $menuMatch $section }}
 
                         <li class="{{ if $children }}relative group{{ end }}">
-                            <a {{ if $active }} aria-current="page" {{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a {{ if $active }} aria-current="page" {{ end }}{{ if $children }} aria-haspopup="true"{{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                             {{ with $children }}
-                                <ul class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-white/20 bg-brand-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block dark:bg-[#130404]/95">
+                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-white/20 bg-brand-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block dark:bg-brand-950/95">
                                     {{ range . }}
                                         {{ $childActive := eq $page.RelPermalink .RelPermalink }}
                                         <li>
