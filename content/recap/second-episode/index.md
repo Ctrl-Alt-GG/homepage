@@ -2,6 +2,7 @@
 title: "Második epizód"
 summary: "Képek és rövid hangulatjelentés a második Ctrl-Alt-GG LAN alkalomról."
 weight: 20
+draft: true
 ---
 
 A második Ctrl-Alt-GG végre igazi LAN-érzés volt: a város szélén, Biatorbagyban tartottuk, közel ötven embert vonzott, és a hely a rendes összejövetel teljes, kaotikus melegével zümmögött. Nagyobb gépek töltötték meg az asztalokat, a hálózatot felturbóztuk, hogy tényleg bírja, és több játék, több arc volt jelen, mint korábban. Beszélgetések, nevetés és a billentyűzetek állandó kattanása egy állandó izgalmi zúgásba fonódott.

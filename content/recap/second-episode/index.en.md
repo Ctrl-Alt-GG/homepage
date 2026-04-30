@@ -2,6 +2,7 @@
 title: "Second Episode"
 summary: "Photos and a short placeholder recap from the second Ctrl-Alt-GG LAN meetup."
 weight: 20
+draft: true
 ---
 
 The second Ctrl-Alt-GG finally felt like a real LAN: held just outside the city in Biatorbagy, it drew nearly fifty people and the place buzzed with the full, chaotic warmth of a proper gathering. Bigger rigs filled the tables, the network had been upgraded to actually keep up, and there were more games and more faces than before. Conversations, laughter, and the steady clack of keyboards braided together into a constant hum of excitement.
