@@ -10,4 +10,7 @@ Itt gyűjtjük a Ctrl-Alt-GG korábbi alkalmainak rövid összefoglalóit, képe
   {{< card icon="🕹️" title="Első epizód" href="recap/first-episode/" >}}
     Az első belvárosi összejövetelünk Counter-Strike-kal, Minecrafttal, Prop Hunttal és közös pizzával.
   {{< /card >}}
+  {{< card icon="🎮" title="Második epizód" href="recap/second-episode/" >}}
+    Egy újabb közös LAN pillanatképei és egy rövid hangulatjelentés a legutóbbi találkozóról.
+  {{< /card >}}
 {{< /features >}}

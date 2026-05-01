@@ -10,4 +10,7 @@ This is where we collect the short recaps, snapshots, and LAN-party atmosphere f
   {{< card icon="🕹️" title="First Episode" href="recap/first-episode/" >}}
     The story of our first downtown meetup with Counter-Strike, Minecraft, Prop Hunt, and shared pizza.
   {{< /card >}}
+  {{< card icon="🎮" title="Second Episode" href="recap/second-episode/" >}}
+    A fresh set of LAN snapshots and a short mood report from the latest meetup.
+  {{< /card >}}
 {{< /features >}}
