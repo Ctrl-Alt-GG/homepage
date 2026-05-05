@@ -1,0 +1,37 @@
+{
+  "name": "Ctrl-Alt-GG Homepage",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-24-bookworm",
+  "features": {
+    // Keep the Hugo version in sync with the one pinned in
+    // .github/workflows/azure-static-web-apps-*.yml (the source of truth per AGENTS.md §2).
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "extended": true,
+      "version": "0.160.0"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [1313],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo dev server",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "budparr.language-hugo-vscode",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "DavidAnson.vscode-markdownlint",
+        "EditorConfig.EditorConfig"
+      ],
+      "settings": {
+        "files.eol": "\n"
+      }
+    }
+  },
+  "remoteUser": "node"
+}
