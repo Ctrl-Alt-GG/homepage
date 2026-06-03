@@ -128,7 +128,7 @@
                           return
                       }
 
-                      message.textContent = `${element.dataset.countdownPrefix ?? ''}${timespan.toString()}${element.dataset.countdownSuffix ?? ''}`
+                      message.textContent = `${element.dataset.countdownPrefix ?? ''}${timespan.toString()}${element.dataset.countdownSuffix ?? ''}`.replaceAll('"', '')
                   }, units)
               })
           }
