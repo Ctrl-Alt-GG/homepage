@@ -8,6 +8,9 @@
   {{- errorf "The %q shortcode requires a non-empty %q parameter at %s" "countdown" "target" .Position -}}
 {{- end -}}
 {{- $targetDate := time.AsTime $target -}}
+{{- if $targetDate.IsZero -}}
+  {{- errorf "The %q shortcode requires %q to be a valid date/time value at %s" "countdown" "target" .Position -}}
+{{- end -}}
 {{- $lang := $page.Language.Lang -}}
 {{- $formattedTargetDate := cond (eq $lang "hu") ($targetDate | time.Format "2006. 01. 02.") ($targetDate | time.Format "January 2, 2006") -}}
 {{- $countdownLabels := cond (eq $lang "hu") (dict
