@@ -1,5 +1,13 @@
 {{- $page := .Page -}}
-{{- $targetDate := time.AsTime (.Get "target") -}}
+{{- /*
+  countdown shortcode contract: a non-empty `target` parameter is required and
+  must be a date/time string that Hugo can parse.
+*/ -}}
+{{- $target := .Get "target" -}}
+{{- if not $target -}}
+  {{- errorf "The %q shortcode requires a non-empty %q parameter at %s" "countdown" "target" .Position -}}
+{{- end -}}
+{{- $targetDate := time.AsTime $target -}}
 {{- $lang := $page.Language.Lang -}}
 {{- $formattedTargetDate := cond (eq $lang "hu") ($targetDate | time.Format "2006. 01. 02.") ($targetDate | time.Format "January 2, 2006") -}}
 {{- $countdownLabels := cond (eq $lang "hu") (dict
@@ -23,7 +31,7 @@
   data-countdown-suffix="{{ i18n "countdown_suffix" }}"
   data-countdown-target="{{ $targetDate.Format "2006-01-02T15:04:05Z07:00" }}"
 >
-  <span aria-live="polite" data-countdown-message>
+  <span data-countdown-message>
     {{ i18n "countdown_fallback" }}
     <time datetime="{{ $targetDate.Format "2006-01-02T15:04:05Z07:00" }}">{{ $formattedTargetDate }}</time>
   </span>
@@ -54,6 +62,8 @@
               last: {{ index $countdownLabels "last" | jsonify }},
               delim: {{ index $countdownLabels "delim" | jsonify }}
           }
+          const SINGULAR_LABELS = LABELS.singular.split('|')
+          const PLURAL_LABELS = LABELS.plural.split('|')
 
           const initCountdowns = () => {
               if (typeof countdown !== 'function') {
@@ -74,7 +84,12 @@
                   LABELS.last,
                   LABELS.delim,
                   '',
-                  (n) => n.toString()
+                  (n) => n.toString(),
+                  (value, unitIndex) => {
+                      const labels = value === 1 ? SINGULAR_LABELS : PLURAL_LABELS
+
+                      return `${value}${labels[unitIndex]}`
+                  }
               )
 
               elements.forEach((element) => {
@@ -95,8 +110,17 @@
                       return
                   }
 
-                  countdown(targetDate, (timespan) => {
+                  if (targetDate.getTime() <= Date.now()) {
+                      message.textContent = element.dataset.countdownComplete ?? ''
+                      return
+                  }
+
+                  countdown(targetDate, (timespan, timerId) => {
                       if (timespan.value >= 0) {
+                          if (timerId !== undefined) {
+                              clearInterval(timerId)
+                          }
+
                           message.textContent = element.dataset.countdownComplete ?? ''
                           return
                       }
