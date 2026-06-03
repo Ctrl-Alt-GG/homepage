@@ -113,7 +113,7 @@
                       return
                   }
 
-                  if (targetDate.getTime() <= Date.now()) {
+                  if (targetDate.getTime() < Date.now()) {
                       message.textContent = element.dataset.countdownComplete ?? ''
                       return
                   }
