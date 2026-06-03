@@ -77,6 +77,12 @@
               )
 
               elements.forEach((element) => {
+                  if (element.dataset.countdownInitialized === 'true') {
+                      return
+                  }
+
+                  element.dataset.countdownInitialized = 'true'
+
                   const message = element.querySelector('[data-countdown-message]')
                   const targetDate = new Date(element.dataset.countdownTarget)
 
