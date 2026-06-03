@@ -28,6 +28,8 @@
     {{ errorf "layouts/shortcodes/cag/gallery.html: no inner content (image shortcodes required)" }}
 {{ end }}
 
+{{- .Page.Store.Set "hasGallery" true -}}
+
 {{/* Tailwind alignment helpers. Classes must be literals so Tailwind's
      content scanner picks them up from the template source. */}}
 {{ $alignClass := "items-center" }}

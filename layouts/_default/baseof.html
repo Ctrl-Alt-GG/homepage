@@ -16,6 +16,6 @@
       </div>
     </div>
     {{ partial "footer.html" $page }}
-    {{ partialCached "footer/js.html" $page }}
+    {{ partialCached "footer/js.html" $page ($page.Store.Get "hasGallery") }}
   </body>
 </html>
