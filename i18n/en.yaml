@@ -10,6 +10,16 @@
   translation: "Figure"
 - id: javascript_is_required
   translation: "JavaScript is required"
+- id: countdown_prefix
+  translation: "Only "
+- id: countdown_suffix
+  translation: " left!"
+- id: countdown_fallback
+  translation: "Event date:"
+- id: countdown_complete
+  translation: "The event is here!"
+- id: countdown_invalid
+  translation: "Invalid countdown date."
 - id: footer_family_label
   translation: "Also in the Ctrl-Alt-GG family"
 - id: family_care
