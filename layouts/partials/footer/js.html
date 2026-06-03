@@ -6,7 +6,7 @@
   and emit a subresource integrity hash.
 */ -}}
 {{- with resources.Get "js/cag-gallery.js" }}
-  {{- if $page.Store.Get "hasGallery" }}
+  {{- if $page.Store.Get "cag-shortcode-gallery-script" | default false }}
     {{- if eq hugo.Environment "development" }}
       {{- with . | js.Build }}
         <script src="{{ .RelPermalink }}" defer></script>
