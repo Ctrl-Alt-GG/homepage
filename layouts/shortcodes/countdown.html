@@ -18,12 +18,8 @@
   class="text-right text-[1.2rem] font-bold pb-[1em]"
   data-countdown
   data-countdown-complete="{{ i18n "countdown_complete" }}"
-  data-countdown-delim="{{ index $countdownLabels "delim" }}"
   data-countdown-invalid="{{ i18n "countdown_invalid" }}"
-  data-countdown-last="{{ index $countdownLabels "last" }}"
-  data-countdown-plural="{{ index $countdownLabels "plural" }}"
   data-countdown-prefix="{{ i18n "countdown_prefix" }}"
-  data-countdown-singular="{{ index $countdownLabels "singular" }}"
   data-countdown-suffix="{{ i18n "countdown_suffix" }}"
   data-countdown-target="{{ $targetDate.Format "2006-01-02T15:04:05Z07:00" }}"
 >
@@ -52,6 +48,12 @@
           'use strict'
 
           const SELECTOR = '[data-countdown]'
+          const LABELS = {
+              singular: {{ index $countdownLabels "singular" | jsonify }},
+              plural: {{ index $countdownLabels "plural" | jsonify }},
+              last: {{ index $countdownLabels "last" | jsonify }},
+              delim: {{ index $countdownLabels "delim" | jsonify }}
+          }
 
           const initCountdowns = () => {
               if (typeof countdown !== 'function') {
@@ -66,12 +68,11 @@
                   return
               }
 
-              const labelsSource = elements[0].dataset
               countdown.setLabels(
-                  labelsSource.countdownSingular,
-                  labelsSource.countdownPlural,
-                  labelsSource.countdownLast,
-                  labelsSource.countdownDelim,
+                  LABELS.singular,
+                  LABELS.plural,
+                  LABELS.last,
+                  LABELS.delim,
                   '',
                   (n) => n.toString()
               )
