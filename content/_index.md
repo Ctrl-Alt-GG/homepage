@@ -5,6 +5,8 @@ summary: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos 
 
 {{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
 
+{{< countdown target="2026-10-03" >}}
+
 {{< intro >}}
 Felkészültél az év legnagyobb, minden képzeletet felülmúló, nagyszabású gaming eseményére, ahol mindenki ott lesz, aki számít? Nos ez nem az. De ne bánkódj, nekünk te is számítasz. <3
 {{< /intro >}}

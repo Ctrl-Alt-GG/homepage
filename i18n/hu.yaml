@@ -10,6 +10,16 @@
   translation: "Ábra"
 - id: javascript_is_required
   translation: "A JavaScript használata szükséges"
+- id: countdown_prefix
+  translation: "Már csak "
+- id: countdown_suffix
+  translation: " van hátra!"
+- id: countdown_fallback
+  translation: "Az esemény időpontja:"
+- id: countdown_complete
+  translation: "Elkezdődött!"
+- id: countdown_invalid
+  translation: "Érvénytelen visszaszámlálási dátum."
 - id: footer_family_label
   translation: "A Ctrl-Alt-GG család további oldalai"
 - id: family_care

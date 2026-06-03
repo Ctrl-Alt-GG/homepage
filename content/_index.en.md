@@ -5,6 +5,8 @@ summary: "The best gaming event of the year, surpassing our wildest imagination!
 
 {{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
 
+{{< countdown target="2026-10-03" >}}
+
 {{< intro >}}
 Ready for the biggest gaming event of the year, the ultimate LAN party where everyone who matters will be there? Well, this isn't that. But don't worry, you matter to us. <3
 {{< /intro >}}

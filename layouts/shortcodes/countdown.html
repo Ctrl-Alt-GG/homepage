@@ -1,42 +1,110 @@
-{{- /* TODO: Currently this supports only one countdown element */ -}}
-{{- $targetdate := .Get "target" -}}
-<div id="t-holder" class="text-right text-[1.2rem] font-bold pb-[1em]">... még <span id="t"></span>!</div>
-{{- /*
-  countdown.min.js must load synchronously before the inline script below,
-  which calls countdown() at parse time. Do NOT add defer/async here.
-*/ -}}
-{{- with resources.Get "js/countdown.min.js" }}
-  {{- if eq hugo.Environment "development" }}
-    <script src="{{ .RelPermalink }}"></script>
-  {{- else }}
-    {{- with . | fingerprint }}
-      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- $page := .Page -}}
+{{- $targetDate := time.AsTime (.Get "target") -}}
+{{- $lang := $page.Language.Lang -}}
+{{- $formattedTargetDate := cond (eq $lang "hu") ($targetDate | time.Format "2006. 01. 02.") ($targetDate | time.Format "January 2, 2006") -}}
+{{- $countdownLabels := cond (eq $lang "hu") (dict
+  "singular" " ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred"
+  "plural" " ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred"
+  "last" " és "
+  "delim" ", "
+) (dict
+  "singular" " millisecond| second| minute| hour| day| week| month| year| decade| century| millennium"
+  "plural" " milliseconds| seconds| minutes| hours| days| weeks| months| years| decades| centuries| millennia"
+  "last" " and "
+  "delim" ", "
+) -}}
+
+<div
+  class="text-right text-[1.2rem] font-bold pb-[1em]"
+  data-countdown
+  data-countdown-complete="{{ i18n "countdown_complete" }}"
+  data-countdown-delim="{{ index $countdownLabels "delim" }}"
+  data-countdown-invalid="{{ i18n "countdown_invalid" }}"
+  data-countdown-last="{{ index $countdownLabels "last" }}"
+  data-countdown-plural="{{ index $countdownLabels "plural" }}"
+  data-countdown-prefix="{{ i18n "countdown_prefix" }}"
+  data-countdown-singular="{{ index $countdownLabels "singular" }}"
+  data-countdown-suffix="{{ i18n "countdown_suffix" }}"
+  data-countdown-target="{{ $targetDate.Format "2006-01-02T15:04:05Z07:00" }}"
+>
+  <span aria-live="polite" data-countdown-message>
+    {{ i18n "countdown_fallback" }}
+    <time datetime="{{ $targetDate.Format "2006-01-02T15:04:05Z07:00" }}">{{ $formattedTargetDate }}</time>
+  </span>
+</div>
+
+{{- if not ($page.Store.Get "cag-shortcode-countdown-script") -}}
+  {{- /*
+    countdown.min.js must load synchronously before the inline script below,
+    which wires up all countdown shortcodes on the page.
+  */ -}}
+  {{- with resources.Get "js/countdown.min.js" }}
+    {{- if eq hugo.Environment "development" }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- else }}
+      {{- with . | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+      {{- end }}
     {{- end }}
   {{- end }}
-{{- end }}
-<script>
-    (() => {
-        'use strict'
+  <script>
+      (() => {
+          'use strict'
 
-        countdown.setLabels(
-            ' ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred',
-            ' ezredmásodperc| másodperc| perc| óra| nap| hét| hónap| év| évtized| évszázad| évezred',
-            ' és ',
-            ', ',
-            '',
-            function (n) {
-                return n.toString();
-            }
-        );
+          const SELECTOR = '[data-countdown]'
 
-        const t = document.getElementById('t');
+          const initCountdowns = () => {
+              if (typeof countdown !== 'function') {
+                  return
+              }
 
-        const targetDate = new Date("{{ $targetdate }}")
+              const units = countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS
 
-        countdown(targetDate, function (ts) {
-            if (ts.value < 0) {
-                t.innerHTML = ts.toHTML();
-            }
-        }, countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
-    })()
-</script>
+              const elements = document.querySelectorAll(SELECTOR)
+
+              if (!elements.length) {
+                  return
+              }
+
+              const labelsSource = elements[0].dataset
+              countdown.setLabels(
+                  labelsSource.countdownSingular,
+                  labelsSource.countdownPlural,
+                  labelsSource.countdownLast,
+                  labelsSource.countdownDelim,
+                  '',
+                  (n) => n.toString()
+              )
+
+              elements.forEach((element) => {
+                  const message = element.querySelector('[data-countdown-message]')
+                  const targetDate = new Date(element.dataset.countdownTarget)
+
+                  if (!(message instanceof HTMLElement) || Number.isNaN(targetDate.getTime())) {
+                      if (message instanceof HTMLElement) {
+                          message.textContent = element.dataset.countdownInvalid ?? ''
+                      }
+
+                      return
+                  }
+
+                  countdown(targetDate, (timespan) => {
+                      if (timespan.value >= 0) {
+                          message.textContent = element.dataset.countdownComplete ?? ''
+                          return
+                      }
+
+                      message.textContent = `${element.dataset.countdownPrefix ?? ''}${timespan.toString()}${element.dataset.countdownSuffix ?? ''}`
+                  }, units)
+              })
+          }
+
+          if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initCountdowns, { once: true })
+          } else {
+              initCountdowns()
+          }
+      })()
+  </script>
+  {{- $page.Store.Set "cag-shortcode-countdown-script" true -}}
+{{- end -}}
