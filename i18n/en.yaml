@@ -33,6 +33,6 @@
 - id: care_cta_desc
   translation: "Technical support, network troubleshooting and detailed guides on Ctrl-Alt-GG Care."
 - id: care_cta_button
-  translation: "Go to Care →"
+  translation: "Go to Care"
 - id: care_cta_aria
   translation: "Open Ctrl-Alt-GG Care in a new tab"
