@@ -33,6 +33,6 @@
 - id: care_cta_desc
   translation: "Technikai támogatás, hálózati hibakeresés és részletes útmutatók a Ctrl-Alt-GG Care oldalon."
 - id: care_cta_button
-  translation: "Irány a Care"
+  translation: "Irány a Care →"
 - id: care_cta_aria
   translation: "Tovább a Ctrl-Alt-GG Care oldalra (új lapon nyílik)"
