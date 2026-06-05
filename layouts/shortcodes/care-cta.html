@@ -9,17 +9,17 @@
     title       — heading text (care_cta_title)
     description — body text    (care_cta_desc)
 */ -}}
-{{- $title := .Get "title" | default (i18n "care_cta_title") -}}
-{{- $desc  := .Get "description" | default (i18n "care_cta_desc") -}}
-{{- $aria  := i18n "care_cta_aria" -}}
-{{- $lang  := .Page.Language.Lang -}}
+{{- $title  := .Get "title" | default (i18n "care_cta_title") -}}
+{{- $desc   := .Get "description" | default (i18n "care_cta_desc") -}}
+{{- $button := i18n "care_cta_button" -}}
+{{- $aria   := i18n "care_cta_aria" -}}
+{{- $lang   := .Page.Language.Lang -}}
 {{- $href  := "https://care.ctrl-alt-gg.hu/" -}}
 {{- if eq $lang "en" -}}{{- $href = "https://care.ctrl-alt-gg.hu/en/" -}}{{- end -}}
 <a class="cag-care-cta"
    href="{{ $href }}"
    target="_blank"
-   rel="noopener noreferrer external"
-   aria-label="{{ $aria }}">
+   rel="noopener noreferrer external">
 
   {{/* GG-badge: red rounded square with the double-G lettermark (white, inline SVG) */}}
   <span class="cag-care-cta__badge" aria-hidden="true">
@@ -40,7 +40,8 @@
     <p class="cag-care-cta__desc">{{ $desc }}</p>
   </span>
 
-  <span class="cag-care-cta__arrow" aria-hidden="true">
+  <span class="cag-care-cta__arrow">
+    {{ $button }}<span class="sr-only"> – {{ $aria }}</span>
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
          viewBox="0 0 24 24" fill="none" stroke="currentColor"
          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
