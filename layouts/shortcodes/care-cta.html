@@ -1,0 +1,46 @@
+{{- /*
+  Care CTA — prominent banner linking to care.ctrl-alt-gg.hu.
+
+  Renders a full-width promo banner with the Care GG-badge (inline SVG),
+  a localised title + description, and an arrow affordance. The entire
+  element is a single focusable <a> that opens Care in a new tab.
+
+  Params (all optional — fall back to i18n keys):
+    title       — heading text (care_cta_title)
+    description — body text    (care_cta_desc)
+*/ -}}
+{{- $title  := .Get "title" | default (i18n "care_cta_title") -}}
+{{- $desc   := .Get "description" | default (i18n "care_cta_desc") -}}
+{{- $button := i18n "care_cta_button" -}}
+{{- $aria   := i18n "care_cta_aria" -}}
+{{- $lang   := .Page.Language.Lang -}}
+{{- $href  := "https://care.ctrl-alt-gg.hu/" -}}
+{{- if eq $lang "en" -}}{{- $href = "https://care.ctrl-alt-gg.hu/en/" -}}{{- end -}}
+<a class="cag-care-cta"
+   href="{{ $href }}"
+   target="_blank"
+   rel="noopener noreferrer external">
+
+  {{/* GG-badge: red rounded square with the double-G lettermark (white, inline SVG) */}}
+  <span class="cag-care-cta__badge" aria-hidden="true">
+    <svg viewBox="0 0 50.59972 37.429928"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true"
+         focusable="false"
+         fill="currentColor">
+      <g transform="translate(-146.00019,-126.41079)">
+        <path d="m 151.21693,140.64015 c 0,6.30944 5.11182,11.21679 11.74258,11.21679 6.36787,0 11.27522,-4.99498 11.27522,-10.86627 v -0.52579 h -14.10862 v 3.73893 h 8.93838 c -1.16842,2.39526 -3.50525,3.79736 -6.33866,3.79736 -4.23551,0 -7.47786,-3.18394 -7.47786,-7.3026 0,-4.06025 2.97946,-7.33181 7.24418,-7.33181 2.51209,0 4.58603,0.99315 5.92971,2.86261 h 4.70287 c -1.4021,-3.88498 -5.84208,-6.71839 -10.54495,-6.71839 -6.30945,0 -11.36285,4.93656 -11.36285,11.12917 z"/>
+        <path d="m 168.77052,149.89323 c 0,6.30944 5.11182,11.21679 11.74258,11.21679 6.36787,0 11.27522,-4.99498 11.27522,-10.86627 v -0.52579 h -14.10863 v 3.73894 h 8.93839 c -1.16842,2.39525 -3.50525,3.79735 -6.33866,3.79735 -4.23551,0 -7.47786,-3.18394 -7.47786,-7.3026 0,-4.06025 2.97946,-7.33181 7.24418,-7.33181 2.51209,0 4.58603,0.99315 5.92971,2.86262 h 4.70287 c -1.4021,-3.88499 -5.84208,-6.71839 -10.54495,-6.71839 -6.30945,0 -11.36285,4.93655 -11.36285,11.12916 z"/>
+      </g>
+    </svg>
+  </span>
+
+  <span class="cag-care-cta__body">
+    <p class="cag-care-cta__title">{{ $title }}</p>
+    <p class="cag-care-cta__desc">{{ $desc }}</p>
+  </span>
+
+  <span class="cag-care-cta__arrow">
+    {{ $button }}<span class="sr-only"> – {{ $aria }}</span>
+  </span>
+</a>
