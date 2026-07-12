@@ -40,7 +40,7 @@ Builds the Tailwind stylesheet first, then runs Hugo. Output is written to `publ
 
 - `content/` — top-level marketing pages and sections (about, location, program, Q&A, recap, stuff). Each user-facing page ships in both `<slug>.md` (Hungarian) and `<slug>.en.md` (English).
 - `data/games.yaml` — the game-cards dictionary. Each entry is `slug: "<image url>"`; the slug is referenced from content via the `cag/image` shortcode.
-- `layouts/shortcodes/` — the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
+- `layouts/shortcodes/` — the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `schedule`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
 - `layouts/_default/` and `layouts/partials/` — site-wide templates and reusable fragments (`head/`, `footer/`, `chroma/`).
 - `assets/css/main.css` — Tailwind v4 source. The compiled output in `assets/css/compiled/` is git-ignored.
 - `i18n/hu.yaml`, `i18n/en.yaml` — per-locale string tables for template-owned strings.
