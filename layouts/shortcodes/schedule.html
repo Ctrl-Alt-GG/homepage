@@ -20,14 +20,22 @@
 {{- $icon := .Get "icon" | default "" -}}
 {{- $title := .Get "title" | default "" -}}
 {{- $class := .Get "class" | default "" -}}
-<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}">
+{{- if $title }}
+<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}" aria-labelledby="cag-schedule-{{ .Ordinal }}">
+{{- else }}
+<div class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}">
+{{- end }}
   {{- with $icon }}
   <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center" aria-hidden="true">{{ . }}</span>
   {{- end }}
   {{- with $title }}
-  <h2 class="cag-card-title text-[1.05rem] font-bold mb-[0.85rem] text-brand-500 text-center">{{ . }}</h2>
+  <h2 id="cag-schedule-{{ $.Ordinal }}" class="cag-card-title text-[1.05rem] font-bold mb-[0.85rem] text-brand-500 text-center">{{ . }}</h2>
   {{- end }}
   <div class="cag-schedule-table">
     {{- strings.TrimSpace .Inner | .Page.RenderString -}}
   </div>
+{{- if $title }}
 </section>
+{{- else }}
+</div>
+{{- end }}
