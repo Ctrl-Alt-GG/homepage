@@ -16,26 +16,26 @@ Some players will follow their own pace all weekend, others appreciate a shared 
 
 ## Day one
 
-{{< schedule title="Arrival and shared start" icon="🎮" >}}
+{{< schedule >}}
 | Time | What is happening? | Game suggestions |
 | --- | --- | --- |
 | 12:00–13:00 | Arrival, setup, and finding a seat | Light co-op games and local lobbies |
 | 13:00–15:00 | Open gaming block | CS2, League of Legends, Trackmania, party games |
-| 15:00–15:30 | <span class="cag-schedule-event--food">Lunch and food-ordering window 🍝</span> | Short rounds and games away from the desk |
+| 15:00–15:30 | <span class="cag-schedule-event--food">Lunch and food-ordering window</span> | Short rounds and games away from the desk |
 | 15:30–18:00 | Tournament qualifiers and open gaming | Satisfactory, Minecraft, and Left 4 Dead 2 alongside the tournament |
 | 18:00–18:20 | <span class="cag-schedule-event--important">Tournament check-in and next matches</span> | Check the screen or website |
 | 18:20–20:00 | Evening open gaming block | CS2, Vermintide 2, Garry's Mod, console corner |
-| 20:00–20:30 | <span class="cag-schedule-event--food">Dinner and refreshment break 🥘</span> | Order food, get a drink, take a short walk |
+| 20:00–20:30 | <span class="cag-schedule-event--food">Dinner and refreshment break</span> | Order food, get a drink, take a short walk |
 | 20:30–00:00 | Community gaming block | Party games, LAN classics, and your own local sessions |
 {{< /schedule >}}
 
 ## Day two
 
-{{< schedule title="Finals and wind-down" icon="🏆" >}}
+{{< schedule >}}
 | Time | What is happening? | Game suggestions |
 | --- | --- | --- |
 | 10:00–12:00 | Relaxed morning gaming block | Co-op, strategy games, and console corner |
-| 12:00–12:30 | <span class="cag-schedule-event--food">Lunch and food-ordering window 🍕</span> | Short rounds or a break |
+| 12:00–12:30 | <span class="cag-schedule-event--food">Lunch and food-ordering window</span> | Short rounds or a break |
 | 12:30–15:00 | Tournament continuation and open gaming | Shared lobbies for players outside the finals |
 | 15:00–15:20 | <span class="cag-schedule-event--important">Final check-in and important announcements</span> | Follow the standings on the projection screen |
 | 15:20–17:00 | Tournament finals | Open community games for players and spectators |

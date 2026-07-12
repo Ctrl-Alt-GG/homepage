@@ -2,8 +2,8 @@
   Renders a card-wrapped event schedule from a Markdown table.
 
   Params (named):
-    icon  (string, optional, default "🗓️") — emoji displayed above the title.
-    title (string, required) — schedule heading.
+    icon  (string, optional, default "") — emoji displayed above the title.
+    title (string, optional, default "") — schedule heading.
     class (string, optional, default "") — additional classes appended to the card.
 
   Inner: block Markdown (piped through .Page.RenderString). Use a standard table.
@@ -11,19 +11,22 @@
   <span class="cag-schedule-event--important">…</span> to highlight its row.
 
   Usage:
-    schedule title="Saturday"
+    schedule
     | Time | Activity |
     | ---- | -------- |
-    | 12:30 | <span class="cag-schedule-event--food">Lunch 🍝</span> |
+    | 12:30 | <span class="cag-schedule-event--food">Lunch</span> |
     /schedule
 */ -}}
-{{- $icon := .Get "icon" | default "🗓️" -}}
-{{- $title := .Get "title" -}}
+{{- $icon := .Get "icon" | default "" -}}
+{{- $title := .Get "title" | default "" -}}
 {{- $class := .Get "class" | default "" -}}
-{{- if not $title }}{{ errorf "schedule shortcode: required parameter 'title' is missing (page: %s)" .Page.File.Path }}{{ end -}}
-<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}" aria-labelledby="cag-schedule-{{ .Ordinal }}">
-  <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center" aria-hidden="true">{{ $icon }}</span>
-  <h2 id="cag-schedule-{{ .Ordinal }}" class="cag-card-title text-[1.05rem] font-bold mb-[0.85rem] text-brand-500 text-center">{{ $title }}</h2>
+<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}">
+  {{- with $icon }}
+  <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center" aria-hidden="true">{{ . }}</span>
+  {{- end }}
+  {{- with $title }}
+  <h2 class="cag-card-title text-[1.05rem] font-bold mb-[0.85rem] text-brand-500 text-center">{{ . }}</h2>
+  {{- end }}
   <div class="cag-schedule-table">
     {{- strings.TrimSpace .Inner | .Page.RenderString -}}
   </div>
