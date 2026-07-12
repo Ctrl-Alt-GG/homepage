@@ -53,11 +53,11 @@ Site-wide behaviour flags live in `hugo.yaml` under `params.cag.*` (e.g. `disabl
 Use the `schedule` shortcode to render an editable Markdown schedule inside the shared card design. Add the event modifier span in a table cell to highlight its entire row: `cag-schedule-event--food` uses the primary accent and `cag-schedule-event--important` uses the lighter accent.
 
 ```markdown
-{{< schedule title="Saturday programme" icon="🗓️" >}}
+{{< schedule >}}
 | Time  | Activity |
 | ----- | -------- |
 | 12:00 | Arrival |
-| 12:30 | <span class="cag-schedule-event--food">Lunch 🍝</span> |
+| 12:30 | <span class="cag-schedule-event--food">Lunch</span> |
 | 14:00 | <span class="cag-schedule-event--important">Keynote</span> |
 {{< /schedule >}}
 ```

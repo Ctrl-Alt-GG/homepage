@@ -16,26 +16,26 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 
 ## Első nap
 
-{{< schedule title="Érkezés és közös kezdés" icon="🎮" >}}
+{{< schedule >}}
 | Idő | Mi történik? | Játékajánló |
 | --- | --- | --- |
 | 12:00–13:00 | Érkezés, gépek beállítása, helykeresés | Könnyű co-op, helyi lobbyk |
 | 13:00–15:00 | Nyitott játékblokk | CS2, League of Legends, Trackmania, party játékok |
-| 15:00–15:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak 🍝</span> | Rövid körök, asztaltól távoli játékok |
+| 15:00–15:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak</span> | Rövid körök, asztaltól távoli játékok |
 | 15:30–18:00 | Versenyselejtezők és nyitott játék | Verseny mellett Satisfactory, Minecraft, Left 4 Dead 2 |
 | 18:00–18:20 | <span class="cag-schedule-event--important">Versenycheck-in és következő meccsek</span> | Nézd meg a kivetítőt vagy a weboldalt |
 | 18:20–20:00 | Esti szabad játékblokk | CS2, Vermintide 2, Garry's Mod, konzolsarok |
-| 20:00–20:30 | <span class="cag-schedule-event--food">Vacsora- és frissítőszünet 🥘</span> | Rendelés, ital, rövid séta |
+| 20:00–20:30 | <span class="cag-schedule-event--food">Vacsora- és frissítőszünet</span> | Rendelés, ital, rövid séta |
 | 20:30–00:00 | Közösségi játékblokk | Party játékok, LAN klasszikusok, saját local sessionök |
 {{< /schedule >}}
 
 ## Második nap
 
-{{< schedule title="Döntők és levezetés" icon="🏆" >}}
+{{< schedule >}}
 | Idő | Mi történik? | Játékajánló |
 | --- | --- | --- |
 | 10:00–12:00 | Nyugodt délelőtti játékblokk | Co-op, stratégia, konzolsarok |
-| 12:00–12:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak 🍕</span> | Rövid körök vagy szünet |
+| 12:00–12:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak</span> | Rövid körök vagy szünet |
 | 12:30–15:00 | Versenyfolytatás és szabad játék | Döntőbe nem jutóknak közös lobbyk |
 | 15:00–15:20 | <span class="cag-schedule-event--important">Döntő check-in és fontos közlemények</span> | A kivetítőn kövesd az állást |
 | 15:20–17:00 | Versenydöntők | Nézőknek és játékosoknak nyitott közösségi játék |
