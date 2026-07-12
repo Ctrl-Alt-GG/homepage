@@ -655,6 +655,49 @@ a.cag-card-link:hover {
     @apply w-3/4 h-[3px] sm:w-[3px] sm:h-3/4 border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-white/70;
 }
 
+/* ── .cag-schedule: Markdown table in the shared card shell ─────────────── */
+.cag-schedule-table {
+    @apply overflow-x-auto;
+}
+
+.cag-schedule-table table {
+    @apply w-full border-collapse text-left text-sm;
+}
+
+.cag-schedule-table th,
+.cag-schedule-table td {
+    @apply px-3 py-[0.7rem] border-b border-border;
+}
+
+.cag-schedule-table th {
+    @apply text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
+}
+
+.cag-schedule-table tbody tr:last-child > * {
+    @apply border-b-0;
+}
+
+.cag-schedule-event--food,
+.cag-schedule-event--important {
+    @apply font-semibold;
+}
+
+.cag-schedule-event--food {
+    @apply text-accent-500;
+}
+
+.cag-schedule-event--important {
+    @apply text-accent-400;
+}
+
+.cag-schedule-table tr:has(.cag-schedule-event--food) > * {
+    background: color-mix(in srgb, var(--color-accent-500) 14%, var(--surface-card));
+}
+
+.cag-schedule-table tr:has(.cag-schedule-event--important) > * {
+    background: color-mix(in srgb, var(--color-accent-400) 10%, var(--surface-card));
+}
+
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */
 .cag-grid > .cag-card {

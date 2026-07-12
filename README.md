@@ -48,6 +48,20 @@ Builds the Tailwind stylesheet first, then runs Hugo. Output is written to `publ
 
 Site-wide behaviour flags live in `hugo.yaml` under `params.cag.*` (e.g. `disable_breadcrumbs`, `disable_authors`, schema toggles). Templates must respect them.
 
+## Schedule cards
+
+Use the `schedule` shortcode to render an editable Markdown schedule inside the shared card design. Add the event modifier span in a table cell to highlight its entire row: `cag-schedule-event--food` uses the primary accent and `cag-schedule-event--important` uses the lighter accent.
+
+```markdown
+{{< schedule title="Saturday programme" icon="🗓️" >}}
+| Time  | Activity |
+| ----- | -------- |
+| 12:00 | Arrival |
+| 12:30 | <span class="cag-schedule-event--food">Lunch 🍝</span> |
+| 14:00 | <span class="cag-schedule-event--important">Keynote</span> |
+{{< /schedule >}}
+```
+
 ## Contributing and working with AI agents
 
 The canonical contributor guide, for humans and AI agents alike, is [`AGENTS.md`](AGENTS.md). It covers bilingual parity, the shortcode contract, `data/games.yaml` conventions, the Tailwind setup, the prose style rules, and the "do-not-touch" list.
