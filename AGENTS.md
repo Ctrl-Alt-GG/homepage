@@ -24,7 +24,7 @@ Do not hard-code versions or commands in docs or code. Read them from:
 | Node.js version | `.nvmrc` and `engines.node` in `package.json` |
 | Hugo version floor | `.github/workflows/azure-static-web-apps-*.yml` |
 | Dev / build commands | `scripts` in `package.json` |
-| Deploy pipeline | `.github/workflows/azure-static-web-apps-*.yml` |
+| Deploy pipelines | `.github/workflows/azure-static-web-apps-*.yml` |
 | Site languages, params, flags | `hugo.yaml` (`[languages]`, `params.cag.*`) |
 | Game card sources | `data/games.yaml` |
 | Ignored / generated paths | `.gitignore` |
@@ -135,11 +135,12 @@ General rules:
 
 ## 10. Deployment
 
-`main` pushes and PRs are built and deployed by the Azure Static Web Apps
-workflow under `.github/workflows/`. Required order:
-`npm ci` → `npm run build:css` → `hugo` → upload. Do not change
-`app_location`, `api_location`, `output_location`, or the secret name
-without aligning Azure side.
+`main` pushes and PRs are built once by the workflow under
+`.github/workflows/`. The resulting artifact is deployed to Azure Static Web
+Apps and packaged as an OCI image; default-branch pushes publish the image to
+GHCR. Required order: `npm ci` → `npm run build:css` → `hugo` → upload. Do
+not change `app_location`, `api_location`, `output_location`, or the secret
+name without aligning Azure side.
 
 ## 11. Do-not-touch list
 
