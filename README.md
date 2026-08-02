@@ -58,4 +58,4 @@ When opening a PR, follow [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQU
 
 ## Deployment
 
-Pushes and PRs targeting `main` are built and deployed to Azure Static Web Apps via the workflow in `.github/workflows/`. The required build order (`npm ci` → `npm run build:css` → `hugo`) is encoded there and mirrors the npm scripts. The deploy uploads from `app_location: /public`.
+Pushes and PRs targeting `main` are built once by the workflow in `.github/workflows/`. The resulting artifact is deployed to Azure Static Web Apps and packaged as an OCI image. Default-branch pushes publish `ghcr.io/ctrl-alt-gg/homepage:latest`; pull requests build the image without publishing it. The container serves the site on port `8080`.

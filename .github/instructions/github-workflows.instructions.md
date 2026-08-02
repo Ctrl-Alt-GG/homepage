@@ -14,9 +14,10 @@ this directory. Treat it as load-bearing.
 2. `npm run build:css`
 3. `hugo --environment production --minify`
 
-If you add a new build step, insert it **before** the `Build And Deploy`
-step and do not reorder the three above. The npm scripts encode the same
-order locally (`package.json` → `scripts.build`); keep them consistent.
+The `build` job runs these steps once and uploads `public/` as the `site`
+artifact. Deployment jobs must consume that artifact instead of rebuilding
+the site. The npm scripts encode the same order locally (`package.json` →
+`scripts.build`); keep them consistent.
 
 ## Azure Static Web Apps deploy
 
@@ -24,9 +25,17 @@ order locally (`package.json` → `scripts.build`); keep them consistent.
   not change it unless Hugo's `publishDir` is also changed.
 - `api_location` and `output_location` are empty on purpose — this is a
   pure static upload, no functions app.
+- Keep `skip_app_build: true`; the shared `site` artifact is already built.
 - The API token secret name encodes the Azure-generated site slug. Do
   not rename it without rotating the secret on the Azure side.
 - The `close_pull_request_job` tears down preview environments; keep it.
+
+## OCI image publish
+
+- Package the shared `site` artifact; never rebuild Hugo in the Dockerfile.
+- Pull requests build the image without publishing it. Pushes to the default
+  branch publish `latest` and commit-addressable tags to GHCR.
+- Keep the runtime unprivileged and expose its non-root port.
 
 ## Versions
 
