@@ -476,11 +476,17 @@ a.cag-card-link:hover {
     background: linear-gradient(to right, var(--color-brand-600), var(--color-brand-500));
 }
 
+/* Override prose-cag h2::after which has left: 0 */
+.prose-cag .cag-social-channels__heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .cag-social-channels__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1rem;
-    max-width: 640px;
+    max-width: 860px;
     margin-inline: auto;
 }
 
@@ -518,6 +524,22 @@ a.cag-card-link:hover {
     background: #9146ff;
 }
 
+.cag-social-card--kick::before {
+    background: #53fc18;
+}
+
+.cag-social-card--facebook::before {
+    background: #1877f2;
+}
+
+.cag-social-card--discord::before {
+    background: #5865f2;
+}
+
+.cag-social-card--x::before {
+    background: #000000;
+}
+
 .cag-social-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-card);
@@ -533,6 +555,26 @@ a.cag-card-link:hover {
 .cag-social-card--twitch:hover {
     border-color: color-mix(in srgb, #9146ff 25%, transparent);
     box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 8%, transparent);
+}
+
+.cag-social-card--kick:hover {
+    border-color: color-mix(in srgb, #53fc18 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #53fc18 8%, transparent);
+}
+
+.cag-social-card--facebook:hover {
+    border-color: color-mix(in srgb, #1877f2 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #1877f2 8%, transparent);
+}
+
+.cag-social-card--discord:hover {
+    border-color: color-mix(in srgb, #5865f2 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #5865f2 8%, transparent);
+}
+
+.cag-social-card--x:hover {
+    border-color: color-mix(in srgb, #000000 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #000000 8%, transparent);
 }
 
 .cag-social-card:focus-visible {
@@ -560,6 +602,27 @@ a.cag-card-link:hover {
 .cag-social-card--twitch .cag-social-card__icon {
     background: #9146ff;
     box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 20%, transparent);
+}
+
+.cag-social-card--kick .cag-social-card__icon {
+    background: #53fc18;
+    color: #000;
+    box-shadow: 0 4px 14px color-mix(in srgb, #53fc18 20%, transparent);
+}
+
+.cag-social-card--facebook .cag-social-card__icon {
+    background: #1877f2;
+    box-shadow: 0 4px 14px color-mix(in srgb, #1877f2 20%, transparent);
+}
+
+.cag-social-card--discord .cag-social-card__icon {
+    background: #5865f2;
+    box-shadow: 0 4px 14px color-mix(in srgb, #5865f2 20%, transparent);
+}
+
+.cag-social-card--x .cag-social-card__icon {
+    background: #000000;
+    box-shadow: 0 4px 14px color-mix(in srgb, #000000 20%, transparent);
 }
 
 .cag-social-card__icon svg {
@@ -599,6 +662,22 @@ a.cag-card-link:hover {
 
 .cag-social-card--twitch .cag-social-card__handle {
     color: #7c3aed;
+}
+
+.cag-social-card--kick .cag-social-card__handle {
+    color: #3db800;
+}
+
+.cag-social-card--facebook .cag-social-card__handle {
+    color: #1877f2;
+}
+
+.cag-social-card--discord .cag-social-card__handle {
+    color: #4752c4;
+}
+
+.cag-social-card--x .cag-social-card__handle {
+    color: var(--on-surface);
 }
 
 .cag-social-card__desc {

@@ -1,29 +1,35 @@
 {{- /*
-  social-channels — Two-card row linking to the YouTube and Twitch channels.
+  social-channels — Card row linking to the community's social channels.
 
-  Renders a visually branded pair of channel cards (YouTube red + Twitch
-  purple) with channel handle, a short description, and an external link.
-  All strings are localised via i18n keys.
+  Renders visually branded channel cards with platform handle, short
+  description, and external link. All strings are localised via i18n keys.
+  Active channels and their URLs are configured in hugo.yaml under
+  params.cag.social_channels.<platform>.enabled / .url
 
-  Params: none (all data is hardcoded to the CAG channels).
+  Supported platforms: youtube, twitch, kick, facebook, discord, x
+
+  Params: none.
 
   Inner: none.
 
   Usage:
     {{< social-channels >}}
 */ -}}
+
+{{- $channels := site.Params.cag.social_channels -}}
+
 <section class="cag-social-channels" aria-label="{{ i18n `social_channels_heading` }}">
   <h2 class="cag-social-channels__heading">{{ i18n "social_channels_heading" }}</h2>
   <div class="cag-social-channels__grid">
 
     {{/* ── YouTube ── */}}
+    {{- with $channels.youtube -}}{{- if .enabled -}}
     <a class="cag-social-card cag-social-card--youtube"
-       href="https://www.youtube.com/@Ctrl-Alt-GG"
+       href="{{ .url }}"
        target="_blank"
        rel="noopener noreferrer external"
        aria-label="{{ i18n `social_youtube_label` }}">
       <span class="cag-social-card__icon" aria-hidden="true">
-        {{/* YouTube wordmark icon */}}
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>
@@ -33,16 +39,14 @@
         <span class="cag-social-card__handle">{{ i18n "social_youtube_handle" }}</span>
         <span class="cag-social-card__desc">{{ i18n "social_youtube_desc" }}</span>
       </span>
-      <span class="cag-social-card__arrow" aria-hidden="true">
-        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 1 0-1.06L11.44 7.5H6.75a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-1.5 0V8.56l-6.22 6.22a.75.75 0 0 1-1.06 0z" clip-rule="evenodd"/>
-        </svg>
-      </span>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
     </a>
+    {{- end -}}{{- end }}
 
     {{/* ── Twitch ── */}}
+    {{- with $channels.twitch -}}{{- if .enabled -}}
     <a class="cag-social-card cag-social-card--twitch"
-       href="https://www.twitch.tv/ctrl_alt_gg"
+       href="{{ .url }}"
        target="_blank"
        rel="noopener noreferrer external"
        aria-label="{{ i18n `social_twitch_label` }}">
@@ -56,12 +60,93 @@
         <span class="cag-social-card__handle">{{ i18n "social_twitch_handle" }}</span>
         <span class="cag-social-card__desc">{{ i18n "social_twitch_desc" }}</span>
       </span>
-      <span class="cag-social-card__arrow" aria-hidden="true">
-        <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 1 0-1.06L11.44 7.5H6.75a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 .75.75v6.5a.75.75 0 0 1-1.5 0V8.56l-6.22 6.22a.75.75 0 0 1-1.06 0z" clip-rule="evenodd"/>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+    </a>
+    {{- end -}}{{- end }}
+
+    {{/* ── Kick ── */}}
+    {{- with $channels.kick -}}{{- if .enabled -}}
+    <a class="cag-social-card cag-social-card--kick"
+       href="{{ .url }}"
+       target="_blank"
+       rel="noopener noreferrer external"
+       aria-label="{{ i18n `social_kick_label` }}">
+      <span class="cag-social-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M2 2h4v6l4-6h5l-5 7 5.5 7H10l-4-6v6H2V2z"/>
         </svg>
       </span>
+      <span class="cag-social-card__body">
+        <span class="cag-social-card__platform">Kick</span>
+        <span class="cag-social-card__handle">{{ i18n "social_kick_handle" }}</span>
+        <span class="cag-social-card__desc">{{ i18n "social_kick_desc" }}</span>
+      </span>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
     </a>
+    {{- end -}}{{- end }}
+
+    {{/* ── Facebook ── */}}
+    {{- with $channels.facebook -}}{{- if .enabled -}}
+    <a class="cag-social-card cag-social-card--facebook"
+       href="{{ .url }}"
+       target="_blank"
+       rel="noopener noreferrer external"
+       aria-label="{{ i18n `social_facebook_label` }}">
+      <span class="cag-social-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+        </svg>
+      </span>
+      <span class="cag-social-card__body">
+        <span class="cag-social-card__platform">Facebook</span>
+        <span class="cag-social-card__handle">{{ i18n "social_facebook_handle" }}</span>
+        <span class="cag-social-card__desc">{{ i18n "social_facebook_desc" }}</span>
+      </span>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+    </a>
+    {{- end -}}{{- end }}
+
+    {{/* ── Discord ── */}}
+    {{- with $channels.discord -}}{{- if .enabled -}}
+    <a class="cag-social-card cag-social-card--discord"
+       href="{{ .url }}"
+       target="_blank"
+       rel="noopener noreferrer external"
+       aria-label="{{ i18n `social_discord_label` }}">
+      <span class="cag-social-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 13.98 13.98 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+      </span>
+      <span class="cag-social-card__body">
+        <span class="cag-social-card__platform">Discord</span>
+        <span class="cag-social-card__handle">{{ i18n "social_discord_handle" }}</span>
+        <span class="cag-social-card__desc">{{ i18n "social_discord_desc" }}</span>
+      </span>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+    </a>
+    {{- end -}}{{- end }}
+
+    {{/* ── X (Twitter) ── */}}
+    {{- with $channels.x -}}{{- if .enabled -}}
+    <a class="cag-social-card cag-social-card--x"
+       href="{{ .url }}"
+       target="_blank"
+       rel="noopener noreferrer external"
+       aria-label="{{ i18n `social_x_label` }}">
+      <span class="cag-social-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+        </svg>
+      </span>
+      <span class="cag-social-card__body">
+        <span class="cag-social-card__platform">X</span>
+        <span class="cag-social-card__handle">{{ i18n "social_x_handle" }}</span>
+        <span class="cag-social-card__desc">{{ i18n "social_x_desc" }}</span>
+      </span>
+      <span class="cag-social-card__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+    </a>
+    {{- end -}}{{- end }}
 
   </div>
 </section>

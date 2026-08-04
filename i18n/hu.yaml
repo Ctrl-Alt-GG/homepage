@@ -50,5 +50,29 @@
   translation: "ctrl_alt_gg"
 - id: social_twitch_desc
   translation: "Élő közvetítések az eseményről"
+- id: social_kick_label
+  translation: "Kick csatorna"
+- id: social_kick_handle
+  translation: "ctrl_alt_gg"
+- id: social_kick_desc
+  translation: "Élő közvetítések az eseményről"
+- id: social_facebook_label
+  translation: "Facebook oldal"
+- id: social_facebook_handle
+  translation: "Ctrl-Alt-GG"
+- id: social_facebook_desc
+  translation: "Hírek és közösségi tartalmak"
+- id: social_discord_label
+  translation: "Discord szerver"
+- id: social_discord_handle
+  translation: "Ctrl-Alt-GG"
+- id: social_discord_desc
+  translation: "Csatlakozz a közösséghez"
+- id: social_x_label
+  translation: "X (Twitter) profil"
+- id: social_x_handle
+  translation: "@ctrl_alt_gg"
+- id: social_x_desc
+  translation: "Friss hírek és frissítések"
 - id: footer_social_label
   translation: "Közösségi oldalak"
