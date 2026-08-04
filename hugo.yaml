@@ -23,6 +23,25 @@ params:
   assets:
     logo: "logo-turkix-hollow.svg"
   cag:
+    social_channels:
+      youtube:
+        enabled: true
+        url: "https://www.youtube.com/@Ctrl-Alt-GG"
+      twitch:
+        enabled: true
+        url: "https://www.twitch.tv/ctrl_alt_gg"
+      kick:
+        enabled: false
+        url: ""
+      facebook:
+        enabled: false
+        url: ""
+      discord:
+        enabled: false
+        url: ""
+      x:
+        enabled: false
+        url: ""
     site:
       description: "GL&HF, IRL."
       disable_credit: true

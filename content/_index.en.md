@@ -23,3 +23,5 @@ That's why we're inviting you to the best, most incredible, grassroots gaming ev
   {{< card icon="🌐" title="Pro Network" >}}We obsessively work on the best infrastructure, because we know good vibes are built on low ping.{{< /card >}}
   {{< card icon="🍺" title="Chill & Beer" >}}Not a competition, just a community weekend. Like-minded people, favourite games and beer. Good company is always part of the deal.{{< /card >}}
 {{< /features >}}
+
+{{< social-channels >}}
