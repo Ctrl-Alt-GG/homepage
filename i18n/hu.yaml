@@ -36,3 +36,19 @@
   translation: "Irány a Care →"
 - id: care_cta_aria
   translation: "Tovább a Ctrl-Alt-GG Care oldalra (új lapon nyílik)"
+- id: social_channels_heading
+  translation: "Kövess minket"
+- id: social_youtube_label
+  translation: "YouTube csatorna"
+- id: social_youtube_handle
+  translation: "@Ctrl-Alt-GG"
+- id: social_youtube_desc
+  translation: "Visszajátszások és összefoglalók"
+- id: social_twitch_label
+  translation: "Twitch csatorna"
+- id: social_twitch_handle
+  translation: "ctrl_alt_gg"
+- id: social_twitch_desc
+  translation: "Élő közvetítések az eseményről"
+- id: footer_social_label
+  translation: "Közösségi oldalak"

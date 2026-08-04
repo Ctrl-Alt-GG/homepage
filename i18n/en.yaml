@@ -36,3 +36,19 @@
   translation: "Go to Care →"
 - id: care_cta_aria
   translation: "Open Ctrl-Alt-GG Care in a new tab"
+- id: social_channels_heading
+  translation: "Follow Us"
+- id: social_youtube_label
+  translation: "YouTube channel"
+- id: social_youtube_handle
+  translation: "@Ctrl-Alt-GG"
+- id: social_youtube_desc
+  translation: "VODs and event recaps"
+- id: social_twitch_label
+  translation: "Twitch channel"
+- id: social_twitch_handle
+  translation: "ctrl_alt_gg"
+- id: social_twitch_desc
+  translation: "Live streams from the event"
+- id: footer_social_label
+  translation: "Social channels"

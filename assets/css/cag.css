@@ -447,3 +447,173 @@ a.cag-card-link:hover {
         display: none;
     }
 }
+
+/* ── .cag-social-channels: YouTube + Twitch channel cards ──────────── */
+
+.cag-social-channels {
+    margin: 2.5rem 0;
+}
+
+.cag-social-channels__heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--on-surface);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.cag-social-channels__heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.25rem;
+    height: 2px;
+    border-radius: 1px;
+    background: linear-gradient(to right, var(--color-brand-600), var(--color-brand-500));
+}
+
+.cag-social-channels__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+/* ── Base card ── */
+.cag-social-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    background: var(--surface-card);
+    text-decoration: none;
+    color: var(--on-surface);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cag-social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 3px;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+    opacity: 0.85;
+}
+
+.cag-social-card--youtube::before {
+    background: #ff0000;
+}
+
+.cag-social-card--twitch::before {
+    background: #9146ff;
+}
+
+.cag-social-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: var(--on-surface);
+}
+
+.cag-social-card--youtube:hover {
+    border-color: color-mix(in srgb, #ff0000 40%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #ff0000 15%, transparent);
+}
+
+.cag-social-card--twitch:hover {
+    border-color: color-mix(in srgb, #9146ff 40%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 15%, transparent);
+}
+
+.cag-social-card:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+}
+
+/* ── Icon badge ── */
+.cag-social-card__icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.cag-social-card--youtube .cag-social-card__icon {
+    background: #ff0000;
+    box-shadow: 0 4px 14px color-mix(in srgb, #ff0000 40%, transparent);
+}
+
+.cag-social-card--twitch .cag-social-card__icon {
+    background: #9146ff;
+    box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 40%, transparent);
+}
+
+.cag-social-card__icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ── Text body ── */
+.cag-social-card__body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.cag-social-card__platform {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+}
+
+.cag-social-card__handle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--on-surface);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cag-social-card--youtube .cag-social-card__handle {
+    color: #cc0000;
+}
+
+.cag-social-card--twitch .cag-social-card__handle {
+    color: #7c3aed;
+}
+
+.cag-social-card__desc {
+    font-size: 0.8rem;
+    opacity: 0.65;
+}
+
+/* ── Arrow affordance ── */
+.cag-social-card__arrow {
+    flex-shrink: 0;
+    color: var(--link);
+    transition: transform 0.2s ease;
+}
+
+.cag-social-card__arrow svg {
+    width: 18px;
+    height: 18px;
+}
+
+.cag-social-card:hover .cag-social-card__arrow {
+    transform: translate(2px, -2px);
+}
