@@ -13,8 +13,6 @@ Felkészültél az év legnagyobb, minden képzeletet felülmúló, nagyszabás�
 
 {{< care-cta >}}
 
-{{< social-channels >}}
-
 Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvényére - immár másodszor -, mert az első akkora siker volt, hogy nem is volt kérdés a folytatás. A célunk most is egyszerű: egy hétvégét lazán együtt tölteni hozzánk hasonló arcokkal, kedvenc játékaink - és sör - társaságában. Közben pedig megszállottan azon leszünk, hogy a lehető legjobb hálózatot rakjuk össze, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi. És ki tudja… ha beindul a játékverseny, lehet, hogy egy-két meglepi nyeremény is gazdára talál.
 
 {{< features heading="Miért gyere el?" >}}
@@ -25,3 +23,5 @@ Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, 
   {{< card icon="🌐" title="Profi hálózat" >}}Keményen dolgozunk a lehető legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.{{< /card >}}
   {{< card icon="🍺" title="Lazulás & sör" >}}Nem verseny, hanem egy közösségi hétvége. Hozzánk hasonló arcok, kedvenc játékok és persze sör. A jó társaság nem kérdés.{{< /card >}}
 {{< /features >}}
+
+{{< social-channels >}}

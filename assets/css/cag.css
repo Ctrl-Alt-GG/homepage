@@ -461,13 +461,15 @@ a.cag-card-link:hover {
     color: var(--on-surface);
     position: relative;
     padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 .cag-social-channels__heading::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 2.25rem;
     height: 2px;
     border-radius: 1px;
@@ -478,6 +480,8 @@ a.cag-card-link:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1rem;
+    max-width: 640px;
+    margin-inline: auto;
 }
 
 /* ── Base card ── */
@@ -522,13 +526,13 @@ a.cag-card-link:hover {
 }
 
 .cag-social-card--youtube:hover {
-    border-color: color-mix(in srgb, #ff0000 40%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #ff0000 15%, transparent);
+    border-color: color-mix(in srgb, #ff0000 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #ff0000 8%, transparent);
 }
 
 .cag-social-card--twitch:hover {
-    border-color: color-mix(in srgb, #9146ff 40%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 15%, transparent);
+    border-color: color-mix(in srgb, #9146ff 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 8%, transparent);
 }
 
 .cag-social-card:focus-visible {
@@ -550,12 +554,12 @@ a.cag-card-link:hover {
 
 .cag-social-card--youtube .cag-social-card__icon {
     background: #ff0000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #ff0000 40%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, #ff0000 20%, transparent);
 }
 
 .cag-social-card--twitch .cag-social-card__icon {
     background: #9146ff;
-    box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 40%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 20%, transparent);
 }
 
 .cag-social-card__icon svg {
