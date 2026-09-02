@@ -38,6 +38,24 @@
   translation: "Tovább a Ctrl-Alt-GG Care oldalra (új lapon nyílik)"
 - id: social_channels_heading
   translation: "Kövess minket"
+- id: transit_mode_bus
+  translation: "Busz"
+- id: transit_mode_night_bus
+  translation: "Busz (éjszakai)"
+- id: transit_mode_tram
+  translation: "Villamos"
+- id: transit_mode_hev
+  translation: "HÉV"
+- id: transit_approx
+  translation: "kb."
+- id: transit_lines_aria_suffix
+  translation: "járatok"
+- id: map_links_hint
+  translation: "Navigáció indítása a választott alkalmazásban:"
+- id: venue_address_label
+  translation: "Cím:"
+- id: map_link_action
+  translation: "Útvonaltervezés"
 - id: social_youtube_label
   translation: "YouTube csatorna"
 - id: social_youtube_handle

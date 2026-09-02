@@ -95,29 +95,18 @@
              no cropping, no fixed row heights, no column-break overlap.
    ─────────────────────────────────────────────────────────────────────────── */
 .cag-gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    align-items: start;
+    @apply grid grid-cols-2 md:grid-cols-12 gap-3 items-start;
 }
 
-@media (width >= 48rem) {
-    .cag-gallery-masonry {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
-    /* Equal-width fallback for images whose dimensions could not be computed
-       (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
-       span 6 on a 12-column grid = 2 images per row. */
-    .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
-        grid-column: span 6;
-    }
+/* Equal-width fallback for images whose dimensions could not be computed
+   (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
+   span 6 on a 12-column grid = 2 images per row. */
+.cag-gallery-masonry > .cag-shortcode-image:not([style]) {
+    @apply md:col-span-6;
 }
 
 .cag-gallery-masonry > .cag-shortcode-image > img {
-    display: block;
-    width: 100%;
-    height: auto;
+    @apply block w-full h-auto;
 }
 
 /* ── .cag-person: team member card heading ── */
@@ -250,8 +239,7 @@ body.cag-lb-active {
 
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */
 .cag-game-cards {
-    @apply grid gap-4 list-none p-0 my-4 mb-6;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    @apply grid gap-4 list-none p-0 my-4 mb-6 grid-cols-[repeat(auto-fill,minmax(230px,1fr))];
 }
 
 .cag-game-cards li {
@@ -318,9 +306,12 @@ body.cag-lb-active {
     @apply text-accent-500 text-xs font-bold uppercase tracking-[0.05em];
 }
 
-/* ── .cag-card-frame: visual shell shared by all .cag-card components ── */
+/* ── .cag-card-frame: visual shell shared by all .cag-card components ──
+   flex-col so a card stretched taller by a taller sibling (default flex
+   stretch in .cag-grid) can let its content (e.g. cag-venue-map) grow
+   into the extra space instead of leaving blank space below it. ── */
 .cag-card-frame {
-    @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden;
+    @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden flex flex-col;
 }
 
 .cag-card-frame::before {
@@ -329,69 +320,101 @@ body.cag-lb-active {
 }
 
 .cag-map-links {
-    @apply mt-6 grid gap-4;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    max-width: 56rem;
-    margin-inline: auto;
+    @apply mt-6 flex flex-wrap justify-center gap-4 mx-auto max-w-[56rem];
 }
 
 .cag-map-links-hint {
     @apply text-center text-sm font-semibold mb-3 opacity-80;
 }
 
+/* Mirrors .cag-social-card: brand-colour top bar, icon badge, platform
+   caption + handle, arrow affordance — so these read as the same kind of
+   button as the YouTube/Twitch cards instead of a one-off component.
+   Each platform sets --ml-brand (and --ml-handle when it differs) once;
+   see .cag-social-card for the same pattern. */
 .cag-map-link {
-    @apply flex items-center justify-center gap-4 rounded-card border border-border bg-surface-card px-6 py-4 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
-    min-height: 6rem;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.06);
-    color: var(--on-surface);
+    @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
+    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply px-5 py-[1.1rem] grow shrink basis-[260px] max-w-[420px];
 }
+
+.cag-map-link::before {
+    @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card opacity-85;
+    background: var(--ml-brand);
+}
+
+.cag-map-link--google { --ml-brand: #4285f4; --ml-handle: #4285f4; }
+.cag-map-link--apple  { --ml-brand: #000000; --ml-handle: var(--on-surface); }
 
 .cag-map-link:hover {
-    @apply -translate-y-[2px];
-    text-decoration: none;
+    @apply -translate-y-[3px] shadow-card no-underline;
+    border-color: color-mix(in srgb, var(--ml-brand) 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--ml-brand) 8%, transparent);
 }
 
-.cag-map-link--google:hover {
-    border-color: color-mix(in srgb, #0f9d58 28%, transparent);
-    box-shadow: 0 8px 20px color-mix(in srgb, #0f9d58 12%, transparent);
-}
-
-.cag-map-link--apple:hover {
-    border-color: color-mix(in srgb, #111827 28%, transparent);
-    box-shadow: 0 8px 20px color-mix(in srgb, #111827 12%, transparent);
+.cag-map-link:focus-visible {
+    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
 }
 
 .cag-map-link__icon {
-    @apply block bg-center bg-no-repeat bg-contain shrink-0;
-    width: 3.5rem;
-    height: 3.5rem;
+    @apply flex items-center justify-center shrink-0 rounded-card bg-white size-11;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--ml-brand) 20%, transparent);
 }
 
-.cag-map-link__icon--google {
+.cag-map-link__icon-img {
+    @apply block bg-center bg-no-repeat bg-contain size-[26px];
+}
+
+.cag-map-link__icon-img--google {
     background-image: url('/icons/google-maps-official.svg');
 }
 
-.cag-map-link__icon--apple {
+.cag-map-link__icon-img--apple {
+    @apply size-8;
     background-image: url('/icons/apple-maps-official.svg');
 }
 
-.cag-map-link__label {
-    @apply text-[1.05rem] font-bold;
-    color: var(--on-surface);
+.cag-map-link__body {
+    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
 }
 
-.cag-map-link__copy {
-    @apply flex flex-col items-start leading-tight;
+.cag-map-link__platform {
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
 }
 
-.cag-map-link__sub {
-    @apply text-[0.78rem] font-medium opacity-70 mt-1;
+.cag-map-link__handle {
+    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-[var(--ml-handle)];
 }
 
-.cag-transport-list {
-    @apply list-none pl-0 mt-4 space-y-2;
-    margin-inline: auto;
-    width: 100%;
+.cag-map-link__arrow {
+    @apply shrink-0 transition-transform duration-[200ms] ease-[ease] text-[var(--link)];
+}
+
+.cag-map-link__arrow svg {
+    @apply size-[18px];
+}
+
+.cag-map-link:hover .cag-map-link__arrow {
+    @apply translate-x-0.5 -translate-y-0.5;
+}
+
+
+/* ── .cag-venue-map: embedded map + address caption, grows to fill its
+   card (see .cag-card-frame / .cag-card-desc flex-col) ── */
+.cag-venue-map {
+    @apply flex flex-col flex-1 gap-2 my-2;
+}
+
+.cag-venue-map__frame {
+    @apply w-full flex-1 rounded-lg border-0 min-h-[220px];
+}
+
+.cag-venue-map__address {
+    @apply shrink-0 m-0;
+}
+
+.prose-cag .cag-transport-list {
+    @apply list-none pl-0 mt-4 space-y-2 mx-auto max-w-[30rem];
 }
 
 .cag-transport-item {
@@ -399,23 +422,35 @@ body.cag-lb-active {
 }
 
 .cag-transport-stop {
-    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2 no-underline;
-    grid-template-columns: 1.875rem minmax(0, 1fr);
-    color: var(--on-surface);
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2 no-underline text-on-surface;
+    @apply grid-cols-[1.875rem_minmax(0,1fr)] transition-[transform,border-color,box-shadow] duration-200 ease-in-out;
 }
 
 .cag-transport-stop:hover {
-    transform: translateY(-1px);
-    border-color: color-mix(in srgb, var(--color-brand-600) 25%, transparent);
-    box-shadow: 0 6px 16px rgb(0 0 0 / 0.08);
-    text-decoration: none;
+    @apply -translate-y-px no-underline;
+}
+
+/* Each mode sets --transit once; the line badge and the stop's hover glow
+   both read from it instead of repeating the same hex per mode. */
+.cag-transport-stop--bus       { --transit: #1b9dd9; }
+.cag-transport-stop--night-bus { --transit: #1e1e1e; }
+.cag-transport-stop--tram      { --transit: #ffd900; }
+.cag-transport-stop--hev       { --transit: #8e3d99; }
+
+.cag-transport-stop--bus:hover,
+.cag-transport-stop--hev:hover {
+    border-color: color-mix(in srgb, var(--transit) 45%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 18%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 20%, transparent);
+}
+
+.cag-transport-stop--night-bus:hover,
+.cag-transport-stop--tram:hover {
+    border-color: color-mix(in srgb, var(--transit) 55%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 22%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 25%, transparent);
 }
 
 .cag-transport-pictogram {
-    @apply block bg-center bg-no-repeat bg-contain shrink-0;
-    width: 1.875rem;
-    height: 1.875rem;
+    @apply block bg-center bg-no-repeat bg-contain shrink-0 size-[1.875rem];
 }
 
 .cag-transport-pictogram--bus {
@@ -430,8 +465,16 @@ body.cag-lb-active {
     background-image: url('/icons/bkk-hev-official.svg');
 }
 
+.cag-transport-pictogram--night-bus {
+    background-image: url('/icons/bkk-night-bus-official.svg');
+}
+
 .cag-transport-meta {
     @apply flex flex-col gap-2 min-w-0;
+}
+
+.cag-transport-distance {
+    @apply text-sm opacity-70;
 }
 
 .cag-line-badges {
@@ -439,38 +482,25 @@ body.cag-lb-active {
 }
 
 .cag-line-badge {
-    @apply inline-flex items-center justify-center rounded-[0.5rem] px-2 py-1 text-[0.72rem] leading-none font-bold border;
+    @apply inline-flex items-center justify-center rounded-[0.5rem] px-2 py-1 text-[0.72rem] leading-none font-bold border text-white;
+    background: var(--badge);
+    border-color: color-mix(in srgb, var(--badge) 65%, transparent);
 }
 
-.cag-line-badge--bus {
-    background: #1b9dd9;
-    color: #ffffff;
-    border-color: color-mix(in srgb, #1b9dd9 65%, transparent);
+.cag-line-badge--bus  { --badge: #1b9dd9; }
+.cag-line-badge--tram { --badge: #ffd900; @apply text-[#111827]; }
+.cag-line-badge--hev  {
+    /* Official BKK H5 (Szentendre) line colour: purple. */
+    --badge: #8e3d99;
 }
-
-.cag-line-badge--tram {
-    background: #ffd900;
-    color: #111827;
-    border-color: color-mix(in srgb, #ffd900 65%, transparent);
-}
-
-.cag-line-badge--hev {
-    background: #1e1e1e;
-    color: #ffffff;
-    border-color: color-mix(in srgb, #1e1e1e 65%, transparent);
-}
+.cag-line-badge--night { --badge: #1e1e1e; }
 
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */
 .cag-grid > .cag-card {
-    flex: 1 1 15rem;   /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping */
-    max-width: 100%;   /* mobile: full width */
-}
-
-@media (width >= 640px) {
-    .cag-grid > .cag-card {
-        max-width: 21.25rem; /* 340px cap so cards don't stretch too wide */
-    }
+    /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping; 340px cap
+       from sm: up so cards don't stretch too wide */
+    @apply grow shrink basis-[15rem] max-w-full sm:max-w-[21.25rem];
 }
 
 /* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
@@ -490,348 +520,153 @@ a.cag-card-link:hover {
 
 /* ── Care CTA: portal to care.ctrl-alt-gg.hu ────────────────────── */
 .cag-care-cta {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    padding: 1.25rem 1.5rem;
-    margin: 2rem 0 2.5rem;
-    border-radius: var(--radius-panel);     /* 1.25rem — softer than --radius-card, echoes Care's rounded-2xl */
+    @apply flex items-center gap-[1.1rem] no-underline text-on-surface;
+    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply max-[576px]:flex-col max-[576px]:text-center;
+    @apply px-6 py-5 mx-0 mt-8 mb-10 max-[576px]:px-5 max-[576px]:py-[1.1rem];
+    @apply rounded-[var(--radius-panel)]; /* softer than --radius-card, echoes Care's rounded-2xl */
     background: linear-gradient(135deg,
         color-mix(in srgb, var(--color-brand-600) 8%, transparent),
         color-mix(in srgb, var(--color-brand-600) 2%, transparent));
     border: 1px solid color-mix(in srgb, var(--color-brand-600) 25%, transparent);
-    color: var(--on-surface);
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cag-care-cta:hover {
-    transform: translateY(-2px);
+    @apply -translate-y-0.5 no-underline text-on-surface;
     box-shadow: 0 10px 32px color-mix(in srgb, var(--color-brand-600) 18%, transparent);
     border-color: color-mix(in srgb, var(--color-brand-600) 55%, transparent);
-    color: var(--on-surface);
-    text-decoration: none;
 }
 
 .cag-care-cta:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 3px;
+    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
 }
 
 .cag-care-cta__badge {
-    flex: 0 0 56px;
-    width: 56px;
-    height: 56px;
-    border-radius: var(--radius-card);      /* 0.875rem = 14px, matches homepage card corners */
+    @apply flex items-center justify-center rounded-card shrink-0;
+    @apply size-14 basis-14 max-[576px]:size-12 max-[576px]:basis-12;
     background: var(--color-brand-600);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0 4px 14px color-mix(in srgb, var(--color-brand-600) 35%, transparent);
 }
 
 .cag-care-cta__badge svg {
-    width: 36px;
-    height: auto;
-    color: var(--color-white);
+    @apply w-9 h-auto text-white;
 }
 
 .cag-care-cta__body {
-    flex: 1 1 auto;
-    min-width: 0;
+    @apply flex-1 min-w-0;
 }
 
 .cag-care-cta__title {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--color-brand-500);
-    margin: 0 0 0.15rem;
+    @apply font-bold text-[1.1rem] text-brand-500 mx-0 mt-0 mb-[0.15rem];
 }
 
 .cag-care-cta__desc {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin: 0;
-    color: var(--on-surface);
+    @apply text-[0.9rem] opacity-80 m-0 text-on-surface;
 }
 
 .cag-care-cta__arrow {
-    margin-left: auto;
-    color: var(--link);
-    flex-shrink: 0;
+    @apply ml-auto shrink-0 max-[576px]:hidden text-[var(--link)];
 }
 
-/* Responsive: stack vertically, centre text, hide arrow on small screens */
-@media (width < 576px) {
-    .cag-care-cta {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.1rem 1.25rem;
-    }
-
-    .cag-care-cta__badge {
-        flex: 0 0 48px;
-        width: 48px;
-        height: 48px;
-    }
-
-    .cag-care-cta__arrow {
-        display: none;
-    }
-}
 
 /* ── .cag-social-channels: YouTube + Twitch channel cards ──────────── */
 
 .cag-social-channels {
-    margin: 2.5rem 0;
+    @apply my-10;
 }
 
 .cag-social-channels__heading {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--on-surface);
-    position: relative;
-    padding-bottom: 0.5rem;
-    text-align: center;
+    @apply text-2xl font-bold mb-4 text-on-surface relative pb-2 text-center;
 }
 
 .cag-social-channels__heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2.25rem;
-    height: 2px;
-    border-radius: 1px;
-    background: linear-gradient(to right, var(--color-brand-600), var(--color-brand-500));
+    @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-9 h-[2px] rounded-[1px];
+    @apply bg-gradient-to-r from-brand-600 to-brand-500;
 }
 
 /* Override prose-cag h2::after which has left: 0 */
 .prose-cag .cag-social-channels__heading::after {
-    left: 50%;
-    transform: translateX(-50%);
+    @apply left-1/2 -translate-x-1/2;
 }
 
 .cag-social-channels__grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 860px;
-    margin-inline: auto;
+    @apply flex flex-wrap justify-center gap-4 mx-auto max-w-[860px];
 }
 
-/* ── Base card ── */
+/* ── Base card ──
+   Each platform sets --sc-brand (and --sc-handle when the handle needs a
+   darker/lighter shade for readability) once; every visual detail below —
+   top bar, icon badge, hover glow, handle colour — reads from those two
+   custom properties instead of repeating per-platform rules. */
 .cag-social-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    border-radius: var(--radius-card);
-    border: 1px solid var(--border);
-    background: var(--surface-card);
-    text-decoration: none;
-    color: var(--on-surface);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    position: relative;
-    overflow: hidden;
-    flex: 1 1 260px;
-    max-width: 420px;
+    @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
+    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply px-5 py-[1.1rem] grow shrink basis-[260px] max-w-[420px];
 }
 
 .cag-social-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    inset-inline: 0;
-    height: 3px;
-    border-radius: var(--radius-card) var(--radius-card) 0 0;
-    opacity: 0.85;
-}
-
-.cag-social-card--youtube::before {
-    background: #ff0000;
-}
-
-.cag-social-card--twitch::before {
-    background: #9146ff;
-}
-
-.cag-social-card--kick::before {
-    background: #53fc18;
-}
-
-.cag-social-card--facebook::before {
-    background: #1877f2;
-}
-
-.cag-social-card--discord::before {
-    background: #5865f2;
-}
-
-.cag-social-card--x::before {
-    background: #000000;
+    @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card opacity-85;
+    background: var(--sc-brand);
 }
 
 .cag-social-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-    color: var(--on-surface);
-}
-
-.cag-social-card--youtube:hover {
-    border-color: color-mix(in srgb, #ff0000 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #ff0000 8%, transparent);
-}
-
-.cag-social-card--twitch:hover {
-    border-color: color-mix(in srgb, #9146ff 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 8%, transparent);
-}
-
-.cag-social-card--kick:hover {
-    border-color: color-mix(in srgb, #53fc18 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #53fc18 8%, transparent);
-}
-
-.cag-social-card--facebook:hover {
-    border-color: color-mix(in srgb, #1877f2 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #1877f2 8%, transparent);
-}
-
-.cag-social-card--discord:hover {
-    border-color: color-mix(in srgb, #5865f2 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #5865f2 8%, transparent);
-}
-
-.cag-social-card--x:hover {
-    border-color: color-mix(in srgb, #000000 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #000000 8%, transparent);
+    @apply -translate-y-[3px] shadow-card no-underline text-on-surface;
+    border-color: color-mix(in srgb, var(--sc-brand) 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--sc-brand) 8%, transparent);
 }
 
 .cag-social-card:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 3px;
+    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
 }
+
+.cag-social-card--youtube   { --sc-brand: #ff0000; --sc-handle: #cc0000; }
+.cag-social-card--twitch    { --sc-brand: #9146ff; --sc-handle: #7c3aed; }
+.cag-social-card--kick      { --sc-brand: #53fc18; --sc-handle: #3db800; }
+.cag-social-card--facebook  { --sc-brand: #1877f2; --sc-handle: #1877f2; }
+.cag-social-card--discord   { --sc-brand: #5865f2; --sc-handle: #4752c4; }
+.cag-social-card--x         { --sc-brand: #000000; --sc-handle: var(--on-surface); }
 
 /* ── Icon badge ── */
 .cag-social-card__icon {
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.cag-social-card--youtube .cag-social-card__icon {
-    background: #ff0000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #ff0000 20%, transparent);
-}
-
-.cag-social-card--twitch .cag-social-card__icon {
-    background: #9146ff;
-    box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 20%, transparent);
+    @apply flex items-center justify-center shrink-0 rounded-card text-white size-11;
+    background: var(--sc-brand);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--sc-brand) 20%, transparent);
 }
 
 .cag-social-card--kick .cag-social-card__icon {
-    background: #53fc18;
-    color: #000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #53fc18 20%, transparent);
-}
-
-.cag-social-card--facebook .cag-social-card__icon {
-    background: #1877f2;
-    box-shadow: 0 4px 14px color-mix(in srgb, #1877f2 20%, transparent);
-}
-
-.cag-social-card--discord .cag-social-card__icon {
-    background: #5865f2;
-    box-shadow: 0 4px 14px color-mix(in srgb, #5865f2 20%, transparent);
-}
-
-.cag-social-card--x .cag-social-card__icon {
-    background: #000000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #000000 20%, transparent);
+    @apply text-black;
 }
 
 .cag-social-card__icon svg {
-    width: 22px;
-    height: 22px;
+    @apply size-[22px];
 }
 
 /* ── Text body ── */
 .cag-social-card__body {
-    flex: 1 1 auto;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
+    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
 }
 
 .cag-social-card__platform {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.55;
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
 }
 
 .cag-social-card__handle {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--on-surface);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.cag-social-card--youtube .cag-social-card__handle {
-    color: #cc0000;
-}
-
-.cag-social-card--twitch .cag-social-card__handle {
-    color: #7c3aed;
-}
-
-.cag-social-card--kick .cag-social-card__handle {
-    color: #3db800;
-}
-
-.cag-social-card--facebook .cag-social-card__handle {
-    color: #1877f2;
-}
-
-.cag-social-card--discord .cag-social-card__handle {
-    color: #4752c4;
-}
-
-.cag-social-card--x .cag-social-card__handle {
-    color: var(--on-surface);
+    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-[var(--sc-handle)];
 }
 
 .cag-social-card__desc {
-    font-size: 0.8rem;
-    opacity: 0.65;
+    @apply text-[0.8rem] opacity-65;
 }
 
 /* ── Arrow affordance ── */
 .cag-social-card__arrow {
-    flex-shrink: 0;
-    color: var(--link);
-    transition: transform 0.2s ease;
+    @apply shrink-0 transition-transform duration-[200ms] ease-[ease] text-[var(--link)];
 }
 
 .cag-social-card__arrow svg {
-    width: 18px;
-    height: 18px;
+    @apply size-[18px];
 }
 
 .cag-social-card:hover .cag-social-card__arrow {
-    transform: translate(2px, -2px);
+    @apply translate-x-0.5 -translate-y-0.5;
 }

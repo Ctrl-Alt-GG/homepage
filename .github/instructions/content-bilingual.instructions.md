@@ -56,6 +56,14 @@ Compose pages out of the project shortcode library rather than raw HTML:
   combos.
 - Consult `layouts/shortcodes/` for the current parameter contract; extend
   rather than fork when a shortcode almost fits.
+- **Never paste multi-line raw `<div>`/`<ul>`/`<iframe>` blocks into a
+  content file.** If no existing shortcode fits a repeated pattern (a
+  list of items, an embedded map, a pair of CTA buttons, ...), add a new
+  one under `layouts/shortcodes/cag/` (see
+  `.github/instructions/shortcode-authoring.instructions.md`) instead of
+  inlining HTML. This keeps content files translatable/diffable and
+  keeps presentation changes to one template instead of every page that
+  copy-pasted the markup.
 
 ## Writing style
 

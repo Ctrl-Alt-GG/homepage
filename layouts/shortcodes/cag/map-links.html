@@ -1,0 +1,40 @@
+{{- /*
+  Renders the "Google Maps" / "Apple Maps" navigation buttons shown below a
+  venue map, styled like the .cag-social-card channel cards (brand-colour
+  top bar, icon badge, platform caption + handle, arrow affordance), plus a
+  localised hint line above them.
+
+  Params (named):
+    google (string, required) — Google Maps deep link.
+    apple  (string, required) — Apple Maps deep link.
+
+  Usage:
+    {{< cag/map-links google="https://maps.app.goo.gl/XXXXXXX" apple="https://maps.apple.com/?ll=..." >}}
+*/ -}}
+{{- $google := .Get "google" -}}
+{{- $apple := .Get "apple" -}}
+{{- if not (and $google $apple) }}{{ errorf "cag/map-links: 'google' and 'apple' are both required (page: %s)" .Page.File.Path }}{{ end -}}
+{{- $action := i18n "map_link_action" -}}
+<p class="cag-map-links-hint">{{ i18n "map_links_hint" }}</p>
+<div class="cag-map-links">
+  <a class="cag-map-link cag-map-link--google" href="{{ $google }}">
+    <span class="cag-map-link__icon" aria-hidden="true">
+      <span class="cag-map-link__icon-img cag-map-link__icon-img--google" aria-hidden="true"></span>
+    </span>
+    <span class="cag-map-link__body">
+      <span class="cag-map-link__platform">{{ $action }}</span>
+      <span class="cag-map-link__handle">Google Maps</span>
+    </span>
+    <span class="cag-map-link__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+  </a>
+  <a class="cag-map-link cag-map-link--apple" href="{{ $apple }}">
+    <span class="cag-map-link__icon" aria-hidden="true">
+      <span class="cag-map-link__icon-img cag-map-link__icon-img--apple" aria-hidden="true"></span>
+    </span>
+    <span class="cag-map-link__body">
+      <span class="cag-map-link__platform">{{ $action }}</span>
+      <span class="cag-map-link__handle">Apple Maps</span>
+    </span>
+    <span class="cag-map-link__arrow" aria-hidden="true">{{ partial "social-card-arrow.html" . }}</span>
+  </a>
+</div>

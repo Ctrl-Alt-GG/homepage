@@ -50,6 +50,20 @@ existing content may rely on them. Style them via `@layer components`:
 
 Never rename an existing `cag-*` class; extend by adding new ones.
 
+## Prefer utilities over new custom CSS
+
+Before adding a rule to `cag.css`, check whether Tailwind utility classes
+applied directly in the template/shortcode already solve it — most
+layout, spacing, flex/grid, and color needs do. Reach for `cag.css` only
+for things utilities can't express cleanly: pseudo-elements (`::before`),
+`background-image` icons, multi-declaration hover/focus states tied to a
+semantic component name, or values that must stay in sync across many
+selectors (e.g. a brand colour used in both a badge and its border).
+Adding a new one-off custom class for something four utility classes
+already cover is technical debt — it was the root cause of most of the
+css/markup churn on the location page (see git history around
+`content/location/`).
+
 ## Dark mode
 
 Dark mode is expressed with the `dark:` variant (declared via

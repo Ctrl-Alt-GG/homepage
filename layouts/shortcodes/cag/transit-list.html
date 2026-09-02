@@ -1,0 +1,16 @@
+{{- /*
+  Wraps one or more {{< cag/transit-stop >}} rows in the venue's public
+  transport list.
+
+  Inner: {{< cag/transit-stop >}} calls only (emitted verbatim — Inner is
+         already rendered HTML, not Markdown).
+
+  Usage:
+    {{< cag/transit-list >}}
+      {{< cag/transit-stop mode="bus" name="Búza utca" distance="320 m"
+          href="https://go.bkk.hu/stop/BKK_011320" lines="118" nightLines="918" >}}
+    {{< /cag/transit-list >}}
+*/ -}}
+<ul class="cag-transport-list">
+  {{ .Inner }}
+</ul>

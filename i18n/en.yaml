@@ -38,6 +38,24 @@
   translation: "Open Ctrl-Alt-GG Care in a new tab"
 - id: social_channels_heading
   translation: "Follow Us"
+- id: transit_mode_bus
+  translation: "Bus"
+- id: transit_mode_night_bus
+  translation: "Bus (night)"
+- id: transit_mode_tram
+  translation: "Tram"
+- id: transit_mode_hev
+  translation: "HÉV"
+- id: transit_approx
+  translation: "approx."
+- id: transit_lines_aria_suffix
+  translation: "lines"
+- id: map_links_hint
+  translation: "Open your preferred navigation app for directions:"
+- id: venue_address_label
+  translation: "Address:"
+- id: map_link_action
+  translation: "Get directions"
 - id: social_youtube_label
   translation: "YouTube channel"
 - id: social_youtube_handle

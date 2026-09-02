@@ -1,0 +1,24 @@
+{{- /*
+  Renders an embedded Google Maps iframe plus an address caption. Grows to
+  fill the height of its parent card on wide (multi-column) layouts; falls
+  back to a fixed minimum height when stacked on narrow viewports.
+  Meant to be used inside a {{< card >}} shortcode.
+
+  Params (named):
+    lat     (string, required) — latitude for the map marker.
+    lng     (string, required) — longitude for the map marker.
+    address (string, required) — plain-text address shown under the map.
+
+  Usage:
+    {{< cag/venue-map lat="47.5513926" lng="19.0354529" address="1037 Budapest, Nagymihály utca 2." >}}
+*/ -}}
+{{- $lat := .Get "lat" -}}
+{{- $lng := .Get "lng" -}}
+{{- $address := .Get "address" -}}
+{{- if not (and $lat $lng $address) }}{{ errorf "cag/venue-map: 'lat', 'lng' and 'address' are all required (page: %s)" .Page.File.Path }}{{ end -}}
+<div class="cag-venue-map">
+  <iframe src="https://www.google.com/maps?q={{ $lat }},{{ $lng }}&amp;output=embed"
+          class="cag-venue-map__frame"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p class="cag-venue-map__address">{{ i18n "venue_address_label" }} <strong>{{ $address }}</strong></p>
+</div>
