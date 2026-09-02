@@ -8,7 +8,7 @@ This year's Ctrl-Alt-GG venue is **DISTR3CT Event Cube** (Budapest District III,
 
 {{< features heading="Getting there at a glance" >}}
   {{< card icon="📍" title="DISTR3CT Event Cube on the map" >}}
-<iframe src="https://www.google.com/maps?q=47.5513926,19.0354529&output=embed" width="100%" height="320" class="border-0 block w-full h-[320px] my-2 rounded-lg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps?q=47.5513926,19.0354529&amp;output=embed" title="DISTR3CT Event Cube map" width="100%" height="320" class="border-0 block w-full h-[320px] my-2 rounded-lg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 Address: **1037 Budapest, Nagymihály utca 2.**
   {{< /card >}}
