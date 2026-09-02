@@ -335,6 +335,10 @@ body.cag-lb-active {
     margin-inline: auto;
 }
 
+.cag-map-links-hint {
+    @apply text-center text-sm font-semibold mb-3 opacity-80;
+}
+
 .cag-map-link {
     @apply flex items-center justify-center gap-4 rounded-card border border-border bg-surface-card px-6 py-4 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
     min-height: 6rem;
@@ -376,6 +380,14 @@ body.cag-lb-active {
     color: var(--on-surface);
 }
 
+.cag-map-link__copy {
+    @apply flex flex-col items-start leading-tight;
+}
+
+.cag-map-link__sub {
+    @apply text-[0.78rem] font-medium opacity-70 mt-1;
+}
+
 .cag-transport-list {
     @apply list-none pl-0 mt-4 space-y-2;
     margin-inline: auto;
@@ -383,8 +395,21 @@ body.cag-lb-active {
 }
 
 .cag-transport-item {
-    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
-    grid-template-columns: 1.875rem minmax(0, 1fr) 1.875rem;
+    @apply block;
+}
+
+.cag-transport-stop {
+    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2 no-underline;
+    grid-template-columns: 1.875rem minmax(0, 1fr);
+    color: var(--on-surface);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cag-transport-stop:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--color-brand-600) 25%, transparent);
+    box-shadow: 0 6px 16px rgb(0 0 0 / 0.08);
+    text-decoration: none;
 }
 
 .cag-transport-pictogram {
@@ -407,13 +432,6 @@ body.cag-lb-active {
 
 .cag-transport-meta {
     @apply flex flex-col gap-2 min-w-0;
-    grid-column: 2;
-}
-
-.cag-transport-item::after {
-    content: '';
-    width: 1.875rem;
-    height: 1px;
 }
 
 .cag-line-badges {
