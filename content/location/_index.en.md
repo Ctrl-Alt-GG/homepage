@@ -17,15 +17,33 @@ Address: **1037 Budapest, Nagymihály utca 2.**
 <ul class="cag-transport-list">
   <li class="cag-transport-item">
     <span class="cag-transport-pictogram cag-transport-pictogram--bus" aria-hidden="true"></span>
-    <span><strong>Bus:</strong> Búza utca – approx. <strong>320 m</strong></span>
+    <span class="cag-transport-meta">
+      <span><strong>Bus:</strong> Búza utca – approx. <strong>320 m</strong></span>
+      <span class="cag-line-badges" aria-label="Búza utca lines">
+        <span class="cag-line-badge cag-line-badge--bus">118</span>
+      </span>
+    </span>
   </li>
   <li class="cag-transport-item">
     <span class="cag-transport-pictogram cag-transport-pictogram--tram" aria-hidden="true"></span>
-    <span><strong>Tram:</strong> Bécsi út / Vörösvári út – approx. <strong>530 m</strong></span>
+    <span class="cag-transport-meta">
+      <span><strong>Tram:</strong> Bécsi út / Vörösvári út – approx. <strong>530 m</strong></span>
+      <span class="cag-line-badges" aria-label="Bécsi út / Vörösvári út lines">
+        <span class="cag-line-badge cag-line-badge--tram">1</span>
+        <span class="cag-line-badge cag-line-badge--tram">17</span>
+        <span class="cag-line-badge cag-line-badge--tram">19</span>
+        <span class="cag-line-badge cag-line-badge--tram">41</span>
+      </span>
+    </span>
   </li>
   <li class="cag-transport-item">
     <span class="cag-transport-pictogram cag-transport-pictogram--hev" aria-hidden="true"></span>
-    <span><strong>HÉV (H5):</strong> Filatorigát – approx. <strong>810 m</strong> <em>(Kaszásdűlő: approx. 950 m)</em></span>
+    <span class="cag-transport-meta">
+      <span><strong>HÉV (H5):</strong> Filatorigát – approx. <strong>810 m</strong> <em>(Kaszásdűlő: approx. 950 m)</em></span>
+      <span class="cag-line-badges" aria-label="Filatorigát lines">
+        <span class="cag-line-badge cag-line-badge--hev">H5</span>
+      </span>
+    </span>
   </li>
 </ul>
   {{< /card >}}

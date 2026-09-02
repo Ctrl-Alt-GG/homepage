@@ -329,14 +329,15 @@ body.cag-lb-active {
 }
 
 .cag-map-links {
-    @apply mt-5 grid gap-3;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    @apply mt-6 grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     max-width: 56rem;
     margin-inline: auto;
 }
 
 .cag-map-link {
-    @apply flex items-center justify-center gap-3 rounded-[0.75rem] border border-border bg-surface px-4 py-3 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
+    @apply flex items-center justify-center gap-4 rounded-card border border-border bg-surface-card px-6 py-4 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
+    min-height: 5.25rem;
     color: var(--on-surface);
 }
 
@@ -357,8 +358,8 @@ body.cag-lb-active {
 
 .cag-map-link__icon {
     @apply block bg-center bg-no-repeat bg-contain shrink-0;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
 }
 
 .cag-map-link__icon--google {
@@ -370,7 +371,7 @@ body.cag-lb-active {
 }
 
 .cag-map-link__label {
-    @apply text-sm font-semibold;
+    @apply text-base font-bold;
     color: var(--on-surface);
 }
 
@@ -379,7 +380,7 @@ body.cag-lb-active {
 }
 
 .cag-transport-item {
-    @apply flex items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
+    @apply flex items-start gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
 }
 
 .cag-transport-pictogram {
@@ -398,6 +399,36 @@ body.cag-lb-active {
 
 .cag-transport-pictogram--hev {
     background-image: url('/icons/bkk-hev-official.svg');
+}
+
+.cag-transport-meta {
+    @apply flex flex-col gap-2 min-w-0;
+}
+
+.cag-line-badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.cag-line-badge {
+    @apply inline-flex items-center justify-center rounded-[0.5rem] px-2 py-1 text-[0.72rem] leading-none font-bold border;
+}
+
+.cag-line-badge--bus {
+    background: #1b9dd9;
+    color: #ffffff;
+    border-color: color-mix(in srgb, #1b9dd9 65%, transparent);
+}
+
+.cag-line-badge--tram {
+    background: #ffd900;
+    color: #111827;
+    border-color: color-mix(in srgb, #ffd900 65%, transparent);
+}
+
+.cag-line-badge--hev {
+    background: #1e1e1e;
+    color: #ffffff;
+    border-color: color-mix(in srgb, #1e1e1e 65%, transparent);
 }
 
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
