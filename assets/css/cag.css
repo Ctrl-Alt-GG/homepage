@@ -328,6 +328,85 @@ body.cag-lb-active {
     @apply bg-gradient-to-r from-brand-600 to-brand-500;
 }
 
+.cag-map-links {
+    @apply mt-4 grid gap-3;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.cag-map-link {
+    @apply flex items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
+    color: var(--on-surface);
+}
+
+.cag-map-link:hover {
+    @apply -translate-y-[2px];
+    text-decoration: none;
+}
+
+.cag-map-link--google:hover {
+    border-color: color-mix(in srgb, #0f9d58 28%, transparent);
+    box-shadow: 0 8px 20px color-mix(in srgb, #0f9d58 12%, transparent);
+}
+
+.cag-map-link--apple:hover {
+    border-color: color-mix(in srgb, #111827 28%, transparent);
+    box-shadow: 0 8px 20px color-mix(in srgb, #111827 12%, transparent);
+}
+
+.cag-map-link__icon {
+    @apply size-10 rounded-[0.65rem] flex items-center justify-center text-white;
+}
+
+.cag-map-link--google .cag-map-link__icon {
+    background: linear-gradient(145deg, #4285f4, #0f9d58);
+}
+
+.cag-map-link--apple .cag-map-link__icon {
+    background: linear-gradient(145deg, #1f2937, #111827);
+}
+
+.cag-map-link__icon svg {
+    @apply size-[1.15rem];
+    fill: currentColor;
+}
+
+.cag-map-link__label {
+    @apply text-sm font-semibold;
+    color: var(--on-surface);
+}
+
+.cag-transport-list {
+    @apply list-none pl-0 mt-4 space-y-2;
+}
+
+.cag-transport-item {
+    @apply flex items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
+}
+
+.cag-transport-pictogram {
+    @apply size-9 rounded-[0.6rem] flex items-center justify-center shrink-0;
+}
+
+.cag-transport-pictogram--bus {
+    background: #0d5eaf;
+    color: #ffffff;
+}
+
+.cag-transport-pictogram--tram {
+    background: #ffcf33;
+    color: #1f2937;
+}
+
+.cag-transport-pictogram--hev {
+    background: #0c8e5a;
+    color: #ffffff;
+}
+
+.cag-transport-pictogram svg {
+    @apply size-[1.05rem];
+    fill: currentColor;
+}
+
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */
 .cag-grid > .cag-card {
