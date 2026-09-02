@@ -337,7 +337,8 @@ body.cag-lb-active {
 
 .cag-map-link {
     @apply flex items-center justify-center gap-4 rounded-card border border-border bg-surface-card px-6 py-4 no-underline transition-[transform,border-color,box-shadow] duration-[250ms] ease-[ease];
-    min-height: 5.25rem;
+    min-height: 6rem;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.06);
     color: var(--on-surface);
 }
 
@@ -358,8 +359,8 @@ body.cag-lb-active {
 
 .cag-map-link__icon {
     @apply block bg-center bg-no-repeat bg-contain shrink-0;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .cag-map-link__icon--google {
@@ -371,16 +372,19 @@ body.cag-lb-active {
 }
 
 .cag-map-link__label {
-    @apply text-base font-bold;
+    @apply text-[1.05rem] font-bold;
     color: var(--on-surface);
 }
 
 .cag-transport-list {
     @apply list-none pl-0 mt-4 space-y-2;
+    margin-inline: auto;
+    width: 100%;
 }
 
 .cag-transport-item {
-    @apply flex items-start gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
+    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2;
+    grid-template-columns: 1.875rem minmax(0, 1fr) 1.875rem;
 }
 
 .cag-transport-pictogram {
@@ -403,6 +407,13 @@ body.cag-lb-active {
 
 .cag-transport-meta {
     @apply flex flex-col gap-2 min-w-0;
+    grid-column: 2;
+}
+
+.cag-transport-item::after {
+    content: '';
+    width: 1.875rem;
+    height: 1px;
 }
 
 .cag-line-badges {

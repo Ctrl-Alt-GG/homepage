@@ -25,6 +25,15 @@ Cím: **1037 Budapest, Nagymihály utca 2.**
     </span>
   </li>
   <li class="cag-transport-item">
+    <span class="cag-transport-pictogram cag-transport-pictogram--bus" aria-hidden="true"></span>
+    <span class="cag-transport-meta">
+      <span><strong>Busz:</strong> Óbuda, Bogdáni út (9-es végállomás) – kb. <strong>900 m</strong></span>
+      <span class="cag-line-badges" aria-label="Óbuda, Bogdáni út járatok">
+        <span class="cag-line-badge cag-line-badge--bus">9</span>
+      </span>
+    </span>
+  </li>
+  <li class="cag-transport-item">
     <span class="cag-transport-pictogram cag-transport-pictogram--tram" aria-hidden="true"></span>
     <span class="cag-transport-meta">
       <span><strong>Villamos:</strong> Bécsi út / Vörösvári út – kb. <strong>530 m</strong></span>
