@@ -1,27 +1,26 @@
 ---
 title: "Helyszín"
-draft: true
+summary: "A Ctrl-Alt-GG a budapesti DISTR3CT Event Cube-ban vár, könnyen elérhető autóval és tömegközlekedéssel."
+weight: 30
 ---
 
-## A Város Melletti Miniváros
+A Ctrl-Alt-GG idei helyszíne a **DISTR3CT Event Cube** (Budapest III., Nagymihály utca 2.). Az eseménytér autóval és tömegközlekedéssel is könnyen megközelíthető.
 
-A Tópart Biatorbágy városának M1 és M0 autópályák melletti, Budapesttől mindössze néhány perces autóútnyira fekvő városrésze. Az autóval érkezők számára a megközelítés rendkívül egyszerű: a bejárattól karnyújtásnyira található az ingyenes parkoló, így a be- és kipakolás villámgyorsan megoldható. A pontos bejárati koordinátákat az alább található térképen láthatod.
+{{< features heading="Megközelítés gyorsan" >}}
+  {{< card icon="📍" title="DISTR3CT Event Cube térképen" >}}
+<iframe src="https://www.google.com/maps?q=47.5513926,19.0354529&output=embed" width="100%" height="320" class="border-0 block w-full h-[320px] my-2 rounded-lg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-{{< maps >}}
+Cím: **1037 Budapest, Nagymihály utca 2.**
+  {{< /card >}}
 
+  {{< card icon="🚍" title="Közeli tömegközlekedés" >}}
+- **Busz:** Búza utca – kb. **320 m**
+- **Villamos:** Bécsi út / Vörösvári út – kb. **530 m**
+- **HÉV (H5):** Filatorigát – kb. **810 m** *(Kaszásdűlő: kb. 950 m)*
+  {{< /card >}}
+{{< /features >}}
 
-Viszont, ha inkább tömegközlekedéssel érkeznél a Volán Kelenföld állomástól induló **764-es busz** röpke negyed óra alatt néhány lépésre repít az akcíótól. Leszállás a **"Biatorbágy, Tópark"** állomáson.
+Térképes útvonaltervezés:
 
-Az épületek között a "G Recepció" felirattal jelzett bejáratot keresd! Google Mapsen a "Regus" pin alapján tervezd meg az útvonalat, vagy add meg a navigációs rendszerben a "Biatorbágy Sasbérc út 1 G" címet. A parkolóhoz közelebbi oldalon találsz majd minket.
-
-## Az Iroda Gaming Arénává Változik
-
-Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. Néhány asztal, rengeteg kábel, és egy sereg számítógép - így néz ki, amikor a PowerPoint prezentációk helyét átveszik a headshot-ok és a strategy rush-ok. Nincs dress code, nincsenek meetingek csak tiszta játék, ahogy lennie kell.
-
-## Konzol Kuckó
-
-Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedben. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz. Válassz egy játékot, és élvezd a lazabb élményt.
-
-## Chill Sarok
-
-Mindenki számára fontos a pihenés! Ha úgy érzed, hogy szükséged van egy kis szünetre a gaming maratonból, a chill sarok tökéletes visszavonulási lehetőség. Kényelmes ülőhelyek, nyugodt környezet - így frissen térhetsz vissza a játékhoz. Kapcsolj ki, töltödj fel, és aztán vissza a csatába!
+- [Google Maps – DISTR3CT Event Cube](https://maps.app.goo.gl/FWjhMiLE97Nd53fp6)
+- [Apple Maps – DISTR3CT Event Cube](https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube)
