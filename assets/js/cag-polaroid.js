@@ -80,6 +80,8 @@
     ['data-cag-polaroid', 'data-cag-polaroid-full', 'data-cag-polaroid-label',
      'data-cag-polaroid-close', 'role', 'tabindex', 'aria-label'
     ].forEach(function (attr) { clone.removeAttribute(attr); });
+    // The clone isn't clickable anymore, so drop the zoom-in cursor it inherited.
+    clone.classList.remove('cursor-zoom-in');
 
     // Inline styles win over the utility classes carried over by the clone.
     clone.style.width = 'min(92vw, calc((100dvh - 3.5rem) * 88 / 107))';

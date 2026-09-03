@@ -467,9 +467,12 @@ body.cag-lb-active {
    wrap, so a wide map doesn't get squeezed into a tall, narrow column on
    desktop. With exactly 3 cards, the first two stack in the left column
    (map above parking, split 2:1 vertically) and the third spans both rows
-   on the right, so the stacked pair matches its height. ── */
+   on the right, so the stacked pair matches its height.
+   On tablet-portrait widths (md, below the lg split) the first two cards
+   sit side by side 50:50 and the third spans the full width underneath,
+   instead of stacking all three in a single column. ── */
 .cag-features--split .cag-grid {
-    @apply grid gap-5 mx-auto max-w-full lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch;
+    @apply grid gap-5 mx-auto max-w-full md:grid-cols-2 lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch;
 }
 
 .cag-features--split .cag-grid > .cag-card {
@@ -489,7 +492,7 @@ body.cag-lb-active {
 }
 
 .cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(3) {
-    @apply lg:col-start-2 lg:row-start-1 lg:row-span-2;
+    @apply md:col-span-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:col-span-1;
 }
 
 .prose-cag .cag-transport-list {

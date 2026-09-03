@@ -7,15 +7,15 @@ weight: 30
 The next Ctrl-Alt-GG venue is **DISTR3CT Event Cube** (Budapest District III, Nagymihály utca 2). The event space is easy to reach by both car and public transport.
 
 {{< cag/polaroid src="entrance.webp" alt="The DISTR3CT Event Cube building, seen from Nagymihály utca" caption="DISTR3CT Event Cube, Óbuda" kicker="Kalap utca, 1991" heading="A factory first, then a disco" >}}
-In 1991 this factory building became a club in a few months, and High Life quickly became the busiest venue in District III. On summer weekends the queue ran down Kalap utca and jammed the traffic.
+In 1991 this former factory building was turned into District III's busiest disco, High Life, in just a few months. On summer weekends the queue ran the length of Kalap utca and sometimes backed up traffic.
 
-A giant mirror ran along the stairs so you could check the sunglasses on the way in. One New Year's Eve the national anthem got a techno remix here, the first and last time: it was banned on the spot.
+A giant mirror stood by the stairs so everyone could check their sunglasses one more time before going in. One New Year's Eve the national anthem even got a techno remix here: the first and last time, since it was banned on the spot.
 
-The place closed at the turn of the millennium and the building was rebuilt from scratch. It has been running as DISTR3CT Event Cube since 2023, across two floors and more than a thousand square metres. We are bringing PCs into a room that used to be full of speakers.
+The place closed at the turn of the millennium and the building was rebuilt from scratch. It has been running as DISTR3CT Event Cube since 2023, across two floors. We are bringing PCs into a room that used to be full of speakers.
 {{< /cag/polaroid >}}
 
 {{< callout icon="🚪" >}}
-We <strong>won't be using the building's main entrance</strong>. Access is via the two-sided staircase on Nagymihály utca.
+The entrance for the event <strong>isn't the building's main entrance</strong>. Access is via the two-sided staircase on Nagymihály utca.
 {{< /callout >}}
 
 {{< features heading="Getting there" variant="split" >}}

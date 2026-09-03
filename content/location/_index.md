@@ -7,15 +7,15 @@ weight: 30
 A Ctrl-Alt-GG következő helyszíne a **DISTR3CT Event Cube** (Budapest III., Nagymihály utca 2.). Az eseménytér autóval és tömegközlekedéssel is könnyen megközelíthető.
 
 {{< cag/polaroid src="entrance.webp" alt="A DISTR3CT Event Cube épülete a Nagymihály utca felől" caption="DISTR3CT Event Cube, Óbuda" kicker="Kalap utca, 1991" heading="Előbb gyár volt, aztán diszkó" >}}
-1991-ben pár hónap alatt lett diszkó ebből a gyárépületből, és a High Life hamar a III. kerület legfelkapottabb helye lett. Nyári hétvégeken méteres sor állt a Kalap utcában, néha dugó is lett belőle.
+1991-ben a korábbi gyárépületből mindössze pár hónap alatt épült meg a III. kerület legfelkapottabb diszkója, a High Life. Nyári hétvégeken méteres sor kígyózott a Kalap utcában, néha még dugót is okozva.
 
-A lépcső mellett gigantikus tükör állt, hogy bemenet előtt még egyszer ellenőrizd a napszemüveget. Egy szilveszterkor itt szólt a Himnusz technós változata: először és utoljára, mert rögtön be is tiltották.
+A lépcső mellett egy gigantikus tükör állt, hogy mindenki még egyszer ellenőrizhesse a napszemüvegét bemenet előtt. Egy szilveszterkor itt szólt a Himnusz technós feldolgozása is: először és utoljára, mert rögtön be is tiltották.
 
-Az ezredfordulón bezárt a hely, a házat teljesen újjáépítették, és 2023 óta DISTR3CT Event Cube néven megy tovább két szinten. Mi meg most gépeket hozunk oda, ahol harminc éve hangfalak álltak.
+Az ezredfordulón bezárt a hely, az épületet teljesen újjáépítették, és 2023 óta DISTR3CT Event Cube néven üzemel két szinten. Mi pedig most gépeket viszünk oda, ahol harminc éve hangfalak álltak.
 {{< /cag/polaroid >}}
 
 {{< callout icon="🚪" >}}
-A bejárat <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai kétoldalú lépcső.
+Az esemény bejárata <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai kétoldalú lépcső.
 {{< /callout >}}
 
 {{< features heading="Megközelítés" variant="split" >}}
