@@ -323,10 +323,6 @@ body.cag-lb-active {
     @apply mt-6 flex flex-wrap justify-center gap-4 mx-auto max-w-[56rem];
 }
 
-.cag-map-links-hint {
-    @apply text-center text-sm font-semibold mb-3 opacity-80;
-}
-
 /* Mirrors .cag-social-card: brand-colour top bar, icon badge, platform
    caption + handle, arrow affordance — so these read as the same kind of
    button as the YouTube/Twitch cards instead of a one-off component.
@@ -399,18 +395,58 @@ body.cag-lb-active {
 }
 
 
-/* ── .cag-venue-map: embedded map + address caption, grows to fill its
-   card (see .cag-card-frame / .cag-card-desc flex-col) ── */
+/* ── .cag-venue-map: MapLibre canvas + address caption. The frame grows to fill
+   whatever height its card gets (see .cag-card-frame / .cag-card-desc
+   flex-col), with a floor so it stays usable when the card is stacked ── */
 .cag-venue-map {
     @apply flex flex-col flex-1 gap-2 my-2;
 }
 
 .cag-venue-map__frame {
-    @apply w-full flex-1 rounded-lg border-0 min-h-[220px];
+    @apply relative w-full flex-1 min-h-[220px] rounded-lg border border-border overflow-hidden bg-gray-100 dark:bg-gray-900;
+}
+
+.cag-venue-map__fallback {
+    @apply absolute inset-0 flex items-center justify-center p-6 text-center text-sm opacity-70;
+}
+
+/* MapLibre paints white chrome by default; soften it into the card. */
+.cag-venue-map__frame .maplibregl-ctrl-group {
+    @apply rounded-lg shadow-none border border-border;
 }
 
 .cag-venue-map__address {
     @apply shrink-0 m-0;
+}
+
+/* ── .cag-features--split: sections (e.g. venue map + parking + transit
+   list) laid out at a ~60:40 column ratio instead of the default even
+   wrap, so a wide map doesn't get squeezed into a tall, narrow column on
+   desktop. With exactly 3 cards, the first two stack in the left column
+   (map above parking, split 2:1 vertically) and the third spans both rows
+   on the right, so the stacked pair matches its height. ── */
+.cag-features--split .cag-grid {
+    @apply grid gap-5 mx-auto max-w-full lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch;
+}
+
+.cag-features--split .cag-grid > .cag-card {
+    @apply lg:max-w-none;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) {
+    @apply lg:grid-rows-[2fr_1fr];
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(1) {
+    @apply lg:col-start-1 lg:row-start-1;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(2) {
+    @apply lg:col-start-1 lg:row-start-2;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(3) {
+    @apply lg:col-start-2 lg:row-start-1 lg:row-span-2;
 }
 
 .prose-cag .cag-transport-list {
@@ -436,6 +472,8 @@ body.cag-lb-active {
 .cag-transport-stop--night-bus { --transit: #1e1e1e; }
 .cag-transport-stop--tram      { --transit: #ffd900; }
 .cag-transport-stop--hev       { --transit: #8e3d99; }
+.cag-transport-stop--volan     { --transit: #f9ab13; }
+.cag-transport-stop--bubi      { --transit: #98c421; }
 
 .cag-transport-stop--bus:hover,
 .cag-transport-stop--hev:hover {
@@ -444,7 +482,9 @@ body.cag-lb-active {
 }
 
 .cag-transport-stop--night-bus:hover,
-.cag-transport-stop--tram:hover {
+.cag-transport-stop--tram:hover,
+.cag-transport-stop--volan:hover,
+.cag-transport-stop--bubi:hover {
     border-color: color-mix(in srgb, var(--transit) 55%, transparent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 22%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 25%, transparent);
 }
@@ -467,6 +507,15 @@ body.cag-lb-active {
 
 .cag-transport-pictogram--night-bus {
     background-image: url('/icons/bkk-night-bus-official.svg');
+}
+
+.cag-transport-pictogram--volan {
+    background-image: url('/icons/bkk-volan-official.svg');
+}
+
+/* BKK only publishes the bike-sharing pictogram as a raster asset. */
+.cag-transport-pictogram--bubi {
+    background-image: url('/icons/bkk-bubi-official.png');
 }
 
 .cag-transport-meta {
@@ -494,6 +543,54 @@ body.cag-lb-active {
     --badge: #8e3d99;
 }
 .cag-line-badge--night { --badge: #1e1e1e; }
+.cag-line-badge--volan { --badge: #f9ab13; @apply text-[#111827]; }
+
+/* ── .cag-parking-sides: two-sided "street" diagram (cag/parking-sides
+   shortcode) contrasting an always-free side with a weekends-only side,
+   separated by a road divider with lane-marking dashes ── */
+.cag-parking-sides {
+    @apply flex flex-col sm:flex-row items-stretch rounded-lg border border-border overflow-hidden my-2;
+}
+
+.cag-parking-side {
+    @apply flex-1 flex flex-col items-center gap-2 px-4 py-5 text-center;
+}
+
+.cag-parking-side--free {
+    @apply bg-stuff-bring/10;
+}
+
+.cag-parking-side--weekend {
+    @apply bg-accent-500/10;
+}
+
+.cag-parking-side__icon {
+    @apply text-2xl leading-none;
+}
+
+.cag-parking-side__label {
+    @apply text-sm font-semibold;
+}
+
+.cag-parking-side__badge {
+    @apply inline-flex items-center rounded-pill px-2.5 py-1 text-xs font-bold text-white;
+}
+
+.cag-parking-side--free .cag-parking-side__badge {
+    @apply bg-stuff-bring;
+}
+
+.cag-parking-side--weekend .cag-parking-side__badge {
+    @apply bg-accent-500;
+}
+
+.cag-parking-road {
+    @apply flex shrink-0 items-center justify-center h-3 sm:h-auto sm:w-8 bg-gray-700 dark:bg-gray-950;
+}
+
+.cag-parking-road__line {
+    @apply w-3/4 h-[3px] sm:w-[3px] sm:h-3/4 border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-white/70;
+}
 
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */

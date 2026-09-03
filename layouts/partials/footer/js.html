@@ -22,4 +22,44 @@
 
 {{ partial "schema.html" $page }}
 
+{{- /*
+  Venue map. MapLibre itself is served verbatim from /vendor/maplibre-gl/ (see
+  the module mount in hugo.yaml) and pulled in with a dynamic import only once
+  the map scrolls into view, so pages that use the shortcode still ship no
+  map code up front.
+*/ -}}
+{{- if $page.Store.Get "cag-shortcode-venue-map-script" | default false }}
+  <link rel="stylesheet" href="{{ "vendor/maplibre-gl/maplibre-gl.css" | relURL }}">
+  {{- /* OpenFreeMap's `dark` style labels streets at ~2.2:1 contrast, so the
+         light basemap is used in both themes. */ -}}
+  {{- $mapParams := dict
+        "moduleUrl" ("vendor/maplibre-gl/maplibre-gl.mjs" | relURL)
+        "style" "https://tiles.openfreemap.org/styles/positron"
+        "markerColor" "#dd2525"
+        "locale" (dict
+          "Map.Title" (i18n "venue_map_aria")
+          "NavigationControl.ZoomIn" (i18n "map_zoom_in")
+          "NavigationControl.ZoomOut" (i18n "map_zoom_out")
+          "AttributionControl.ToggleAttribution" (i18n "map_toggle_attribution")
+          "CooperativeGesturesHandler.WindowsHelpText" (i18n "map_gesture_windows")
+          "CooperativeGesturesHandler.MacHelpText" (i18n "map_gesture_mac")
+          "CooperativeGesturesHandler.MobileHelpText" (i18n "map_gesture_mobile")
+        )
+  }}
+  {{- with resources.Get "js/cag-venue-map.js" }}
+    {{- /* The locale strings are baked in, so each language needs its own build. */ -}}
+    {{- $target := printf "js/cag-venue-map.%s.js" site.Language.Lang }}
+    {{- if eq hugo.Environment "development" }}
+      {{- with . | js.Build (dict "format" "esm" "params" $mapParams "targetPath" $target) }}
+        <script type="module" src="{{ .RelPermalink }}"></script>
+      {{- end }}
+    {{- else }}
+      {{- $opts := dict "format" "esm" "minify" true "params" $mapParams "targetPath" $target }}
+      {{- with . | js.Build $opts | fingerprint }}
+        <script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 <noscript>{{ i18n "javascript_is_required" }}</noscript>

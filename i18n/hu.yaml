@@ -46,16 +46,38 @@
   translation: "Villamos"
 - id: transit_mode_hev
   translation: "HÉV"
+- id: transit_mode_volan
+  translation: "Volán busz"
+- id: transit_mode_bubi
+  translation: "MOL Bubi"
 - id: transit_approx
   translation: "kb."
 - id: transit_lines_aria_suffix
   translation: "járatok"
-- id: map_links_hint
-  translation: "Navigáció indítása a választott alkalmazásban:"
 - id: venue_address_label
   translation: "Cím:"
+- id: venue_map_aria
+  translation: "A helyszín térképen"
+- id: venue_map_noscript
+  translation: "Az interaktív térképhez JavaScript szükséges — a cím és a térkép-hivatkozások ennélkül is működnek."
+- id: map_zoom_in
+  translation: "Nagyítás"
+- id: map_zoom_out
+  translation: "Kicsinyítés"
+- id: map_toggle_attribution
+  translation: "Forrásmegjelölés"
+- id: map_gesture_windows
+  translation: "A nagyításhoz tartsd lenyomva a Ctrl billentyűt és görgess"
+- id: map_gesture_mac
+  translation: "A nagyításhoz tartsd lenyomva a ⌘ billentyűt és görgess"
+- id: map_gesture_mobile
+  translation: "A térkép mozgatásához használj két ujjat"
 - id: map_link_action
   translation: "Útvonaltervezés"
+- id: parking_always_free
+  translation: "Mindig ingyenes"
+- id: parking_weekend_free
+  translation: "Hétvégén ingyenes"
 - id: social_youtube_label
   translation: "YouTube csatorna"
 - id: social_youtube_handle

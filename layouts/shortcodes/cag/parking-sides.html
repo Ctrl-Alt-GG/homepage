@@ -1,0 +1,30 @@
+{{- /*
+  Renders a two-sided "street" diagram contrasting parking rules on each
+  side of the road: always free vs. free on weekends only. Meant to be
+  used inside a {{< card >}} shortcode.
+
+  Params (named):
+    freeSide    (string, required) — label for the side that's always free
+                                      (typically the venue's side of the street).
+    weekendSide (string, required) — label for the side that's free on
+                                      weekends only.
+
+  Usage:
+    {{< cag/parking-sides freeSide="Épület oldala" weekendSide="Túloldal" >}}
+*/ -}}
+{{- $freeSide := .Get "freeSide" -}}
+{{- $weekendSide := .Get "weekendSide" -}}
+{{- if not (and $freeSide $weekendSide) }}{{ errorf "cag/parking-sides: 'freeSide' and 'weekendSide' are both required (page: %s)" .Page.File.Path }}{{ end -}}
+<div class="cag-parking-sides">
+  <div class="cag-parking-side cag-parking-side--weekend">
+    <span class="cag-parking-side__icon" aria-hidden="true">📅</span>
+    <span class="cag-parking-side__label">{{ $weekendSide }}</span>
+    <span class="cag-parking-side__badge">{{ i18n "parking_weekend_free" }}</span>
+  </div>
+  <div class="cag-parking-road" aria-hidden="true"><span class="cag-parking-road__line"></span></div>
+  <div class="cag-parking-side cag-parking-side--free">
+    <span class="cag-parking-side__icon" aria-hidden="true">✅</span>
+    <span class="cag-parking-side__label">{{ $freeSide }}</span>
+    <span class="cag-parking-side__badge">{{ i18n "parking_always_free" }}</span>
+  </div>
+</div>

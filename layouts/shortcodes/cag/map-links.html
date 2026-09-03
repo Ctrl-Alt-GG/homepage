@@ -15,7 +15,6 @@
 {{- $apple := .Get "apple" -}}
 {{- if not (and $google $apple) }}{{ errorf "cag/map-links: 'google' and 'apple' are both required (page: %s)" .Page.File.Path }}{{ end -}}
 {{- $action := i18n "map_link_action" -}}
-<p class="cag-map-links-hint">{{ i18n "map_links_hint" }}</p>
 <div class="cag-map-links">
   <a class="cag-map-link cag-map-link--google" href="{{ $google }}">
     <span class="cag-map-link__icon" aria-hidden="true">
