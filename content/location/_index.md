@@ -14,7 +14,7 @@ A lépcső mellett egy gigantikus tükör állt, hogy mindenki még egyszer elle
 Az ezredfordulón bezárt a hely, az épületet teljesen újjáépítették, és 2023 óta DISTR3CT Event Cube néven üzemel két szinten. Mi pedig most gépeket viszünk oda, ahol harminc éve hangfalak álltak.
 {{< /cag/polaroid >}}
 
-{{< callout icon="🚪" >}}
+{{< callout icon="🚪" align="center" >}}
 Az esemény bejárata <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai kétoldalú lépcső.
 {{< /callout >}}
 

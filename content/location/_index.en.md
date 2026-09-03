@@ -14,7 +14,7 @@ A giant mirror stood by the stairs so everyone could check their sunglasses one 
 The place closed at the turn of the millennium and the building was rebuilt from scratch. It has been running as DISTR3CT Event Cube since 2023, across two floors. We are bringing PCs into a room that used to be full of speakers.
 {{< /cag/polaroid >}}
 
-{{< callout icon="🚪" >}}
+{{< callout icon="🚪" align="center" >}}
 The entrance for the event <strong>isn't the building's main entrance</strong>. Access is via the two-sided staircase on Nagymihály utca.
 {{< /callout >}}
 

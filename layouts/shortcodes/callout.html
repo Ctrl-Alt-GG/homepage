@@ -1,5 +1,6 @@
 {{ $icon := .Get "icon" | default "⚡" -}}
-<div class="cag-callout flex gap-3 items-center justify-center text-center border-l-4 border-l-brand-700 bg-brand-700/7 rounded-r-card py-[0.85rem] px-5 my-5 text-[0.95rem] leading-[1.6]">
+{{ $centered := eq (.Get "align") "center" -}}
+<div class="cag-callout flex gap-3 border-l-4 border-l-brand-700 bg-brand-700/7 rounded-r-card py-[0.85rem] px-5 my-5 text-[0.95rem] leading-[1.6]{{ if $centered }} items-center justify-center text-center{{ else }} items-start{{ end }}">
   {{- if eq $icon "server" -}}
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
        fill="none" stroke="currentColor" stroke-width="2.5"
