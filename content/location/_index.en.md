@@ -1,26 +1,50 @@
 ---
 title: "Location"
-draft: true
+summary: "Next Ctrl-Alt-GG venue is DISTR3CT Event Cube in Budapest, with easy access by car and public transport."
+weight: 30
 ---
 
-## The Small Town Next to the City
+The next Ctrl-Alt-GG venue is **DISTR3CT Event Cube** (Budapest District III, Nagymihály utca 2). The event space is easy to reach by both car and public transport.
 
-Tópart is a neighborhood of Biatorbágy, located next to the M1 and M0 highways, just a few minutes drive from Budapest. For those arriving by car, access is extremely easy: free parking is just a stone's throw from the entrance, so loading and unloading is lightning-fast. You can see the exact entrance coordinates on the map below.
+{{< cag/polaroid src="entrance.webp" alt="The DISTR3CT Event Cube building, seen from Nagymihály utca" caption="DISTR3CT Event Cube, Óbuda" kicker="Kalap utca, 1991" heading="A factory first, then a disco" >}}
+In 1991 this former factory building was turned into District III's busiest disco, High Life, in just a few months. On summer weekends the queue ran the length of Kalap utca and sometimes backed up traffic.
 
-{{< maps >}}
+A giant mirror stood by the stairs so everyone could check their sunglasses one more time before going in. One New Year's Eve the national anthem even got a techno remix here: the first and last time, since it was banned on the spot.
 
-However, if you prefer public transport, the **764 bus** departing from Volán's Kelenföld station will get you within a few steps of the action in just a quarter hour. Get off at the **"Biatorbágy, Tópark"** stop.
+The place closed at the turn of the millennium and the building was rebuilt from scratch. It has been running as DISTR3CT Event Cube since 2023, across two floors. We are bringing PCs into a room that used to be full of speakers.
+{{< /cag/polaroid >}}
 
-Look for the entrance marked "G Reception" among the buildings! Plan your route on Google Maps using the "Regus" pin, or enter "Biatorbágy Sasbérc út 1 G" in your navigation system. You'll find us on the side closer to the parking lot.
+{{< callout icon="🚪" align="center" >}}
+The entrance for the event <strong>isn't the building's main entrance</strong>. Access is via the two-sided staircase on Nagymihály utca.
+{{< /callout >}}
 
-## The Office Transforms into a Gaming Arena
+{{< features heading="Getting there" variant="split" >}}
+  {{< card title="DISTR3CT Event Cube on the map" >}}
+{{< cag/venue-map lat="47.5513926" lng="19.0354529" address="1037 Budapest, Nagymihály utca 2." >}}
+  {{< /card >}}
 
-A regular weekday office space that we'll transform into your gaming sanctuary. A few tables, tons of cables, and a bunch of computers. That's what it looks like when PowerPoint presentations are replaced by headshots and strategy rushes. No dress code, no meetings, just pure gaming, as it should be.
+  {{< card title="Free parking" >}}
+Parking is **always free** on the building's side of the street. On the opposite side it's also free on weekends (Saturday and Sunday), but metered on weekdays.
 
-## Console Corner
+{{< cag/parking-sides freeSide="Building side" weekendSide="Opposite side" >}}
+  {{< /card >}}
 
-Want a controller instead of a keyboard? Our console corner has an Xbox Series X waiting for you with Game Pass Ultimate subscription, which basically means an endless library of games in your hands. Equipped with two controllers, it's the perfect spot for co-op missions or friendly competition. Pick a game and enjoy a more relaxed experience.
+  {{< card title="Nearby public transport" >}}
+{{< cag/transit-list >}}
+  {{< cag/transit-stop mode="bus" name="Búza utca" distance="320 m" href="https://go.bkk.hu/stop/BKK_011320" lines="118" nightLines="918" >}}
+  {{< cag/transit-stop mode="bus" name="Óbuda, Bogdáni út (route 9 terminus)" distance="900 m" href="https://go.bkk.hu/stop/BKK_F00575" lines="9" nightLines="909,918" >}}
+  {{< cag/transit-stop mode="tram" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_008365" lines="17,19,41" >}}
+  {{< cag/transit-stop mode="night-bus" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" nightLines="901,917,960" >}}
+  {{< cag/transit-stop mode="volan" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" lines="800,820,821,830,832,840,848" >}}
+  {{< cag/transit-stop mode="hev" name="Filatorigát" distance="810 m" href="https://go.bkk.hu/stop/BKK_09118198" lines="H5" >}}
+  {{< cag/transit-stop mode="hev" name="Kaszásdűlő" distance="950 m" href="https://go.bkk.hu/stop/BKK_F00509" lines="H5" >}}
+  {{< cag/transit-stop mode="bubi" name="Bécsi út / Vörösvári út" distance="570 m" href="https://molbubi.hu/en/allomas" >}}
+  {{< cag/transit-stop mode="bubi" name="Óbudai rendelőintézet" distance="650 m" href="https://molbubi.hu/en/allomas" >}}
+{{< /cag/transit-list >}}
+  {{< /card >}}
+{{< /features >}}
 
-## Chill Zone
+On weekends (Saturdays and Sundays), the main routes serving the nearest stops run roughly as follows: bus 9 and trams 17/19/41 come about every 10-15 minutes from early morning (roughly 4:30-5:00 AM) until the night-service gap (roughly 11:00-11:30 PM), while the H5 suburban railway runs about every 15-20 minutes. During the overnight gap, night buses 901, 909, 917, 918 and 960 take over, roughly every 30-60 minutes. Always check the [BudapestGO](https://go.bkk.hu/) app or BKK's timetable for exact departure times.
 
-Rest is important for everyone! If you feel like you need a break from the gaming marathon, the chill zone is the perfect retreat. Comfortable seating, peaceful environment - so you can come back to the action refreshed. Switch off, recharge, and then back to the battle!
+{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" waze="https://www.waze.com/ul?ll=47.5513926,19.0354529&navigate=yes" >}}
+

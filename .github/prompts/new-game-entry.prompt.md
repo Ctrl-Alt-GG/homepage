@@ -7,16 +7,16 @@ mode: agent
 
 Inputs:
 
-- `${input:slug}` — kebab-case slug (becomes the key in `data/games.yaml`
+- `${input:slug}`: kebab-case slug (becomes the key in `data/games.yaml`
   and the image filename stem referenced from content).
-- `${input:source}` — `steam` | `official-site` | `fan-site`.
-- `${input:url}` — absolute URL to the header image (460×215 if
+- `${input:source}`: `steam` | `official-site` | `fan-site`.
+- `${input:url}`: absolute URL to the header image (460x215 if
   possible; Steam CDN `header.jpg` is the canonical source).
 
 ## Validation before writing
 
-1. Read `data/games.yaml`. If the slug already exists, stop and report —
-   do not overwrite silently.
+1. Read `data/games.yaml`. If the slug already exists, stop and report.
+   Do not overwrite silently.
 2. Confirm the URL returns HTTP 200. A dead URL causes
    `resources.GetRemote` failures on the production deploy.
 3. Prefer permanent, content-addressed URLs (Steam CDN app headers at
@@ -30,7 +30,7 @@ Inputs:
 
    ```yaml
    # Steam CDN headers (460x215 JPEG, permanent content-addressed URLs)
-   …
+   ...
    ${input:slug}: "${input:url}"
    ```
 
@@ -47,7 +47,7 @@ Inputs:
    {{< cag/image src="${input:slug}.jpg" width="460" height="215" loading="lazy" >}}
    ```
 
-3. Do **not** add any templates, partials, or CSS — game cards are
+3. Do **not** add any templates, partials, or CSS. Game cards are
    wholly data-driven.
 
 4. Run `npm run build`. Hugo will fetch and process the image; watch

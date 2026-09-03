@@ -1,4 +1,4 @@
-# AGENTS.md — Ctrl-Alt-GG Homepage
+# AGENTS.md: Ctrl-Alt-GG Homepage
 
 > Canonical guide for AI coding agents (GitHub Copilot, Cursor, Codex, Claude, etc.)
 > working on this repository. Editors, humans, and automation should all read this first.
@@ -6,7 +6,7 @@
 
 ## 1. What this repo is
 
-The **brand homepage** of the Ctrl-Alt-GG LAN community — the main marketing
+The **brand homepage** of the Ctrl-Alt-GG LAN community, the main marketing
 and info site (program, location, FAQ, recap, gaming stuff, about us). Built
 with Hugo + Tailwind CSS v4, deployed to Azure Static Web Apps. Live at
 <https://www.ctrl-alt-gg.hu/>.
@@ -33,23 +33,23 @@ If a change would contradict any of these, update the pinned source.
 
 ## 3. Repository shape (conventions, not inventory)
 
-- `content/` — top-level marketing pages and sections (about, location,
+- `content/`: top-level marketing pages and sections (about, location,
   program, Q&A, recap, stuff). Each human-facing page ships in both
   `<slug>.md` (Hungarian) and `<slug>.en.md` (English).
-- `data/` — structured data consumed by templates (`games.yaml` keys are
+- `data/`: structured data consumed by templates (`games.yaml` keys are
   slugs; values are remote image URLs fetched at build time).
-- `layouts/_default/` — site-wide templates (`baseof`, `list`, `single`).
-- `layouts/partials/` — reusable template fragments. Nested folders group
+- `layouts/_default/`: site-wide templates (`baseof`, `list`, `single`).
+- `layouts/partials/`: reusable template fragments. Nested folders group
   related partials (`head/`, `footer/`, `chroma/` for code highlighting).
-- `layouts/shortcodes/` — the marketing component library
+- `layouts/shortcodes/`: the marketing component library
   (`intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`,
   `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`). Content authors
   compose pages out of these.
-- `assets/css/` — Tailwind source; `assets/css/compiled/` is **git-ignored** (generated during build).
-- `assets/img/`, `assets/js/` — small hand-authored static assets.
-- `i18n/` — per-locale string tables (`<lang>.yaml`).
-- `static/` — files copied verbatim to the site root.
-- `public/`, `resources/` — build output. **Never commit.**
+- `assets/css/`: Tailwind source; `assets/css/compiled/` is **git-ignored** (generated during build).
+- `assets/img/`, `assets/js/`: small hand-authored static assets.
+- `i18n/`: per-locale string tables (`<lang>.yaml`).
+- `static/`: files copied verbatim to the site root.
+- `public/`, `resources/`: build output. **Never commit.**
 
 Discover actual files via the filesystem; the names above describe roles,
 not a pinned inventory.
@@ -74,11 +74,16 @@ directory (git-ignored) afterwards.
 - `weight`, `draft`, `date`, slugs stay identical across the pair; only
   `title`, `summary`, and `description` are translated.
 - The `params.cag.*` tree in `hugo.yaml` encodes site-wide behaviour flags
-  (`disable_breadcrumbs`, `disable_authors`, schema toggles, …). Respect
-  them when writing templates — a feature that is disabled at the site
-  level must not render unconditionally in a partial.
+  (`disable_breadcrumbs`, `disable_authors`, schema toggles, and so on).
+  Respect them when writing templates: a feature that is disabled at the
+  site level must not render unconditionally in a partial.
 - Don't set page-level `url` / `slug` / `aliases` unless you are
   intentionally diverging from Hugo's defaults.
+- Prose must read like a native speaker wrote it and must never contain
+  em dashes, en dashes, ellipsis characters, or curly quotes. Full rules
+  in `.github/instructions/prose-style.instructions.md`; they apply to
+  page copy, `i18n/` strings, code comments, docs, and commit messages
+  alike.
 
 ## 6. Shortcode contracts
 
@@ -89,8 +94,8 @@ working.
 General rules:
 
 - Parameters that an author passes should be **named**
-  (`{{< features heading="…" >}}`), not positional.
-- `{{ .Inner }}` may or may not be Markdown — decide per-shortcode and
+  (`{{< features heading="..." >}}`), not positional.
+- `{{ .Inner }}` may or may not be Markdown. Decide per-shortcode and
   document the expectation in a leading comment. When in doubt, prefer
   `{{ .Inner | .Page.RenderString }}` (keeps Hugo's Markdown settings)
   over raw `{{ .Inner | markdownify }}`.
@@ -114,8 +119,8 @@ General rules:
 ## 8. Templating conventions
 
 - Start non-trivial templates with `{{ $page := . }}` and work off `$page`.
-- Read parameters with `.Param "cag.site.color"` so values cascade site →
-  section → page.
+- Read parameters with `.Param "cag.site.color"` so values cascade site to
+  section to page.
 - Pipe user content through `markdownify | plainify | htmlUnescape` before
   it enters HTML attributes.
 - Render icons via the `icon.html` partial; do not inline SVG paths.
@@ -125,7 +130,7 @@ General rules:
 ## 9. Styling (Tailwind CSS v4)
 
 - Entry: `assets/css/main.css` (`@import "tailwindcss"`, `@plugin
-  "@tailwindcss/typography"`, `@theme { … }`).
+  "@tailwindcss/typography"`, and the `@theme` token block).
 - Never touch `assets/css/compiled/**`.
 - Shortcodes use their own semantic class prefixes (`cag-*`, e.g.
   `cag-intro`, `cag-features`). Keep that naming so
@@ -138,22 +143,23 @@ General rules:
 `main` pushes and PRs are built once by the workflow under
 `.github/workflows/`. The resulting artifact is deployed to Azure Static Web
 Apps and packaged as an OCI image; default-branch pushes publish the image to
-GHCR. Required order: `npm ci` → `npm run build:css` → `hugo` → upload. Do
+GHCR. Required order: `npm ci`, `npm run build:css`, `hugo`, upload. Do
 not change `app_location`, `api_location`, `output_location`, or the secret
 name without aligning Azure side.
 
 ## 11. Do-not-touch list
 
-- `assets/css/compiled/**` — generated.
+- `assets/css/compiled/**`: generated.
 - `public/**`, `resources/**`, `.hugo_build.lock`, `hugo_stats.json`.
 - `node_modules/**`.
 - `.github/workflows/**` unless that is the subject of the change.
 
 ## 12. Where the other Copilot files fit
 
-- `.github/copilot-instructions.md` — thin always-loaded pointer to this
+- `.github/copilot-instructions.md`: thin always-loaded pointer to this
   document.
-- `.github/instructions/*.instructions.md` — path-scoped rules (templates,
-  content, CSS, workflows, shortcodes, data files) auto-applied by glob.
-- `.github/prompts/*.prompt.md` — reusable slash-command scaffolds for
+- `.github/instructions/*.instructions.md`: path-scoped rules (templates,
+  content, CSS, workflows, shortcodes, data files, prose style)
+  auto-applied by glob.
+- `.github/prompts/*.prompt.md`: reusable slash-command scaffolds for
   recurring tasks.

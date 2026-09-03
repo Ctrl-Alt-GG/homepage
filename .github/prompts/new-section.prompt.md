@@ -7,11 +7,11 @@ mode: agent
 
 Inputs:
 
-- `${input:section}` — kebab-case folder name (becomes `content/${input:section}/`).
-- `${input:titleHu}` — Hungarian section title.
-- `${input:titleEn}` — English section title.
-- `${input:summaryHu}` — Hungarian one-sentence summary (≤160 chars).
-- `${input:summaryEn}` — English one-sentence summary (≤160 chars).
+- `${input:section}`: kebab-case folder name (becomes `content/${input:section}/`).
+- `${input:titleHu}`: Hungarian section title.
+- `${input:titleEn}`: English section title.
+- `${input:summaryHu}`: Hungarian one-sentence summary (max 160 chars).
+- `${input:summaryEn}`: English one-sentence summary (max 160 chars).
 
 ## Steps
 

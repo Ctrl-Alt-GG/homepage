@@ -16,14 +16,14 @@ this directory. Treat it as load-bearing.
 
 The `build` job runs these steps once and uploads `public/` as the `site`
 artifact. Deployment jobs must consume that artifact instead of rebuilding
-the site. The npm scripts encode the same order locally (`package.json` →
+the site. The npm scripts encode the same order locally (`package.json`,
 `scripts.build`); keep them consistent.
 
 ## Azure Static Web Apps deploy
 
 - `app_location` must point at Hugo's output directory (`/public`). Do
   not change it unless Hugo's `publishDir` is also changed.
-- `api_location` and `output_location` are empty on purpose — this is a
+- `api_location` and `output_location` are empty on purpose: this is a
   pure static upload, no functions app.
 - Keep `skip_app_build: true`; the shared `site` artifact is already built.
 - The API token secret name encodes the Azure-generated site slug. Do
@@ -53,6 +53,6 @@ the site. The npm scripts encode the same order locally (`package.json` →
 
 ## Before merging a workflow change
 
-- Validate YAML locally — a broken workflow blocks deploys.
+- Validate YAML locally; a broken workflow blocks deploys.
 - Confirm the change is the subject of the PR; drive-by edits to the
   deploy workflow are discouraged.

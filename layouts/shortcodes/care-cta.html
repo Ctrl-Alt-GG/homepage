@@ -1,13 +1,13 @@
 {{- /*
-  Care CTA — prominent banner linking to care.ctrl-alt-gg.hu.
+  Care CTA: prominent banner linking to care.ctrl-alt-gg.hu.
 
   Renders a full-width promo banner with the Care GG-badge (inline SVG),
   a localised title + description, and an arrow affordance. The entire
   element is a single focusable <a> that opens Care in a new tab.
 
-  Params (all optional — fall back to i18n keys):
-    title       — heading text (care_cta_title)
-    description — body text    (care_cta_desc)
+  Params (all optional, falling back to i18n keys):
+    title:       heading text (care_cta_title)
+    description: body text    (care_cta_desc)
 */ -}}
 {{- $title  := .Get "title" | default (i18n "care_cta_title") -}}
 {{- $desc   := .Get "description" | default (i18n "care_cta_desc") -}}
@@ -41,6 +41,6 @@
   </span>
 
   <span class="cag-care-cta__arrow">
-    {{ $button }}<span class="sr-only"> – {{ $aria }}</span>
+    {{ $button }}<span class="sr-only">: {{ $aria }}</span>
   </span>
 </a>

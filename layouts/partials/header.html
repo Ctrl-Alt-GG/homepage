@@ -15,7 +15,7 @@
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
 {{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-gradient-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-5 pb-3 border-b border-white/20 [color-scheme:dark]">
+    <header id="cag-site-header" class="bg-linear-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-5 pb-3 border-b border-white/20 [color-scheme:dark]">
         <div class="container">
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
@@ -46,7 +46,7 @@
             {{ $pages = sort $pages "LinkTitle" }}
 
             {{/* Shared class list for every header nav link (active state via aria-current). */}}
-            {{ $navLinkBaseClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-[6px]" }}
+            {{ $navLinkBaseClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-md" }}
             {{ $navLinkInteractionClass := "text-white/[72%] hover:text-white hover:bg-white/15" }}
             {{ $navLinkActiveClass := "aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}

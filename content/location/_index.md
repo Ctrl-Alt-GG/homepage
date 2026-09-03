@@ -1,27 +1,50 @@
 ---
 title: "Helyszín"
-draft: true
+summary: "A Ctrl-Alt-GG a budapesti DISTR3CT Event Cube-ban vár, könnyen elérhető autóval és tömegközlekedéssel."
+weight: 30
 ---
 
-## A Város Melletti Miniváros
+A Ctrl-Alt-GG következő helyszíne a **DISTR3CT Event Cube** (Budapest III., Nagymihály utca 2.). Az eseménytér autóval és tömegközlekedéssel is könnyen megközelíthető.
 
-A Tópart Biatorbágy városának M1 és M0 autópályák melletti, Budapesttől mindössze néhány perces autóútnyira fekvő városrésze. Az autóval érkezők számára a megközelítés rendkívül egyszerű: a bejárattól karnyújtásnyira található az ingyenes parkoló, így a be- és kipakolás villámgyorsan megoldható. A pontos bejárati koordinátákat az alább található térképen láthatod.
+{{< cag/polaroid src="entrance.webp" alt="A DISTR3CT Event Cube épülete a Nagymihály utca felől" caption="DISTR3CT Event Cube, Óbuda" kicker="Kalap utca, 1991" heading="Előbb gyár volt, aztán diszkó" >}}
+1991-ben a korábbi gyárépületből mindössze pár hónap alatt épült meg a III. kerület legfelkapottabb diszkója, a High Life. Nyári hétvégeken méteres sor kígyózott a Kalap utcában, néha még dugót is okozva.
 
-{{< maps >}}
+A lépcső mellett egy gigantikus tükör állt, hogy mindenki még egyszer ellenőrizhesse a napszemüvegét bemenet előtt. Egy szilveszterkor itt szólt a Himnusz technós feldolgozása is: először és utoljára, mert rögtön be is tiltották.
 
+Az ezredfordulón bezárt a hely, az épületet teljesen újjáépítették, és 2023 óta DISTR3CT Event Cube néven üzemel két szinten. Mi pedig most gépeket viszünk oda, ahol harminc éve hangfalak álltak.
+{{< /cag/polaroid >}}
 
-Viszont, ha inkább tömegközlekedéssel érkeznél a Volán Kelenföld állomástól induló **764-es busz** röpke negyed óra alatt néhány lépésre repít az akcíótól. Leszállás a **"Biatorbágy, Tópark"** állomáson.
+{{< callout icon="🚪" align="center" >}}
+Az esemény bejárata <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai kétoldalú lépcső.
+{{< /callout >}}
 
-Az épületek között a "G Recepció" felirattal jelzett bejáratot keresd! Google Mapsen a "Regus" pin alapján tervezd meg az útvonalat, vagy add meg a navigációs rendszerben a "Biatorbágy Sasbérc út 1 G" címet. A parkolóhoz közelebbi oldalon találsz majd minket.
+{{< features heading="Megközelítés" variant="split" >}}
+  {{< card title="DISTR3CT Event Cube térképen" >}}
+{{< cag/venue-map lat="47.5513926" lng="19.0354529" address="1037 Budapest, Nagymihály utca 2." >}}
+  {{< /card >}}
 
-## Az Iroda Gaming Arénává Változik
+  {{< card title="Ingyenes parkolás" >}}
+Az utca épület felőli oldalán **mindig ingyenes** a parkolás. Az úttest túloldalán hétvégén (szombaton és vasárnap) szintén díjmentes, hétköznap fizetős.
 
-Egy hétköznapi irodahelység, amit átvarázsolunk a gaming szentélyeddé. Néhány asztal, rengeteg kábel, és egy sereg számítógép - így néz ki, amikor a PowerPoint prezentációk helyét átveszik a headshot-ok és a strategy rush-ok. Nincs dress code, nincsenek meetingek csak tiszta játék, ahogy lennie kell.
+{{< cag/parking-sides freeSide="Épület felőli oldal" weekendSide="Túloldal" >}}
+  {{< /card >}}
 
-## Konzol Kuckó
+  {{< card title="Közeli tömegközlekedés" >}}
+{{< cag/transit-list >}}
+  {{< cag/transit-stop mode="bus" name="Búza utca" distance="320 m" href="https://go.bkk.hu/stop/BKK_011320" lines="118" nightLines="918" >}}
+  {{< cag/transit-stop mode="bus" name="Óbuda, Bogdáni út (9-es végállomás)" distance="900 m" href="https://go.bkk.hu/stop/BKK_F00575" lines="9" nightLines="909,918" >}}
+  {{< cag/transit-stop mode="tram" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_008365" lines="17,19,41" >}}
+  {{< cag/transit-stop mode="night-bus" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" nightLines="901,917,960" >}}
+  {{< cag/transit-stop mode="volan" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" lines="800,820,821,830,832,840,848" >}}
+  {{< cag/transit-stop mode="hev" name="Filatorigát" distance="810 m" href="https://go.bkk.hu/stop/BKK_09118198" lines="H5" >}}
+  {{< cag/transit-stop mode="hev" name="Kaszásdűlő" distance="950 m" href="https://go.bkk.hu/stop/BKK_F00509" lines="H5" >}}
+  {{< cag/transit-stop mode="bubi" name="Bécsi út / Vörösvári út" distance="570 m" href="https://molbubi.hu/hu/allomas" >}}
+  {{< cag/transit-stop mode="bubi" name="Óbudai rendelőintézet" distance="650 m" href="https://molbubi.hu/hu/allomas" >}}
+{{< /cag/transit-list >}}
+  {{< /card >}}
+{{< /features >}}
 
-Kontrollert szeretnél a billentyűzet helyett? A konzol kuckónkban egy Xbox Series X vár rád Game Pass Ultimate előfizetéssel, ami gyakorlatilag végtelen játékkönyvtárat jelent a kezedben. Két kontrollerrel felszerelve ideális hely páros küldetésekhez vagy barátságos rivalizáláshoz. Válassz egy játékot, és élvezd a lazabb élményt.
+Hétvégén (szombaton és vasárnap) a legközelebbi megállókat kiszolgáló fő járatok nagyjából a következő sűrűséggel közlekednek: a 9-es busz és a 17/19/41-es villamosok kb. 10-15 percenként járnak kora reggeltől (kb. hajnali 4:30-5:00) az éjszakai szünetig (kb. 23:00-23:30), a H5 HÉV pedig kb. 15-20 percenként. Az éjszakai szünetben a 901, 909, 917, 918 és 960 jelzésű éjszakai buszok veszik át a szerepüket, nagyjából félóránként-óránként. Pontos indulási időkért mindig ellenőrizd a [BudapestGO](https://go.bkk.hu/) alkalmazást vagy a BKK menetrendjét.
 
-## Chill Sarok
+{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" waze="https://www.waze.com/ul?ll=47.5513926,19.0354529&navigate=yes" >}}
 
-Mindenki számára fontos a pihenés! Ha úgy érzed, hogy szükséged van egy kis szünetre a gaming maratonból, a chill sarok tökéletes visszavonulási lehetőség. Kényelmes ülőhelyek, nyugodt környezet - így frissen térhetsz vissza a játékhoz. Kapcsolj ki, töltödj fel, és aztán vissza a csatába!

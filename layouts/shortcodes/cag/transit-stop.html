@@ -1,0 +1,56 @@
+{{- /*
+  Renders a single nearby-stop row for the venue's public transport list.
+  Must be used inside {{< cag/transit-list >}}...{{< /cag/transit-list >}}.
+
+  Params (named):
+    mode       (string, required): "bus", "night-bus", "tram", "hev",
+                "volan" (BKK-integrated Volán regional buses), or "bubi"
+                (MOL Bubi bike-share station).
+                Drives the pictogram, the localised label, and the default
+                badge colour for `lines`.
+    name       (string, required): stop name shown next to the label.
+    distance   (string, required): pre-formatted distance, e.g. "320 m".
+    href       (string, required): go.bkk.hu stop URL, opened in a new tab.
+    lines      (string, optional): comma-separated line numbers shown with
+                                     the mode's normal colour (e.g. "118,9").
+                                     Omit for modes without line numbers.
+    nightLines (string, optional): comma-separated line numbers always
+                                     shown with the night-line (black) badge,
+                                     for day stops that also see night buses.
+
+  Usage:
+    {{< cag/transit-stop mode="bus" name="Búza utca" distance="320 m"
+        href="https://go.bkk.hu/stop/BKK_011320" lines="118" nightLines="918" >}}
+*/ -}}
+{{- $mode := .Get "mode" -}}
+{{- $name := .Get "name" -}}
+{{- $distance := .Get "distance" -}}
+{{- $href := .Get "href" -}}
+{{- if not (and $mode $name $distance $href) }}{{ errorf "cag/transit-stop: 'mode', 'name', 'distance' and 'href' are all required (page: %s)" .Page.File.Path }}{{ end -}}
+{{- $lines := split (.Get "lines" | default "") "," -}}
+{{- $nightLines := split (.Get "nightLines" | default "") "," -}}
+{{- $labelKey := printf "transit_mode_%s" (replace $mode "-" "_") -}}
+{{- $label := i18n $labelKey -}}
+{{- $pictogramMode := cond (eq $mode "night-bus") "night-bus" $mode -}}
+{{- $badgeMode := cond (eq $mode "night-bus") "bus" $mode -}}
+{{- $approx := i18n "transit_approx" -}}
+{{- $ariaSuffix := i18n "transit_lines_aria_suffix" -}}
+<li class="cag-transport-item">
+  <a class="cag-transport-stop cag-transport-stop--{{ $mode }}" href="{{ $href }}" target="_blank" rel="noopener noreferrer">
+    <span class="cag-transport-pictogram cag-transport-pictogram--{{ $pictogramMode }}" aria-hidden="true"></span>
+    <span class="cag-transport-meta">
+      <span><strong>{{ $label }}:</strong> {{ $name }}</span>
+      <span class="cag-transport-distance">{{ $approx }} <strong>{{ $distance }}</strong></span>
+      {{- if or (.Get "lines") (.Get "nightLines") }}
+      <span class="cag-line-badges" aria-label="{{ $name }} {{ $ariaSuffix }}">
+        {{- range $lines }}{{ if . }}
+        <span class="cag-line-badge cag-line-badge--{{ $badgeMode }}">{{ . }}</span>
+        {{- end }}{{ end -}}
+        {{- range $nightLines }}{{ if . }}
+        <span class="cag-line-badge cag-line-badge--night">{{ . }}</span>
+        {{- end }}{{ end -}}
+      </span>
+      {{- end }}
+    </span>
+  </a>
+</li>

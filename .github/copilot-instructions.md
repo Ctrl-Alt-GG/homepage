@@ -6,7 +6,7 @@ this file only lists always-true invariants so Copilot Chat never breaks them.
 ## Stack
 
 Hugo (extended) + Tailwind CSS v4 + Node.js, deployed to Azure Static Web Apps.
-Do **not** hard-code versions — read `.nvmrc`, `engines` in `package.json`, and
+Do **not** hard-code versions. Read `.nvmrc`, `engines` in `package.json`, and
 `module.hugoVersion` in `hugo.yaml`.
 
 ## Non-negotiables
@@ -22,19 +22,23 @@ Do **not** hard-code versions — read `.nvmrc`, `engines` in `package.json`, an
   `disable_authors`, schema toggles, etc.). A feature disabled at the site
   level must not render unconditionally in a template.
 - Shortcode API stability: parameter names under `layouts/shortcodes/**` are
-  a public contract — existing content relies on them. Extend rather than
+  a public contract that existing content relies on. Extend rather than
   rename.
 - Tailwind v4 syntax (`@import "tailwindcss"`, `@plugin`, `@theme`,
   `@custom-variant`). Edit `assets/css/main.css`; never touch
   `assets/css/compiled/**`.
 - Semantic class prefix `cag-*` on shortcode roots is part of the public
-  API — authors may target these in custom styling.
+  API; authors may target these in custom styling.
 - User-facing strings go through `{{ i18n "key" }}`, with the key added to
   **both** `i18n/hu.yaml` and `i18n/en.yaml`.
 - Images in content go through the `cag/image` shortcode, not raw `<img>`.
+- Prose must read like a native speaker wrote it, and must never contain
+  em dashes, en dashes, ellipsis characters, or curly quotes. Use commas,
+  colons, or a second sentence instead. Full rules in
+  `.github/instructions/prose-style.instructions.md`.
 
 ## Scope-specific rules
 
-Path-scoped guidance lives in `.github/instructions/*.instructions.md` —
+Path-scoped guidance lives in `.github/instructions/*.instructions.md`;
 Copilot auto-applies the right file via its `applyTo` glob. Reusable
 scaffolds for recurring tasks live in `.github/prompts/*.prompt.md`.
