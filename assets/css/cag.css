@@ -29,7 +29,7 @@
 
 .prose-cag h2::after {
     @apply content-[''] absolute bottom-0 left-0 w-9 h-[2px] rounded-[1px];
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
 .prose-cag h3 {
@@ -38,11 +38,11 @@
 
 .prose-cag hr {
     @apply border-none h-px my-10;
-    @apply bg-gradient-to-r from-transparent via-brand-700/45 to-transparent;
+    @apply bg-linear-to-r from-transparent via-brand-700/45 to-transparent;
 }
 
 .prose-cag a:not([class]) {
-    @apply text-brand-500 underline decoration-brand-500/35 underline-offset-[2px] transition-[color,text-decoration-color] duration-[250ms] ease-[ease];
+    @apply text-brand-500 underline decoration-brand-500/35 underline-offset-[2px] transition-[color,text-decoration-color] duration-250 ease-brand;
 }
 
 .prose-cag a:not([class]):hover {
@@ -66,13 +66,13 @@
 
 .prose-cag ol:not([class]) > li::before {
     @apply absolute left-0 top-[0.1em] size-8 flex items-center justify-center text-white rounded-full text-[0.8rem] font-bold leading-none;
-    @apply bg-gradient-to-br from-brand-600 to-brand-500;
+    @apply bg-linear-to-br from-brand-600 to-brand-500;
     content: counter(cag-counter);
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
 .cag-shortcode-gallery img {
-    @apply transition-[transform,box-shadow] duration-[250ms] ease-[ease] relative cursor-zoom-in;
+    @apply transition-[transform,box-shadow] duration-250 ease-brand relative cursor-zoom-in;
 }
 
 .cag-shortcode-gallery img:hover {
@@ -116,7 +116,7 @@
 
 /* ── .cag-faq: FAQ question highlight block ── */
 .cag-faq h2 {
-    @apply bg-brand-700/7 border-l-4 border-l-brand-700 rounded-r-[8px] py-[0.7rem] px-[1.1rem] mt-6 mb-3 text-[1.05rem] font-bold text-brand-500;
+    @apply bg-brand-700/7 border-l-4 border-l-brand-700 rounded-r-lg py-[0.7rem] px-[1.1rem] mt-6 mb-3 text-[1.05rem] font-bold text-brand-500;
 }
 
 .cag-faq h2::after {
@@ -144,20 +144,25 @@
 
 /* ── Lightbox ─────────────────────────────────────────────────────────────── */
 
-#cag-lb {
+/* Shared with #cag-polaroid-lb below: same overlay chrome (backdrop, open
+   transition), just a different stage element. */
+#cag-lb,
+#cag-polaroid-lb {
     @apply fixed inset-0 z-[1060] opacity-0 invisible;
     transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 
-#cag-lb.is-open {
-    @apply opacity-100 visible transition-opacity duration-[250ms] ease-[ease];
+#cag-lb.is-open,
+#cag-polaroid-lb.is-open {
+    @apply opacity-100 visible transition-opacity duration-250 ease-brand;
 }
 
 body.cag-lb-active {
     @apply overflow-hidden;
 }
 
-#cag-lb-backdrop {
+#cag-lb-backdrop,
+#cag-polaroid-lb-backdrop {
     @apply fixed inset-0 cursor-zoom-out bg-black/[82%] backdrop-blur-[6px];
 }
 
@@ -167,7 +172,7 @@ body.cag-lb-active {
 }
 
 #cag-lb-track {
-    @apply flex size-full will-change-transform transition-transform duration-[320ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
+    @apply flex size-full will-change-transform transition-transform duration-320 ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
 }
 
 .cag-lb-slide {
@@ -175,14 +180,14 @@ body.cag-lb-active {
 }
 
 .cag-lb-slide img {
-    @apply max-w-full max-h-full object-contain rounded-[6px] select-none pointer-events-none shadow-lb-slide;
+    @apply max-w-full max-h-full object-contain rounded-md select-none pointer-events-none shadow-lb-slide;
     -webkit-user-drag: none;
 }
 
 /* ── Close button (top-right) ────────────────────────────────────────────── */
 #cag-lb-close,
 #cag-polaroid-lb-close {
-    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease] bg-white/[12%] backdrop-blur-[4px];
+    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-200 ease-brand bg-white/[12%] backdrop-blur-[4px];
 }
 
 #cag-lb-close:hover,
@@ -198,15 +203,15 @@ body.cag-lb-active {
 /* ── Prev / Next arrow buttons ────────────────────────────────────────────── */
 #cag-lb-prev,
 #cag-lb-next {
-    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-[200ms] ease-[ease] bg-white/10 backdrop-blur-[4px];
+    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-200 ease-brand bg-white/10 backdrop-blur-[4px];
 }
 
 #cag-lb-prev {
-    @apply left-0 rounded-r-[6px];
+    @apply left-0 rounded-r-md;
 }
 
 #cag-lb-next {
-    @apply right-0 rounded-l-[6px];
+    @apply right-0 rounded-l-md;
 }
 
 #cag-lb-prev:hover,
@@ -240,23 +245,14 @@ body.cag-lb-active {
     }
 }
 
-/* ── Polaroid viewer ──────────────────────────────────────────── */
-
+/* ── Polaroid viewer: shares #cag-lb's overlay chrome above, plus centering
+   for its stage element ──────────────────────────────────────────── */
 #cag-polaroid-lb {
-    @apply fixed inset-0 z-[1060] flex items-center justify-center opacity-0 invisible;
-    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
-}
-
-#cag-polaroid-lb.is-open {
-    @apply opacity-100 visible transition-opacity duration-[250ms] ease-[ease];
-}
-
-#cag-polaroid-lb-backdrop {
-    @apply fixed inset-0 cursor-zoom-out bg-black/[82%] backdrop-blur-[6px];
+    @apply flex items-center justify-center;
 }
 
 #cag-polaroid-lb-stage {
-    @apply relative z-[1] scale-[0.94] transition-transform duration-[250ms] ease-out;
+    @apply relative z-[1] scale-[0.94] transition-transform duration-250 ease-out;
 }
 
 #cag-polaroid-lb.is-open #cag-polaroid-lb-stage {
@@ -278,15 +274,17 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li {
-    @apply rounded-card border border-border bg-surface-card py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply rounded-card border border-border bg-surface-card py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-card;
 }
 
 .cag-game-cards li::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[2px];
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
-.cag-game-cards li:hover {
+/* Shared with a.cag-card-link below: same lift-and-glow hover treatment. */
+.cag-game-cards li:hover,
+a.cag-card-link:hover {
     @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
@@ -330,7 +328,7 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li:has(strong)::before {
-    @apply bg-gradient-to-r from-accent-500 to-accent-400;
+    @apply bg-linear-to-r from-accent-500 to-accent-400;
 }
 
 .cag-game-cards li:has(strong):hover {
@@ -351,48 +349,84 @@ body.cag-lb-active {
 
 .cag-card-frame::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
 .cag-map-links {
     @apply mt-6 flex flex-wrap justify-center gap-4 mx-auto max-w-[56rem];
 }
 
-/* Mirrors .cag-social-card: brand-colour top bar, icon badge, platform
-   caption + handle, arrow affordance, so these read as the same kind of
-   button as the YouTube/Twitch cards instead of a one-off component.
-   Each platform sets --ml-brand (and --ml-handle when it differs) once;
-   see .cag-social-card for the same pattern. */
-.cag-map-link {
+/* Shared "brand link card" component powering both .cag-map-link (map deep
+   links, below) and .cag-social-card (channel cards, near
+   .cag-social-channels): brand-colour top bar, icon badge, platform caption
+   + handle, arrow affordance. Each variant sets --card-brand (and
+   --card-handle when it differs) once. */
+.cag-map-link,
+.cag-social-card {
     @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
-    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply transition-card;
     @apply px-5 py-[1.1rem] grow shrink basis-[260px] max-w-[420px];
 }
 
-.cag-map-link::before {
+.cag-map-link::before,
+.cag-social-card::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card opacity-85;
-    background: var(--ml-brand);
+    background: var(--card-brand);
 }
 
-.cag-map-link--google { --ml-brand: #4285f4; --ml-handle: #4285f4; }
-.cag-map-link--apple  { --ml-brand: #000000; --ml-handle: var(--on-surface); }
+.cag-map-link:hover,
+.cag-social-card:hover {
+    @apply -translate-y-[3px] shadow-card no-underline text-on-surface;
+    border-color: color-mix(in srgb, var(--card-brand) 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--card-brand) 8%, transparent);
+}
+
+.cag-map-link:focus-visible,
+.cag-social-card:focus-visible {
+    @apply focus-ring-brand;
+}
+
+.cag-map-link__body,
+.cag-social-card__body {
+    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
+}
+
+.cag-map-link__platform,
+.cag-social-card__platform {
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
+}
+
+.cag-map-link__handle,
+.cag-social-card__handle {
+    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-(--card-handle);
+}
+
+.cag-map-link__arrow,
+.cag-social-card__arrow {
+    @apply shrink-0 transition-transform duration-200 ease-brand text-(--link);
+}
+
+.cag-map-link__arrow svg,
+.cag-social-card__arrow svg {
+    @apply size-[18px];
+}
+
+.cag-map-link:hover .cag-map-link__arrow,
+.cag-social-card:hover .cag-social-card__arrow {
+    @apply translate-x-0.5 -translate-y-0.5;
+}
+
+.cag-map-link--google { --card-brand: #4285f4; --card-handle: #4285f4; }
+.cag-map-link--apple  { --card-brand: #000000; --card-handle: var(--on-surface); }
 /* Waze cyan is too light for body text on the light surface, so the handle
    falls back to --on-surface and the brand colour stays on the top bar. */
-.cag-map-link--waze   { --ml-brand: #33ccff; --ml-handle: var(--on-surface); }
+.cag-map-link--waze   { --card-brand: #33ccff; --card-handle: var(--on-surface); }
 
-.cag-map-link:hover {
-    @apply -translate-y-[3px] shadow-card no-underline;
-    border-color: color-mix(in srgb, var(--ml-brand) 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, var(--ml-brand) 8%, transparent);
-}
-
-.cag-map-link:focus-visible {
-    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
-}
-
+/* Map icons sit on a white badge (the SVG/PNG asset supplies its own
+   colour), unlike the social cards' solid-colour badge below. */
 .cag-map-link__icon {
     @apply flex items-center justify-center shrink-0 rounded-card bg-white size-11;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--ml-brand) 20%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
 }
 
 .cag-map-link__icon-img {
@@ -403,38 +437,17 @@ body.cag-lb-active {
     background-image: url('/icons/google-maps-official.svg');
 }
 
-.cag-map-link__icon-img--apple {
+.cag-map-link__icon-img--apple,
+.cag-map-link__icon-img--waze {
     @apply size-8;
+}
+
+.cag-map-link__icon-img--apple {
     background-image: url('/icons/apple-maps-official.svg');
 }
 
 .cag-map-link__icon-img--waze {
-    @apply size-8;
     background-image: url('/icons/waze-official.svg');
-}
-
-.cag-map-link__body {
-    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
-}
-
-.cag-map-link__platform {
-    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
-}
-
-.cag-map-link__handle {
-    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-[var(--ml-handle)];
-}
-
-.cag-map-link__arrow {
-    @apply shrink-0 transition-transform duration-[200ms] ease-[ease] text-[var(--link)];
-}
-
-.cag-map-link__arrow svg {
-    @apply size-[18px];
-}
-
-.cag-map-link:hover .cag-map-link__arrow {
-    @apply translate-x-0.5 -translate-y-0.5;
 }
 
 
@@ -508,7 +521,7 @@ body.cag-lb-active {
 }
 
 .cag-transport-stop {
-    @apply grid items-center gap-3 rounded-[0.75rem] border border-border bg-surface px-3 py-2 no-underline text-on-surface;
+    @apply grid items-center gap-3 rounded-xl border border-border bg-surface px-3 py-2 no-underline text-on-surface;
     @apply grid-cols-[1.875rem_minmax(0,1fr)] transition-[transform,border-color,box-shadow] duration-200 ease-in-out;
 }
 
@@ -581,7 +594,7 @@ body.cag-lb-active {
 }
 
 .cag-line-badge {
-    @apply inline-flex items-center justify-center rounded-[0.5rem] px-2 py-1 text-[0.72rem] leading-none font-bold border text-white;
+    @apply inline-flex items-center justify-center rounded-lg px-2 py-1 text-[0.72rem] leading-none font-bold border text-white;
     background: var(--badge);
     border-color: color-mix(in srgb, var(--badge) 65%, transparent);
 }
@@ -652,12 +665,7 @@ body.cag-lb-active {
 
 /* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
 a.cag-card-link {
-    @apply block no-underline text-on-surface;
-    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
-}
-
-a.cag-card-link:hover {
-    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
+    @apply block no-underline text-on-surface transition-card;
 }
 
 .cag-stuff-bring ul > li::marker,
@@ -667,11 +675,10 @@ a.cag-card-link:hover {
 
 /* ── Care CTA: portal to care.ctrl-alt-gg.hu ────────────────────── */
 .cag-care-cta {
-    @apply flex items-center gap-[1.1rem] no-underline text-on-surface;
-    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply flex items-center gap-[1.1rem] no-underline text-on-surface transition-card;
     @apply max-[576px]:flex-col max-[576px]:text-center;
     @apply px-6 py-5 mx-0 mt-8 mb-10 max-[576px]:px-5 max-[576px]:py-[1.1rem];
-    @apply rounded-[var(--radius-panel)]; /* softer than --radius-card, echoes Care's rounded-2xl */
+    @apply rounded-(--radius-panel); /* softer than --radius-card, echoes Care's rounded-2xl */
     background: linear-gradient(135deg,
         color-mix(in srgb, var(--color-brand-600) 8%, transparent),
         color-mix(in srgb, var(--color-brand-600) 2%, transparent));
@@ -685,7 +692,7 @@ a.cag-card-link:hover {
 }
 
 .cag-care-cta:focus-visible {
-    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
+    @apply focus-ring-brand;
 }
 
 .cag-care-cta__badge {
@@ -712,7 +719,7 @@ a.cag-card-link:hover {
 }
 
 .cag-care-cta__arrow {
-    @apply ml-auto shrink-0 max-[576px]:hidden text-[var(--link)];
+    @apply ml-auto shrink-0 max-[576px]:hidden text-(--link);
 }
 
 
@@ -728,7 +735,7 @@ a.cag-card-link:hover {
 
 .cag-social-channels__heading::after {
     @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-9 h-[2px] rounded-[1px];
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
 /* Override prose-cag h2::after which has left: 0 */
@@ -740,44 +747,22 @@ a.cag-card-link:hover {
     @apply flex flex-wrap justify-center gap-4 mx-auto max-w-[860px];
 }
 
-/* ── Base card ──
-   Each platform sets --sc-brand (and --sc-handle when the handle needs a
-   darker/lighter shade for readability) once; every visual detail below
-   (top bar, icon badge, hover glow, handle colour) reads from those two
-   custom properties instead of repeating per-platform rules. */
-.cag-social-card {
-    @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
-    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
-    @apply px-5 py-[1.1rem] grow shrink basis-[260px] max-w-[420px];
-}
+/* Layout, hover, and focus styles live with .cag-map-link above (shared
+   "brand link card" component). Each platform just sets --card-brand (and
+   --card-handle when it differs) and the icon badge colour below. */
+.cag-social-card--youtube   { --card-brand: #ff0000; --card-handle: #cc0000; }
+.cag-social-card--twitch    { --card-brand: #9146ff; --card-handle: #7c3aed; }
+.cag-social-card--kick      { --card-brand: #53fc18; --card-handle: #3db800; }
+.cag-social-card--facebook  { --card-brand: #1877f2; --card-handle: #1877f2; }
+.cag-social-card--discord   { --card-brand: #5865f2; --card-handle: #4752c4; }
+.cag-social-card--x         { --card-brand: #000000; --card-handle: var(--on-surface); }
 
-.cag-social-card::before {
-    @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card opacity-85;
-    background: var(--sc-brand);
-}
-
-.cag-social-card:hover {
-    @apply -translate-y-[3px] shadow-card no-underline text-on-surface;
-    border-color: color-mix(in srgb, var(--sc-brand) 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, var(--sc-brand) 8%, transparent);
-}
-
-.cag-social-card:focus-visible {
-    @apply outline-2 outline-[var(--link)] outline-offset-[3px];
-}
-
-.cag-social-card--youtube   { --sc-brand: #ff0000; --sc-handle: #cc0000; }
-.cag-social-card--twitch    { --sc-brand: #9146ff; --sc-handle: #7c3aed; }
-.cag-social-card--kick      { --sc-brand: #53fc18; --sc-handle: #3db800; }
-.cag-social-card--facebook  { --sc-brand: #1877f2; --sc-handle: #1877f2; }
-.cag-social-card--discord   { --sc-brand: #5865f2; --sc-handle: #4752c4; }
-.cag-social-card--x         { --sc-brand: #000000; --sc-handle: var(--on-surface); }
-
-/* ── Icon badge ── */
+/* Social cards use a solid-colour badge (unlike .cag-map-link__icon's white
+   badge), so unlike that one this needs its own background + text colour. */
 .cag-social-card__icon {
     @apply flex items-center justify-center shrink-0 rounded-card text-white size-11;
-    background: var(--sc-brand);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--sc-brand) 20%, transparent);
+    background: var(--card-brand);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
 }
 
 .cag-social-card--kick .cag-social-card__icon {
@@ -788,32 +773,6 @@ a.cag-card-link:hover {
     @apply size-[22px];
 }
 
-/* ── Text body ── */
-.cag-social-card__body {
-    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
-}
-
-.cag-social-card__platform {
-    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
-}
-
-.cag-social-card__handle {
-    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-[var(--sc-handle)];
-}
-
 .cag-social-card__desc {
     @apply text-[0.8rem] opacity-65;
-}
-
-/* ── Arrow affordance ── */
-.cag-social-card__arrow {
-    @apply shrink-0 transition-transform duration-[200ms] ease-[ease] text-[var(--link)];
-}
-
-.cag-social-card__arrow svg {
-    @apply size-[18px];
-}
-
-.cag-social-card:hover .cag-social-card__arrow {
-    @apply translate-x-0.5 -translate-y-0.5;
 }

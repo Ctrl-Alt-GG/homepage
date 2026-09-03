@@ -76,6 +76,9 @@
   --radius-pill: 9999px;
   --radius-card: 0.875rem;
   --radius-panel: 1.25rem;
+
+  /* Plain CSS "ease" as a named token, so components share one spot to retune it. */
+  --ease-brand: ease;
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.08);
   --shadow-panel: 0 2px 4px rgb(0 0 0 / 0.05), 0 20px 50px rgb(0 0 0 / 0.12);
   --shadow-person-hover: 0 4px 20px color-mix(in srgb, var(--color-brand-600) 10%, transparent);
@@ -182,6 +185,19 @@
     max-width: var(--container-max-width);
     padding-inline: 3rem;
   }
+}
+
+/* ── Shared component utilities ──
+   Custom Tailwind utilities (v4 `@utility`) for the transition + focus-ring
+   combos repeated across cag.css's brand link cards, game cards, and CTAs,
+   so each only has to name one class instead of spelling out the chain.
+   Must live at the top level (not inside the layered @import below). */
+@utility transition-card {
+  @apply transition-[transform,box-shadow,border-color] duration-250 ease-brand;
+}
+
+@utility focus-ring-brand {
+  @apply outline-2 outline-(--link) outline-offset-[3px];
 }
 
 /* Component styles */
