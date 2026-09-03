@@ -180,15 +180,18 @@ body.cag-lb-active {
 }
 
 /* ── Close button (top-right) ────────────────────────────────────────────── */
-#cag-lb-close {
+#cag-lb-close,
+#cag-polaroid-lb-close {
     @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease] bg-white/[12%] backdrop-blur-[4px];
 }
 
-#cag-lb-close:hover {
+#cag-lb-close:hover,
+#cag-polaroid-lb-close:hover {
     @apply scale-110 bg-white/[24%];
 }
 
-#cag-lb-close svg {
+#cag-lb-close svg,
+#cag-polaroid-lb-close svg {
     @apply size-5;
 }
 
@@ -235,6 +238,38 @@ body.cag-lb-active {
     .cag-lb-slide {
         @apply p-[4rem_2.5rem];
     }
+}
+
+/* ── Polaroid viewer ──────────────────────────────────────────── */
+
+#cag-polaroid-lb {
+    @apply fixed inset-0 z-[1060] flex items-center justify-center opacity-0 invisible;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+#cag-polaroid-lb.is-open {
+    @apply opacity-100 visible transition-opacity duration-[250ms] ease-[ease];
+}
+
+#cag-polaroid-lb-backdrop {
+    @apply fixed inset-0 cursor-zoom-out bg-black/[82%] backdrop-blur-[6px];
+}
+
+#cag-polaroid-lb-stage {
+    @apply relative z-[1] scale-[0.94] transition-transform duration-[250ms] ease-out;
+}
+
+#cag-polaroid-lb.is-open #cag-polaroid-lb-stage {
+    @apply scale-100;
+}
+
+#cag-polaroid-lb .cag-polaroid-print {
+    @apply select-none;
+}
+
+#cag-polaroid-lb .cag-polaroid-print img {
+    @apply pointer-events-none;
+    -webkit-user-drag: none;
 }
 
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */

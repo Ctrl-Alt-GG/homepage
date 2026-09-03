@@ -22,6 +22,22 @@
 
 {{ partial "schema.html" $page }}
 
+{{- /* Polaroid viewer. Same build treatment as the gallery lightbox. */ -}}
+{{- with resources.Get "js/cag-polaroid.js" }}
+  {{- if $page.Store.Get "cag-shortcode-polaroid-script" | default false }}
+    {{- if eq hugo.Environment "development" }}
+      {{- with . | js.Build }}
+        <script src="{{ .RelPermalink }}" defer></script>
+      {{- end }}
+    {{- else }}
+      {{- $opts := dict "minify" true }}
+      {{- with . | js.Build $opts | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 {{- /*
   Venue map. MapLibre itself is served verbatim from /vendor/maplibre-gl/ (see
   the module mount in hugo.yaml) and pulled in with a dynamic import only once

@@ -10,6 +10,12 @@
   translation: "Figure"
 - id: javascript_is_required
   translation: "JavaScript is required"
+- id: polaroid_open_aria
+  translation: "Open the photo full screen"
+- id: polaroid_viewer_aria
+  translation: "Photo viewer"
+- id: polaroid_viewer_close
+  translation: "Close"
 - id: countdown_prefix
   translation: "Only "
 - id: countdown_suffix

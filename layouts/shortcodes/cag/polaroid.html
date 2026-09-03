@@ -1,0 +1,75 @@
+{{- /*
+  Renders a page-resource photo as a tilted polaroid print next to a short
+  block of text. Meant for supporting visuals (a venue snapshot beside a
+  paragraph of context), not for hero images.
+
+  Params (named):
+    src     (string, required): page-resource filename, e.g. "entrance.webp".
+    alt     (string, optional, default ""): image alt text.
+    caption (string, optional, default ""): handwritten-style line printed on
+                                            the polaroid's bottom border.
+    kicker  (string, optional): small eyebrow line above the heading.
+    heading (string, optional): short headline above the body copy.
+    side    (string, optional, default "left"): which side the photo sits on
+                                                (desktop only; on narrow
+                                                screens it always stacks above).
+    tilt    (string, optional, default "left"): rotation direction of the print.
+    class   (string, optional): extra classes appended to the root element.
+
+  Inner: block Markdown (piped through .Page.RenderString).
+
+  Clicking the print opens it full screen; the viewer script is registered via
+  .Page.Store and emitted by partials/footer/js.html only on pages that use it.
+
+  Usage:
+    {{< cag/polaroid src="entrance.webp" alt="The venue" caption="Nagymihály utca"
+                     kicker="Óbuda, the nineties" heading="Before us, there was High Life" >}}
+    A paragraph about the place.
+    {{< /cag/polaroid >}}
+*/ -}}
+{{- $page := .Page -}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $kicker := .Get "kicker" | default "" -}}
+{{- $heading := .Get "heading" | default "" -}}
+{{- $side := .Get "side" | default "left" -}}
+{{- $tilt := .Get "tilt" | default "left" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- if not $src }}{{ errorf "cag/polaroid shortcode: required parameter 'src' is missing (page: %s)" $page.File.Path }}{{ end -}}
+{{- $resource := $page.Resources.GetMatch $src -}}
+{{- if not $resource }}{{ errorf "cag/polaroid shortcode: page resource %q not found (page: %s)" $src $page.File.Path }}{{ end -}}
+{{- /* Polaroid 600 geometry in mm: 88x107 frame, 79x77 image window, 5mm top and
+       4.5mm side borders, 25mm bottom border. The inner wrapper carries the
+       percentages so they resolve against the print width, not the flex row. */ -}}
+{{- $print := $resource.Fill "320x312 webp q78 Center" | fingerprint -}}
+{{- $print2x := $resource.Fill "640x624 webp q62 Center" | fingerprint -}}
+{{- $printFull := $resource.Fill "1100x1072 webp q72 Center" | fingerprint -}}
+{{- $page.Store.Set "cag-shortcode-polaroid-script" true -}}
+<div class="cag-polaroid mx-auto my-8 flex max-w-4xl flex-col items-center gap-5 rounded-2xl bg-surface-alt p-5 ring-1 ring-border sm:items-stretch sm:gap-7 sm:p-7{{ if eq $side "right" }} sm:flex-row-reverse{{ else }} sm:flex-row{{ end }}{{ with $class }} {{ . }}{{ end }}">
+  <figure class="cag-polaroid-print @container m-0 w-60 shrink-0 cursor-zoom-in self-center bg-[#f6f4ef] shadow-[0_14px_28px_-12px_rgb(0_0_0/0.35)] ring-1 ring-black/10 transition-transform duration-300 hover:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-500 sm:w-72 lg:w-80 dark:shadow-[0_14px_30px_-10px_rgb(0_0_0/0.55)] {{ if eq $tilt "right" }}rotate-2{{ else }}-rotate-2{{ end }}"
+          data-cag-polaroid
+          data-cag-polaroid-full="{{ $printFull.RelPermalink }}"
+          data-cag-polaroid-label="{{ i18n "polaroid_viewer_aria" }}"
+          data-cag-polaroid-close="{{ i18n "polaroid_viewer_close" }}"
+          role="button" tabindex="0" aria-label="{{ i18n "polaroid_open_aria" }}">
+    <div class="px-[5.11%] pt-[5.68%]">
+      <img class="block w-full aspect-[79/77] object-cover shadow-[inset_0_0_0_1px_rgb(0_0_0/0.12)]" src="{{ $print.RelPermalink }}"
+           {{ printf `srcset="%s 1x, %s 2x"` $print.RelPermalink $print2x.RelPermalink | safeHTMLAttr }}
+           width="{{ $print.Width }}" height="{{ $print.Height }}"
+           alt="{{ $alt }}" loading="lazy" decoding="async">
+      <figcaption class="cag-polaroid-caption flex aspect-[79/25] w-full items-center justify-center text-center text-[max(0.75rem,calc(5.4cqw_-_0.26rem))] font-medium leading-tight tracking-wide text-neutral-600">{{ $caption }}</figcaption>
+    </div>
+  </figure>
+  <div class="cag-polaroid-body flex-1 self-center">
+    {{- with $kicker }}
+    <p class="cag-polaroid-kicker mt-0 mb-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-brand-500">{{ . }}</p>
+    {{- end }}
+    {{- with $heading }}
+    <p class="cag-polaroid-heading mt-0 mb-2.5 text-[1.2rem] font-bold leading-snug">{{ . }}</p>
+    {{- end }}
+    <div class="cag-polaroid-text text-[0.95rem] leading-[1.7] [&>p:first-child]:mt-0 [&>p:last-child]:mb-0">
+      {{- strings.TrimSpace .Inner | $page.RenderString -}}
+    </div>
+  </div>
+</div>

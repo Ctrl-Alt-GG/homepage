@@ -10,6 +10,12 @@
   translation: "Ábra"
 - id: javascript_is_required
   translation: "A JavaScript használata szükséges"
+- id: polaroid_open_aria
+  translation: "Fénykép megnyitása teljes méretben"
+- id: polaroid_viewer_aria
+  translation: "Fényképnézegető"
+- id: polaroid_viewer_close
+  translation: "Bezárás"
 - id: countdown_prefix
   translation: "Már csak "
 - id: countdown_suffix
