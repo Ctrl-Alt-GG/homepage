@@ -19,23 +19,23 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 {{< schedule >}}
 | Idő | Mi történik? | Játékajánló |
 | --- | --- | --- |
-| 15:30–17:00 | Nyitott játékblokk | Minecraft |
-| 17:00–18:40 | Nyitott játékblokk | Team Fortress 2 |
-| 18:40–19:00 | <span class="cag-schedule-event--food">Uzsonna- és frissítőszünet</span> | Rövid séta, gyors harapnivaló |
-| 19:00–20:00 | Nyitott játékblokk | Left 4 Dead 2 |
-| 20:00–21:00 | <span class="cag-schedule-event--important">CS2 verseny kezdete</span> | CS2 versenymeccsek |
-| 21:00–21:40 | Nyitott játékblokk | OpenTTD |
-| 21:40–22:00 | <span class="cag-schedule-event--food">Frissítőszünet a díjátadó előtt</span> | Rövid séta, gyors harapnivaló |
-| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 verseny díjátadója</span> | Kövesd a kivetítőt |
-| 23:00–23:40 | Nyitott játékblokk | Xonotic |
-| 23:40–00:00 | <span class="cag-schedule-event--food">Éjszakai frissítőszünet</span> | Rövid séta, gyors harapnivaló |
-| 00:00–01:40 | Éjszakai játékblokk | SCP: Secret Laboratory |
-| 01:40–02:00 | <span class="cag-schedule-event--food">Éjszakai frissítőszünet</span> | Rövid séta, gyors harapnivaló |
-| 02:00–03:40 | Éjszakai játékblokk | Satisfactory |
-| 03:40–04:00 | <span class="cag-schedule-event--food">Hajnali frissítőszünet</span> | Rövid séta, gyors harapnivaló |
-| 04:00–05:40 | Hajnali játékblokk | Counter-Strike: Source |
-| 05:40–06:00 | <span class="cag-schedule-event--food">Reggeli frissítőszünet</span> | Rövid séta, gyors harapnivaló |
-| 06:00-tól | Reggeli zárás | SuperTuxKart |
+| 15:30–17:00 | Laza kezdés, bemelegítés | Minecraft |
+| 17:00–18:40 | Csapatharc, szedd össze a csapatod | Team Fortress 2 |
+| 18:40–19:00 | <span class="cag-schedule-event--food">Uzsonnaszünet</span> | Igyál valamit, egyél gyorsan |
+| 19:00–20:00 | Túlélés négyesben a verseny előtt | Left 4 Dead 2 |
+| 20:00–21:00 | <span class="cag-schedule-event--important">Rajt: elkezdődik a CS2 verseny</span> | Szurkolj, vagy készülj a meccsedre |
+| 21:00–21:40 | Amíg a meccsek zajlanak | OpenTTD |
+| 21:40–22:00 | <span class="cag-schedule-event--food">Levegőzés a díjátadó előtt</span> | Igyál valamit, nyújtózz egyet |
+| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 díjátadó</span> | Gyere ki a kivetítőhöz |
+| 23:00–23:40 | Éjszakába hajló akció | Xonotic |
+| 23:40–00:00 | <span class="cag-schedule-event--food">Éjféli frissítő</span> | Kávé vagy energiaital, ha kell |
+| 00:00–01:40 | Horror a hosszabb éjszakai blokkban | SCP: Secret Laboratory |
+| 01:40–02:00 | <span class="cag-schedule-event--food">Ébrentartó szünet</span> | Igyál vizet, mosd meg az arcod |
+| 02:00–03:40 | Építkezés a csendes órákban | Satisfactory |
+| 03:40–04:00 | <span class="cag-schedule-event--food">Hajnali szusszanás</span> | Nyújtózz, igyál valami frissítőt |
+| 04:00–05:40 | Klasszikus lövölde hajnalban | Counter-Strike: Source |
+| 05:40–06:00 | <span class="cag-schedule-event--food">Utolsó szünet reggeli előtt</span> | Kávé, gyors reggeli |
+| 06:00-tól | Záróbuli napfelkeltekor | SuperTuxKart |
 {{< /schedule >}}
 
 ## Szünetek és helyszíni szabályok

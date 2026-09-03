@@ -19,23 +19,23 @@ Some players will follow their own pace all weekend, others appreciate a shared 
 {{< schedule >}}
 | Time | What is happening? | Game suggestions |
 | --- | --- | --- |
-| 15:30–17:00 | Open gaming block | Minecraft |
-| 17:00–18:40 | Open gaming block | Team Fortress 2 |
-| 18:40–19:00 | <span class="cag-schedule-event--food">Snack and refreshment break</span> | Short walk, quick snack |
-| 19:00–20:00 | Open gaming block | Left 4 Dead 2 |
-| 20:00–21:00 | <span class="cag-schedule-event--important">CS2 tournament start</span> | CS2 tournament matches |
-| 21:00–21:40 | Open gaming block | OpenTTD |
-| 21:40–22:00 | <span class="cag-schedule-event--food">Refreshment break before the award ceremony</span> | Short walk, quick snack |
-| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 tournament award ceremony</span> | Watch the screen |
-| 23:00–23:40 | Open gaming block | Xonotic |
-| 23:40–00:00 | <span class="cag-schedule-event--food">Night refreshment break</span> | Short walk, quick snack |
-| 00:00–01:40 | Night gaming block | SCP: Secret Laboratory |
-| 01:40–02:00 | <span class="cag-schedule-event--food">Night refreshment break</span> | Short walk, quick snack |
-| 02:00–03:40 | Night gaming block | Satisfactory |
-| 03:40–04:00 | <span class="cag-schedule-event--food">Early morning refreshment break</span> | Short walk, quick snack |
-| 04:00–05:40 | Early morning gaming block | Counter-Strike: Source |
-| 05:40–06:00 | <span class="cag-schedule-event--food">Breakfast break</span> | Short walk, quick snack |
-| From 06:00 | Morning closer | SuperTuxKart |
+| 15:30–17:00 | Easy start, warm-up | Minecraft |
+| 17:00–18:40 | Team fights, round up your squad | Team Fortress 2 |
+| 18:40–19:00 | <span class="cag-schedule-event--food">Snack break</span> | Grab a drink and something quick to eat |
+| 19:00–20:00 | Four-player survival before the tournament | Left 4 Dead 2 |
+| 20:00–21:00 | <span class="cag-schedule-event--important">Kickoff: the CS2 tournament begins</span> | Cheer your team on, or get ready for your match |
+| 21:00–21:40 | While the matches run | OpenTTD |
+| 21:40–22:00 | <span class="cag-schedule-event--food">Fresh air before the award ceremony</span> | Grab a drink, stretch your legs |
+| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 award ceremony</span> | Head over to the screen |
+| 23:00–23:40 | Action heading into the night | Xonotic |
+| 23:40–00:00 | <span class="cag-schedule-event--food">Midnight refuel</span> | Coffee or an energy drink, if you need one |
+| 00:00–01:40 | Horror for the long night block | SCP: Secret Laboratory |
+| 01:40–02:00 | <span class="cag-schedule-event--food">Stay-awake break</span> | Splash some water on your face, drink up |
+| 02:00–03:40 | Building through the quiet hours | Satisfactory |
+| 03:40–04:00 | <span class="cag-schedule-event--food">Early morning breather</span> | Stretch, grab something refreshing |
+| 04:00–05:40 | A classic shooter at dawn | Counter-Strike: Source |
+| 05:40–06:00 | <span class="cag-schedule-event--food">Last break before breakfast</span> | Coffee, a quick bite |
+| From 06:00 | Sunrise send-off | SuperTuxKart |
 {{< /schedule >}}
 
 ## Breaks and venue rules
