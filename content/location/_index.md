@@ -12,9 +12,9 @@ A Ctrl-Alt-GG következő helyszíne a **DISTR3CT Event Cube** (Budapest III., N
   {{< /card >}}
 
   {{< card title="Ingyenes parkolás" >}}
-Az épület oldalán **mindig ingyenes** a parkolás. Az úttest túloldalán hétvégén (szombaton és vasárnap) szintén díjmentes, hétköznap fizetős.
+Az utca épület felőli oldalán **mindig ingyenes** a parkolás. Az úttest túloldalán hétvégén (szombaton és vasárnap) szintén díjmentes, hétköznap fizetős.
 
-{{< cag/parking-sides freeSide="Épület oldala" weekendSide="Túloldal" >}}
+{{< cag/parking-sides freeSide="Épület felőli oldal" weekendSide="Túloldal" >}}
   {{< /card >}}
 
   {{< card title="Közeli tömegközlekedés" >}}
