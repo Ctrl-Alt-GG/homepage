@@ -14,33 +14,28 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 
 {{< callout icon="📣" >}}A versenymeccsek időpontjai kötöttek. A következő meccset a weboldalon, a kivetítőkön és rádión jelezzük; kérjük, érkezz időben a nevezéshez és a mérkőzéshez.{{< /callout >}}
 
-## Első nap
+## Esti és éjszakai program
 
 {{< schedule >}}
 | Idő | Mi történik? | Játékajánló |
 | --- | --- | --- |
-| 12:00–13:00 | Érkezés, gépek beállítása, helykeresés | Könnyű co-op, helyi lobbyk |
-| 13:00–15:00 | Nyitott játékblokk | CS2, League of Legends, Trackmania, party játékok |
-| 15:00–15:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak</span> | Rövid körök, asztaltól távoli játékok |
-| 15:30–18:00 | Versenyselejtezők és nyitott játék | Verseny mellett Satisfactory, Minecraft, Left 4 Dead 2 |
-| 18:00–18:20 | <span class="cag-schedule-event--important">Versenycheck-in és következő meccsek</span> | Nézd meg a kivetítőt vagy a weboldalt |
-| 18:20–20:00 | Esti szabad játékblokk | CS2, Vermintide 2, Garry's Mod, konzolsarok |
-| 20:00–20:30 | <span class="cag-schedule-event--food">Vacsora- és frissítőszünet</span> | Rendelés, ital, rövid séta |
-| 20:30–00:00 | Közösségi játékblokk | Party játékok, LAN klasszikusok, saját local sessionök |
-{{< /schedule >}}
-
-## Második nap
-
-{{< schedule >}}
-| Idő | Mi történik? | Játékajánló |
-| --- | --- | --- |
-| 10:00–12:00 | Nyugodt délelőtti játékblokk | Co-op, stratégia, konzolsarok |
-| 12:00–12:30 | <span class="cag-schedule-event--food">Ebéd- és rendelési ablak</span> | Rövid körök vagy szünet |
-| 12:30–15:00 | Versenyfolytatás és szabad játék | Döntőbe nem jutóknak közös lobbyk |
-| 15:00–15:20 | <span class="cag-schedule-event--important">Döntő check-in és fontos közlemények</span> | A kivetítőn kövesd az állást |
-| 15:20–17:00 | Versenydöntők | Nézőknek és játékosoknak nyitott közösségi játék |
-| 17:00–17:30 | <span class="cag-schedule-event--food">Záró szünet és frissítés</span> | Pakolás előkészítése, utolsó körök |
-| 17:30–18:00 | Eredményhirdetés és elköszönés | — |
+| 15:30–17:00 | Nyitott játékblokk | Minecraft |
+| 17:00–18:40 | Nyitott játékblokk | Team Fortress 2 |
+| 18:40–19:00 | <span class="cag-schedule-event--food">Uzsonna- és frissítőszünet</span> | Rövid séta, gyors harapnivaló |
+| 19:00–20:00 | Nyitott játékblokk | Left 4 Dead 2 |
+| 20:00–21:00 | <span class="cag-schedule-event--important">CS2 verseny kezdete</span> | CS2 versenymeccsek |
+| 21:00–21:40 | Nyitott játékblokk | OpenTTD |
+| 21:40–22:00 | <span class="cag-schedule-event--food">Frissítőszünet a díjátadó előtt</span> | Rövid séta, gyors harapnivaló |
+| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 verseny díjátadója</span> | Kövesd a kivetítőt |
+| 23:00–23:40 | Nyitott játékblokk | Xonotic |
+| 23:40–00:00 | <span class="cag-schedule-event--food">Éjszakai frissítőszünet</span> | Rövid séta, gyors harapnivaló |
+| 00:00–01:40 | Éjszakai játékblokk | SCP: Secret Laboratory |
+| 01:40–02:00 | <span class="cag-schedule-event--food">Éjszakai frissítőszünet</span> | Rövid séta, gyors harapnivaló |
+| 02:00–03:40 | Éjszakai játékblokk | Satisfactory |
+| 03:40–04:00 | <span class="cag-schedule-event--food">Hajnali frissítőszünet</span> | Rövid séta, gyors harapnivaló |
+| 04:00–05:40 | Hajnali játékblokk | Counter-Strike: Source |
+| 05:40–06:00 | <span class="cag-schedule-event--food">Reggeli frissítőszünet</span> | Rövid séta, gyors harapnivaló |
+| 06:00-tól | Reggeli zárás | SuperTuxKart |
 {{< /schedule >}}
 
 ## Szünetek és helyszíni szabályok
