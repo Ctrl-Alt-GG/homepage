@@ -341,6 +341,9 @@ body.cag-lb-active {
 
 .cag-map-link--google { --ml-brand: #4285f4; --ml-handle: #4285f4; }
 .cag-map-link--apple  { --ml-brand: #000000; --ml-handle: var(--on-surface); }
+/* Waze cyan is too light for body text on the light surface, so the handle
+   falls back to --on-surface and the brand colour stays on the top bar. */
+.cag-map-link--waze   { --ml-brand: #33ccff; --ml-handle: var(--on-surface); }
 
 .cag-map-link:hover {
     @apply -translate-y-[3px] shadow-card no-underline;
@@ -368,6 +371,11 @@ body.cag-lb-active {
 .cag-map-link__icon-img--apple {
     @apply size-8;
     background-image: url('/icons/apple-maps-official.svg');
+}
+
+.cag-map-link__icon-img--waze {
+    @apply size-8;
+    background-image: url('/icons/waze-official.svg');
 }
 
 .cag-map-link__body {

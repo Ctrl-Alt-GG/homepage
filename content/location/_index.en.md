@@ -38,5 +38,5 @@ On weekends (Saturdays and Sundays), the main routes serving the nearest stops r
 We <strong>won't be using the building's main entrance</strong>. Access is via the staircase on Nagymihály utca, and stairs are available on both sides of the building, so you can enter from either one.
 {{< /callout >}}
 
-{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" >}}
+{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" waze="https://www.waze.com/ul?ll=47.5513926,19.0354529&navigate=yes" >}}
 

@@ -38,5 +38,5 @@ Hétvégén (szombaton és vasárnap) a legközelebbi megállókat kiszolgáló 
 A bejárat <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai lépcső. A lépcsőház mindkét oldalán van feljárat, bármelyiken bejöhetsz.
 {{< /callout >}}
 
-{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" >}}
+{{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" waze="https://www.waze.com/ul?ll=47.5513926,19.0354529&navigate=yes" >}}
 
