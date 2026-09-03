@@ -681,11 +681,31 @@ a.cag-card-link:hover {
 }
 
 .cag-schedule-table th {
-    @apply text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
+    @apply bg-surface-alt text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
 }
 
 .cag-schedule-table tbody tr:last-child > * {
     @apply border-b-0;
+}
+
+/* Zebra striping for plain rows; food/important rows keep their own tint below. */
+.cag-schedule-table tbody tr:nth-child(odd):not(:has(.cag-schedule-event--food)):not(:has(.cag-schedule-event--important)) > * {
+    @apply bg-surface-alt;
+}
+
+/* Monospaced, non-wrapping time column so the clock reads like a timetable. */
+.cag-schedule-table td:first-child {
+    @apply font-mono text-brand-500 font-semibold whitespace-nowrap;
+}
+
+/* Game name pill: a brand-dot badge stands in for the game/what's-on column
+   without relying on emoji or per-game artwork. */
+.cag-schedule-game {
+    @apply inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface px-2.5 py-1 font-semibold;
+}
+
+.cag-schedule-game::before {
+    @apply content-[''] block size-1.5 rounded-full bg-brand-500 shrink-0;
 }
 
 .cag-schedule-event--food,
