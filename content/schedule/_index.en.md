@@ -15,10 +15,10 @@ This is guidance, not a mandatory programme: play whatever you want, whenever yo
   {{< schedule-entry time="17:00-18:40" title="Team fights, round up your squad" game="tf2" label="Team Fortress 2" >}}
   {{< schedule-entry time="18:40-19:00" type="break" title="Snack break" note="Grab a drink and something quick to eat" >}}
   {{< schedule-entry time="19:00-20:00" title="Four-player survival before the tournament" game="left4dead2" label="Left 4 Dead 2" >}}
-  {{< schedule-entry time="20:00-21:00" type="highlight" title="Kickoff: the CS2 tournament begins" game="cs2" label="Counter-Strike 2" note="Cheer your team on, or get ready for your match" >}}
-  {{< schedule-entry time="21:00-21:40" title="While the matches run" game="openttd" label="OpenTTD" >}}
-  {{< schedule-entry time="21:40-22:00" type="break" title="Fresh air before the award ceremony" note="Grab a drink, stretch your legs" >}}
-  {{< schedule-entry time="22:00-23:00" type="highlight" title="CS2 award ceremony" note="Head over to the screen" >}}
+  {{< schedule-entry time="20:00" type="highlight" title="Kickoff: the CS2 tournament begins" game="cs2" label="Counter-Strike 2" note="Cheer your team on, or get ready for your match" >}}
+  {{< schedule-entry time="20:00-22:00" title="While the matches run" game="openttd" label="OpenTTD" note="Runs alongside the tournament" >}}
+  {{< schedule-entry time="22:00-22:15" type="highlight" title="CS2 award ceremony" note="Head over to the screen" >}}
+  {{< schedule-entry time="22:15-23:00" title="Winding down after the ceremony" game="garrys-mod" label="Garry's Mod" >}}
   {{< schedule-entry time="23:00-23:40" title="Action heading into the night" game="xonotic" label="Xonotic" >}}
   {{< schedule-entry time="23:40-00:00" type="break" title="Midnight refuel" note="Coffee or an energy drink, if you need one" >}}
   {{< schedule-entry time="00:00-01:40" title="Horror for the long night block" game="scp" label="SCP: Secret Laboratory" >}}

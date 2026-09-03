@@ -15,10 +15,10 @@ Ez egy ajánló, nem kötelező program: bármikor játszhatsz azzal, amihez ked
   {{< schedule-entry time="17:00-18:40" title="Csapatharc, szedd össze a csapatod" game="tf2" label="Team Fortress 2" >}}
   {{< schedule-entry time="18:40-19:00" type="break" title="Uzsonnaszünet" note="Igyál valamit, egyél gyorsan" >}}
   {{< schedule-entry time="19:00-20:00" title="Túlélés négyesben a verseny előtt" game="left4dead2" label="Left 4 Dead 2" >}}
-  {{< schedule-entry time="20:00-21:00" type="highlight" title="Rajt: elkezdődik a CS2 verseny" game="cs2" label="Counter-Strike 2" note="Szurkolj, vagy készülj a meccsedre" >}}
-  {{< schedule-entry time="21:00-21:40" title="Amíg a meccsek zajlanak" game="openttd" label="OpenTTD" >}}
-  {{< schedule-entry time="21:40-22:00" type="break" title="Levegőzés a díjátadó előtt" note="Igyál valamit, nyújtózz egyet" >}}
-  {{< schedule-entry time="22:00-23:00" type="highlight" title="CS2 díjátadó" note="Gyere ki a kivetítőhöz" >}}
+  {{< schedule-entry time="20:00" type="highlight" title="Rajt: elkezdődik a CS2 verseny" game="cs2" label="Counter-Strike 2" note="Szurkolj, vagy készülj a meccsedre" >}}
+  {{< schedule-entry time="20:00-22:00" title="Amíg a meccsek zajlanak" game="openttd" label="OpenTTD" note="Párhuzamosan fut a versennyel" >}}
+  {{< schedule-entry time="22:00-22:15" type="highlight" title="CS2 díjátadó" note="Gyere ki a kivetítőhöz" >}}
+  {{< schedule-entry time="22:15-23:00" title="Kis lazulás a díjátadó után" game="garrys-mod" label="Garry's Mod" >}}
   {{< schedule-entry time="23:00-23:40" title="Éjszakába hajló akció" game="xonotic" label="Xonotic" >}}
   {{< schedule-entry time="23:40-00:00" type="break" title="Éjféli frissítő" note="Kávé vagy energiaital, ha kell" >}}
   {{< schedule-entry time="00:00-01:40" title="Horror a hosszabb éjszakai blokkban" game="scp" label="SCP: Secret Laboratory" >}}
