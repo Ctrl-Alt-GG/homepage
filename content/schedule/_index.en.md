@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 summary: "Flexible game recommendations, tournament timings, and breaks for the Ctrl-Alt-GG LAN."
-weight: 50
+weight: 60
 ---
 
 {{< intro >}}

@@ -1,7 +1,7 @@
 ---
 title: "Menetrend"
 summary: "Rugalmas játékajánlók, versenyidőpontok és pihenők a Ctrl-Alt-GG LAN-hoz."
-weight: 50
+weight: 60
 ---
 
 {{< intro >}}
