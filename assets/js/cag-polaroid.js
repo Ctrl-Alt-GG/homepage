@@ -20,6 +20,17 @@
   var closeBtn  = null;
   var prevFocus = null;
 
+  function toSafeImageUrl(value) {
+    if (!value) return null;
+    try {
+      var url = new URL(value, window.location.href);
+      if (url.protocol === 'http:' || url.protocol === 'https:') return url.href;
+    } catch (e) {
+      return null;
+    }
+    return null;
+  }
+
   function ensureViewer(labels) {
     if (lb) {
       lb.setAttribute('aria-label', labels.viewer);
@@ -75,7 +86,7 @@
     clone.style.rotate = '0deg';
 
     var img  = clone.querySelector('img');
-    var full = figure.getAttribute('data-cag-polaroid-full');
+    var full = toSafeImageUrl(figure.getAttribute('data-cag-polaroid-full'));
     if (img && full) {
       img.removeAttribute('srcset');
       img.removeAttribute('loading');
