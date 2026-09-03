@@ -347,6 +347,17 @@ a.cag-card-link:hover {
     @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden flex flex-col;
 }
 
+/* ── .cag-card-icon / .cag-card-title: header hooks shared by every
+   .cag-card-frame variant (card, schedule). Each caller adds its own
+   spacing utility since the gap to the next element differs per card. ── */
+.cag-card-icon {
+    @apply block text-[2.1rem] leading-none text-center;
+}
+
+.cag-card-title {
+    @apply block text-[1.05rem] font-bold text-brand-500 text-center;
+}
+
 .cag-card-frame::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
     @apply bg-linear-to-r from-brand-600 to-brand-500;

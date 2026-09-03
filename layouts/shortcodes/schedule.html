@@ -2,13 +2,13 @@
   Renders a card-wrapped event schedule from a Markdown table.
 
   Params (named):
-    icon  (string, optional, default "") — emoji displayed above the title.
-    title (string, optional, default "") — schedule heading.
-    class (string, optional, default "") — additional classes appended to the card.
+    icon  (string, optional, default ""): emoji displayed above the title.
+    title (string, optional, default ""): schedule heading.
+    class (string, optional, default ""): additional classes appended to the card.
 
   Inner: block Markdown (piped through .Page.RenderString). Use a standard table.
-  Wrap an activity in <span class="cag-schedule-event--food">…</span> or
-  <span class="cag-schedule-event--important">…</span> to highlight its row.
+  Wrap an activity in <span class="cag-schedule-event--food">...</span> or
+  <span class="cag-schedule-event--important">...</span> to highlight its row.
 
   Usage:
     {{< schedule >}}
@@ -26,10 +26,10 @@
 <div class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}">
 {{- end }}
   {{- with $icon }}
-  <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center" aria-hidden="true">{{ . }}</span>
+  <span class="cag-card-icon mb-[0.85rem]" aria-hidden="true">{{ . }}</span>
   {{- end }}
   {{- with $title }}
-  <h2 id="cag-schedule-{{ $.Ordinal }}" class="cag-card-title text-[1.05rem] font-bold mb-[0.85rem] text-brand-500 text-center">{{ . }}</h2>
+  <h2 id="cag-schedule-{{ $.Ordinal }}" class="cag-card-title mb-[0.85rem]">{{ . }}</h2>
   {{- end }}
   <div class="cag-schedule-table">
     {{- strings.TrimSpace .Inner | .Page.RenderString -}}

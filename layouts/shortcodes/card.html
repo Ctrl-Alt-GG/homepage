@@ -33,9 +33,9 @@
 <div class="cag-card cag-card-frame">
 {{- end }}
   {{- if $icon -}}
-  <span class="cag-card-icon text-[2.1rem] leading-none block mb-[0.85rem] text-center">{{ $icon }}</span>
+  <span class="cag-card-icon mb-[0.85rem]">{{ $icon }}</span>
   {{- end -}}
-  <div class="cag-card-title text-[1.05rem] font-bold mb-[0.45rem] text-brand-500 text-center">{{ $title }}</div>
+  <div class="cag-card-title mb-[0.45rem]">{{ $title }}</div>
   <div class="cag-card-desc text-sm leading-[1.65] m-0 opacity-75 flex-1 flex flex-col">{{ strings.TrimSpace .Inner | .Page.RenderString }}</div>
 {{ if $href -}}
 </a>
