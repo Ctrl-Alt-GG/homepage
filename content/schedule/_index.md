@@ -38,7 +38,7 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 | 06:00-tól | Záróbuli napfelkeltekor | <span class="cag-schedule-game">SuperTuxKart</span> |
 {{< /schedule >}}
 
-{{< features heading="Szünetek és helyszíni szabályok" >}}
+{{< features heading="Szünetek, étkezés és helyszíni etikett" >}}
   {{< card title="10–30 perces pihenők" >}}Minden hosszabb blokk között állj fel, igyál, menj mosdóba vagy szellőztesd ki a fejed. A mosdó az irodai részen érhető el.{{< /card >}}
   {{< card title="Étel és ital" >}}A kijelölt étkezési ablakokban érdemes közösen rendelni. Enni és inni csak a gaming zónán kívüli kijelölt helyeken lehet.{{< /card >}}
   {{< card title="Gaming zóna" >}}Figyelj a többiekre, használj headsetet, és ne dohányozz vagy vape-elj a térben.{{< /card >}}

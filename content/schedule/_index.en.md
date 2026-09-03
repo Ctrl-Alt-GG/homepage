@@ -38,7 +38,7 @@ Some players will follow their own pace all weekend, others appreciate a shared 
 | From 06:00 | Sunrise send-off | <span class="cag-schedule-game">SuperTuxKart</span> |
 {{< /schedule >}}
 
-{{< features heading="Breaks and venue rules" >}}
+{{< features heading="Breaks, food, and venue etiquette" >}}
   {{< card title="10–30 minute breaks" >}}Between longer blocks, stand up, drink water, use the bathroom, or get some fresh air. The bathroom is in the office area.{{< /card >}}
   {{< card title="Food and drinks" >}}The marked food windows are a good time to order together. Eat and drink only in designated areas outside the gaming zone.{{< /card >}}
   {{< card title="Gaming zone" >}}Be considerate with headphones, and do not smoke or vape in the space.{{< /card >}}
