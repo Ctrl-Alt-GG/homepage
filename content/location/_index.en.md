@@ -26,16 +26,16 @@ Parking is **always free** on the building's side of the street. On the opposite
   {{< cag/transit-stop mode="volan" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" lines="800,820,821,830,832,840,848" >}}
   {{< cag/transit-stop mode="hev" name="Filatorigát" distance="810 m" href="https://go.bkk.hu/stop/BKK_09118198" lines="H5" >}}
   {{< cag/transit-stop mode="hev" name="Kaszásdűlő" distance="950 m" href="https://go.bkk.hu/stop/BKK_F00509" lines="H5" >}}
-  {{< cag/transit-stop mode="bubi" name="Bécsi út – Vörösvári út" distance="570 m" href="https://molbubi.hu/en/allomas" >}}
+  {{< cag/transit-stop mode="bubi" name="Bécsi út / Vörösvári út" distance="570 m" href="https://molbubi.hu/en/allomas" >}}
   {{< cag/transit-stop mode="bubi" name="Óbudai rendelőintézet" distance="650 m" href="https://molbubi.hu/en/allomas" >}}
 {{< /cag/transit-list >}}
   {{< /card >}}
 {{< /features >}}
 
-On weekends (Saturdays and Sundays), the main routes serving the nearest stops run roughly as follows: bus 9 and trams 17/19/41 come about every 10–15 minutes from early morning (roughly 4:30–5:00 AM) until the night-service gap (roughly 11:00–11:30 PM), while the H5 suburban railway runs about every 15–20 minutes. During the overnight gap, night buses 901, 909, 917, 918 and 960 take over, roughly every 30–60 minutes. Always check the [BudapestGO](https://go.bkk.hu/) app or BKK's timetable for exact departure times.
+On weekends (Saturdays and Sundays), the main routes serving the nearest stops run roughly as follows: bus 9 and trams 17/19/41 come about every 10-15 minutes from early morning (roughly 4:30-5:00 AM) until the night-service gap (roughly 11:00-11:30 PM), while the H5 suburban railway runs about every 15-20 minutes. During the overnight gap, night buses 901, 909, 917, 918 and 960 take over, roughly every 30-60 minutes. Always check the [BudapestGO](https://go.bkk.hu/) app or BKK's timetable for exact departure times.
 
 {{< callout icon="🚪" >}}
-We <strong>won't be using the building's main entrance</strong> — access is via the staircase on Nagymihály utca. Stairs are available on both sides of the building, so you can enter from either one.
+We <strong>won't be using the building's main entrance</strong>. Access is via the staircase on Nagymihály utca, and stairs are available on both sides of the building, so you can enter from either one.
 {{< /callout >}}
 
 {{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" >}}

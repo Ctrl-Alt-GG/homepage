@@ -9,8 +9,8 @@ applyTo: 'content/**/*.md'
 
 Every page exists twice:
 
-- `content/<path>/<slug>.md` — Hungarian (default language)
-- `content/<path>/<slug>.en.md` — English
+- `content/<path>/<slug>.md`: Hungarian (default language)
+- `content/<path>/<slug>.en.md`: English
 
 Section indexes follow the same rule (`_index.md` / `_index.en.md`).
 Creating, renaming, or deleting one half without the other breaks parity
@@ -20,19 +20,19 @@ and must not be done.
 
 Required keys on every content page:
 
-- `title` — translated per locale.
-- `summary` or `description` — translated per locale, one sentence,
+- `title`: translated per locale.
+- `summary` or `description`: translated per locale, one sentence,
   ≤160 characters.
-- `weight` — integer, identical across the language pair, unique within
+- `weight`: integer, identical across the language pair, unique within
   the section (conventionally multiples of 10).
 
 Optional:
 
-- `date` — ISO date; identical across the pair.
+- `date`: ISO date; identical across the pair.
 - `draft: true` while WIP; remove before merging to `main`.
 
 Do not set `url`, `slug`, or `aliases` unless intentionally diverging
-from Hugo's defaults — they desync the two locales.
+from Hugo's defaults; they desync the two locales.
 
 ## Authoring with shortcodes
 

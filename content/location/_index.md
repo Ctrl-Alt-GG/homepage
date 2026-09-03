@@ -26,16 +26,16 @@ Az utca épület felőli oldalán **mindig ingyenes** a parkolás. Az úttest t�
   {{< cag/transit-stop mode="volan" name="Bécsi út / Vörösvári út" distance="530 m" href="https://go.bkk.hu/stop/BKK_F00570" lines="800,820,821,830,832,840,848" >}}
   {{< cag/transit-stop mode="hev" name="Filatorigát" distance="810 m" href="https://go.bkk.hu/stop/BKK_09118198" lines="H5" >}}
   {{< cag/transit-stop mode="hev" name="Kaszásdűlő" distance="950 m" href="https://go.bkk.hu/stop/BKK_F00509" lines="H5" >}}
-  {{< cag/transit-stop mode="bubi" name="Bécsi út – Vörösvári út" distance="570 m" href="https://molbubi.hu/hu/allomas" >}}
+  {{< cag/transit-stop mode="bubi" name="Bécsi út / Vörösvári út" distance="570 m" href="https://molbubi.hu/hu/allomas" >}}
   {{< cag/transit-stop mode="bubi" name="Óbudai rendelőintézet" distance="650 m" href="https://molbubi.hu/hu/allomas" >}}
 {{< /cag/transit-list >}}
   {{< /card >}}
 {{< /features >}}
 
-Hétvégén (szombaton és vasárnap) a legközelebbi megállókat kiszolgáló fő járatok nagyjából a következő sűrűséggel közlekednek: a 9-es busz és a 17/19/41-es villamosok kb. 10–15 percenként járnak kora reggeltől (kb. hajnali 4:30–5:00) az éjszakai szünetig (kb. 23:00–23:30), a H5 HÉV pedig kb. 15–20 percenként. Az éjszakai szünetben a 901, 909, 917, 918 és 960 jelzésű éjszakai buszok veszik át a szerepüket, nagyjából félóránként-óránként. Pontos indulási időkért mindig ellenőrizd a [BudapestGO](https://go.bkk.hu/) alkalmazást vagy a BKK menetrendjét.
+Hétvégén (szombaton és vasárnap) a legközelebbi megállókat kiszolgáló fő járatok nagyjából a következő sűrűséggel közlekednek: a 9-es busz és a 17/19/41-es villamosok kb. 10-15 percenként járnak kora reggeltől (kb. hajnali 4:30-5:00) az éjszakai szünetig (kb. 23:00-23:30), a H5 HÉV pedig kb. 15-20 percenként. Az éjszakai szünetben a 901, 909, 917, 918 és 960 jelzésű éjszakai buszok veszik át a szerepüket, nagyjából félóránként-óránként. Pontos indulási időkért mindig ellenőrizd a [BudapestGO](https://go.bkk.hu/) alkalmazást vagy a BKK menetrendjét.
 
 {{< callout icon="🚪" >}}
-A bejárat <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai lépcső — a lépcsőház mindkét oldalán van feljárat, bármelyiken bejöhetsz.
+A bejárat <strong>nem az épület főbejárata</strong>, hanem a Nagymihály utcai lépcső. A lépcsőház mindkét oldalán van feljárat, bármelyiken bejöhetsz.
 {{< /callout >}}
 
 {{< cag/map-links google="https://maps.app.goo.gl/FWjhMiLE97Nd53fp6" apple="https://maps.apple.com/?ll=47.5513926,19.0354529&q=DISTR3CT%20Event%20Cube" >}}

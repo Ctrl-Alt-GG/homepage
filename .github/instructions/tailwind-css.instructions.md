@@ -19,7 +19,7 @@ The compiled output lives under `assets/css/compiled/` and is
 
 ## Design tokens
 
-Shared tokens live in `@theme { … }` at the top of `main.css`:
+Shared tokens live in the `@theme` block at the top of `main.css`:
 
 - Brand palette: `--color-brand-*` (cross-site red, mirrored across
   `care`, `homepage`, and `spawn`).
@@ -33,8 +33,8 @@ properties stay visually coherent.
 ## Shortcode styling contract
 
 The shortcode library uses semantic class prefixes (`cag-intro`,
-`cag-features`, `cag-grid`, `cag-faq`, …). Treat these as a **public
-API** — content authors may target them from custom CSS snippets, and
+`cag-features`, `cag-grid`, `cag-faq`, and so on). Treat these as a **public
+API**: content authors may target them from custom CSS snippets, and
 existing content may rely on them. Style them via `@layer components`:
 
 ```css
@@ -53,14 +53,14 @@ Never rename an existing `cag-*` class; extend by adding new ones.
 ## Prefer utilities over new custom CSS
 
 Before adding a rule to `cag.css`, check whether Tailwind utility classes
-applied directly in the template/shortcode already solve it — most
+applied directly in the template/shortcode already solve it; most
 layout, spacing, flex/grid, and color needs do. Reach for `cag.css` only
 for things utilities can't express cleanly: pseudo-elements (`::before`),
 `background-image` icons, multi-declaration hover/focus states tied to a
 semantic component name, or values that must stay in sync across many
 selectors (e.g. a brand colour used in both a badge and its border).
 Adding a new one-off custom class for something four utility classes
-already cover is technical debt — it was the root cause of most of the
+already cover is technical debt; it was the root cause of most of the
 css/markup churn on the location page (see git history around
 `content/location/`).
 
@@ -79,5 +79,5 @@ elements in templates.
 ## Build
 
 `npm run build:css` runs the CLI once; `npm run dev:css` watches. Both
-are wired from `package.json` — do not invoke the Tailwind binary
+are wired from `package.json`, so do not invoke the Tailwind binary
 directly.

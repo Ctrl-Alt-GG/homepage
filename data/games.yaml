@@ -18,7 +18,7 @@ factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/
 cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
 minecraft:            "https://linuxgsm.com/wp-content/uploads/2021/02/mcje-header.jpg"
 
-# Non-Steam games – official sources verified
+# Non-Steam games, official sources verified
 lol:                  "https://prod.assets.earlygamecdn.com/images/League-of-Legends-Logo.jpg?x=0.5&y=0.5"
 # Xonotic: official press screenshots used in Flatpak appstream
 xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"

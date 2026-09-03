@@ -14,21 +14,21 @@ applyTo: 'layouts/**/*.html'
 ## Idioms
 
 - Open templates with `{{ $page := . }}` and work off `$page`.
-- Read parameters with `.Param "cag.site.color"` so values cascade site →
-  section → page.
+- Read parameters with `.Param "cag.site.color"` so values cascade site to
+  section to page.
 - Respect site-wide `params.cag.*` flags: when a flag such as
   `cag.site.disable_breadcrumbs` is true, the corresponding partial must
-  no-op. Gate render logic with `{{ if not (.Param "cag.site.disable_…") }}`.
+  no-op. Gate render logic with `{{ if not (.Param "cag.site.disable_x") }}`.
 - Pipe user-provided text through `markdownify | plainify | htmlUnescape`
-  before embedding into attributes (`<title>`, `<meta content="…">`,
+  before embedding into attributes (`<title>`, `<meta content="...">`,
   `alt`, `content` in OpenGraph meta).
-- Icons are rendered via `{{ partial "icon.html" (dict "name" "…" "size" 18) }}`.
+- Icons are rendered via `{{ partial "icon.html" (dict "name" "..." "size" 18) }}`.
 
 ## Partials vs shortcodes
 
 - **Partials** compose templates (`{{ partial "head/css.html" . }}`).
 - **Shortcodes** are the authoring API invoked from Markdown with
-  `{{< name … >}}`.
+  `{{< name ... >}}`.
 - Do not call shortcodes from templates; do not expect partials to be
   reachable from Markdown.
 
@@ -44,10 +44,10 @@ applyTo: 'layouts/**/*.html'
   `resources.GetRemote`. When adding a template that fetches remote
   assets, always:
   1. Cache the fetch result (`$res := resources.GetRemote $url`).
-  2. Guard with `{{ with $res.Err }}{{ errorf "…" . }}{{ end }}`.
+  2. Guard with `{{ with $res.Err }}{{ errorf "..." . }}{{ end }}`.
   3. Pipe through `.Process "webp"` (or similar) before templating.
 
 ## Safety
 
 - Prefer `markdownify` over `safeHTML` unless you own the HTML fragment.
-- Keep templates idempotent — no global state, no writes outside render.
+- Keep templates idempotent: no global state, no writes outside render.

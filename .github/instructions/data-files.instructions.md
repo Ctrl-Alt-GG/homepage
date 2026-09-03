@@ -14,7 +14,7 @@ contract.
 - Flat dictionary: `slug: "<remote-image-url>"`.
 - The slug is used as the image filename stem referenced from content
   via the `cag/image` shortcode. Renaming a slug orphans every
-  reference — treat it as a breaking change and grep `content/` first.
+  reference, so treat it as a breaking change and grep `content/` first.
 - Prefer permanent, content-addressed URLs (Steam CDN app headers at
   `https://cdn.cloudflare.steamstatic.com/steam/apps/<id>/header.jpg`)
   over hot-linked screenshots.
@@ -31,7 +31,7 @@ When introducing a new `data/*.{yaml,toml,json}` file:
 
 1. Document its shape in a leading comment (YAML/TOML) or a paired
    README fragment.
-2. Use stable keys (slugs, ids) rather than numeric indices — templates
+2. Use stable keys (slugs, ids) rather than numeric indices; templates
    should iterate with `range` over values keyed by identity.
 3. Keep bilingual labels together (e.g. `title_hu` and `title_en`
    beside each other) rather than splitting into sibling files.

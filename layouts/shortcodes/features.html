@@ -3,8 +3,8 @@
   underlined heading. Used on landing pages to surface child content.
 
   Params (named):
-    heading (string, required) — section heading rendered above the card grid.
-    variant (string, optional) — when set to "split", widens the grid and
+    heading (string, required): section heading rendered above the card grid.
+    variant (string, optional): when set to "split", widens the grid and
                                   arranges exactly three child cards as a
                                   two-column layout: the first two stacked in
                                   the left column, the third spanning both rows
@@ -18,13 +18,13 @@
 
   Usage:
     {{< features heading="Az előző részek tartalmából" >}}
-      {{< card href="/recap/first-episode/" title="Első epizód" >}}…{{< /card >}}
+      {{< card href="/recap/first-episode/" title="Első epizód" >}}...{{< /card >}}
     {{< /features >}}
 
     {{< features heading="Megközelítés" variant="split" >}}
-      {{< card title="Térkép" >}}…{{< /card >}}
-      {{< card title="Parkolás" >}}…{{< /card >}}
-      {{< card title="Tömegközlekedés" >}}…{{< /card >}}
+      {{< card title="Térkép" >}}...{{< /card >}}
+      {{< card title="Parkolás" >}}...{{< /card >}}
+      {{< card title="Tömegközlekedés" >}}...{{< /card >}}
     {{< /features >}}
 */ -}}
 {{ $heading := .Get "heading" }}

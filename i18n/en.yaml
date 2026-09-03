@@ -59,7 +59,7 @@
 - id: venue_map_aria
   translation: "Map of the venue"
 - id: venue_map_noscript
-  translation: "The interactive map needs JavaScript — the address and the map links below work without it."
+  translation: "The interactive map needs JavaScript; the address and the map links below work without it."
 - id: map_zoom_in
   translation: "Zoom in"
 - id: map_zoom_out

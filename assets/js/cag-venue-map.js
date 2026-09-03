@@ -31,7 +31,7 @@ async function createMap(element) {
 }
 
 // MapLibre expands the compact attribution the moment the style's attribution
-// text arrives — at an unpredictable point relative to the map's own events —
+// text arrives, at an unpredictable point relative to the map's own events,
 // so undo it on that first expansion and then leave the control to the user.
 function collapseAttribution(attribution) {
   const observer = new MutationObserver(() => {

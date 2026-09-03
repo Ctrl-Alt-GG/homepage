@@ -59,7 +59,7 @@
 - id: venue_map_aria
   translation: "A helyszín térképen"
 - id: venue_map_noscript
-  translation: "Az interaktív térképhez JavaScript szükséges — a cím és a térkép-hivatkozások ennélkül is működnek."
+  translation: "Az interaktív térképhez JavaScript szükséges, de a cím és a térkép-hivatkozások enélkül is működnek."
 - id: map_zoom_in
   translation: "Nagyítás"
 - id: map_zoom_out

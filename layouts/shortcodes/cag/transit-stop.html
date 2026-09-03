@@ -3,18 +3,18 @@
   Must be used inside {{< cag/transit-list >}}...{{< /cag/transit-list >}}.
 
   Params (named):
-    mode       (string, required) — "bus", "night-bus", "tram", "hev",
+    mode       (string, required): "bus", "night-bus", "tram", "hev",
                 "volan" (BKK-integrated Volán regional buses), or "bubi"
                 (MOL Bubi bike-share station).
                 Drives the pictogram, the localised label, and the default
                 badge colour for `lines`.
-    name       (string, required) — stop name shown next to the label.
-    distance   (string, required) — pre-formatted distance, e.g. "320 m".
-    href       (string, required) — go.bkk.hu stop URL, opened in a new tab.
-    lines      (string, optional) — comma-separated line numbers shown with
+    name       (string, required): stop name shown next to the label.
+    distance   (string, required): pre-formatted distance, e.g. "320 m".
+    href       (string, required): go.bkk.hu stop URL, opened in a new tab.
+    lines      (string, optional): comma-separated line numbers shown with
                                      the mode's normal colour (e.g. "118,9").
                                      Omit for modes without line numbers.
-    nightLines (string, optional) — comma-separated line numbers always
+    nightLines (string, optional): comma-separated line numbers always
                                      shown with the night-line (black) badge,
                                      for day stops that also see night buses.
 

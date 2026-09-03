@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────
-   cag.css — Ctrl-Alt-GG homepage visual components.
+   cag.css: Ctrl-Alt-GG homepage visual components.
 
    Brand and accent colors are referenced via the @theme tokens
    declared in main.css (--color-brand-*, --color-accent-*).
@@ -83,7 +83,7 @@
    Mobile  : 2 equal columns, images at natural aspect ratio.
    Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
              injected by the gallery shortcode at build time using a
-             justified-row packing algorithm — rows hold a *variable*
+             justified-row packing algorithm: rows hold a *variable*
              number of images chosen so the row's aspect-ratio sum hits a
              target, and per-image spans within a row stay AR-proportional.
              This produces irregular row counts and noticeable size
@@ -91,7 +91,7 @@
              Images without inline span (e.g. remote/SVG sources whose
              dimensions cannot be computed at build time) fall back to
              a half-width span (2 per row) so they still feel generous.
-             `align-items: start` keeps each image at its natural height —
+             `align-items: start` keeps each image at its natural height:
              no cropping, no fixed row heights, no column-break overlap.
    ─────────────────────────────────────────────────────────────────────────── */
 .cag-gallery-masonry {
@@ -324,7 +324,7 @@ body.cag-lb-active {
 }
 
 /* Mirrors .cag-social-card: brand-colour top bar, icon badge, platform
-   caption + handle, arrow affordance — so these read as the same kind of
+   caption + handle, arrow affordance, so these read as the same kind of
    button as the YouTube/Twitch cards instead of a one-off component.
    Each platform sets --ml-brand (and --ml-handle when it differs) once;
    see .cag-social-card for the same pattern. */
@@ -692,8 +692,8 @@ a.cag-card-link:hover {
 
 /* ── Base card ──
    Each platform sets --sc-brand (and --sc-handle when the handle needs a
-   darker/lighter shade for readability) once; every visual detail below —
-   top bar, icon badge, hover glow, handle colour — reads from those two
+   darker/lighter shade for readability) once; every visual detail below
+   (top bar, icon badge, hover glow, handle colour) reads from those two
    custom properties instead of repeating per-platform rules. */
 .cag-social-card {
     @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
