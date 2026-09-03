@@ -7,7 +7,7 @@ weight: 30
 A Ctrl-Alt-GG következő helyszíne a **DISTR3CT Event Cube** (Budapest III., Nagymihály utca 2.). Az eseménytér autóval és tömegközlekedéssel is könnyen megközelíthető.
 
 {{< cag/polaroid src="entrance.webp" alt="A DISTR3CT Event Cube épülete a Nagymihály utca felől" caption="DISTR3CT Event Cube, Óbuda" kicker="Kalap utca, 1991" heading="Előbb gyár volt, aztán diszkó" >}}
-1991-ben pár hónap alatt lett diszkó ebből a gyárépületből, és a [High Life](https://welovebudapest.com/cikk/2016/01/29/memento-a-mar-nem-letezo-budapesti-kulthelyekrol-v-resz) hamar a III. kerület legfelkapottabb helye lett. Nyári hétvégeken méteres sor állt a Kalap utcában, néha dugó is lett belőle.
+1991-ben pár hónap alatt lett diszkó ebből a gyárépületből, és a High Life hamar a III. kerület legfelkapottabb helye lett. Nyári hétvégeken méteres sor állt a Kalap utcában, néha dugó is lett belőle.
 
 A lépcső mellett gigantikus tükör állt, hogy bemenet előtt még egyszer ellenőrizd a napszemüveget. Egy szilveszterkor itt szólt a Himnusz technós változata: először és utoljára, mert rögtön be is tiltották.
 
