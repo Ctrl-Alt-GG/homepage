@@ -19,31 +19,31 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 {{< schedule >}}
 | Idő | Mi történik? | Játékajánló |
 | --- | --- | --- |
-| 15:30–17:00 | Laza kezdés, bemelegítés | Minecraft |
-| 17:00–18:40 | Csapatharc, szedd össze a csapatod | Team Fortress 2 |
+| 15:30–17:00 | Laza kezdés, bemelegítés | 🧱 Minecraft |
+| 17:00–18:40 | Csapatharc, szedd össze a csapatod | 🔫 Team Fortress 2 |
 | 18:40–19:00 | <span class="cag-schedule-event--food">Uzsonnaszünet</span> | Igyál valamit, egyél gyorsan |
-| 19:00–20:00 | Túlélés négyesben a verseny előtt | Left 4 Dead 2 |
+| 19:00–20:00 | Túlélés négyesben a verseny előtt | 🧟 Left 4 Dead 2 |
 | 20:00–21:00 | <span class="cag-schedule-event--important">Rajt: elkezdődik a CS2 verseny</span> | Szurkolj, vagy készülj a meccsedre |
-| 21:00–21:40 | Amíg a meccsek zajlanak | OpenTTD |
+| 21:00–21:40 | Amíg a meccsek zajlanak | 🚂 OpenTTD |
 | 21:40–22:00 | <span class="cag-schedule-event--food">Levegőzés a díjátadó előtt</span> | Igyál valamit, nyújtózz egyet |
 | 22:00–23:00 | <span class="cag-schedule-event--important">CS2 díjátadó</span> | Gyere ki a kivetítőhöz |
-| 23:00–23:40 | Éjszakába hajló akció | Xonotic |
+| 23:00–23:40 | Éjszakába hajló akció | ⚡ Xonotic |
 | 23:40–00:00 | <span class="cag-schedule-event--food">Éjféli frissítő</span> | Kávé vagy energiaital, ha kell |
-| 00:00–01:40 | Horror a hosszabb éjszakai blokkban | SCP: Secret Laboratory |
+| 00:00–01:40 | Horror a hosszabb éjszakai blokkban | 🔬 SCP: Secret Laboratory |
 | 01:40–02:00 | <span class="cag-schedule-event--food">Ébrentartó szünet</span> | Igyál vizet, mosd meg az arcod |
-| 02:00–03:40 | Építkezés a csendes órákban | Satisfactory |
+| 02:00–03:40 | Építkezés a csendes órákban | 🏭 Satisfactory |
 | 03:40–04:00 | <span class="cag-schedule-event--food">Hajnali szusszanás</span> | Nyújtózz, igyál valami frissítőt |
-| 04:00–05:40 | Klasszikus lövölde hajnalban | Counter-Strike: Source |
+| 04:00–05:40 | Klasszikus lövölde hajnalban | 🔫 Counter-Strike: Source |
 | 05:40–06:00 | <span class="cag-schedule-event--food">Utolsó szünet reggeli előtt</span> | Kávé, gyors reggeli |
-| 06:00-tól | Záróbuli napfelkeltekor | SuperTuxKart |
+| 06:00-tól | Záróbuli napfelkeltekor | 🏎️ SuperTuxKart |
 {{< /schedule >}}
 
-## Szünetek és helyszíni szabályok
-
-- **10–30 perces pihenők:** minden hosszabb blokk között állj fel, igyál, menj mosdóba vagy szellőztesd ki a fejed. A mosdó az irodai részen érhető el.
-- **Étel és ital:** a kijelölt étkezési ablakokban érdemes közösen rendelni. Enni és inni csak a gaming zónán kívüli kijelölt helyeken lehet.
-- **Gaming zóna:** figyelj a többiekre, használj headsetet, és ne dohányozz vagy vape-elj a térben.
-- **Chill és pihenés:** a bejárati chill zónában halk zene, beszélgetés és rövid regenerálódás vár. Aludni mindenki saját megoldásban tud; tartsd tiszteletben a pihenőket választókat.
+{{< features heading="Szünetek és helyszíni szabályok" >}}
+  {{< card icon="⏱️" title="10–30 perces pihenők" >}}Minden hosszabb blokk között állj fel, igyál, menj mosdóba vagy szellőztesd ki a fejed. A mosdó az irodai részen érhető el.{{< /card >}}
+  {{< card icon="🍔" title="Étel és ital" >}}A kijelölt étkezési ablakokban érdemes közösen rendelni. Enni és inni csak a gaming zónán kívüli kijelölt helyeken lehet.{{< /card >}}
+  {{< card icon="🎧" title="Gaming zóna" >}}Figyelj a többiekre, használj headsetet, és ne dohányozz vagy vape-elj a térben.{{< /card >}}
+  {{< card icon="😴" title="Chill és pihenés" >}}A bejárati chill zónában halk zene, beszélgetés és rövid regenerálódás vár. Aludni mindenki saját megoldásban tud; tartsd tiszteletben a pihenőket választókat.{{< /card >}}
+{{< /features >}}
 
 ## Kérdésed vagy új ötleted van?
 

@@ -19,31 +19,31 @@ Some players will follow their own pace all weekend, others appreciate a shared 
 {{< schedule >}}
 | Time | What is happening? | Game suggestions |
 | --- | --- | --- |
-| 15:30–17:00 | Easy start, warm-up | Minecraft |
-| 17:00–18:40 | Team fights, round up your squad | Team Fortress 2 |
+| 15:30–17:00 | Easy start, warm-up | 🧱 Minecraft |
+| 17:00–18:40 | Team fights, round up your squad | 🔫 Team Fortress 2 |
 | 18:40–19:00 | <span class="cag-schedule-event--food">Snack break</span> | Grab a drink and something quick to eat |
-| 19:00–20:00 | Four-player survival before the tournament | Left 4 Dead 2 |
+| 19:00–20:00 | Four-player survival before the tournament | 🧟 Left 4 Dead 2 |
 | 20:00–21:00 | <span class="cag-schedule-event--important">Kickoff: the CS2 tournament begins</span> | Cheer your team on, or get ready for your match |
-| 21:00–21:40 | While the matches run | OpenTTD |
+| 21:00–21:40 | While the matches run | 🚂 OpenTTD |
 | 21:40–22:00 | <span class="cag-schedule-event--food">Fresh air before the award ceremony</span> | Grab a drink, stretch your legs |
 | 22:00–23:00 | <span class="cag-schedule-event--important">CS2 award ceremony</span> | Head over to the screen |
-| 23:00–23:40 | Action heading into the night | Xonotic |
+| 23:00–23:40 | Action heading into the night | ⚡ Xonotic |
 | 23:40–00:00 | <span class="cag-schedule-event--food">Midnight refuel</span> | Coffee or an energy drink, if you need one |
-| 00:00–01:40 | Horror for the long night block | SCP: Secret Laboratory |
+| 00:00–01:40 | Horror for the long night block | 🔬 SCP: Secret Laboratory |
 | 01:40–02:00 | <span class="cag-schedule-event--food">Stay-awake break</span> | Splash some water on your face, drink up |
-| 02:00–03:40 | Building through the quiet hours | Satisfactory |
+| 02:00–03:40 | Building through the quiet hours | 🏭 Satisfactory |
 | 03:40–04:00 | <span class="cag-schedule-event--food">Early morning breather</span> | Stretch, grab something refreshing |
-| 04:00–05:40 | A classic shooter at dawn | Counter-Strike: Source |
+| 04:00–05:40 | A classic shooter at dawn | 🔫 Counter-Strike: Source |
 | 05:40–06:00 | <span class="cag-schedule-event--food">Last break before breakfast</span> | Coffee, a quick bite |
-| From 06:00 | Sunrise send-off | SuperTuxKart |
+| From 06:00 | Sunrise send-off | 🏎️ SuperTuxKart |
 {{< /schedule >}}
 
-## Breaks and venue rules
-
-- **10–30 minute breaks:** between longer blocks, stand up, drink water, use the bathroom, or get some fresh air. The bathroom is in the office area.
-- **Food and drinks:** the marked food windows are a good time to order together. Eat and drink only in designated areas outside the gaming zone.
-- **Gaming zone:** be considerate with headphones, and do not smoke or vape in the space.
-- **Chill and rest:** the entrance chill zone has calm music, conversation, and space to recharge. Everyone arranges their own sleeping space; please respect people who are resting.
+{{< features heading="Breaks and venue rules" >}}
+  {{< card icon="⏱️" title="10–30 minute breaks" >}}Between longer blocks, stand up, drink water, use the bathroom, or get some fresh air. The bathroom is in the office area.{{< /card >}}
+  {{< card icon="🍔" title="Food and drinks" >}}The marked food windows are a good time to order together. Eat and drink only in designated areas outside the gaming zone.{{< /card >}}
+  {{< card icon="🎧" title="Gaming zone" >}}Be considerate with headphones, and do not smoke or vape in the space.{{< /card >}}
+  {{< card icon="😴" title="Chill and rest" >}}The entrance chill zone has calm music, conversation, and space to recharge. Everyone arranges their own sleeping space; please respect people who are resting.{{< /card >}}
+{{< /features >}}
 
 ## Need help or have a new idea?
 
