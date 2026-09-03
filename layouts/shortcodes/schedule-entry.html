@@ -1,0 +1,53 @@
+{{- /*
+  Renders one row of the {{< schedule >}} timeline: a time label on the rail,
+  a type-coloured marker, and a card with optional game artwork.
+
+  Must be used inside {{< schedule >}}...{{< /schedule >}}.
+
+  Params (named):
+    time  (string, required): time or range shown on the rail, e.g. "20:00-21:00".
+    title (string, required): what happens in this slot.
+    game  (string, optional, default ""): data/games.yaml slug. When the slug
+            resolves, the game's header art is shown as the row thumbnail.
+    label (string, optional, default ""): game or activity name shown as a pill.
+    note  (string, optional, default ""): short secondary line under the title.
+    type  (string, optional, default "play"): "play", "break", or "highlight".
+            Drives the marker size and the accent colour of the row.
+
+  Inner: not used.
+
+  Usage:
+    {{< schedule-entry time="15:30-17:00" title="Easy start" game="minecraft" label="Minecraft" >}}
+    {{< schedule-entry time="18:40-19:00" title="Snack break" type="break" note="Grab a drink" >}}
+*/ -}}
+{{- $time := .Get "time" -}}
+{{- $title := .Get "title" -}}
+{{- if not (and $time $title) }}{{ errorf "schedule-entry: 'time' and 'title' are both required (page: %s)" .Page.File.Path }}{{ end -}}
+{{- $game := .Get "game" | default "" -}}
+{{- $label := .Get "label" | default "" -}}
+{{- $note := .Get "note" | default "" -}}
+{{- $type := .Get "type" | default "play" -}}
+{{- $art := "" -}}
+{{- with $game -}}
+  {{- with (partial "game-image.html" (dict "slug" .)).resource -}}
+    {{- $art = fingerprint (.Fill "240x112 webp") -}}
+  {{- end -}}
+{{- end -}}
+<li class="cag-timeline__item cag-timeline__item--{{ $type }}">
+  <span class="cag-timeline__time">{{ $time }}</span>
+  <span class="cag-timeline__marker" aria-hidden="true"></span>
+  <div class="cag-timeline__body">
+    {{- with $art }}
+    <img class="cag-timeline__art" src="{{ .RelPermalink }}" alt="" loading="lazy" decoding="async" width="{{ .Width }}" height="{{ .Height }}">
+    {{- end }}
+    <span class="cag-timeline__text">
+      <span class="cag-timeline__title">{{ $title }}</span>
+      {{- with $label }}
+      <span class="cag-timeline__label">{{ . }}</span>
+      {{- end }}
+      {{- with $note }}
+      <span class="cag-timeline__note">{{ . }}</span>
+      {{- end }}
+    </span>
+  </div>
+</li>

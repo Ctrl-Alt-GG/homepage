@@ -358,6 +358,24 @@ a.cag-card-link:hover {
     @apply block text-[1.05rem] font-bold text-brand-500 text-center;
 }
 
+/* ── .cag-section-heading: centred heading with the brand underline, shared by
+   {{< features >}} (a <div>) and {{< schedule >}} (a real <h2>). The
+   .prose-cag overrides undo the prose h2 defaults, whose left-pinned ::after
+   and 2rem size would otherwise win on specificity. ── */
+.cag-section-heading {
+    @apply relative text-center font-bold text-[1.45rem] mb-7 pb-3;
+}
+
+.cag-section-heading::after,
+.prose-cag .cag-section-heading::after {
+    @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-[3px] rounded-xs;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
+}
+
+.prose-cag .cag-section-heading {
+    @apply text-[1.45rem] mt-0;
+}
+
 .cag-card-frame::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
     @apply bg-linear-to-r from-brand-600 to-brand-500;
@@ -666,67 +684,119 @@ a.cag-card-link:hover {
     @apply w-3/4 h-[3px] sm:w-[3px] sm:h-3/4 border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-white/70;
 }
 
-/* ── .cag-schedule: Markdown table in the shared card shell ─────────────── */
-.cag-schedule-table {
-    @apply overflow-x-auto;
+/* ── .cag-timeline-legend: explains the marker colours so the timeline is
+   self-documenting instead of needing a paragraph above it. Reuses
+   .cag-timeline__item--* so a legend swatch always matches its rows. ────── */
+.cag-timeline-legend {
+    @apply flex flex-wrap justify-center gap-x-4 gap-y-2 list-none m-0 mb-4 p-0;
 }
 
-.cag-schedule-table table {
-    @apply w-full border-collapse text-left text-sm;
+.cag-timeline-legend__item {
+    --timeline-accent: var(--color-brand-500);
+    @apply flex items-center gap-2 text-xs font-medium opacity-80;
 }
 
-.cag-schedule-table th,
-.cag-schedule-table td {
-    @apply px-3 py-[0.7rem] border-b border-border;
+/* ── .cag-timeline: the {{< schedule >}} rows, rendered as a time-railed
+   vertical timeline inside the shared card shell. --timeline-cols is the one
+   source of truth for the column template so the rail can be centred on the
+   marker column, and --timeline-accent is set once per row type and reused by
+   the time label, marker, and card edge. ───────────────────────────────── */
+/* The timeline needs every pixel it can get on phones, so the card shell runs
+   tighter than the default .cag-card-frame padding below sm. */
+.cag-schedule {
+    @apply px-3 sm:px-[1.6rem];
 }
 
-.cag-schedule-table th {
-    @apply bg-surface-alt text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
+.cag-timeline {
+    --timeline-time: 4.25rem;
+    --timeline-rail: 1.5rem;
+    --timeline-accent: var(--color-brand-500);
+    @apply relative grid gap-2 list-none m-0 p-0;
 }
 
-.cag-schedule-table tbody tr:last-child > * {
-    @apply border-b-0;
+@media (width >= theme(--breakpoint-sm)) {
+    .cag-timeline {
+        --timeline-time: 5.5rem;
+    }
 }
 
-/* Zebra striping for plain rows; food/important rows keep their own tint below. */
-.cag-schedule-table tbody tr:nth-child(odd):not(:has(.cag-schedule-event--food)):not(:has(.cag-schedule-event--important)) > * {
-    @apply bg-surface-alt;
+.cag-timeline::before {
+    @apply content-[''] absolute inset-y-4 w-px bg-border;
+    left: calc(var(--timeline-time) + var(--timeline-rail) / 2);
 }
 
-/* Monospaced, non-wrapping time column so the clock reads like a timetable. */
-.cag-schedule-table td:first-child {
-    @apply font-mono text-brand-500 font-semibold whitespace-nowrap;
+.cag-timeline__item {
+    @apply grid items-center;
+    grid-template-columns: var(--timeline-time) var(--timeline-rail) minmax(0, 1fr);
 }
 
-/* Game name pill: a brand-dot badge stands in for the game/what's-on column
-   without relying on emoji or per-game artwork. */
-.cag-schedule-game {
-    @apply inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface px-2.5 py-1 font-semibold;
+.cag-timeline__item--break { --timeline-accent: var(--color-accent-500); }
+.cag-timeline__item--highlight { --timeline-accent: var(--color-accent-400); }
+
+.cag-timeline__time {
+    @apply font-mono text-xs font-semibold tabular-nums leading-tight pr-2;
+    color: var(--timeline-accent);
 }
 
-.cag-schedule-game::before {
-    @apply content-[''] block size-1.5 rounded-full bg-brand-500 shrink-0;
+/* ring matches the card background so the dot punches a hole in the rail */
+.cag-timeline__marker {
+    @apply justify-self-center size-2.5 rounded-full ring-4 ring-surface-card;
+    background: var(--timeline-accent);
 }
 
-.cag-schedule-event--food,
-.cag-schedule-event--important {
-    @apply font-semibold;
+.cag-timeline__item--highlight .cag-timeline__marker {
+    @apply size-3.5;
 }
 
-.cag-schedule-event--food {
-    @apply text-accent-500;
+.cag-timeline__body {
+    @apply flex flex-col gap-2 min-w-0 rounded-card border border-border border-l-[3px] bg-surface p-2.5;
+    @apply sm:flex-row sm:items-center sm:gap-3 sm:px-3;
+    border-left-color: var(--timeline-accent);
 }
 
-.cag-schedule-event--important {
-    @apply text-accent-400;
+.cag-timeline__item--break .cag-timeline__body {
+    background: color-mix(in srgb, var(--timeline-accent) 10%, var(--surface));
 }
 
-.cag-schedule-table tr:has(.cag-schedule-event--food) > * {
-    background: color-mix(in srgb, var(--color-accent-500) 14%, var(--surface-card));
+/* Fixed tournament slots get a heavier edge, a stronger tint, and a bigger
+   title so they stand out from the (same-hued) break rows at a glance. */
+.cag-timeline__item--highlight .cag-timeline__body {
+    @apply border-l-4;
+    background: color-mix(in srgb, var(--timeline-accent) 18%, var(--surface));
 }
 
-.cag-schedule-table tr:has(.cag-schedule-event--important) > * {
-    background: color-mix(in srgb, var(--color-accent-400) 10%, var(--surface-card));
+.cag-timeline__item--highlight .cag-timeline__title {
+    @apply text-base;
+}
+
+/* Steam header ratio (460x215) so artwork is never cropped. Below sm the
+   gutter leaves too little room to sit beside the text, so it becomes a
+   full-width band above it. */
+.cag-timeline__art {
+    @apply shrink-0 rounded-md border border-border bg-surface-alt object-cover;
+    @apply w-full h-auto aspect-[460/215];
+    @apply sm:w-[7.5rem] sm:h-[3.5rem] sm:aspect-auto;
+}
+
+.cag-timeline__text {
+    @apply flex flex-col gap-1 min-w-0;
+}
+
+.cag-timeline__title {
+    @apply block text-sm font-semibold leading-snug;
+}
+
+.cag-timeline__label {
+    @apply self-start inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface-card px-2.5 py-1 text-xs font-semibold;
+}
+
+.cag-timeline__label::before {
+    @apply content-[''] block size-1.5 shrink-0 rounded-full;
+    background: var(--timeline-accent);
+}
+
+.cag-timeline__note {
+    @apply block text-xs leading-snug opacity-70;
 }
 
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens

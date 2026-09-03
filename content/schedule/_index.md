@@ -8,34 +8,26 @@ weight: 60
 Ez egy ajánló, nem kötelező program: bármikor játszhatsz azzal, amihez kedved van. A menetrend abban segít, hogy könnyen találj csapatot, ne maradj le a versenyedről, és jusson idő enni, inni vagy feltöltődni is.
 {{< /intro >}}
 
-## Így használd
-
-A játékosok egy része végig a saját tempójában játszik, másoknak jól jön egy közös kiindulópont, néhányan pedig csak helyben döntik el, mihez csatlakozzanak. Ezért a blokkokban ajánlott játékokat találsz, nem merev előírásokat. Indíthattok saját helyi sessiont is olyan játékhoz, amelyhez nincs hivatalos szerver; új szerverkérést lehetőleg a következő blokk előtt jelezz a szervezőknek.
-
 {{< callout icon="📣" >}}A versenymeccsek időpontjai kötöttek. A következő meccset a weboldalon, a kivetítőkön és rádión jelezzük; kérjük, érkezz időben a nevezéshez és a mérkőzéshez.{{< /callout >}}
 
-## Esti és éjszakai program
-
-{{< schedule >}}
-| Idő | Mi történik? | Játékajánló |
-| --- | --- | --- |
-| 15:30–17:00 | Laza kezdés, bemelegítés | <span class="cag-schedule-game">Minecraft</span> |
-| 17:00–18:40 | Csapatharc, szedd össze a csapatod | <span class="cag-schedule-game">Team Fortress 2</span> |
-| 18:40–19:00 | <span class="cag-schedule-event--food">Uzsonnaszünet</span> | Igyál valamit, egyél gyorsan |
-| 19:00–20:00 | Túlélés négyesben a verseny előtt | <span class="cag-schedule-game">Left 4 Dead 2</span> |
-| 20:00–21:00 | <span class="cag-schedule-event--important">Rajt: elkezdődik a CS2 verseny</span> | Szurkolj, vagy készülj a meccsedre |
-| 21:00–21:40 | Amíg a meccsek zajlanak | <span class="cag-schedule-game">OpenTTD</span> |
-| 21:40–22:00 | <span class="cag-schedule-event--food">Levegőzés a díjátadó előtt</span> | Igyál valamit, nyújtózz egyet |
-| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 díjátadó</span> | Gyere ki a kivetítőhöz |
-| 23:00–23:40 | Éjszakába hajló akció | <span class="cag-schedule-game">Xonotic</span> |
-| 23:40–00:00 | <span class="cag-schedule-event--food">Éjféli frissítő</span> | Kávé vagy energiaital, ha kell |
-| 00:00–01:40 | Horror a hosszabb éjszakai blokkban | <span class="cag-schedule-game">SCP: Secret Laboratory</span> |
-| 01:40–02:00 | <span class="cag-schedule-event--food">Ébrentartó szünet</span> | Igyál vizet, mosd meg az arcod |
-| 02:00–03:40 | Építkezés a csendes órákban | <span class="cag-schedule-game">Satisfactory</span> |
-| 03:40–04:00 | <span class="cag-schedule-event--food">Hajnali szusszanás</span> | Nyújtózz, igyál valami frissítőt |
-| 04:00–05:40 | Klasszikus lövölde hajnalban | <span class="cag-schedule-game">Counter-Strike: Source</span> |
-| 05:40–06:00 | <span class="cag-schedule-event--food">Utolsó szünet reggeli előtt</span> | Kávé, gyors reggeli |
-| 06:00-tól | Záróbuli napfelkeltekor | <span class="cag-schedule-game">SuperTuxKart</span> |
+{{< schedule title="Esti és éjszakai program" >}}
+  {{< schedule-entry time="15:30-17:00" title="Laza kezdés, bemelegítés" game="minecraft" label="Minecraft" >}}
+  {{< schedule-entry time="17:00-18:40" title="Csapatharc, szedd össze a csapatod" game="tf2" label="Team Fortress 2" >}}
+  {{< schedule-entry time="18:40-19:00" type="break" title="Uzsonnaszünet" note="Igyál valamit, egyél gyorsan" >}}
+  {{< schedule-entry time="19:00-20:00" title="Túlélés négyesben a verseny előtt" game="left4dead2" label="Left 4 Dead 2" >}}
+  {{< schedule-entry time="20:00-21:00" type="highlight" title="Rajt: elkezdődik a CS2 verseny" game="cs2" label="Counter-Strike 2" note="Szurkolj, vagy készülj a meccsedre" >}}
+  {{< schedule-entry time="21:00-21:40" title="Amíg a meccsek zajlanak" game="openttd" label="OpenTTD" >}}
+  {{< schedule-entry time="21:40-22:00" type="break" title="Levegőzés a díjátadó előtt" note="Igyál valamit, nyújtózz egyet" >}}
+  {{< schedule-entry time="22:00-23:00" type="highlight" title="CS2 díjátadó" note="Gyere ki a kivetítőhöz" >}}
+  {{< schedule-entry time="23:00-23:40" title="Éjszakába hajló akció" game="xonotic" label="Xonotic" >}}
+  {{< schedule-entry time="23:40-00:00" type="break" title="Éjféli frissítő" note="Kávé vagy energiaital, ha kell" >}}
+  {{< schedule-entry time="00:00-01:40" title="Horror a hosszabb éjszakai blokkban" game="scp" label="SCP: Secret Laboratory" >}}
+  {{< schedule-entry time="01:40-02:00" type="break" title="Ébrentartó szünet" note="Igyál vizet, mosd meg az arcod" >}}
+  {{< schedule-entry time="02:00-03:40" title="Építkezés a csendes órákban" game="satisfactory" label="Satisfactory" >}}
+  {{< schedule-entry time="03:40-04:00" type="break" title="Hajnali szusszanás" note="Nyújtózz, igyál valami frissítőt" >}}
+  {{< schedule-entry time="04:00-05:40" title="Klasszikus lövölde hajnalban" game="css" label="Counter-Strike: Source" >}}
+  {{< schedule-entry time="05:40-06:00" type="break" title="Utolsó szünet reggeli előtt" note="Kávé, gyors reggeli" >}}
+  {{< schedule-entry time="06:00-tól" title="Záróbuli napfelkeltekor" game="supertuxkart" label="SuperTuxKart" >}}
 {{< /schedule >}}
 
 {{< features heading="Szünetek, étkezés és helyszíni etikett" >}}
@@ -47,4 +39,4 @@ A játékosok egy része végig a saját tempójában játszik, másoknak jól j
 
 ## Kérdésed vagy új ötleted van?
 
-A kivetítők és ez az oldal mindig a következő fontos eseményt mutatják. Ha nem világos, mi jön ezután, kérdezz bátran egy segítőtől. Saját helyi játékhoz keress társakat a helyszínen; szerverrel kapcsolatos új kérést a szervezőnek jelezz a következő ajánlott blokk előtt, hogy ne szakítsa félbe a futó versenyeket és a segítségnyújtást.
+A kivetítők és ez az oldal mindig a következő fontos eseményt mutatják. Ha nem világos, mi jön ezután, kérdezz bátran egy segítőtől. Saját helyi sessiont bármikor indíthattok; új szervert a következő blokk előtt kérj, hogy ne szakítsa félbe a futó versenyeket.

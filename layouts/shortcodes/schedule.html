@@ -1,39 +1,46 @@
 {{- /*
-  Renders a card-wrapped event schedule from a Markdown table.
+  Renders a card-wrapped event schedule as a vertical timeline.
 
   Params (named):
-    icon  (string, optional, default ""): emoji displayed above the title.
-    title (string, optional, default ""): schedule heading.
-    class (string, optional, default ""): additional classes appended to the card.
+    title  (string, optional, default ""): schedule heading. When set, the card
+                                           becomes a labelled <section>.
+    legend (bool, optional, default true): render the marker legend above the
+                                           timeline so the row types explain
+                                           themselves instead of needing prose.
+    class  (string, optional, default ""): additional classes appended to the card.
 
-  Inner: block Markdown (piped through .Page.RenderString). Use a standard table.
-  Wrap an activity in <span class="cag-schedule-event--food">...</span> or
-  <span class="cag-schedule-event--important">...</span> to highlight its row.
+  Inner: {{< schedule-entry >}} calls only (emitted verbatim, because Inner is
+         already rendered HTML, not Markdown).
 
   Usage:
-    {{< schedule >}}
-    | Time | Activity |
-    | ---- | -------- |
-    | 12:30 | <span class="cag-schedule-event--food">Lunch</span> |
+    {{< schedule title="Evening" >}}
+      {{< schedule-entry time="15:30-17:00" title="Easy start" game="minecraft" label="Minecraft" >}}
+      {{< schedule-entry time="18:40-19:00" title="Snack break" type="break" note="Grab a drink" >}}
     {{< /schedule >}}
 */ -}}
-{{- $icon := .Get "icon" | default "" -}}
 {{- $title := .Get "title" | default "" -}}
+{{- $legend := ne (.Get "legend" | default "true") "false" -}}
 {{- $class := .Get "class" | default "" -}}
+{{- $id := printf "cag-schedule-%d" .Ordinal -}}
 {{- if $title }}
-<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}" aria-labelledby="cag-schedule-{{ .Ordinal }}">
+<section class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}" aria-labelledby="{{ $id }}">
+  <h2 id="{{ $id }}" class="cag-section-heading">{{ $title }}</h2>
 {{- else }}
 <div class="cag-card cag-card-frame cag-schedule{{ with $class }} {{ . }}{{ end }}">
 {{- end }}
-  {{- with $icon }}
-  <span class="cag-card-icon mb-[0.85rem]" aria-hidden="true">{{ . }}</span>
+  {{- if $legend }}
+  <ul class="cag-timeline-legend" aria-label="{{ i18n "schedule_legend_heading" }}">
+    {{- range slice "play" "break" "highlight" }}
+    <li class="cag-timeline-legend__item cag-timeline__item--{{ . }}">
+      <span class="cag-timeline__marker" aria-hidden="true"></span>
+      {{ i18n (printf "schedule_legend_%s" .) }}
+    </li>
+    {{- end }}
+  </ul>
   {{- end }}
-  {{- with $title }}
-  <h2 id="cag-schedule-{{ $.Ordinal }}" class="cag-card-title mb-[0.85rem]">{{ . }}</h2>
-  {{- end }}
-  <div class="cag-schedule-table">
-    {{- strings.TrimSpace .Inner | .Page.RenderString -}}
-  </div>
+  <ol class="cag-timeline">
+    {{- .Inner -}}
+  </ol>
 {{- if $title }}
 </section>
 {{- else }}

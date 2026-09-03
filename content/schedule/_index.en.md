@@ -8,34 +8,26 @@ weight: 60
 This is guidance, not a mandatory programme: play whatever you want, whenever you want. The schedule helps you find people to play with, make your tournament match, and leave time to eat, drink, and recharge.
 {{< /intro >}}
 
-## How to use it
-
-Some players will follow their own pace all weekend, others appreciate a shared starting point, and some will decide what to join only after arriving. That is why these blocks suggest games rather than prescribe them. You can also start your own local session for games without an official server; please ask organisers for a new server before the next block whenever possible.
-
 {{< callout icon="📣" >}}Tournament matches have fixed timings. We will announce the next match on the website, projection screens, and radios; please be ready for check-in and your match.{{< /callout >}}
 
-## Evening and night programme
-
-{{< schedule >}}
-| Time | What is happening? | Game suggestions |
-| --- | --- | --- |
-| 15:30–17:00 | Easy start, warm-up | <span class="cag-schedule-game">Minecraft</span> |
-| 17:00–18:40 | Team fights, round up your squad | <span class="cag-schedule-game">Team Fortress 2</span> |
-| 18:40–19:00 | <span class="cag-schedule-event--food">Snack break</span> | Grab a drink and something quick to eat |
-| 19:00–20:00 | Four-player survival before the tournament | <span class="cag-schedule-game">Left 4 Dead 2</span> |
-| 20:00–21:00 | <span class="cag-schedule-event--important">Kickoff: the CS2 tournament begins</span> | Cheer your team on, or get ready for your match |
-| 21:00–21:40 | While the matches run | <span class="cag-schedule-game">OpenTTD</span> |
-| 21:40–22:00 | <span class="cag-schedule-event--food">Fresh air before the award ceremony</span> | Grab a drink, stretch your legs |
-| 22:00–23:00 | <span class="cag-schedule-event--important">CS2 award ceremony</span> | Head over to the screen |
-| 23:00–23:40 | Action heading into the night | <span class="cag-schedule-game">Xonotic</span> |
-| 23:40–00:00 | <span class="cag-schedule-event--food">Midnight refuel</span> | Coffee or an energy drink, if you need one |
-| 00:00–01:40 | Horror for the long night block | <span class="cag-schedule-game">SCP: Secret Laboratory</span> |
-| 01:40–02:00 | <span class="cag-schedule-event--food">Stay-awake break</span> | Splash some water on your face, drink up |
-| 02:00–03:40 | Building through the quiet hours | <span class="cag-schedule-game">Satisfactory</span> |
-| 03:40–04:00 | <span class="cag-schedule-event--food">Early morning breather</span> | Stretch, grab something refreshing |
-| 04:00–05:40 | A classic shooter at dawn | <span class="cag-schedule-game">Counter-Strike: Source</span> |
-| 05:40–06:00 | <span class="cag-schedule-event--food">Last break before breakfast</span> | Coffee, a quick bite |
-| From 06:00 | Sunrise send-off | <span class="cag-schedule-game">SuperTuxKart</span> |
+{{< schedule title="Evening and night programme" >}}
+  {{< schedule-entry time="15:30-17:00" title="Easy start, warm-up" game="minecraft" label="Minecraft" >}}
+  {{< schedule-entry time="17:00-18:40" title="Team fights, round up your squad" game="tf2" label="Team Fortress 2" >}}
+  {{< schedule-entry time="18:40-19:00" type="break" title="Snack break" note="Grab a drink and something quick to eat" >}}
+  {{< schedule-entry time="19:00-20:00" title="Four-player survival before the tournament" game="left4dead2" label="Left 4 Dead 2" >}}
+  {{< schedule-entry time="20:00-21:00" type="highlight" title="Kickoff: the CS2 tournament begins" game="cs2" label="Counter-Strike 2" note="Cheer your team on, or get ready for your match" >}}
+  {{< schedule-entry time="21:00-21:40" title="While the matches run" game="openttd" label="OpenTTD" >}}
+  {{< schedule-entry time="21:40-22:00" type="break" title="Fresh air before the award ceremony" note="Grab a drink, stretch your legs" >}}
+  {{< schedule-entry time="22:00-23:00" type="highlight" title="CS2 award ceremony" note="Head over to the screen" >}}
+  {{< schedule-entry time="23:00-23:40" title="Action heading into the night" game="xonotic" label="Xonotic" >}}
+  {{< schedule-entry time="23:40-00:00" type="break" title="Midnight refuel" note="Coffee or an energy drink, if you need one" >}}
+  {{< schedule-entry time="00:00-01:40" title="Horror for the long night block" game="scp" label="SCP: Secret Laboratory" >}}
+  {{< schedule-entry time="01:40-02:00" type="break" title="Stay-awake break" note="Splash some water on your face, drink up" >}}
+  {{< schedule-entry time="02:00-03:40" title="Building through the quiet hours" game="satisfactory" label="Satisfactory" >}}
+  {{< schedule-entry time="03:40-04:00" type="break" title="Early morning breather" note="Stretch, grab something refreshing" >}}
+  {{< schedule-entry time="04:00-05:40" title="A classic shooter at dawn" game="css" label="Counter-Strike: Source" >}}
+  {{< schedule-entry time="05:40-06:00" type="break" title="Last break before breakfast" note="Coffee, a quick bite" >}}
+  {{< schedule-entry time="From 06:00" title="Sunrise send-off" game="supertuxkart" label="SuperTuxKart" >}}
 {{< /schedule >}}
 
 {{< features heading="Breaks, food, and venue etiquette" >}}
@@ -47,4 +39,4 @@ Some players will follow their own pace all weekend, others appreciate a shared 
 
 ## Need help or have a new idea?
 
-The projection screens and this page always show the next important event. Ask a helper if you are unsure what is coming next. Find players for your own local game on-site; for a new server request, speak to an organiser before the next suggested block so it does not interrupt active tournaments or support work.
+The projection screens and this page always show the next important event. Ask a helper if you are unsure what is coming next. You can start your own local session any time; request a new server before the next block so it does not interrupt active tournaments.
