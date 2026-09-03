@@ -1,16 +1,4 @@
-/* ──────────────────────────────────────────────────────────────────
-   cag.css: Ctrl-Alt-GG homepage visual components.
-
-   Brand and accent colors are referenced via the @theme tokens
-   declared in main.css (--color-brand-*, --color-accent-*).
-   Adaptive surface/border/link tokens (--surface, --border, etc.)
-   are CSS custom properties defined in main.css that switch between
-   light and dark values and are available as Tailwind utilities.
-   ────────────────────────────────────────────────────────────────── */
-
-/* .prose-cag: reusable long-form body scope (applied to #cag-page-content).
-   Provides base typography for Markdown-rendered content since Tailwind
-   Preflight strips all browser defaults. */
+/* Markdown typography after Tailwind Preflight removes browser defaults. */
 .prose-cag p {
     @apply mb-4;
 }
@@ -20,7 +8,8 @@
 }
 
 .prose-cag ol:not([class]) {
-    @apply mb-4;
+    @apply mb-4 list-none pl-0;
+    counter-reset: cag-counter;
 }
 
 .prose-cag h2 {
@@ -54,11 +43,6 @@
     content: '▸  ';
 }
 
-.prose-cag ol:not([class]) {
-    @apply list-none pl-0;
-    counter-reset: cag-counter;
-}
-
 .prose-cag ol:not([class]) > li {
     @apply relative pl-12 mb-[0.9rem];
     counter-increment: cag-counter;
@@ -79,28 +63,7 @@
     @apply scale-[1.04] z-[1] shadow-gallery-hover;
 }
 
-/* ── .cag-gallery-masonry: CSS Grid gallery with template-computed column spans ─
-   Mobile  : 2 equal columns, images at natural aspect ratio.
-   Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
-             injected by the gallery shortcode at build time using a
-             justified-row packing algorithm: rows hold a *variable*
-             number of images chosen so the row's aspect-ratio sum hits a
-             target, and per-image spans within a row stay AR-proportional.
-             This produces irregular row counts and noticeable size
-             variance across the gallery.
-             Images without inline span (e.g. remote/SVG sources whose
-             dimensions cannot be computed at build time) fall back to
-             a half-width span (2 per row) so they still feel generous.
-             `align-items: start` keeps each image at its natural height:
-             no cropping, no fixed row heights, no column-break overlap.
-   ─────────────────────────────────────────────────────────────────────────── */
-.cag-gallery-masonry {
-    @apply grid grid-cols-2 md:grid-cols-12 gap-3 items-start;
-}
-
-/* Equal-width fallback for images whose dimensions could not be computed
-   (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
-   span 6 on a 12-column grid = 2 images per row. */
+/* Images without template-computed spans fall back to two desktop columns. */
 .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
     @apply md:col-span-6;
 }
@@ -282,9 +245,8 @@ body.cag-lb-active {
     @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
-/* Shared with a.cag-card-link below: same lift-and-glow hover treatment. */
-.cag-game-cards li:hover,
-a.cag-card-link:hover {
+/* Lift interactive game cards above the surrounding grid. */
+.cag-game-cards li:hover {
     @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
@@ -298,10 +260,6 @@ a.cag-card-link:hover {
 
 .cag-game-cards li a:hover {
     @apply text-brand-500;
-}
-
-.cag-game-cards li strong {
-    @apply text-brand-500 text-xs font-bold uppercase tracking-[0.04em];
 }
 
 .cag-game-cards li > img {
@@ -339,29 +297,12 @@ a.cag-card-link:hover {
     @apply text-accent-500 text-xs font-bold uppercase tracking-[0.05em];
 }
 
-/* ── .cag-card-frame: visual shell shared by all .cag-card components ──
-   flex-col so a card stretched taller by a taller sibling (default flex
-   stretch in .cag-grid) can let its content (e.g. cag-venue-map) grow
-   into the extra space instead of leaving blank space below it. ── */
+/* Flex lets embedded maps consume height added by a taller sibling. */
 .cag-card-frame {
     @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden flex flex-col;
 }
 
-/* ── .cag-card-icon / .cag-card-title: header hooks shared by every
-   .cag-card-frame variant (card, schedule). Each caller adds its own
-   spacing utility since the gap to the next element differs per card. ── */
-.cag-card-icon {
-    @apply block text-[2.1rem] leading-none text-center;
-}
-
-.cag-card-title {
-    @apply block text-[1.05rem] font-bold text-brand-500 text-center;
-}
-
-/* ── .cag-section-heading: centred heading with the brand underline, shared by
-   {{< features >}} (a <div>) and {{< schedule >}} (a real <h2>). The
-   .prose-cag overrides undo the prose h2 defaults, whose left-pinned ::after
-   and 2rem size would otherwise win on specificity. ── */
+/* Shared by feature divs and schedule h2 elements. */
 .cag-section-heading {
     @apply relative text-center font-bold text-[1.45rem] mb-7 pb-3;
 }
@@ -381,15 +322,7 @@ a.cag-card-link:hover {
     @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
-.cag-map-links {
-    @apply mt-6 flex flex-wrap justify-center gap-4 mx-auto max-w-[56rem];
-}
-
-/* Shared "brand link card" component powering both .cag-map-link (map deep
-   links, below) and .cag-social-card (channel cards, near
-   .cag-social-channels): brand-colour top bar, icon badge, platform caption
-   + handle, arrow affordance. Each variant sets --card-brand (and
-   --card-handle when it differs) once. */
+/* Map and social links share the same variable-driven card treatment. */
 .cag-map-link,
 .cag-social-card {
     @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
@@ -445,90 +378,12 @@ a.cag-card-link:hover {
     @apply translate-x-0.5 -translate-y-0.5;
 }
 
-.cag-map-link--google { --card-brand: #4285f4; --card-handle: #4285f4; }
-.cag-map-link--apple  { --card-brand: #000000; --card-handle: var(--on-surface); }
-/* Waze cyan is too light for body text on the light surface, so the handle
-   falls back to --on-surface and the brand colour stays on the top bar. */
-.cag-map-link--waze   { --card-brand: #33ccff; --card-handle: var(--on-surface); }
-
-/* Map icons sit on a white badge (the SVG/PNG asset supplies its own
-   colour), unlike the social cards' solid-colour badge below. */
-.cag-map-link__icon {
-    @apply flex items-center justify-center shrink-0 rounded-card bg-white size-11;
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
-}
-
-.cag-map-link__icon-img {
-    @apply block bg-center bg-no-repeat bg-contain size-[26px];
-}
-
-.cag-map-link__icon-img--google {
-    background-image: url('/icons/google-maps-official.svg');
-}
-
-.cag-map-link__icon-img--apple,
-.cag-map-link__icon-img--waze {
-    @apply size-8;
-}
-
-.cag-map-link__icon-img--apple {
-    background-image: url('/icons/apple-maps-official.svg');
-}
-
-.cag-map-link__icon-img--waze {
-    background-image: url('/icons/waze-official.svg');
-}
-
-
-/* ── .cag-venue-map: MapLibre canvas + address caption. The frame grows to fill
-   whatever height its card gets (see .cag-card-frame / .cag-card-desc
-   flex-col), with a floor so it stays usable when the card is stacked ── */
-.cag-venue-map {
-    @apply flex flex-col flex-1 gap-2 my-2;
-}
-
-.cag-venue-map__frame {
-    @apply relative w-full flex-1 min-h-[220px] rounded-lg border border-border overflow-hidden bg-gray-100 dark:bg-gray-900;
-}
-
-.cag-venue-map__fallback {
-    @apply absolute inset-0 flex items-center justify-center p-6 text-center text-sm opacity-70;
-}
-
 /* MapLibre paints white chrome by default; soften it into the card. */
 .cag-venue-map__frame .maplibregl-ctrl-group {
     @apply rounded-lg shadow-none border border-border;
 }
 
-.cag-venue-map__address {
-    @apply shrink-0 m-0;
-}
-
-/* ── .cag-features--split: sections (e.g. venue map + parking + transit
-   list) laid out at a ~60:40 column ratio instead of the default even
-   wrap, so a wide map doesn't get squeezed into a tall, narrow column on
-   desktop. With exactly 3 cards, the first two stack in the left column
-   (map above parking, split 2:1 vertically) and the third spans both rows
-   on the right, so the stacked pair matches its height.
-   On tablet-portrait widths (md, below the lg split) the first two cards
-   sit side by side 50:50 and the third spans the full width underneath,
-   instead of stacking all three in a single column.
-   Cards drop the .cag-grid > .cag-card max-width cap entirely (rather than
-   just from lg up): that cap exists for the non-split flex-wrap grid, and
-   here it left cards narrower than their grid column between sm and md,
-   hugging the left edge instead of filling it. ── */
-.cag-features--split .cag-grid {
-    @apply grid gap-5 mx-auto max-w-full md:grid-cols-2 lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch;
-}
-
-.cag-features--split .cag-grid > .cag-card {
-    @apply max-w-none;
-}
-
-.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) {
-    @apply lg:grid-rows-[2fr_1fr];
-}
-
+/* Three split cards stack 2:1 beside a card spanning both rows. */
 .cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(1) {
     @apply lg:col-start-1 lg:row-start-1;
 }
@@ -541,382 +396,12 @@ a.cag-card-link:hover {
     @apply md:col-span-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:col-span-1;
 }
 
-.prose-cag .cag-transport-list {
-    @apply list-none pl-0 mt-4 space-y-2 mx-auto max-w-[30rem];
-}
-
-.cag-transport-item {
-    @apply block;
-}
-
-.cag-transport-stop {
-    @apply grid items-center gap-3 rounded-xl border border-border bg-surface px-3 py-2 no-underline text-on-surface;
-    @apply grid-cols-[1.875rem_minmax(0,1fr)] transition-[transform,border-color,box-shadow] duration-200 ease-in-out;
-}
-
-.cag-transport-stop:hover {
-    @apply -translate-y-px no-underline;
-}
-
-/* Each mode sets --transit once; the line badge and the stop's hover glow
-   both read from it instead of repeating the same hex per mode. */
-.cag-transport-stop--bus       { --transit: #1b9dd9; }
-.cag-transport-stop--night-bus { --transit: #1e1e1e; }
-.cag-transport-stop--tram      { --transit: #ffd900; }
-.cag-transport-stop--hev       { --transit: #8e3d99; }
-.cag-transport-stop--volan     { --transit: #f9ab13; }
-.cag-transport-stop--bubi      { --transit: #98c421; }
-
-.cag-transport-stop--bus:hover,
-.cag-transport-stop--hev:hover {
-    border-color: color-mix(in srgb, var(--transit) 45%, transparent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 18%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 20%, transparent);
-}
-
-.cag-transport-stop--night-bus:hover,
-.cag-transport-stop--tram:hover,
-.cag-transport-stop--volan:hover,
-.cag-transport-stop--bubi:hover {
-    border-color: color-mix(in srgb, var(--transit) 55%, transparent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 22%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 25%, transparent);
-}
-
-.cag-transport-pictogram {
-    @apply block bg-center bg-no-repeat bg-contain shrink-0 size-[1.875rem];
-}
-
-.cag-transport-pictogram--bus {
-    background-image: url('/icons/bkk-bus-official.svg');
-}
-
-.cag-transport-pictogram--tram {
-    background-image: url('/icons/bkk-tram-official.svg');
-}
-
-.cag-transport-pictogram--hev {
-    background-image: url('/icons/bkk-hev-official.svg');
-}
-
-.cag-transport-pictogram--night-bus {
-    background-image: url('/icons/bkk-night-bus-official.svg');
-}
-
-.cag-transport-pictogram--volan {
-    background-image: url('/icons/bkk-volan-official.svg');
-}
-
-/* BKK only publishes the bike-sharing pictogram as a raster asset. */
-.cag-transport-pictogram--bubi {
-    background-image: url('/icons/bkk-bubi-official.png');
-}
-
-.cag-transport-meta {
-    @apply flex flex-col gap-2 min-w-0;
-}
-
-.cag-transport-distance {
-    @apply text-sm opacity-70;
-}
-
-.cag-line-badges {
-    @apply flex flex-wrap gap-1.5;
-}
-
-.cag-line-badge {
-    @apply inline-flex items-center justify-center rounded-lg px-2 py-1 text-[0.72rem] leading-none font-bold border text-white;
-    background: var(--badge);
-    border-color: color-mix(in srgb, var(--badge) 65%, transparent);
-}
-
-.cag-line-badge--bus  { --badge: #1b9dd9; }
-.cag-line-badge--tram { --badge: #ffd900; @apply text-[#111827]; }
-.cag-line-badge--hev  {
-    /* Official BKK H5 (Szentendre) line colour: purple. */
-    --badge: #8e3d99;
-}
-.cag-line-badge--night { --badge: #1e1e1e; }
-.cag-line-badge--volan { --badge: #f9ab13; @apply text-[#111827]; }
-
-/* ── .cag-parking-sides: two-sided "street" diagram (cag/parking-sides
-   shortcode) contrasting an always-free side with a weekends-only side,
-   separated by a road divider with lane-marking dashes ── */
-.cag-parking-sides {
-    @apply flex flex-col sm:flex-row items-stretch rounded-lg border border-border overflow-hidden my-2;
-}
-
-.cag-parking-side {
-    @apply flex-1 flex flex-col items-center gap-2 px-4 py-5 text-center;
-}
-
-.cag-parking-side--free {
-    @apply bg-stuff-bring/10;
-}
-
-.cag-parking-side--weekend {
-    @apply bg-accent-500/10;
-}
-
-.cag-parking-side__icon {
-    @apply text-2xl leading-none;
-}
-
-.cag-parking-side__label {
-    @apply text-sm font-semibold;
-}
-
-.cag-parking-side__badge {
-    @apply inline-flex items-center rounded-pill px-2.5 py-1 text-xs font-bold text-white;
-}
-
-.cag-parking-side--free .cag-parking-side__badge {
-    @apply bg-stuff-bring;
-}
-
-.cag-parking-side--weekend .cag-parking-side__badge {
-    @apply bg-accent-500;
-}
-
-.cag-parking-road {
-    @apply flex shrink-0 items-center justify-center h-3 sm:h-auto sm:w-8 bg-gray-700 dark:bg-gray-950;
-}
-
-.cag-parking-road__line {
-    @apply w-3/4 h-[3px] sm:w-[3px] sm:h-3/4 border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-white/70;
-}
-
-/* ── .cag-timeline-legend: explains the marker colours so the timeline is
-   self-documenting instead of needing a paragraph above it. Reuses
-   .cag-timeline__item--* so a legend swatch always matches its rows. ────── */
-.cag-timeline-legend {
-    @apply flex flex-wrap justify-center gap-x-4 gap-y-2 list-none m-0 mb-4 p-0;
-}
-
-.cag-timeline-legend__item {
-    --timeline-accent: var(--color-brand-500);
-    @apply flex items-center gap-2 text-xs font-medium opacity-80;
-}
-
-/* ── .cag-timeline: the {{< schedule >}} rows, rendered as a time-railed
-   vertical timeline inside the shared card shell. --timeline-cols is the one
-   source of truth for the column template so the rail can be centred on the
-   marker column, and --timeline-accent is set once per row type and reused by
-   the time label, marker, and card edge. ───────────────────────────────── */
-/* The timeline needs every pixel it can get on phones, so the card shell runs
-   tighter than the default .cag-card-frame padding below sm. */
-.cag-schedule {
-    @apply px-3 sm:px-[1.6rem];
-}
-
-.cag-timeline {
-    --timeline-time: 4.25rem;
-    --timeline-rail: 1.5rem;
-    --timeline-accent: var(--color-brand-500);
-    @apply relative grid gap-2 list-none m-0 p-0;
-}
-
-@media (width >= theme(--breakpoint-sm)) {
-    .cag-timeline {
-        --timeline-time: 5.5rem;
-    }
-}
-
-.cag-timeline::before {
-    @apply content-[''] absolute inset-y-4 w-px bg-border;
-    left: calc(var(--timeline-time) + var(--timeline-rail) / 2);
-}
-
-.cag-timeline__item {
-    @apply grid items-center;
-    grid-template-columns: var(--timeline-time) var(--timeline-rail) minmax(0, 1fr);
-}
-
-.cag-timeline__item--break { --timeline-accent: var(--color-accent-500); }
-.cag-timeline__item--highlight { --timeline-accent: var(--color-accent-400); }
-
-.cag-timeline__time {
-    @apply font-mono text-xs font-semibold tabular-nums leading-tight pr-2;
-    color: var(--timeline-accent);
-}
-
-/* ring matches the card background so the dot punches a hole in the rail */
-.cag-timeline__marker {
-    @apply justify-self-center size-2.5 rounded-full ring-4 ring-surface-card;
-    background: var(--timeline-accent);
-}
-
-.cag-timeline__item--highlight .cag-timeline__marker {
-    @apply size-3.5;
-}
-
-.cag-timeline__body {
-    @apply flex flex-col gap-2 min-w-0 rounded-card border border-border border-l-[3px] bg-surface p-2.5;
-    @apply sm:flex-row sm:items-center sm:gap-3 sm:px-3;
-    border-left-color: var(--timeline-accent);
-}
-
-.cag-timeline__item--break .cag-timeline__body {
-    background: color-mix(in srgb, var(--timeline-accent) 10%, var(--surface));
-}
-
-/* Fixed tournament slots get a heavier edge, a stronger tint, and a bigger
-   title so they stand out from the (same-hued) break rows at a glance. */
-.cag-timeline__item--highlight .cag-timeline__body {
-    @apply border-l-4;
-    background: color-mix(in srgb, var(--timeline-accent) 18%, var(--surface));
-}
-
-.cag-timeline__item--highlight .cag-timeline__title {
-    @apply text-base;
-}
-
-/* Steam header ratio (460x215) so artwork is never cropped. Below sm the
-   gutter leaves too little room to sit beside the text, so it becomes a
-   full-width band above it. */
-.cag-timeline__art {
-    @apply shrink-0 rounded-md border border-border bg-surface-alt object-cover;
-    @apply w-full h-auto aspect-[460/215];
-    @apply sm:w-[7.5rem] sm:h-[3.5rem] sm:aspect-auto;
-}
-
-.cag-timeline__text {
-    @apply flex flex-col gap-1 min-w-0;
-}
-
-.cag-timeline__title {
-    @apply block text-sm font-semibold leading-snug;
-}
-
-.cag-timeline__label {
-    @apply self-start inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface-card px-2.5 py-1 text-xs font-semibold;
-}
-
-.cag-timeline__label::before {
-    @apply content-[''] block size-1.5 shrink-0 rounded-full;
-    background: var(--timeline-accent);
-}
-
-.cag-timeline__note {
-    @apply block text-xs leading-snug opacity-70;
-}
-
-/* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
-   and remain centered when fewer cards than columns are present ── */
+/* Default card grids wrap at 15rem and cap cards at 340px. */
 .cag-grid > .cag-card {
-    /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping; 340px cap
-       from sm: up so cards don't stretch too wide */
     @apply grow shrink basis-[15rem] max-w-full sm:max-w-[21.25rem];
-}
-
-/* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
-a.cag-card-link {
-    @apply block no-underline text-on-surface transition-card;
 }
 
 .cag-stuff-bring ul > li::marker,
 .cag-stuff-skip ul > li::marker {
     content: ''; /* reset the global ▸ marker inside these columns */
-}
-
-/* ── Care CTA: portal to care.ctrl-alt-gg.hu ────────────────────── */
-.cag-care-cta {
-    @apply flex items-center gap-[1.1rem] no-underline text-on-surface transition-card;
-    @apply max-[576px]:flex-col max-[576px]:text-center;
-    @apply px-6 py-5 mx-0 mt-8 mb-10 max-[576px]:px-5 max-[576px]:py-[1.1rem];
-    @apply rounded-(--radius-panel); /* softer than --radius-card, echoes Care's rounded-2xl */
-    background: linear-gradient(135deg,
-        color-mix(in srgb, var(--color-brand-600) 8%, transparent),
-        color-mix(in srgb, var(--color-brand-600) 2%, transparent));
-    border: 1px solid color-mix(in srgb, var(--color-brand-600) 25%, transparent);
-}
-
-.cag-care-cta:hover {
-    @apply -translate-y-0.5 no-underline text-on-surface;
-    box-shadow: 0 10px 32px color-mix(in srgb, var(--color-brand-600) 18%, transparent);
-    border-color: color-mix(in srgb, var(--color-brand-600) 55%, transparent);
-}
-
-.cag-care-cta:focus-visible {
-    @apply focus-ring-brand;
-}
-
-.cag-care-cta__badge {
-    @apply flex items-center justify-center rounded-card shrink-0;
-    @apply size-14 basis-14 max-[576px]:size-12 max-[576px]:basis-12;
-    background: var(--color-brand-600);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-brand-600) 35%, transparent);
-}
-
-.cag-care-cta__badge svg {
-    @apply w-9 h-auto text-white;
-}
-
-.cag-care-cta__body {
-    @apply flex-1 min-w-0;
-}
-
-.cag-care-cta__title {
-    @apply font-bold text-[1.1rem] text-brand-500 mx-0 mt-0 mb-[0.15rem];
-}
-
-.cag-care-cta__desc {
-    @apply text-[0.9rem] opacity-80 m-0 text-on-surface;
-}
-
-.cag-care-cta__arrow {
-    @apply ml-auto shrink-0 max-[576px]:hidden text-(--link);
-}
-
-
-/* ── .cag-social-channels: YouTube + Twitch channel cards ──────────── */
-
-.cag-social-channels {
-    @apply my-10;
-}
-
-.cag-social-channels__heading {
-    @apply text-2xl font-bold mb-4 text-on-surface relative pb-2 text-center;
-}
-
-.cag-social-channels__heading::after {
-    @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-9 h-[2px] rounded-[1px];
-    @apply bg-linear-to-r from-brand-600 to-brand-500;
-}
-
-/* Override prose-cag h2::after which has left: 0 */
-.prose-cag .cag-social-channels__heading::after {
-    @apply left-1/2 -translate-x-1/2;
-}
-
-.cag-social-channels__grid {
-    @apply flex flex-wrap justify-center gap-4 mx-auto max-w-[860px];
-}
-
-/* Layout, hover, and focus styles live with .cag-map-link above (shared
-   "brand link card" component). Each platform just sets --card-brand (and
-   --card-handle when it differs) and the icon badge colour below. */
-.cag-social-card--youtube   { --card-brand: #ff0000; --card-handle: #cc0000; }
-.cag-social-card--twitch    { --card-brand: #9146ff; --card-handle: #7c3aed; }
-.cag-social-card--kick      { --card-brand: #53fc18; --card-handle: #3db800; }
-.cag-social-card--facebook  { --card-brand: #1877f2; --card-handle: #1877f2; }
-.cag-social-card--discord   { --card-brand: #5865f2; --card-handle: #4752c4; }
-.cag-social-card--x         { --card-brand: #000000; --card-handle: var(--on-surface); }
-
-/* Social cards use a solid-colour badge (unlike .cag-map-link__icon's white
-   badge), so unlike that one this needs its own background + text colour. */
-.cag-social-card__icon {
-    @apply flex items-center justify-center shrink-0 rounded-card text-white size-11;
-    background: var(--card-brand);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
-}
-
-.cag-social-card--kick .cag-social-card__icon {
-    @apply text-black;
-}
-
-.cag-social-card__icon svg {
-    @apply size-[22px];
-}
-
-.cag-social-card__desc {
-    @apply text-[0.8rem] opacity-65;
 }

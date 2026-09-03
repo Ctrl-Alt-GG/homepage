@@ -60,18 +60,6 @@
   translation: "kb."
 - id: transit_lines_aria_suffix
   translation: "járatok"
-- id: schedule_legend_heading
-  translation: "Jelmagyarázat"
-- id: schedule_legend_play
-  translation: "Játékajánló, szabadon eltérhetsz tőle"
-- id: schedule_legend_break
-  translation: "20 perces szünet enni és inni"
-- id: schedule_legend_highlight
-  translation: "Kötött versenyidőpont, ne késd le"
-- id: venue_address_label
-  translation: "Cím:"
-- id: venue_map_aria
-  translation: "A helyszín térképen"
 - id: venue_map_noscript
   translation: "Az interaktív térképhez JavaScript szükséges, de a cím és a térkép-hivatkozások enélkül is működnek."
 - id: map_zoom_in

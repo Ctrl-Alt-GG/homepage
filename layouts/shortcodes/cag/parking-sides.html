@@ -15,16 +15,18 @@
 {{- $freeSide := .Get "freeSide" -}}
 {{- $weekendSide := .Get "weekendSide" -}}
 {{- if not (and $freeSide $weekendSide) }}{{ errorf "cag/parking-sides: 'freeSide' and 'weekendSide' are both required (page: %s)" .Page.File.Path }}{{ end -}}
-<div class="cag-parking-sides">
-  <div class="cag-parking-side cag-parking-side--weekend">
-    <span class="cag-parking-side__icon" aria-hidden="true">📅</span>
-    <span class="cag-parking-side__label">{{ $weekendSide }}</span>
-    <span class="cag-parking-side__badge">{{ i18n "parking_weekend_free" }}</span>
+<div class="cag-parking-sides my-2 flex flex-col items-stretch overflow-hidden rounded-lg border border-border sm:flex-row">
+  <div class="cag-parking-side cag-parking-side--weekend flex flex-1 flex-col items-center gap-2 bg-accent-500/10 px-4 py-5 text-center">
+    <span class="cag-parking-side__icon text-2xl leading-none" aria-hidden="true">📅</span>
+    <span class="cag-parking-side__label text-sm font-semibold">{{ $weekendSide }}</span>
+    <span class="cag-parking-side__badge inline-flex items-center rounded-pill bg-accent-500 px-2.5 py-1 text-xs font-bold text-white">{{ i18n "parking_weekend_free" }}</span>
   </div>
-  <div class="cag-parking-road" aria-hidden="true"><span class="cag-parking-road__line"></span></div>
-  <div class="cag-parking-side cag-parking-side--free">
-    <span class="cag-parking-side__icon" aria-hidden="true">✅</span>
-    <span class="cag-parking-side__label">{{ $freeSide }}</span>
-    <span class="cag-parking-side__badge">{{ i18n "parking_always_free" }}</span>
+  <div class="cag-parking-road flex h-3 shrink-0 items-center justify-center bg-gray-700 sm:h-auto sm:w-8 dark:bg-gray-950" aria-hidden="true">
+    <span class="cag-parking-road__line h-[3px] w-3/4 border-t-2 border-dashed border-white/70 sm:h-3/4 sm:w-[3px] sm:border-t-0 sm:border-l-2"></span>
+  </div>
+  <div class="cag-parking-side cag-parking-side--free flex flex-1 flex-col items-center gap-2 bg-stuff-bring/10 px-4 py-5 text-center">
+    <span class="cag-parking-side__icon text-2xl leading-none" aria-hidden="true">✅</span>
+    <span class="cag-parking-side__label text-sm font-semibold">{{ $freeSide }}</span>
+    <span class="cag-parking-side__badge inline-flex items-center rounded-pill bg-stuff-bring px-2.5 py-1 text-xs font-bold text-white">{{ i18n "parking_always_free" }}</span>
   </div>
 </div>

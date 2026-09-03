@@ -29,7 +29,7 @@
 */ -}}
 {{ $heading := .Get "heading" }}
 {{ $variant := .Get "variant" }}
-{{ $gridClass := cond (eq $variant "split") "cag-grid" "cag-grid flex flex-wrap justify-center gap-5 max-w-[900px] mx-auto" }}
+{{ $gridClass := cond (eq $variant "split") "cag-grid mx-auto grid max-w-full gap-5 md:grid-cols-2 lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch [&>.cag-card]:max-w-none" "cag-grid mx-auto flex max-w-[900px] flex-wrap justify-center gap-5" }}
 <div class="cag-features mt-10 mb-4{{ if $variant }} cag-features--{{ $variant }}{{ end }}">
   <div class="cag-features-heading cag-section-heading">{{ $heading }}</div>
   <div class="{{ $gridClass }}">
