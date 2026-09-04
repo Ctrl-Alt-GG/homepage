@@ -1,0 +1,63 @@
+{{- /*
+  Renders one row of the {{< schedule >}} timeline: a time label on the rail,
+  a type-coloured marker, and a card with optional game artwork.
+
+  Must be used inside {{< schedule >}}...{{< /schedule >}}.
+
+  Params (named):
+    time  (string, required): time or range shown on the rail, e.g. "20:00-21:00".
+    title (string, required): what happens in this slot.
+    game  (string, optional, default ""): data/games.yaml slug. When the slug
+            resolves, the game's header art is shown as the row thumbnail.
+    label (string, optional, default ""): game or activity name shown as a pill.
+    note  (string, optional, default ""): short secondary line under the title.
+    type  (string, optional, default "play"): "play", "break", or "highlight".
+            Drives the marker size and the accent colour of the row.
+
+  Inner: not used.
+
+  Usage:
+    {{< schedule-entry time="15:30-17:00" title="Easy start" game="minecraft" label="Minecraft" >}}
+    {{< schedule-entry time="18:40-19:00" title="Snack break" type="break" note="Grab a drink" >}}
+*/ -}}
+{{- $time := .Get "time" -}}
+{{- $title := .Get "title" -}}
+{{- if not (and $time $title) }}{{ errorf "schedule-entry: 'time' and 'title' are both required (page: %s)" .Page.File.Path }}{{ end -}}
+{{- $game := .Get "game" | default "" -}}
+{{- $label := .Get "label" | default "" -}}
+{{- $note := .Get "note" | default "" -}}
+{{- $type := .Get "type" | default "play" -}}
+{{- $isHighlight := eq $type "highlight" -}}
+{{- $isBreak := eq $type "break" -}}
+{{- $accentClass := cond $isBreak "[--timeline-accent:var(--color-accent-500)]" "" -}}
+{{- $markerSize := cond $isHighlight "size-3.5" "size-2.5" -}}
+{{- $markerGlow := cond $isHighlight "[box-shadow:0_0_0_7px_color-mix(in_srgb,var(--timeline-accent)_28%,transparent)]" "" -}}
+{{- $borderWidth := cond $isHighlight "border-l-4" "border-l-[3px]" -}}
+{{- $titleSize := cond $isHighlight "text-base" "text-sm" -}}
+{{- $bodyBackground := "bg-surface" -}}
+{{- if $isBreak }}{{ $bodyBackground = "[background:color-mix(in_srgb,var(--timeline-accent)_10%,var(--surface))]" }}{{ end -}}
+{{- if $isHighlight }}{{ $bodyBackground = "[background:color-mix(in_srgb,var(--timeline-accent)_16%,var(--surface))]" }}{{ end -}}
+{{- $art := "" -}}
+{{- with $game -}}
+  {{- with (partial "game-image.html" (dict "slug" .)).resource -}}
+    {{- $art = fingerprint (.Fill "240x112 webp") -}}
+  {{- end -}}
+{{- end -}}
+<li class="cag-timeline__item cag-timeline__item--{{ $type }} {{ $accentClass }} grid grid-cols-[var(--timeline-time)_var(--timeline-rail)_minmax(0,1fr)] items-center">
+  <span class="cag-timeline__time pr-2 font-mono text-sm leading-tight font-bold text-(--timeline-accent) tabular-nums">{{ $time }}</span>
+  <span class="cag-timeline__marker {{ $markerSize }} {{ $markerGlow }} justify-self-center rounded-full bg-(--timeline-accent) ring-4 ring-surface-card" aria-hidden="true"></span>
+  <div class="cag-timeline__body {{ $borderWidth }} {{ $bodyBackground }} flex min-w-0 flex-col gap-2 rounded-card border border-border [border-left-color:var(--timeline-accent)] p-2.5 sm:flex-row sm:items-center sm:gap-3 sm:px-3">
+    {{- with $art }}
+    <img class="cag-timeline__art aspect-[460/215] h-auto w-full shrink-0 rounded-md border border-border bg-surface-alt object-cover sm:h-[3.5rem] sm:w-[7.5rem] sm:aspect-auto" src="{{ .RelPermalink }}" alt="" loading="lazy" decoding="async" width="{{ .Width }}" height="{{ .Height }}">
+    {{- end }}
+    <span class="cag-timeline__text flex min-w-0 flex-col gap-1">
+      <span class="cag-timeline__title {{ $titleSize }} block leading-snug font-semibold">{{ $title }}</span>
+      {{- with $label }}
+      <span class="cag-timeline__label inline-flex items-center gap-1.5 self-start rounded-pill border border-border bg-surface-card px-2.5 py-1 text-xs font-semibold before:block before:size-1.5 before:shrink-0 before:rounded-full before:bg-(--timeline-accent) before:content-['']">{{ . }}</span>
+      {{- end }}
+      {{- with $note }}
+      <span class="cag-timeline__note block text-xs leading-snug opacity-70">{{ . }}</span>
+      {{- end }}
+    </span>
+  </div>
+</li>

@@ -44,18 +44,11 @@
 {{- /* 3. Remote URL via data/games.yaml, keyed by the filename stem */ -}}
 {{- if not $resource -}}
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
-  {{- with index hugo.Data.games $slug -}}
-    {{- $remoteURL = . -}}
-    {{- $ua := printf "Mozilla/5.0 (compatible; Hugo; +%s)" site.BaseURL -}}
-    {{- $opts := dict "headers" (dict "User-Agent" $ua) -}}
-    {{- with try (resources.GetRemote . $opts) -}}
-      {{- with .Err -}}
-        {{- warnf "render-image: cannot fetch remote image for %q: %s" $src . -}}
-      {{- else with .Value -}}
-        {{- $resource = . -}}
-        {{- $isGameImage = true -}}
-      {{- end -}}
-    {{- end -}}
+  {{- $game := partial "game-image.html" (dict "slug" $slug) -}}
+  {{- $remoteURL = $game.url -}}
+  {{- with $game.resource -}}
+    {{- $resource = . -}}
+    {{- $isGameImage = true -}}
   {{- end -}}
 {{- end -}}
 

@@ -35,19 +35,29 @@
 {{- $badgeMode := cond (eq $mode "night-bus") "bus" $mode -}}
 {{- $approx := i18n "transit_approx" -}}
 {{- $ariaSuffix := i18n "transit_lines_aria_suffix" -}}
-<li class="cag-transport-item">
-  <a class="cag-transport-stop cag-transport-stop--{{ $mode }}" href="{{ $href }}" target="_blank" rel="noopener noreferrer">
-    <span class="cag-transport-pictogram cag-transport-pictogram--{{ $pictogramMode }}" aria-hidden="true"></span>
-    <span class="cag-transport-meta">
+{{- $transitClasses := dict "bus" "[--transit:#1b9dd9]" "night-bus" "[--transit:#1e1e1e]" "tram" "[--transit:#ffd900]" "hev" "[--transit:#8e3d99]" "volan" "[--transit:#f9ab13]" "bubi" "[--transit:#98c421]" -}}
+{{- $pictogramClasses := dict "bus" "bg-[url('/icons/bkk-bus-official.svg')]" "night-bus" "bg-[url('/icons/bkk-night-bus-official.svg')]" "tram" "bg-[url('/icons/bkk-tram-official.svg')]" "hev" "bg-[url('/icons/bkk-hev-official.svg')]" "volan" "bg-[url('/icons/bkk-volan-official.svg')]" "bubi" "bg-[url('/icons/bkk-bubi-official.png')]" -}}
+{{- $badgeClasses := dict "bus" "[--badge:#1b9dd9] text-white" "tram" "[--badge:#ffd900] text-[#111827]" "hev" "[--badge:#8e3d99] text-white" "volan" "[--badge:#f9ab13] text-[#111827]" -}}
+{{- $softHover := "hover:[border-color:color-mix(in_srgb,var(--transit)_45%,transparent)] hover:[box-shadow:0_0_0_3px_color-mix(in_srgb,var(--transit)_18%,transparent),0_8px_20px_color-mix(in_srgb,var(--transit)_20%,transparent)]" -}}
+{{- $strongHover := "hover:[border-color:color-mix(in_srgb,var(--transit)_55%,transparent)] hover:[box-shadow:0_0_0_3px_color-mix(in_srgb,var(--transit)_22%,transparent),0_8px_20px_color-mix(in_srgb,var(--transit)_25%,transparent)]" -}}
+{{- $hoverClass := cond (or (eq $mode "bus") (eq $mode "hev")) $softHover $strongHover -}}
+{{- $transitClass := printf "%s %s" (index $transitClasses $mode | default "") $hoverClass -}}
+{{- $pictogramClass := index $pictogramClasses $pictogramMode | default "" -}}
+{{- $badgeClass := index $badgeClasses $badgeMode | default "" -}}
+{{- $lineBadgeClass := "inline-flex items-center justify-center rounded-lg border bg-(--badge) px-2 py-1 text-[0.72rem] leading-none font-bold [border-color:color-mix(in_srgb,var(--badge)_65%,transparent)]" -}}
+<li class="cag-transport-item block">
+  <a class="cag-transport-stop cag-transport-stop--{{ $mode }} {{ $transitClass }} grid grid-cols-[1.875rem_minmax(0,1fr)] items-center gap-3 rounded-xl border border-border bg-surface px-3 py-2 text-on-surface no-underline transition-[transform,border-color,box-shadow] duration-200 ease-in-out hover:-translate-y-px hover:no-underline" href="{{ $href }}" target="_blank" rel="noopener noreferrer">
+    <span class="cag-transport-pictogram cag-transport-pictogram--{{ $pictogramMode }} {{ $pictogramClass }} block size-[1.875rem] shrink-0 bg-contain bg-center bg-no-repeat" aria-hidden="true"></span>
+    <span class="cag-transport-meta flex min-w-0 flex-col gap-2">
       <span><strong>{{ $label }}:</strong> {{ $name }}</span>
-      <span class="cag-transport-distance">{{ $approx }} <strong>{{ $distance }}</strong></span>
+      <span class="cag-transport-distance text-sm opacity-70">{{ $approx }} <strong>{{ $distance }}</strong></span>
       {{- if or (.Get "lines") (.Get "nightLines") }}
-      <span class="cag-line-badges" aria-label="{{ $name }} {{ $ariaSuffix }}">
+      <span class="cag-line-badges flex flex-wrap gap-1.5" aria-label="{{ $name }} {{ $ariaSuffix }}">
         {{- range $lines }}{{ if . }}
-        <span class="cag-line-badge cag-line-badge--{{ $badgeMode }}">{{ . }}</span>
+        <span class="cag-line-badge cag-line-badge--{{ $badgeMode }} {{ $badgeClass }} {{ $lineBadgeClass }}">{{ . }}</span>
         {{- end }}{{ end -}}
         {{- range $nightLines }}{{ if . }}
-        <span class="cag-line-badge cag-line-badge--night">{{ . }}</span>
+        <span class="cag-line-badge cag-line-badge--night [--badge:#1e1e1e] text-white {{ $lineBadgeClass }}">{{ . }}</span>
         {{- end }}{{ end -}}
       </span>
       {{- end }}

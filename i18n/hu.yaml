@@ -60,10 +60,6 @@
   translation: "kb."
 - id: transit_lines_aria_suffix
   translation: "járatok"
-- id: venue_address_label
-  translation: "Cím:"
-- id: venue_map_aria
-  translation: "A helyszín térképen"
 - id: venue_map_noscript
   translation: "Az interaktív térképhez JavaScript szükséges, de a cím és a térkép-hivatkozások enélkül is működnek."
 - id: map_zoom_in

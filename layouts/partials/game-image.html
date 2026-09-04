@@ -1,0 +1,27 @@
+{{- /*
+  game-image.html: resolve a data/games.yaml slug to a fetched image resource.
+
+  Shared by the Markdown image render hook and the schedule timeline so the
+  remote-fetch rules (User-Agent, error handling) live in exactly one place.
+
+  Params (dict keys):
+    slug (required): key in data/games.yaml.
+
+  Returns a dict:
+    url      remote URL from data/games.yaml, "" when the slug is unknown
+    resource fetched resource, "" when unknown or when the fetch failed
+*/ -}}
+{{- $url := "" -}}
+{{- $resource := "" -}}
+{{- with index hugo.Data.games .slug -}}
+  {{- $url = . -}}
+  {{- $ua := printf "Mozilla/5.0 (compatible; Hugo; +%s)" site.BaseURL -}}
+  {{- with try (resources.GetRemote . (dict "headers" (dict "User-Agent" $ua))) -}}
+    {{- with .Err -}}
+      {{- warnf "game-image: cannot fetch remote image for %q: %s" $.slug . -}}
+    {{- else with .Value -}}
+      {{- $resource = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return dict "url" $url "resource" $resource -}}
