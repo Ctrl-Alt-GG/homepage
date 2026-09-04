@@ -8,7 +8,7 @@ weight: 60
 You do not have to follow this list from start to finish. Join whenever a game catches your eye, or play something else. The times simply make it easier to find people for each game.
 {{< /intro >}}
 
-{{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and in the shared gathering area. Please arrive in time for registration and your match.{{< /callout >}}
+{{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and on the digital signage screens. Please arrive in time for registration and your match.{{< /callout >}}
 
 {{< schedule title="Games and breaks" >}}
   {{< schedule-entry time="15:30" title="Start with a bit of building" game="minecraft" label="Minecraft" >}}
@@ -32,4 +32,4 @@ You do not have to follow this list from start to finish. Join whenever a game c
 
 ## Have a question or an idea?
 
-The next event is always shown on this page and in the shared gathering area. If anything is unclear, ask one of the organisers. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.
+The next event is always shown on this page and on the digital signage screens. If anything is unclear, ask one of the organisers. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.

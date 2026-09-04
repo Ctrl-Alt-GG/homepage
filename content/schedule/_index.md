@@ -8,7 +8,7 @@ weight: 60
 Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz kedved van, csatlakozz, de közben nyugodtan játszhatsz mással is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
 {{< /intro >}}
 
-{{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a közös gyülekezőnél is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
+{{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a digitális kijelzőkön is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
 
 {{< schedule title="Játékok és szünetek" >}}
   {{< schedule-entry time="15:30" title="Kezdés egy kis építkezéssel" game="minecraft" label="Minecraft" >}}
@@ -32,4 +32,4 @@ Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz k
 
 ## Kérdésed vagy ötleted van?
 
-A következő programot ezen az oldalon és a közös gyülekezőnél is látod. Ha valami nem egyértelmű, szólj valamelyik szervezőnek. Saját helyi játékot bármikor indíthatsz. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
+A következő programot ezen az oldalon és a digitális kijelzőkön is látod. Ha valami nem egyértelmű, szólj valamelyik szervezőnek. Saját helyi játékot bármikor indíthatsz. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
