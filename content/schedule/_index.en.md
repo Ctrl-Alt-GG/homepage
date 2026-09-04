@@ -8,7 +8,7 @@ weight: 60
 You do not have to follow this list from start to finish. Join whenever a game catches your eye, or play something else. The times simply make it easier to find people for each game.
 {{< /intro >}}
 
-{{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here, on the projector screens, and over the radios. Please arrive in time for registration and your match.{{< /callout >}}
+{{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and in the shared gathering area. Please arrive in time for registration and your match.{{< /callout >}}
 
 {{< schedule title="Games and breaks" >}}
   {{< schedule-entry time="15:30" title="Start with a bit of building" game="minecraft" label="Minecraft" >}}
@@ -17,7 +17,7 @@ You do not have to follow this list from start to finish. Join whenever a game c
   {{< schedule-entry time="19:00" title="Four-player survival" game="left4dead2" label="Left 4 Dead 2" >}}
   {{< schedule-entry time="20:00" type="highlight" title="The CS2 tournament begins" game="cs2" label="Counter-Strike 2" note="Cheer from the sidelines or get ready for your match" >}}
   {{< schedule-entry time="20:00" title="Build railways while the tournament runs" game="openttd" label="OpenTTD" note="Starts at the same time as the CS2 tournament" >}}
-  {{< schedule-entry time="22:00" type="highlight" title="CS2 awards" note="Meet at the projector screen. The ceremony takes about 15 minutes" >}}
+  {{< schedule-entry time="22:00" type="highlight" title="CS2 awards" note="Meet in the shared gathering area. The ceremony takes about 15 minutes" >}}
   {{< schedule-entry time="22:15" title="Mess around after the awards" game="garrys-mod" label="Garry's Mod" >}}
   {{< schedule-entry time="23:00" title="Fast-paced matches before midnight" game="xonotic" label="Xonotic" >}}
   {{< schedule-entry time="23:40" type="break" title="Midnight break" note="Coffee or an energy drink if you still need one" >}}
@@ -32,4 +32,4 @@ You do not have to follow this list from start to finish. Join whenever a game c
 
 ## Have a question or an idea?
 
-The next event is always shown on this page and the projector screens. If anything is unclear, ask one of the organisers. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.
+The next event is always shown on this page and in the shared gathering area. If anything is unclear, ask one of the organisers. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.

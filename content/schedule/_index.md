@@ -8,7 +8,7 @@ weight: 60
 Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz kedved van, csatlakozz, de közben nyugodtan játszhatsz mással is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
 {{< /intro >}}
 
-{{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon, a kivetítőkön és rádión is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
+{{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a közös gyülekezőnél is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
 
 {{< schedule title="Játékok és szünetek" >}}
   {{< schedule-entry time="15:30" title="Kezdés egy kis építkezéssel" game="minecraft" label="Minecraft" >}}
@@ -17,7 +17,7 @@ Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz k
   {{< schedule-entry time="19:00" title="Négyfős túlélés" game="left4dead2" label="Left 4 Dead 2" >}}
   {{< schedule-entry time="20:00" type="highlight" title="Indul a CS2-verseny" game="cs2" label="Counter-Strike 2" note="Szurkolj, vagy készülj a saját meccsedre" >}}
   {{< schedule-entry time="20:00" title="Közös vasútépítés a verseny alatt" game="openttd" label="OpenTTD" note="A CS2-versennyel egyszerre indul" >}}
-  {{< schedule-entry time="22:00" type="highlight" title="CS2-díjátadó" note="A kivetítőnél találkozunk, a díjátadó nagyjából 15 percig tart" >}}
+  {{< schedule-entry time="22:00" type="highlight" title="CS2-díjátadó" note="A közös gyülekezőnél találkozunk, a díjátadó nagyjából 15 percig tart" >}}
   {{< schedule-entry time="22:15" title="Egy kis hülyülés a díjátadó után" game="garrys-mod" label="Garry's Mod" >}}
   {{< schedule-entry time="23:00" title="Pörgős meccsek éjfél előtt" game="xonotic" label="Xonotic" >}}
   {{< schedule-entry time="23:40" type="break" title="Éjféli szünet" note="Kávé vagy energiaital, ha még kell" >}}
@@ -32,4 +32,4 @@ Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz k
 
 ## Kérdésed vagy ötleted van?
 
-A következő programot ezen az oldalon és a kivetítőkön is látod. Ha valami nem egyértelmű, szólj valamelyik szervezőnek. Saját helyi játékot bármikor indíthatsz. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
+A következő programot ezen az oldalon és a közös gyülekezőnél is látod. Ha valami nem egyértelmű, szólj valamelyik szervezőnek. Saját helyi játékot bármikor indíthatsz. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
