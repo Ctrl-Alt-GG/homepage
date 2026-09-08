@@ -5,8 +5,10 @@ weight: 60
 ---
 
 {{< intro >}}
-You do not have to follow this list from start to finish. Join whenever a game catches your eye, or play something else. The times simply make it easier to find people for each game.
+This is only a guideline, not a mandatory schedule. Anyone can join any game at any time, and you can switch to something else whenever you like. The times are there to make it easier to find people for each game.
 {{< /intro >}}
+
+{{< callout icon="⚠️" >}}This is only a guideline, not mandatory.{{< /callout >}}
 
 {{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and on the digital signage screens. Please arrive in time for registration and your match.{{< /callout >}}
 
@@ -32,4 +34,4 @@ You do not have to follow this list from start to finish. Join whenever a game c
 
 ## Have a question or an idea?
 
-The next event is always shown on this page and on the digital signage screens. If anything is unclear, ask one of the organisers. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.
+The next event is always shown on this page and on the digital signage screens. This schedule is only a guideline, not a mandatory plan. Anyone can play anything at any time. You can start a local game whenever you like. If possible, request a new server between scheduled events so we do not have to interrupt a match already under way.

@@ -5,8 +5,10 @@ weight: 60
 ---
 
 {{< intro >}}
-Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz kedved van, csatlakozz, de közben nyugodtan játszhatsz mással is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
+Ez csak egy iránymutató, nem kötelező menetrend. Bárki bármikor bármelyik játékhoz csatlakozhat, és közben nyugodtan átválthat másikra is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
 {{< /intro >}}
+
+{{< callout icon="⚠️" >}}Ez csak iránymutató, nem kötelező.{{< /callout >}}
 
 {{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a digitális kijelzőkön is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
 
@@ -32,4 +34,4 @@ Nem kell elejétől végéig követned ezt a listát. Ha valamelyik játékhoz k
 
 ## Kérdésed vagy ötleted van?
 
-A következő programot ezen az oldalon és a digitális kijelzőkön is látod. Ha valami nem egyértelmű, szólj valamelyik szervezőnek. Saját helyi játékot bármikor indíthatsz. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
+A következő programot ezen az oldalon és a digitális kijelzőkön is látod. Ez a menetrend csak útmutató, nem kötelező. Bármikor kezdhetsz saját helyi játékot, és bárki bármilyen játékot játszhat bármikor. Új szervert lehetőleg két program között kérj, hogy ne kelljen félbeszakítani egy futó meccset.
