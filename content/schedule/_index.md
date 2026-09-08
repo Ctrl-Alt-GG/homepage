@@ -8,7 +8,7 @@ weight: 60
 Ez csak egy iránymutató, nem kötelező menetrend. Bárki bármikor bármelyik játékhoz csatlakozhat, és közben nyugodtan átválthat másikra is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
 {{< /intro >}}
 
-{{< callout icon="⚠️" >}}Ez csak iránymutató, nem kötelező.{{< /callout >}}
+{{< callout icon="⚠️" variant="warning" >}}Ez csak iránymutató, nem kötelező.{{< /callout >}}
 
 {{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a digitális kijelzőkön is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
 

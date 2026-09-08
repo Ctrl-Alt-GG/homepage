@@ -8,7 +8,7 @@ weight: 60
 This is only a guideline, not a mandatory schedule. Anyone can join any game at any time, and you can switch to something else whenever you like. The times are there to make it easier to find people for each game.
 {{< /intro >}}
 
-{{< callout icon="⚠️" >}}This is only a guideline, not mandatory.{{< /callout >}}
+{{< callout icon="⚠️" variant="warning" >}}This is only a guideline, not mandatory.{{< /callout >}}
 
 {{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and on the digital signage screens. Please arrive in time for registration and your match.{{< /callout >}}
 
