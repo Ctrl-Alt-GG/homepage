@@ -4,11 +4,11 @@ summary: "Itt találod a közös játékok, a CS2-verseny és a szünetek kezdé
 weight: 60
 ---
 
-{{< intro >}}
-Ez csak egy iránymutató, nem kötelező menetrend. Bárki bármikor bármelyik játékhoz csatlakozhat, és közben nyugodtan átválthat másikra is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
-{{< /intro >}}
-
 {{< callout icon="⚠️" variant="warning" >}}Ez csak iránymutató, nem kötelező.{{< /callout >}}
+
+{{< intro >}}
+Bárki bármikor bármelyik játékhoz csatlakozhat, és közben nyugodtan átválthat másikra is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
+{{< /intro >}}
 
 {{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a digitális kijelzőkön is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}
 

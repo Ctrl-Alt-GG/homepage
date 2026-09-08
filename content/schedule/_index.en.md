@@ -4,11 +4,11 @@ summary: "Find the start times for shared games, the CS2 tournament, and breaks.
 weight: 60
 ---
 
-{{< intro >}}
-This is only a guideline, not a mandatory schedule. Anyone can join any game at any time, and you can switch to something else whenever you like. The times are there to make it easier to find people for each game.
-{{< /intro >}}
-
 {{< callout icon="⚠️" variant="warning" >}}This is only a guideline, not mandatory.{{< /callout >}}
+
+{{< intro >}}
+Anyone can join any game at any time, and you can switch to something else whenever you like. The times are there to make it easier to find people for each game.
+{{< /intro >}}
 
 {{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and on the digital signage screens. Please arrive in time for registration and your match.{{< /callout >}}
 
