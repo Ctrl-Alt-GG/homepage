@@ -19,6 +19,26 @@ languages:
 
 copyright: "2025-2026 Ctrl-Alt-GG"
 
+# MapLibre's dist files are published verbatim (no fingerprinting) so that the
+# library's relative imports of its shared chunk and web worker keep resolving.
+module:
+  mounts:
+    - source: static
+      target: static
+    - source: node_modules/maplibre-gl/dist
+      target: static/vendor/maplibre-gl
+      files:
+        - "! *-dev.mjs"
+        - "! *.map"
+        - "! *.d.ts"
+    # Inter, self-hosted. Only the two latin subsets of the weight-axis
+    # variable font are published; @font-face lives in assets/css/main.css.
+    - source: node_modules/@fontsource-variable/inter/files
+      target: static/vendor/inter
+      files:
+        - "inter-latin-wght-normal.woff2"
+        - "inter-latin-ext-wght-normal.woff2"
+
 params:
   assets:
     logo: "logo-turkix-hollow.svg"

@@ -11,11 +11,11 @@ and their root CSS class. Treat every rename as a breaking change.
 
 ## Parameter contract
 
-- Parameters authors touch are **named** (`{{< features heading="…" >}}`),
+- Parameters authors touch are **named** (`{{< features heading="..." >}}`),
   not positional. Reserve positional arguments (`{{ .Get 0 }}`) for
-  single-value utilities like `{{< email "…" >}}`.
-- Every parameter gets a default with `{{ .Get "param" | default "…" }}`.
-  Never `errorf` on a missing optional — only on truly required inputs
+  single-value utilities like `{{< email "..." >}}`.
+- Every parameter gets a default with `{{ .Get "param" | default "..." }}`.
+  Never `errorf` on a missing optional, only on truly required inputs
   (document them in the leading comment).
 - Accept `class=` as an additive parameter (appended to the root, never
   replacing) when the shortcode renders a visual primitive.
@@ -29,10 +29,10 @@ and their root CSS class. Treat every rename as a breaking change.
 - `{{ .Inner }}` may or may not be Markdown. Pick one and document it
   in the leading comment.
 - **Never output `{{ .Inner }}` directly** when the contract says it
-  accepts Markdown — always pipe it through `.Page.RenderString` or
+  accepts Markdown. Always pipe it through `.Page.RenderString` or
   `markdownify` so authors get the expected rendering.
 - For block-level Markdown, prefer `{{ .Inner | .Page.RenderString }}`
-  over raw `markdownify` — it respects per-page Markdown config. Wrap
+  over raw `markdownify`, which ignores per-page Markdown config. Wrap
   the output in a `<div>`, not `<p>`, so the block-level `<p>` elements
   that `RenderString` produces are valid.
 - For attribute-safe text, use `{{ .Inner | markdownify | plainify }}`.
@@ -42,7 +42,7 @@ and their root CSS class. Treat every rename as a breaking change.
 - Root elements use a semantic class prefix `cag-*` (e.g. `cag-intro`,
   `cag-features`, `cag-grid`, `cag-faq`). Do not rename existing ones.
 - Tailwind utilities are allowed alongside the `cag-*` class.
-- Never inline brand hexes — use the `@theme` tokens declared in
+- Never inline brand hexes; use the `@theme` tokens declared in
   `assets/css/main.css`.
 - Images go through the `cag/image` shortcode; galleries through
   `cag/gallery`. Do not hand-roll `<img>` or `<figure>` combos.
@@ -65,16 +65,16 @@ Every shortcode starts with a documented header:
   One-sentence summary of what this renders.
 
   Params (named):
-    heading (string, required) — section heading.
-    variant (string, optional, default "default") — visual variant.
+    heading (string, required): section heading.
+    variant (string, optional, default "default"): visual variant.
 
   Inner: block Markdown (piped through .Page.RenderString).
 
   Usage:
     {{</* features heading="Why come?" */>}}
-      {{</* card icon="🎮" title="…" */>}}…{{</* /card */>}}
+      {{</* card icon="🎮" title="..." */>}}...{{</* /card */>}}
     {{</* /features */>}}
 */ -}}
 ```
 
-This is non-negotiable — the file is the reference for content authors.
+This is non-negotiable: the file is the reference for content authors.

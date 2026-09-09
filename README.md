@@ -1,6 +1,6 @@
 # Ctrl-Alt-GG Homepage
 
-The brand homepage of the [Ctrl-Alt-GG](https://ctrl-alt-gg.hu) LAN community — program, location, FAQ, recap, games, and about. Bilingual (Hungarian / English). Live at <https://www.ctrl-alt-gg.hu/>.
+The brand homepage of the [Ctrl-Alt-GG](https://ctrl-alt-gg.hu) LAN community: program, location, FAQ, recap, games, and about. Bilingual (Hungarian / English). Live at <https://www.ctrl-alt-gg.hu/>.
 
 This is the marketing front door: it tells people what Ctrl-Alt-GG is, where it happens, and what they can expect. Content is composed out of a small shortcode library so most updates stay in Markdown.
 
@@ -8,11 +8,11 @@ This is the marketing front door: it tells people what Ctrl-Alt-GG is, where it 
 
 Hugo (extended) + Tailwind CSS v4 + Node.js, deployed to Azure Static Web Apps.
 
-Tool versions and build commands are pinned in the repo — don't copy them into docs. Read them from:
+Tool versions and build commands are pinned in the repo, so don't copy them into docs. Read them from:
 
-- `.nvmrc` and `engines.node` in `package.json` — Node.js version
-- `scripts` in `package.json` — dev and build commands
-- `.github/workflows/` — CI/deployment build environment and command order
+- `.nvmrc` and `engines.node` in `package.json`: Node.js version
+- `scripts` in `package.json`: dev and build commands
+- `.github/workflows/`: CI/deployment build environment and command order
 
 ## Local development
 
@@ -34,23 +34,23 @@ The first build is **slow**. The homepage pulls game cover images from remote so
 npm run build
 ```
 
-Builds the Tailwind stylesheet first, then runs Hugo. Output is written to `public/`. Never run `hugo` directly without `npm run build:css` first — templates reference classes that only exist in the compiled stylesheet.
+Builds the Tailwind stylesheet first, then runs Hugo. Output is written to `public/`. Never run `hugo` directly without `npm run build:css` first; templates reference classes that only exist in the compiled stylesheet.
 
 ## Project layout
 
-- `content/` — top-level marketing pages and sections (about, location, program, Q&A, recap, stuff). Each user-facing page ships in both `<slug>.md` (Hungarian) and `<slug>.en.md` (English).
-- `data/games.yaml` — the game-cards dictionary. Each entry is `slug: "<image url>"`; the slug is referenced from content via the `cag/image` shortcode.
-- `layouts/shortcodes/` — the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
-- `layouts/_default/` and `layouts/partials/` — site-wide templates and reusable fragments (`head/`, `footer/`, `chroma/`).
-- `assets/css/main.css` — Tailwind v4 source. The compiled output in `assets/css/compiled/` is git-ignored.
-- `i18n/hu.yaml`, `i18n/en.yaml` — per-locale string tables for template-owned strings.
-- `static/` — files copied verbatim to the site root.
+- `content/`: top-level marketing pages and sections (about, location, program, Q&A, recap, stuff). Each user-facing page ships in both `<slug>.md` (Hungarian) and `<slug>.en.md` (English).
+- `data/games.yaml`: the game-cards dictionary. Each entry is `slug: "<image url>"`; the slug is referenced from content via the `cag/image` shortcode.
+- `layouts/shortcodes/`: the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
+- `layouts/_default/` and `layouts/partials/`: site-wide templates and reusable fragments (`head/`, `footer/`, `chroma/`).
+- `assets/css/main.css`: Tailwind v4 source. The compiled output in `assets/css/compiled/` is git-ignored.
+- `i18n/hu.yaml`, `i18n/en.yaml`: per-locale string tables for template-owned strings.
+- `static/`: files copied verbatim to the site root.
 
 Site-wide behaviour flags live in `hugo.yaml` under `params.cag.*` (e.g. `disable_breadcrumbs`, `disable_authors`, schema toggles). Templates must respect them.
 
 ## Contributing and working with AI agents
 
-The canonical contributor guide — for humans and AI agents alike — is [`AGENTS.md`](AGENTS.md). It covers bilingual parity, the shortcode contract, `data/games.yaml` conventions, the Tailwind setup, and the "do-not-touch" list.
+The canonical contributor guide, for humans and AI agents alike, is [`AGENTS.md`](AGENTS.md). It covers bilingual parity, the shortcode contract, `data/games.yaml` conventions, the Tailwind setup, the prose style rules, and the "do-not-touch" list.
 
 Path-scoped rules for Copilot and other agents live under `.github/instructions/` and are auto-applied by glob. Reusable slash-command scaffolds (new section, new shortcode, new game entry) live under `.github/prompts/`.
 

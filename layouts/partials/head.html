@@ -46,10 +46,12 @@
     <meta content="{{ $color }}" name="theme-color">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    {{- /* Typography — shared Ctrl-Alt-GG Inter font across all three sites. */ -}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    {{- /* Typography: shared Ctrl-Alt-GG Inter font across all three sites.
+           Self-hosted from /vendor/inter/ (see the module mount in hugo.yaml);
+           the @font-face rules live in assets/css/main.css. Only the latin
+           subset is preloaded, latin-ext is fetched on demand via
+           unicode-range. */ -}}
+    <link rel="preload" href="{{ "vendor/inter/inter-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
     {{ template "_internal/opengraph.html" $page }}
     {{ template "_internal/twitter_cards.html" $page }}

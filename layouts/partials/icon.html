@@ -1,16 +1,16 @@
 {{- /*
-  icon.html — Render an inline SVG icon from assets/icons/<name>.svg.
+  icon.html: render an inline SVG icon from assets/icons/<name>.svg.
 
   Usage:
     {{ partial "icon.html" (dict "name" "server" "class" "w-4 h-4") }}
     {{ partial "icon.html" (dict "name" "close" "label" "Close") }}
 
   Params (dict keys):
-    name   (required) — file stem under assets/icons/, e.g. "server".
-    class  (optional) — space-separated CSS classes applied to <svg>.
-    label  (optional) — accessible name; when set, renders role="img"
+    name   (required): file stem under assets/icons/, e.g. "server".
+    class  (optional): space-separated CSS classes applied to <svg>.
+    label  (optional): accessible name; when set, renders role="img"
                         aria-label; otherwise the icon is aria-hidden.
-    size   (optional) — width/height in pixels (applied as attributes).
+    size   (optional): width/height in pixels (applied as attributes).
 */ -}}
 
 {{- $name := .name -}}

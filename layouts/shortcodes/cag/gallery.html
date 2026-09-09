@@ -2,14 +2,14 @@
   Renders a group of cag/image shortcodes in one of three layouts.
 
   Params (named):
-    type    (string, optional, default "rows") — layout variant:
-              "rows"    — flex-wrap row (images at natural height, aligned by `align`/`justify`).
-              "grid"    — responsive fixed-column grid.
-              "masonry" — CSS Grid where column count and per-image spans are
+    type    (string, optional, default "rows"): layout variant:
+              "rows":    flex-wrap row (images at natural height, aligned by `align`/`justify`).
+              "grid":    responsive fixed-column grid.
+              "masonry": CSS Grid where column count and per-image spans are
                           computed from each image's intrinsic aspect ratio so
                           wider images get more horizontal space than tall ones.
-    align   (string, optional, default "center") — cross-axis alignment: "start"|"center"|"end".
-    justify (string, optional, default "center") — main-axis justification: "start"|"center"|"end"|"between".
+    align   (string, optional, default "center"): cross-axis alignment: "start"|"center"|"end".
+    justify (string, optional, default "center"): main-axis justification: "start"|"center"|"end"|"between".
 
   Inner: one or more cag/image shortcodes.
 
@@ -56,19 +56,19 @@
 </div>
 {{ else if eq $type "masonry" }}
 {{- /*
-  Layout algorithm — justified-row packing
+  Layout algorithm: justified-row packing
   ────────────────────────────────────────
   1.  Extract intrinsic {w, h} from each <img> tag in the rendered inner
-      HTML by parsing the `height="…"` and `width="…"` attributes that
+      HTML by parsing the `height="..."` and `width="..."` attributes that
       cag/image always emits (in alphabetical order, so height precedes
-      width — a single regex captures both per image).
+      width, and a single regex captures both per image).
   2.  Walk images, greedily packing each row by accumulating aspect ratios
-      until the running sum reaches $targetRowAr (≈ 2.6). This produces
+      until the running sum reaches $targetRowAr (about 2.6). This produces
       rows of *variable* image count: a row of 2 wide landscapes, a row
-      of 4 portraits, a row of 1 ultra-wide, etc. — driven by content,
+      of 4 portraits, a row of 1 ultra-wide, and so on, driven by content,
       not by a fixed column count.
-      Lower $targetRowAr → fewer images per row → taller, larger images
-      and more visual variance.
+      A lower $targetRowAr means fewer images per row, so taller, larger
+      images and more visual variance.
   3.  Within each row, spans are AR-proportional, scaled to sum to 12
       (clamped to [$minSpan, 12]); rounding remainder is absorbed into
       the widest image so the row always fills the sub-grid width.

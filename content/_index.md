@@ -13,7 +13,7 @@ Felkészültél az év legnagyobb, minden képzeletet felülmúló, nagyszabás�
 
 {{< care-cta >}}
 
-Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvényére - immár másodszor -, mert az első akkora siker volt, hogy nem is volt kérdés a folytatás. A célunk most is egyszerű: egy hétvégét lazán együtt tölteni hozzánk hasonló arcokkal, kedvenc játékaink - és sör - társaságában. Közben pedig megszállottan azon leszünk, hogy a lehető legjobb hálózatot rakjuk össze, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi. És ki tudja… ha beindul a játékverseny, lehet, hogy egy-két meglepi nyeremény is gazdára talál.
+Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvényére - immár másodszor -, mert az első akkora siker volt, hogy nem is volt kérdés a folytatás. A célunk most is egyszerű: egy hétvégét lazán együtt tölteni hozzánk hasonló arcokkal, kedvenc játékaink - és sör - társaságában. Közben pedig megszállottan azon leszünk, hogy a lehető legjobb hálózatot rakjuk össze, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi. És ki tudja: ha beindul a játékverseny, lehet, hogy egy-két meglepi nyeremény is gazdára talál.
 
 {{< features heading="Miért gyere el?" >}}
   {{< card icon="🎮" title="Igazi LAN élmény" >}}Felejtsd el a lagot és az online bosszúságokat. LANon játszani teljesen más: csak a skill számít, meg persze a hangulat.{{< /card >}}

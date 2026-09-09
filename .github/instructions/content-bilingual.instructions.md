@@ -9,8 +9,8 @@ applyTo: 'content/**/*.md'
 
 Every page exists twice:
 
-- `content/<path>/<slug>.md` — Hungarian (default language)
-- `content/<path>/<slug>.en.md` — English
+- `content/<path>/<slug>.md`: Hungarian (default language)
+- `content/<path>/<slug>.en.md`: English
 
 Section indexes follow the same rule (`_index.md` / `_index.en.md`).
 Creating, renaming, or deleting one half without the other breaks parity
@@ -20,19 +20,19 @@ and must not be done.
 
 Required keys on every content page:
 
-- `title` — translated per locale.
-- `summary` or `description` — translated per locale, one sentence,
+- `title`: translated per locale.
+- `summary` or `description`: translated per locale, one sentence,
   ≤160 characters.
-- `weight` — integer, identical across the language pair, unique within
+- `weight`: integer, identical across the language pair, unique within
   the section (conventionally multiples of 10).
 
 Optional:
 
-- `date` — ISO date; identical across the pair.
+- `date`: ISO date; identical across the pair.
 - `draft: true` while WIP; remove before merging to `main`.
 
 Do not set `url`, `slug`, or `aliases` unless intentionally diverging
-from Hugo's defaults — they desync the two locales.
+from Hugo's defaults; they desync the two locales.
 
 ## Authoring with shortcodes
 
@@ -56,6 +56,14 @@ Compose pages out of the project shortcode library rather than raw HTML:
   combos.
 - Consult `layouts/shortcodes/` for the current parameter contract; extend
   rather than fork when a shortcode almost fits.
+- **Never paste multi-line raw `<div>`/`<ul>`/`<iframe>` blocks into a
+  content file.** If no existing shortcode fits a repeated pattern (a
+  list of items, an embedded map, a pair of CTA buttons, ...), add a new
+  one under `layouts/shortcodes/cag/` (see
+  `.github/instructions/shortcode-authoring.instructions.md`) instead of
+  inlining HTML. This keeps content files translatable/diffable and
+  keeps presentation changes to one template instead of every page that
+  copy-pasted the markup.
 
 ## Writing style
 

@@ -1,11 +1,11 @@
 /**
- * cag-gallery.js – Lightbox for .cag-shortcode-gallery images.
+ * cag-gallery.js: lightbox for .cag-shortcode-gallery images.
  *
  * Standalone images (rendered via the render-image hook) are NOT wrapped in
  * .cag-shortcode-gallery, so they are completely unaffected.
  *
  * Features:
- *  - Click a gallery image → opens full-screen lightbox with blurred backdrop
+ *  - Click a gallery image to open a full-screen lightbox with blurred backdrop
  *  - Prev/next arrow buttons (hidden at edges)
  *  - Keyboard: ArrowLeft / ArrowRight to navigate, Escape to close
  *  - Pointer events (mouse drag + touch swipe on mobile / touch laptops)
@@ -68,7 +68,7 @@
     lb.setAttribute('aria-hidden', 'true');
     lb.tabIndex = -1;
 
-    // Backdrop – click to close
+    // Backdrop, click to close
     var backdrop = document.createElement('div');
     backdrop.id = 'cag-lb-backdrop';
     backdrop.addEventListener('click', closeLightbox);
@@ -293,14 +293,14 @@
     var wasDrag = Math.abs(dragDeltaX) > 5;
 
     if (dragDeltaX < -SWIPE_THRESHOLD) {
-      navigate(1);                    // swiped left → next image
+      navigate(1);                    // swiped left, next image
     } else if (dragDeltaX > SWIPE_THRESHOLD) {
-      navigate(-1);                   // swiped right → previous image
+      navigate(-1);                   // swiped right, previous image
     } else if (!wasDrag && downTarget && downTarget.classList.contains('cag-lb-slide')) {
-      // Tap on the empty area of the slide (outside the image) → close lightbox
+      // Tap on the empty area of the slide (outside the image) closes the lightbox
       closeLightbox();
     } else {
-      // Not a full swipe – spring back to current position
+      // Not a full swipe, spring back to current position
       lbTrack.style.transform = 'translateX(-' + (current * 100) + '%)';
     }
 

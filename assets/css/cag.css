@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────
-   cag.css — Ctrl-Alt-GG homepage visual components.
+   cag.css: Ctrl-Alt-GG homepage visual components.
 
    Brand and accent colors are referenced via the @theme tokens
    declared in main.css (--color-brand-*, --color-accent-*).
@@ -29,7 +29,7 @@
 
 .prose-cag h2::after {
     @apply content-[''] absolute bottom-0 left-0 w-9 h-[2px] rounded-[1px];
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
 .prose-cag h3 {
@@ -38,11 +38,11 @@
 
 .prose-cag hr {
     @apply border-none h-px my-10;
-    @apply bg-gradient-to-r from-transparent via-brand-700/45 to-transparent;
+    @apply bg-linear-to-r from-transparent via-brand-700/45 to-transparent;
 }
 
 .prose-cag a:not([class]) {
-    @apply text-brand-500 underline decoration-brand-500/35 underline-offset-[2px] transition-[color,text-decoration-color] duration-[250ms] ease-[ease];
+    @apply text-brand-500 underline decoration-brand-500/35 underline-offset-[2px] transition-[color,text-decoration-color] duration-250 ease-brand;
 }
 
 .prose-cag a:not([class]):hover {
@@ -66,13 +66,13 @@
 
 .prose-cag ol:not([class]) > li::before {
     @apply absolute left-0 top-[0.1em] size-8 flex items-center justify-center text-white rounded-full text-[0.8rem] font-bold leading-none;
-    @apply bg-gradient-to-br from-brand-600 to-brand-500;
+    @apply bg-linear-to-br from-brand-600 to-brand-500;
     content: counter(cag-counter);
 }
 
 /* ── Gallery images: grow and glow on hover; zoom cursor ── */
 .cag-shortcode-gallery img {
-    @apply transition-[transform,box-shadow] duration-[250ms] ease-[ease] relative cursor-zoom-in;
+    @apply transition-[transform,box-shadow] duration-250 ease-brand relative cursor-zoom-in;
 }
 
 .cag-shortcode-gallery img:hover {
@@ -83,7 +83,7 @@
    Mobile  : 2 equal columns, images at natural aspect ratio.
    Desktop : 12-column sub-grid; per-image `style="grid-column: span N"` is
              injected by the gallery shortcode at build time using a
-             justified-row packing algorithm — rows hold a *variable*
+             justified-row packing algorithm: rows hold a *variable*
              number of images chosen so the row's aspect-ratio sum hits a
              target, and per-image spans within a row stay AR-proportional.
              This produces irregular row counts and noticeable size
@@ -91,33 +91,22 @@
              Images without inline span (e.g. remote/SVG sources whose
              dimensions cannot be computed at build time) fall back to
              a half-width span (2 per row) so they still feel generous.
-             `align-items: start` keeps each image at its natural height —
+             `align-items: start` keeps each image at its natural height:
              no cropping, no fixed row heights, no column-break overlap.
    ─────────────────────────────────────────────────────────────────────────── */
 .cag-gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    align-items: start;
+    @apply grid grid-cols-2 md:grid-cols-12 gap-3 items-start;
 }
 
-@media (width >= 48rem) {
-    .cag-gallery-masonry {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
-    /* Equal-width fallback for images whose dimensions could not be computed
-       (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
-       span 6 on a 12-column grid = 2 images per row. */
-    .cag-gallery-masonry > .cag-shortcode-image:not([style]) {
-        grid-column: span 6;
-    }
+/* Equal-width fallback for images whose dimensions could not be computed
+   (e.g. SVG or external-URL sources that bypass Hugo's resource pipeline).
+   span 6 on a 12-column grid = 2 images per row. */
+.cag-gallery-masonry > .cag-shortcode-image:not([style]) {
+    @apply md:col-span-6;
 }
 
 .cag-gallery-masonry > .cag-shortcode-image > img {
-    display: block;
-    width: 100%;
-    height: auto;
+    @apply block w-full h-auto;
 }
 
 /* ── .cag-person: team member card heading ── */
@@ -127,7 +116,7 @@
 
 /* ── .cag-faq: FAQ question highlight block ── */
 .cag-faq h2 {
-    @apply bg-brand-700/7 border-l-4 border-l-brand-700 rounded-r-[8px] py-[0.7rem] px-[1.1rem] mt-6 mb-3 text-[1.05rem] font-bold text-brand-500;
+    @apply bg-brand-700/7 border-l-4 border-l-brand-700 rounded-r-lg py-[0.7rem] px-[1.1rem] mt-6 mb-3 text-[1.05rem] font-bold text-brand-500;
 }
 
 .cag-faq h2::after {
@@ -155,20 +144,25 @@
 
 /* ── Lightbox ─────────────────────────────────────────────────────────────── */
 
-#cag-lb {
+/* Shared with #cag-polaroid-lb below: same overlay chrome (backdrop, open
+   transition), just a different stage element. */
+#cag-lb,
+#cag-polaroid-lb {
     @apply fixed inset-0 z-[1060] opacity-0 invisible;
     transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 
-#cag-lb.is-open {
-    @apply opacity-100 visible transition-opacity duration-[250ms] ease-[ease];
+#cag-lb.is-open,
+#cag-polaroid-lb.is-open {
+    @apply opacity-100 visible transition-opacity duration-250 ease-brand;
 }
 
 body.cag-lb-active {
     @apply overflow-hidden;
 }
 
-#cag-lb-backdrop {
+#cag-lb-backdrop,
+#cag-polaroid-lb-backdrop {
     @apply fixed inset-0 cursor-zoom-out bg-black/[82%] backdrop-blur-[6px];
 }
 
@@ -178,7 +172,7 @@ body.cag-lb-active {
 }
 
 #cag-lb-track {
-    @apply flex size-full will-change-transform transition-transform duration-[320ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
+    @apply flex size-full will-change-transform transition-transform duration-320 ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
 }
 
 .cag-lb-slide {
@@ -186,35 +180,38 @@ body.cag-lb-active {
 }
 
 .cag-lb-slide img {
-    @apply max-w-full max-h-full object-contain rounded-[6px] select-none pointer-events-none shadow-lb-slide;
+    @apply max-w-full max-h-full object-contain rounded-md select-none pointer-events-none shadow-lb-slide;
     -webkit-user-drag: none;
 }
 
 /* ── Close button (top-right) ────────────────────────────────────────────── */
-#cag-lb-close {
-    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-[200ms] ease-[ease] bg-white/[12%] backdrop-blur-[4px];
+#cag-lb-close,
+#cag-polaroid-lb-close {
+    @apply fixed top-4 right-4 z-[1061] flex items-center justify-center size-11 border-none rounded-full text-white cursor-pointer transition-[background,transform] duration-200 ease-brand bg-white/[12%] backdrop-blur-[4px];
 }
 
-#cag-lb-close:hover {
+#cag-lb-close:hover,
+#cag-polaroid-lb-close:hover {
     @apply scale-110 bg-white/[24%];
 }
 
-#cag-lb-close svg {
+#cag-lb-close svg,
+#cag-polaroid-lb-close svg {
     @apply size-5;
 }
 
 /* ── Prev / Next arrow buttons ────────────────────────────────────────────── */
 #cag-lb-prev,
 #cag-lb-next {
-    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-[200ms] ease-[ease] bg-white/10 backdrop-blur-[4px];
+    @apply fixed top-1/2 -translate-y-1/2 z-[1061] flex items-center justify-center w-12 h-20 border-none text-white cursor-pointer transition-[background,opacity] duration-200 ease-brand bg-white/10 backdrop-blur-[4px];
 }
 
 #cag-lb-prev {
-    @apply left-0 rounded-r-[6px];
+    @apply left-0 rounded-r-md;
 }
 
 #cag-lb-next {
-    @apply right-0 rounded-l-[6px];
+    @apply right-0 rounded-l-md;
 }
 
 #cag-lb-prev:hover,
@@ -248,22 +245,46 @@ body.cag-lb-active {
     }
 }
 
+/* ── Polaroid viewer: shares #cag-lb's overlay chrome above, plus centering
+   for its stage element ──────────────────────────────────────────── */
+#cag-polaroid-lb {
+    @apply flex items-center justify-center;
+}
+
+#cag-polaroid-lb-stage {
+    @apply relative z-[1] scale-[0.94] transition-transform duration-250 ease-out;
+}
+
+#cag-polaroid-lb.is-open #cag-polaroid-lb-stage {
+    @apply scale-100;
+}
+
+#cag-polaroid-lb .cag-polaroid-print {
+    @apply select-none;
+}
+
+#cag-polaroid-lb .cag-polaroid-print img {
+    @apply pointer-events-none;
+    -webkit-user-drag: none;
+}
+
 /* ── .cag-game-cards: game list styled as image-compatible card grid ── */
 .cag-game-cards {
-    @apply grid gap-4 list-none p-0 my-4 mb-6;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    @apply grid gap-4 list-none p-0 my-4 mb-6 grid-cols-[repeat(auto-fill,minmax(230px,1fr))];
 }
 
 .cag-game-cards li {
-    @apply rounded-card border border-border bg-surface-card py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
+    @apply rounded-card border border-border bg-surface-card py-[0.85rem] px-[1.1rem] flex flex-col gap-1 relative overflow-hidden transition-card;
 }
 
 .cag-game-cards li::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[2px];
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
-.cag-game-cards li:hover {
+/* Shared with a.cag-card-link below: same lift-and-glow hover treatment. */
+.cag-game-cards li:hover,
+a.cag-card-link:hover {
     @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
 }
 
@@ -307,7 +328,7 @@ body.cag-lb-active {
 }
 
 .cag-game-cards li:has(strong)::before {
-    @apply bg-gradient-to-r from-accent-500 to-accent-400;
+    @apply bg-linear-to-r from-accent-500 to-accent-400;
 }
 
 .cag-game-cards li:has(strong):hover {
@@ -318,37 +339,333 @@ body.cag-lb-active {
     @apply text-accent-500 text-xs font-bold uppercase tracking-[0.05em];
 }
 
-/* ── .cag-card-frame: visual shell shared by all .cag-card components ── */
+/* ── .cag-card-frame: visual shell shared by all .cag-card components ──
+   flex-col so a card stretched taller by a taller sibling (default flex
+   stretch in .cag-grid) can let its content (e.g. cag-venue-map) grow
+   into the extra space instead of leaving blank space below it. ── */
 .cag-card-frame {
-    @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden;
+    @apply rounded-card px-[1.6rem] py-6 border border-border bg-surface-card relative overflow-hidden flex flex-col;
 }
 
 .cag-card-frame::before {
     @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card;
-    @apply bg-gradient-to-r from-brand-600 to-brand-500;
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
+}
+
+.cag-map-links {
+    @apply mt-6 flex flex-wrap justify-center gap-4 mx-auto max-w-[56rem];
+}
+
+/* Shared "brand link card" component powering both .cag-map-link (map deep
+   links, below) and .cag-social-card (channel cards, near
+   .cag-social-channels): brand-colour top bar, icon badge, platform caption
+   + handle, arrow affordance. Each variant sets --card-brand (and
+   --card-handle when it differs) once. */
+.cag-map-link,
+.cag-social-card {
+    @apply flex items-center gap-4 rounded-card border border-border bg-surface-card no-underline text-on-surface relative overflow-hidden;
+    @apply transition-card;
+    @apply px-5 py-[1.1rem] grow shrink basis-[260px] max-w-[420px];
+}
+
+.cag-map-link::before,
+.cag-social-card::before {
+    @apply content-[''] absolute top-0 inset-x-0 h-[3px] rounded-t-card opacity-85;
+    background: var(--card-brand);
+}
+
+.cag-map-link:hover,
+.cag-social-card:hover {
+    @apply -translate-y-[3px] shadow-card no-underline text-on-surface;
+    border-color: color-mix(in srgb, var(--card-brand) 25%, transparent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--card-brand) 8%, transparent);
+}
+
+.cag-map-link:focus-visible,
+.cag-social-card:focus-visible {
+    @apply focus-ring-brand;
+}
+
+.cag-map-link__body,
+.cag-social-card__body {
+    @apply flex-1 min-w-0 flex flex-col gap-[0.1rem];
+}
+
+.cag-map-link__platform,
+.cag-social-card__platform {
+    @apply text-[0.7rem] font-bold uppercase tracking-[0.08em] opacity-55;
+}
+
+.cag-map-link__handle,
+.cag-social-card__handle {
+    @apply text-[0.95rem] font-bold whitespace-nowrap overflow-hidden text-ellipsis text-(--card-handle);
+}
+
+.cag-map-link__arrow,
+.cag-social-card__arrow {
+    @apply shrink-0 transition-transform duration-200 ease-brand text-(--link);
+}
+
+.cag-map-link__arrow svg,
+.cag-social-card__arrow svg {
+    @apply size-[18px];
+}
+
+.cag-map-link:hover .cag-map-link__arrow,
+.cag-social-card:hover .cag-social-card__arrow {
+    @apply translate-x-0.5 -translate-y-0.5;
+}
+
+.cag-map-link--google { --card-brand: #4285f4; --card-handle: #4285f4; }
+.cag-map-link--apple  { --card-brand: #000000; --card-handle: var(--on-surface); }
+/* Waze cyan is too light for body text on the light surface, so the handle
+   falls back to --on-surface and the brand colour stays on the top bar. */
+.cag-map-link--waze   { --card-brand: #33ccff; --card-handle: var(--on-surface); }
+
+/* Map icons sit on a white badge (the SVG/PNG asset supplies its own
+   colour), unlike the social cards' solid-colour badge below. */
+.cag-map-link__icon {
+    @apply flex items-center justify-center shrink-0 rounded-card bg-white size-11;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
+}
+
+.cag-map-link__icon-img {
+    @apply block bg-center bg-no-repeat bg-contain size-[26px];
+}
+
+.cag-map-link__icon-img--google {
+    background-image: url('/icons/google-maps-official.svg');
+}
+
+.cag-map-link__icon-img--apple,
+.cag-map-link__icon-img--waze {
+    @apply size-8;
+}
+
+.cag-map-link__icon-img--apple {
+    background-image: url('/icons/apple-maps-official.svg');
+}
+
+.cag-map-link__icon-img--waze {
+    background-image: url('/icons/waze-official.svg');
+}
+
+
+/* ── .cag-venue-map: MapLibre canvas + address caption. The frame grows to fill
+   whatever height its card gets (see .cag-card-frame / .cag-card-desc
+   flex-col), with a floor so it stays usable when the card is stacked ── */
+.cag-venue-map {
+    @apply flex flex-col flex-1 gap-2 my-2;
+}
+
+.cag-venue-map__frame {
+    @apply relative w-full flex-1 min-h-[220px] rounded-lg border border-border overflow-hidden bg-gray-100 dark:bg-gray-900;
+}
+
+.cag-venue-map__fallback {
+    @apply absolute inset-0 flex items-center justify-center p-6 text-center text-sm opacity-70;
+}
+
+/* MapLibre paints white chrome by default; soften it into the card. */
+.cag-venue-map__frame .maplibregl-ctrl-group {
+    @apply rounded-lg shadow-none border border-border;
+}
+
+.cag-venue-map__address {
+    @apply shrink-0 m-0;
+}
+
+/* ── .cag-features--split: sections (e.g. venue map + parking + transit
+   list) laid out at a ~60:40 column ratio instead of the default even
+   wrap, so a wide map doesn't get squeezed into a tall, narrow column on
+   desktop. With exactly 3 cards, the first two stack in the left column
+   (map above parking, split 2:1 vertically) and the third spans both rows
+   on the right, so the stacked pair matches its height.
+   On tablet-portrait widths (md, below the lg split) the first two cards
+   sit side by side 50:50 and the third spans the full width underneath,
+   instead of stacking all three in a single column.
+   Cards drop the .cag-grid > .cag-card max-width cap entirely (rather than
+   just from lg up): that cap exists for the non-split flex-wrap grid, and
+   here it left cards narrower than their grid column between sm and md,
+   hugging the left edge instead of filling it. ── */
+.cag-features--split .cag-grid {
+    @apply grid gap-5 mx-auto max-w-full md:grid-cols-2 lg:grid-cols-[3fr_2fr] lg:grid-rows-[2fr_1fr] lg:items-stretch;
+}
+
+.cag-features--split .cag-grid > .cag-card {
+    @apply max-w-none;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) {
+    @apply lg:grid-rows-[2fr_1fr];
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(1) {
+    @apply lg:col-start-1 lg:row-start-1;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(2) {
+    @apply lg:col-start-1 lg:row-start-2;
+}
+
+.cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(3) {
+    @apply md:col-span-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:col-span-1;
+}
+
+.prose-cag .cag-transport-list {
+    @apply list-none pl-0 mt-4 space-y-2 mx-auto max-w-[30rem];
+}
+
+.cag-transport-item {
+    @apply block;
+}
+
+.cag-transport-stop {
+    @apply grid items-center gap-3 rounded-xl border border-border bg-surface px-3 py-2 no-underline text-on-surface;
+    @apply grid-cols-[1.875rem_minmax(0,1fr)] transition-[transform,border-color,box-shadow] duration-200 ease-in-out;
+}
+
+.cag-transport-stop:hover {
+    @apply -translate-y-px no-underline;
+}
+
+/* Each mode sets --transit once; the line badge and the stop's hover glow
+   both read from it instead of repeating the same hex per mode. */
+.cag-transport-stop--bus       { --transit: #1b9dd9; }
+.cag-transport-stop--night-bus { --transit: #1e1e1e; }
+.cag-transport-stop--tram      { --transit: #ffd900; }
+.cag-transport-stop--hev       { --transit: #8e3d99; }
+.cag-transport-stop--volan     { --transit: #f9ab13; }
+.cag-transport-stop--bubi      { --transit: #98c421; }
+
+.cag-transport-stop--bus:hover,
+.cag-transport-stop--hev:hover {
+    border-color: color-mix(in srgb, var(--transit) 45%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 18%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 20%, transparent);
+}
+
+.cag-transport-stop--night-bus:hover,
+.cag-transport-stop--tram:hover,
+.cag-transport-stop--volan:hover,
+.cag-transport-stop--bubi:hover {
+    border-color: color-mix(in srgb, var(--transit) 55%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--transit) 22%, transparent), 0 8px 20px color-mix(in srgb, var(--transit) 25%, transparent);
+}
+
+.cag-transport-pictogram {
+    @apply block bg-center bg-no-repeat bg-contain shrink-0 size-[1.875rem];
+}
+
+.cag-transport-pictogram--bus {
+    background-image: url('/icons/bkk-bus-official.svg');
+}
+
+.cag-transport-pictogram--tram {
+    background-image: url('/icons/bkk-tram-official.svg');
+}
+
+.cag-transport-pictogram--hev {
+    background-image: url('/icons/bkk-hev-official.svg');
+}
+
+.cag-transport-pictogram--night-bus {
+    background-image: url('/icons/bkk-night-bus-official.svg');
+}
+
+.cag-transport-pictogram--volan {
+    background-image: url('/icons/bkk-volan-official.svg');
+}
+
+/* BKK only publishes the bike-sharing pictogram as a raster asset. */
+.cag-transport-pictogram--bubi {
+    background-image: url('/icons/bkk-bubi-official.png');
+}
+
+.cag-transport-meta {
+    @apply flex flex-col gap-2 min-w-0;
+}
+
+.cag-transport-distance {
+    @apply text-sm opacity-70;
+}
+
+.cag-line-badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.cag-line-badge {
+    @apply inline-flex items-center justify-center rounded-lg px-2 py-1 text-[0.72rem] leading-none font-bold border text-white;
+    background: var(--badge);
+    border-color: color-mix(in srgb, var(--badge) 65%, transparent);
+}
+
+.cag-line-badge--bus  { --badge: #1b9dd9; }
+.cag-line-badge--tram { --badge: #ffd900; @apply text-[#111827]; }
+.cag-line-badge--hev  {
+    /* Official BKK H5 (Szentendre) line colour: purple. */
+    --badge: #8e3d99;
+}
+.cag-line-badge--night { --badge: #1e1e1e; }
+.cag-line-badge--volan { --badge: #f9ab13; @apply text-[#111827]; }
+
+/* ── .cag-parking-sides: two-sided "street" diagram (cag/parking-sides
+   shortcode) contrasting an always-free side with a weekends-only side,
+   separated by a road divider with lane-marking dashes ── */
+.cag-parking-sides {
+    @apply flex flex-col sm:flex-row items-stretch rounded-lg border border-border overflow-hidden my-2;
+}
+
+.cag-parking-side {
+    @apply flex-1 flex flex-col items-center gap-2 px-4 py-5 text-center;
+}
+
+.cag-parking-side--free {
+    @apply bg-stuff-bring/10;
+}
+
+.cag-parking-side--weekend {
+    @apply bg-accent-500/10;
+}
+
+.cag-parking-side__icon {
+    @apply text-2xl leading-none;
+}
+
+.cag-parking-side__label {
+    @apply text-sm font-semibold;
+}
+
+.cag-parking-side__badge {
+    @apply inline-flex items-center rounded-pill px-2.5 py-1 text-xs font-bold text-white;
+}
+
+.cag-parking-side--free .cag-parking-side__badge {
+    @apply bg-stuff-bring;
+}
+
+.cag-parking-side--weekend .cag-parking-side__badge {
+    @apply bg-accent-500;
+}
+
+.cag-parking-road {
+    @apply flex shrink-0 items-center justify-center h-3 sm:h-auto sm:w-8 bg-gray-700 dark:bg-gray-950;
+}
+
+.cag-parking-road__line {
+    @apply w-3/4 h-[3px] sm:w-[3px] sm:h-3/4 border-t-2 sm:border-t-0 sm:border-l-2 border-dashed border-white/70;
 }
 
 /* ── .cag-grid children: flex-wrap sizing so cards fill rows on wide screens
    and remain centered when fewer cards than columns are present ── */
 .cag-grid > .cag-card {
-    flex: 1 1 15rem;   /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping */
-    max-width: 100%;   /* mobile: full width */
-}
-
-@media (width >= 640px) {
-    .cag-grid > .cag-card {
-        max-width: 21.25rem; /* 340px cap so cards don't stretch too wide */
-    }
+    /* grow/shrink; 15rem basis keeps cards ≥15rem before wrapping; 340px cap
+       from sm: up so cards don't stretch too wide */
+    @apply grow shrink basis-[15rem] max-w-full sm:max-w-[21.25rem];
 }
 
 /* ── a.cag-card-link: card used as a hyperlink (href param on <card>) ── */
 a.cag-card-link {
-    @apply block no-underline text-on-surface;
-    @apply transition-[transform,box-shadow,border-color] duration-[250ms] ease-[ease];
-}
-
-a.cag-card-link:hover {
-    @apply -translate-y-[3px] shadow-game-card-hover border-game-card-hover-border;
+    @apply block no-underline text-on-surface transition-card;
 }
 
 .cag-stuff-bring ul > li::marker,
@@ -358,348 +675,104 @@ a.cag-card-link:hover {
 
 /* ── Care CTA: portal to care.ctrl-alt-gg.hu ────────────────────── */
 .cag-care-cta {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-    padding: 1.25rem 1.5rem;
-    margin: 2rem 0 2.5rem;
-    border-radius: var(--radius-panel);     /* 1.25rem — softer than --radius-card, echoes Care's rounded-2xl */
+    @apply flex items-center gap-[1.1rem] no-underline text-on-surface transition-card;
+    @apply max-[576px]:flex-col max-[576px]:text-center;
+    @apply px-6 py-5 mx-0 mt-8 mb-10 max-[576px]:px-5 max-[576px]:py-[1.1rem];
+    @apply rounded-(--radius-panel); /* softer than --radius-card, echoes Care's rounded-2xl */
     background: linear-gradient(135deg,
         color-mix(in srgb, var(--color-brand-600) 8%, transparent),
         color-mix(in srgb, var(--color-brand-600) 2%, transparent));
     border: 1px solid color-mix(in srgb, var(--color-brand-600) 25%, transparent);
-    color: var(--on-surface);
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cag-care-cta:hover {
-    transform: translateY(-2px);
+    @apply -translate-y-0.5 no-underline text-on-surface;
     box-shadow: 0 10px 32px color-mix(in srgb, var(--color-brand-600) 18%, transparent);
     border-color: color-mix(in srgb, var(--color-brand-600) 55%, transparent);
-    color: var(--on-surface);
-    text-decoration: none;
 }
 
 .cag-care-cta:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 3px;
+    @apply focus-ring-brand;
 }
 
 .cag-care-cta__badge {
-    flex: 0 0 56px;
-    width: 56px;
-    height: 56px;
-    border-radius: var(--radius-card);      /* 0.875rem = 14px, matches homepage card corners */
+    @apply flex items-center justify-center rounded-card shrink-0;
+    @apply size-14 basis-14 max-[576px]:size-12 max-[576px]:basis-12;
     background: var(--color-brand-600);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0 4px 14px color-mix(in srgb, var(--color-brand-600) 35%, transparent);
 }
 
 .cag-care-cta__badge svg {
-    width: 36px;
-    height: auto;
-    color: var(--color-white);
+    @apply w-9 h-auto text-white;
 }
 
 .cag-care-cta__body {
-    flex: 1 1 auto;
-    min-width: 0;
+    @apply flex-1 min-w-0;
 }
 
 .cag-care-cta__title {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--color-brand-500);
-    margin: 0 0 0.15rem;
+    @apply font-bold text-[1.1rem] text-brand-500 mx-0 mt-0 mb-[0.15rem];
 }
 
 .cag-care-cta__desc {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin: 0;
-    color: var(--on-surface);
+    @apply text-[0.9rem] opacity-80 m-0 text-on-surface;
 }
 
 .cag-care-cta__arrow {
-    margin-left: auto;
-    color: var(--link);
-    flex-shrink: 0;
+    @apply ml-auto shrink-0 max-[576px]:hidden text-(--link);
 }
 
-/* Responsive: stack vertically, centre text, hide arrow on small screens */
-@media (width < 576px) {
-    .cag-care-cta {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.1rem 1.25rem;
-    }
-
-    .cag-care-cta__badge {
-        flex: 0 0 48px;
-        width: 48px;
-        height: 48px;
-    }
-
-    .cag-care-cta__arrow {
-        display: none;
-    }
-}
 
 /* ── .cag-social-channels: YouTube + Twitch channel cards ──────────── */
 
 .cag-social-channels {
-    margin: 2.5rem 0;
+    @apply my-10;
 }
 
 .cag-social-channels__heading {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--on-surface);
-    position: relative;
-    padding-bottom: 0.5rem;
-    text-align: center;
+    @apply text-2xl font-bold mb-4 text-on-surface relative pb-2 text-center;
 }
 
 .cag-social-channels__heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2.25rem;
-    height: 2px;
-    border-radius: 1px;
-    background: linear-gradient(to right, var(--color-brand-600), var(--color-brand-500));
+    @apply content-[''] absolute bottom-0 left-1/2 -translate-x-1/2 w-9 h-[2px] rounded-[1px];
+    @apply bg-linear-to-r from-brand-600 to-brand-500;
 }
 
 /* Override prose-cag h2::after which has left: 0 */
 .prose-cag .cag-social-channels__heading::after {
-    left: 50%;
-    transform: translateX(-50%);
+    @apply left-1/2 -translate-x-1/2;
 }
 
 .cag-social-channels__grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 860px;
-    margin-inline: auto;
+    @apply flex flex-wrap justify-center gap-4 mx-auto max-w-[860px];
 }
 
-/* ── Base card ── */
-.cag-social-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    border-radius: var(--radius-card);
-    border: 1px solid var(--border);
-    background: var(--surface-card);
-    text-decoration: none;
-    color: var(--on-surface);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    position: relative;
-    overflow: hidden;
-    flex: 1 1 260px;
-    max-width: 420px;
-}
+/* Layout, hover, and focus styles live with .cag-map-link above (shared
+   "brand link card" component). Each platform just sets --card-brand (and
+   --card-handle when it differs) and the icon badge colour below. */
+.cag-social-card--youtube   { --card-brand: #ff0000; --card-handle: #cc0000; }
+.cag-social-card--twitch    { --card-brand: #9146ff; --card-handle: #7c3aed; }
+.cag-social-card--kick      { --card-brand: #53fc18; --card-handle: #3db800; }
+.cag-social-card--facebook  { --card-brand: #1877f2; --card-handle: #1877f2; }
+.cag-social-card--discord   { --card-brand: #5865f2; --card-handle: #4752c4; }
+.cag-social-card--x         { --card-brand: #000000; --card-handle: var(--on-surface); }
 
-.cag-social-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    inset-inline: 0;
-    height: 3px;
-    border-radius: var(--radius-card) var(--radius-card) 0 0;
-    opacity: 0.85;
-}
-
-.cag-social-card--youtube::before {
-    background: #ff0000;
-}
-
-.cag-social-card--twitch::before {
-    background: #9146ff;
-}
-
-.cag-social-card--kick::before {
-    background: #53fc18;
-}
-
-.cag-social-card--facebook::before {
-    background: #1877f2;
-}
-
-.cag-social-card--discord::before {
-    background: #5865f2;
-}
-
-.cag-social-card--x::before {
-    background: #000000;
-}
-
-.cag-social-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-    color: var(--on-surface);
-}
-
-.cag-social-card--youtube:hover {
-    border-color: color-mix(in srgb, #ff0000 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #ff0000 8%, transparent);
-}
-
-.cag-social-card--twitch:hover {
-    border-color: color-mix(in srgb, #9146ff 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #9146ff 8%, transparent);
-}
-
-.cag-social-card--kick:hover {
-    border-color: color-mix(in srgb, #53fc18 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #53fc18 8%, transparent);
-}
-
-.cag-social-card--facebook:hover {
-    border-color: color-mix(in srgb, #1877f2 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #1877f2 8%, transparent);
-}
-
-.cag-social-card--discord:hover {
-    border-color: color-mix(in srgb, #5865f2 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #5865f2 8%, transparent);
-}
-
-.cag-social-card--x:hover {
-    border-color: color-mix(in srgb, #000000 25%, transparent);
-    box-shadow: 0 8px 28px color-mix(in srgb, #000000 8%, transparent);
-}
-
-.cag-social-card:focus-visible {
-    outline: 2px solid var(--link);
-    outline-offset: 3px;
-}
-
-/* ── Icon badge ── */
+/* Social cards use a solid-colour badge (unlike .cag-map-link__icon's white
+   badge), so unlike that one this needs its own background + text colour. */
 .cag-social-card__icon {
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.cag-social-card--youtube .cag-social-card__icon {
-    background: #ff0000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #ff0000 20%, transparent);
-}
-
-.cag-social-card--twitch .cag-social-card__icon {
-    background: #9146ff;
-    box-shadow: 0 4px 14px color-mix(in srgb, #9146ff 20%, transparent);
+    @apply flex items-center justify-center shrink-0 rounded-card text-white size-11;
+    background: var(--card-brand);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--card-brand) 20%, transparent);
 }
 
 .cag-social-card--kick .cag-social-card__icon {
-    background: #53fc18;
-    color: #000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #53fc18 20%, transparent);
-}
-
-.cag-social-card--facebook .cag-social-card__icon {
-    background: #1877f2;
-    box-shadow: 0 4px 14px color-mix(in srgb, #1877f2 20%, transparent);
-}
-
-.cag-social-card--discord .cag-social-card__icon {
-    background: #5865f2;
-    box-shadow: 0 4px 14px color-mix(in srgb, #5865f2 20%, transparent);
-}
-
-.cag-social-card--x .cag-social-card__icon {
-    background: #000000;
-    box-shadow: 0 4px 14px color-mix(in srgb, #000000 20%, transparent);
+    @apply text-black;
 }
 
 .cag-social-card__icon svg {
-    width: 22px;
-    height: 22px;
-}
-
-/* ── Text body ── */
-.cag-social-card__body {
-    flex: 1 1 auto;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-}
-
-.cag-social-card__platform {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.55;
-}
-
-.cag-social-card__handle {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--on-surface);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.cag-social-card--youtube .cag-social-card__handle {
-    color: #cc0000;
-}
-
-.cag-social-card--twitch .cag-social-card__handle {
-    color: #7c3aed;
-}
-
-.cag-social-card--kick .cag-social-card__handle {
-    color: #3db800;
-}
-
-.cag-social-card--facebook .cag-social-card__handle {
-    color: #1877f2;
-}
-
-.cag-social-card--discord .cag-social-card__handle {
-    color: #4752c4;
-}
-
-.cag-social-card--x .cag-social-card__handle {
-    color: var(--on-surface);
+    @apply size-[22px];
 }
 
 .cag-social-card__desc {
-    font-size: 0.8rem;
-    opacity: 0.65;
-}
-
-/* ── Arrow affordance ── */
-.cag-social-card__arrow {
-    flex-shrink: 0;
-    color: var(--link);
-    transition: transform 0.2s ease;
-}
-
-.cag-social-card__arrow svg {
-    width: 18px;
-    height: 18px;
-}
-
-.cag-social-card:hover .cag-social-card__arrow {
-    transform: translate(2px, -2px);
+    @apply text-[0.8rem] opacity-65;
 }

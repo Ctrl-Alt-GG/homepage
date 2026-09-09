@@ -1,0 +1,36 @@
+{{- /*
+  Renders an interactive MapLibre GL map (OpenFreeMap vector tiles, no API key
+  and no third-party cookies) plus an address caption. The map is initialised
+  lazily by assets/js/cag-venue-map.js once it scrolls into view; without
+  JavaScript or WebGL the caption and the surrounding map links still work.
+  Grows to fill the height of its parent card on wide (multi-column) layouts;
+  falls back to a fixed minimum height when stacked on narrow viewports.
+  Meant to be used inside a {{< card >}} shortcode.
+
+  Params (named):
+    lat     (string, required): latitude for the map marker.
+    lng     (string, required): longitude for the map marker.
+    address (string, required): plain-text address shown under the map.
+    zoom    (string, optional): initial zoom level. Defaults to "15".
+
+  Usage:
+    {{< cag/venue-map lat="47.5513926" lng="19.0354529" address="1037 Budapest, Nagymihály utca 2." >}}
+*/ -}}
+{{- $lat := .Get "lat" -}}
+{{- $lng := .Get "lng" -}}
+{{- $address := .Get "address" -}}
+{{- $zoom := .Get "zoom" | default "15" -}}
+{{- if not (and $lat $lng $address) }}{{ errorf "cag/venue-map: 'lat', 'lng' and 'address' are all required (page: %s)" .Page.File.Path }}{{ end -}}
+{{- .Page.Store.Set "cag-shortcode-venue-map-script" true -}}
+<div class="cag-venue-map">
+  {{- /* MapLibre labels the canvas itself via the Map.Title locale string; a
+         role here would hide the zoom controls from assistive tech. */ -}}
+  <div class="cag-venue-map__frame"
+       data-cag-venue-map
+       data-lat="{{ $lat }}"
+       data-lng="{{ $lng }}"
+       data-zoom="{{ $zoom }}">
+    <noscript><span class="cag-venue-map__fallback">{{ i18n "venue_map_noscript" }}</span></noscript>
+  </div>
+  <p class="cag-venue-map__address">{{ i18n "venue_address_label" }} <strong>{{ $address }}</strong></p>
+</div>

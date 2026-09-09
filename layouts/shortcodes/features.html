@@ -3,7 +3,14 @@
   underlined heading. Used on landing pages to surface child content.
 
   Params (named):
-    heading (string, required) — section heading rendered above the card grid.
+    heading (string, required): section heading rendered above the card grid.
+    variant (string, optional): when set to "split", widens the grid and
+                                  arranges exactly three child cards as a
+                                  two-column layout: the first two stacked in
+                                  the left column, the third spanning both rows
+                                  on the right. Layout lives entirely in
+                                  .cag-features--split (cag.css), so the default
+                                  flex utilities are not emitted for it.
 
   Inner: one or more cag/card shortcodes (Markdown is not rendered; the inner
          content is emitted verbatim and the nested shortcodes do their own
@@ -11,13 +18,21 @@
 
   Usage:
     {{< features heading="Az előző részek tartalmából" >}}
-      {{< card href="/recap/first-episode/" title="Első epizód" >}}…{{< /card >}}
+      {{< card href="/recap/first-episode/" title="Első epizód" >}}...{{< /card >}}
+    {{< /features >}}
+
+    {{< features heading="Megközelítés" variant="split" >}}
+      {{< card title="Térkép" >}}...{{< /card >}}
+      {{< card title="Parkolás" >}}...{{< /card >}}
+      {{< card title="Tömegközlekedés" >}}...{{< /card >}}
     {{< /features >}}
 */ -}}
 {{ $heading := .Get "heading" }}
-<div class="cag-features mt-10 mb-4">
-  <div class="cag-features-heading text-center font-bold text-[1.45rem] mb-7 pb-3 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[3px] after:bg-gradient-to-r after:from-brand-600 after:to-brand-500 after:rounded-[2px]">{{ $heading }}</div>
-  <div class="cag-grid flex flex-wrap justify-center gap-5 max-w-[900px] mx-auto">
+{{ $variant := .Get "variant" }}
+{{ $gridClass := cond (eq $variant "split") "cag-grid" "cag-grid flex flex-wrap justify-center gap-5 max-w-[900px] mx-auto" }}
+<div class="cag-features mt-10 mb-4{{ if $variant }} cag-features--{{ $variant }}{{ end }}">
+  <div class="cag-features-heading text-center font-bold text-[1.45rem] mb-7 pb-3 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-[48px] after:h-[3px] after:bg-linear-to-r after:from-brand-600 after:to-brand-500 after:rounded-xs">{{ $heading }}</div>
+  <div class="{{ $gridClass }}">
     {{ .Inner }}
   </div>
 </div>

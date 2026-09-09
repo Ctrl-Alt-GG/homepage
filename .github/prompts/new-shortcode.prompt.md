@@ -7,12 +7,12 @@ mode: agent
 
 Inputs:
 
-- `${input:name}` — kebab-case filename (becomes `{{< name … >}}`).
+- `${input:name}`: kebab-case filename (becomes `{{< name ... >}}`).
   If the shortcode belongs in the `cag/` namespace (generic visual
   primitive reused across pages), prefix accordingly:
-  `${input:name}` → `cag/${input:name}`.
-- `${input:summary}` — one-line description of what this renders.
-- `${input:params}` — comma-separated named parameters.
+  `${input:name}` becomes `cag/${input:name}`.
+- `${input:summary}`: one-line description of what this renders.
+- `${input:params}`: comma-separated named parameters.
 
 ## Before writing anything
 
@@ -22,9 +22,9 @@ Inputs:
 2. Confirm you are writing a **shortcode** (called from Markdown with
    `{{< name >}}`), not a partial (called from templates).
 3. Decide `Inner` handling:
-   - Block Markdown → `{{ .Inner | .Page.RenderString }}`.
-   - Plain text for attributes → `{{ .Inner | markdownify | plainify }}`.
-   - None (self-closing) → omit `Inner` usage.
+   - Block Markdown: `{{ .Inner | .Page.RenderString }}`.
+   - Plain text for attributes: `{{ .Inner | markdownify | plainify }}`.
+   - None (self-closing): omit `Inner` usage.
 
 ## Create `layouts/shortcodes/${input:name}.html`
 
@@ -33,12 +33,12 @@ Inputs:
   ${input:summary}
 
   Params (named):
-    <param> (type, required|optional, default "…") — purpose.
+    <param> (type, required|optional, default "..."): purpose.
 
   Inner: <block markdown | attribute-safe text | none>.
 
   Usage:
-    {{</* ${input:name} param="…" */>}}Inner{{</* /${input:name} */>}}
+    {{</* ${input:name} param="..." */>}}Inner{{</* /${input:name} */>}}
 */ -}}
 {{- $class := .Get "class" | default "" -}}
 <div class="cag-${input:name} {{ $class }}">
@@ -53,8 +53,8 @@ Rules:
 - Named parameters only for anything the author touches; positional
   only for single-value utilities.
 - Never inline brand hexes; use the `@theme` tokens.
-- Icons via `{{ partial "icon.html" (dict "name" "…" "size" 18) }}`.
-- Do not call other shortcodes from inside — delegate to a partial.
+- Icons via `{{ partial "icon.html" (dict "name" "..." "size" 18) }}`.
+- Do not call other shortcodes from inside; delegate to a partial.
 
 ## After writing
 

@@ -10,6 +10,12 @@
   translation: "Figure"
 - id: javascript_is_required
   translation: "JavaScript is required"
+- id: polaroid_open_aria
+  translation: "Open the photo full screen"
+- id: polaroid_viewer_aria
+  translation: "Photo viewer"
+- id: polaroid_viewer_close
+  translation: "Close"
 - id: countdown_prefix
   translation: "Only "
 - id: countdown_suffix
@@ -38,6 +44,46 @@
   translation: "Open Ctrl-Alt-GG Care in a new tab"
 - id: social_channels_heading
   translation: "Follow Us"
+- id: transit_mode_bus
+  translation: "Bus"
+- id: transit_mode_night_bus
+  translation: "Bus (night)"
+- id: transit_mode_tram
+  translation: "Tram"
+- id: transit_mode_hev
+  translation: "HÉV"
+- id: transit_mode_volan
+  translation: "Volán bus"
+- id: transit_mode_bubi
+  translation: "MOL Bubi"
+- id: transit_approx
+  translation: "approx."
+- id: transit_lines_aria_suffix
+  translation: "lines"
+- id: venue_address_label
+  translation: "Address:"
+- id: venue_map_aria
+  translation: "Map of the venue"
+- id: venue_map_noscript
+  translation: "The interactive map needs JavaScript; the address and the map links below work without it."
+- id: map_zoom_in
+  translation: "Zoom in"
+- id: map_zoom_out
+  translation: "Zoom out"
+- id: map_toggle_attribution
+  translation: "Attribution"
+- id: map_gesture_windows
+  translation: "Use Ctrl + scroll to zoom the map"
+- id: map_gesture_mac
+  translation: "Use ⌘ + scroll to zoom the map"
+- id: map_gesture_mobile
+  translation: "Use two fingers to move the map"
+- id: map_link_action
+  translation: "Get directions"
+- id: parking_always_free
+  translation: "Always free"
+- id: parking_weekend_free
+  translation: "Free on weekends"
 - id: social_youtube_label
   translation: "YouTube channel"
 - id: social_youtube_handle

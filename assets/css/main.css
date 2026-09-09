@@ -14,6 +14,34 @@
   }
 }
 
+/* ── Inter, self-hosted ───────────────────────────────────────────
+   Weight-axis variable font (100-900) from @fontsource-variable/inter,
+   published to /vendor/inter/ by the module mount in hugo.yaml. Declared
+   as plain "Inter" so --font-sans below needs no separate family name.
+   ───────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/vendor/inter/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Hungarian needs this subset for ő/ű. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/vendor/inter/inter-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 /* ── Ctrl-Alt-GG design tokens ────────────────────────────────── */
 @theme {
   --color-brand-50:  #fff1f1;
@@ -31,7 +59,7 @@
   --color-accent-400: #e8b923;
   --color-accent-500: #c8960c;
 
-  /* Stuff-page semantic colours — reuse Tailwind's green/red but give
+  /* Stuff-page semantic colours: reuse Tailwind's green/red but give
      them a site-specific name so they can be changed in one place. */
   --color-stuff-bring: var(--color-green-500);
   --color-stuff-skip:  var(--color-red-500);
@@ -48,6 +76,9 @@
   --radius-pill: 9999px;
   --radius-card: 0.875rem;
   --radius-panel: 1.25rem;
+
+  /* Plain CSS "ease" as a named token, so components share one spot to retune it. */
+  --ease-brand: ease;
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.08);
   --shadow-panel: 0 2px 4px rgb(0 0 0 / 0.05), 0 20px 50px rgb(0 0 0 / 0.12);
   --shadow-person-hover: 0 4px 20px color-mix(in srgb, var(--color-brand-600) 10%, transparent);
@@ -64,7 +95,7 @@
     100% { background-position: -200% 0; }
   }
 
-  /* Layout — max readable line width; referenced by the container utility */
+  /* Layout: max readable line width; referenced by the container utility */
   --container-max-width: 80rem;
 }
 
@@ -75,6 +106,10 @@
    Exposed as Tailwind utilities via @theme inline below.
    ───────────────────────────────────────────────────────────────── */
 :root {
+  /* Lets the UA theme scrollbars, form controls and the pre-paint canvas
+     from the OS preference, matching the tokens below. */
+  color-scheme: light dark;
+
   --surface:      var(--color-gray-50);
   --on-surface:   var(--color-gray-900);
   --surface-alt:  var(--color-gray-100);
@@ -84,8 +119,14 @@
   --link-hover:   var(--color-blue-700);
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+}
+
 [data-theme="dark"],
 .dark {
+  color-scheme: dark;
+
   --surface:      var(--color-gray-900);
   --on-surface:   var(--color-gray-200);
   --surface-alt:  var(--color-gray-800);
@@ -124,7 +165,7 @@
    Override Tailwind's bare `width:100%` default with a fully
    responsive container: fluid padding that grows with the viewport,
    and a max-width cap so content never stretches uncomfortably on
-   ultra-wide screens.  Templates use only `class="container"` —
+   ultra-wide screens.  Templates use only `class="container"`,
    no need for separate mx-auto / px-* utilities.
    ─────────────────────────────────────────────────────────────────── */
 @utility container {
@@ -144,6 +185,19 @@
     max-width: var(--container-max-width);
     padding-inline: 3rem;
   }
+}
+
+/* ── Shared component utilities ──
+   Custom Tailwind utilities (v4 `@utility`) for the transition + focus-ring
+   combos repeated across cag.css's brand link cards, game cards, and CTAs,
+   so each only has to name one class instead of spelling out the chain.
+   Must live at the top level (not inside the layered @import below). */
+@utility transition-card {
+  @apply transition-[transform,box-shadow,border-color] duration-250 ease-brand;
+}
+
+@utility focus-ring-brand {
+  @apply outline-2 outline-(--link) outline-offset-[3px];
 }
 
 /* Component styles */
