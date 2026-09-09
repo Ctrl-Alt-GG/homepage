@@ -163,7 +163,7 @@
         {{- $html = printf "%s<div class=\"cag-shortcode-image\" style=\"grid-column: span %d\">%s" $html $span $part }}
     {{- end }}
 {{- end }}
-<div class="cag-gallery-masonry">
+<div class="cag-gallery-masonry grid grid-cols-2 items-start gap-3 md:grid-cols-12">
 {{ $html | safeHTML }}
 </div>
 {{ else }}

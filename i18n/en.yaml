@@ -60,10 +60,6 @@
   translation: "approx."
 - id: transit_lines_aria_suffix
   translation: "lines"
-- id: venue_address_label
-  translation: "Address:"
-- id: venue_map_aria
-  translation: "Map of the venue"
 - id: venue_map_noscript
   translation: "The interactive map needs JavaScript; the address and the map links below work without it."
 - id: map_zoom_in

@@ -40,13 +40,25 @@ Builds the Tailwind stylesheet first, then runs Hugo. Output is written to `publ
 
 - `content/`: top-level marketing pages and sections (about, location, program, Q&A, recap, stuff). Each user-facing page ships in both `<slug>.md` (Hungarian) and `<slug>.en.md` (English).
 - `data/games.yaml`: the game-cards dictionary. Each entry is `slug: "<image url>"`; the slug is referenced from content via the `cag/image` shortcode.
-- `layouts/shortcodes/`: the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
+- `layouts/shortcodes/`: the marketing component library authors compose pages from: `intro`, `features`, `card`, `faq`, `countdown`, `maps`, `person`, `schedule`, `schedule-entry`, `stuff-*`, `cag/image`, `cag/gallery`, `cag/email`.
 - `layouts/_default/` and `layouts/partials/`: site-wide templates and reusable fragments (`head/`, `footer/`, `chroma/`).
 - `assets/css/main.css`: Tailwind v4 source. The compiled output in `assets/css/compiled/` is git-ignored.
 - `i18n/hu.yaml`, `i18n/en.yaml`: per-locale string tables for template-owned strings.
 - `static/`: files copied verbatim to the site root.
 
 Site-wide behaviour flags live in `hugo.yaml` under `params.cag.*` (e.g. `disable_breadcrumbs`, `disable_authors`, schema toggles). Templates must respect them.
+
+## Schedule timelines
+
+The `schedule` shortcode renders a vertical timeline inside the shared card design, and each row is a `schedule-entry`. Set `type` to `break` or `highlight` to switch a row's accent colour; the default is `play`. Point `game` at a `data/games.yaml` slug to pull in that game's header art. A legend explaining the three row types renders automatically, so pass `legend="false"` to suppress it.
+
+```markdown
+{{< schedule title="Evening programme" >}}
+  {{< schedule-entry time="15:30-17:00" title="Easy start" game="minecraft" label="Minecraft" >}}
+  {{< schedule-entry time="18:40-19:00" type="break" title="Snack break" note="Grab a drink" >}}
+  {{< schedule-entry time="20:00-21:00" type="highlight" title="Tournament kickoff" game="cs2" label="Counter-Strike 2" >}}
+{{< /schedule >}}
+```
 
 ## Contributing and working with AI agents
 

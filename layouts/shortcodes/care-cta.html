@@ -16,14 +16,15 @@
 {{- $lang   := .Page.Language.Lang -}}
 {{- $href  := "https://care.ctrl-alt-gg.hu/" -}}
 {{- if eq $lang "en" -}}{{- $href = "https://care.ctrl-alt-gg.hu/en/" -}}{{- end -}}
-<a class="cag-care-cta"
+<a class="cag-care-cta mx-0 mt-8 mb-10 flex items-center gap-[1.1rem] rounded-(--radius-panel) [border:1px_solid_color-mix(in_srgb,var(--color-brand-600)_25%,transparent)] [background:linear-gradient(135deg,color-mix(in_srgb,var(--color-brand-600)_8%,transparent),color-mix(in_srgb,var(--color-brand-600)_2%,transparent))] px-6 py-5 text-on-surface no-underline transition-card hover:-translate-y-0.5 hover:[border-color:color-mix(in_srgb,var(--color-brand-600)_55%,transparent)] hover:text-on-surface hover:no-underline hover:[box-shadow:0_10px_32px_color-mix(in_srgb,var(--color-brand-600)_18%,transparent)] focus-visible:outline-2 focus-visible:outline-(--link) focus-visible:outline-offset-[3px] max-[576px]:flex-col max-[576px]:px-5 max-[576px]:py-[1.1rem] max-[576px]:text-center"
    href="{{ $href }}"
    target="_blank"
    rel="noopener noreferrer external">
 
   {{/* GG-badge: red rounded square with the double-G lettermark (white, inline SVG) */}}
-  <span class="cag-care-cta__badge" aria-hidden="true">
+  <span class="cag-care-cta__badge flex size-14 basis-14 shrink-0 items-center justify-center rounded-card bg-brand-600 [box-shadow:0_4px_14px_color-mix(in_srgb,var(--color-brand-600)_35%,transparent)] max-[576px]:size-12 max-[576px]:basis-12" aria-hidden="true">
     <svg viewBox="0 0 50.59972 37.429928"
+         class="h-auto w-9 text-white"
          xmlns="http://www.w3.org/2000/svg"
          aria-hidden="true"
          focusable="false"
@@ -35,12 +36,12 @@
     </svg>
   </span>
 
-  <span class="cag-care-cta__body">
-    <p class="cag-care-cta__title">{{ $title }}</p>
-    <p class="cag-care-cta__desc">{{ $desc }}</p>
+  <span class="cag-care-cta__body min-w-0 flex-1">
+    <p class="cag-care-cta__title mx-0 mt-0 mb-4 text-[1.1rem] font-bold text-brand-500">{{ $title }}</p>
+    <p class="cag-care-cta__desc mx-0 mt-0 mb-4 text-[0.9rem] text-on-surface opacity-80">{{ $desc }}</p>
   </span>
 
-  <span class="cag-care-cta__arrow">
+  <span class="cag-care-cta__arrow ml-auto shrink-0 text-(--link) max-[576px]:hidden">
     {{ $button }}<span class="sr-only">: {{ $aria }}</span>
   </span>
 </a>

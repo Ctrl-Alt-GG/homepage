@@ -22,15 +22,15 @@
 {{- $zoom := .Get "zoom" | default "15" -}}
 {{- if not (and $lat $lng $address) }}{{ errorf "cag/venue-map: 'lat', 'lng' and 'address' are all required (page: %s)" .Page.File.Path }}{{ end -}}
 {{- .Page.Store.Set "cag-shortcode-venue-map-script" true -}}
-<div class="cag-venue-map">
+<div class="cag-venue-map my-2 flex flex-1 flex-col gap-2">
   {{- /* MapLibre labels the canvas itself via the Map.Title locale string; a
          role here would hide the zoom controls from assistive tech. */ -}}
-  <div class="cag-venue-map__frame"
+  <div class="cag-venue-map__frame relative min-h-[220px] w-full flex-1 overflow-hidden rounded-lg border border-border bg-gray-100 dark:bg-gray-900"
        data-cag-venue-map
        data-lat="{{ $lat }}"
        data-lng="{{ $lng }}"
        data-zoom="{{ $zoom }}">
-    <noscript><span class="cag-venue-map__fallback">{{ i18n "venue_map_noscript" }}</span></noscript>
+    <noscript><span class="cag-venue-map__fallback absolute inset-0 flex items-center justify-center p-6 text-center text-sm opacity-70">{{ i18n "venue_map_noscript" }}</span></noscript>
   </div>
-  <p class="cag-venue-map__address">{{ i18n "venue_address_label" }} <strong>{{ $address }}</strong></p>
+  <p class="cag-venue-map__address mb-4 shrink-0">{{ i18n "venue_address_label" }} <strong>{{ $address }}</strong></p>
 </div>
