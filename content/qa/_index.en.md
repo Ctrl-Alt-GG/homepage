@@ -20,7 +20,7 @@ If there's interest, we can pool money together and order pizzas or something si
 
 ## Will there be any refreshments provided?
 
-No. We will not provide food, drinks, or snacks at the venue, so please bring what you need.
+No. We will not provide food, drinks, snacks, or a fridge at the venue, so please bring what you need.
 
 ## Will these be the only games?
 
@@ -34,6 +34,6 @@ Unfortunately, we organizers might not be able to help directly. But if you have
 
 ## Where can I sleep?
 
-You can sleep wherever you can find a suitable spot for yourself, but keep in mind that life goes on around you. The venue is in Budapest, so you can easily head home for a quick power nap. See the [Location page]({{< relref "/location" >}}) for the address and travel options.
+Sleeping at the venue is not possible. The venue is in Budapest, so you can easily head home. See the [Location page]({{< relref "/location" >}}) for the address and travel options.
 
 {{< /faq >}}

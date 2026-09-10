@@ -20,7 +20,7 @@ Ha van rá igény, akkor összedobhatjuk a pénzt, csinálhatunk közös pizza r
 
 ## Lesz bármilyen ellátás?
 
-Nem. A helyszínen sem ételt, sem italt, sem nasit nem biztosítunk, ezekről neked kell gondoskodnod.
+Nem. A helyszínen sem ételt, sem italt, sem nasit, sem hűtőt nem biztosítunk, ezekről neked kell gondoskodnod.
 
 ## Csak ezek a játékok lesznek?
 
@@ -34,6 +34,6 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 
 ## Hol tudok aludni?
 
-Ahol találsz magadnak egy számodra megfelelő helyet, ott nyugodtan aludhatsz egyet, de vedd figyelembe, hogy körülötted nem áll meg az élet. A helyszín Budapesten van, ezért könnyen haza tudsz ugrani egy rövid powernapra. A címért és az odajutási lehetőségekért nézd meg a [helyszín oldalát]({{< relref "/location" >}}).
+Alvásra nincs lehetőség a helyszínen. A helyszín Budapesten van, ezért könnyen haza tudsz ugrani. A címért és az odajutási lehetőségekért nézd meg a [helyszín oldalát]({{< relref "/location" >}}).
 
 {{< /faq >}}
