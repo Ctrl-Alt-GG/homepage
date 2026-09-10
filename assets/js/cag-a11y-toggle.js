@@ -34,6 +34,7 @@
   function initContrastToggle() {
     var btn = document.getElementById('cag-contrast-toggle');
     if (!btn) return;
+    var announce = document.getElementById('cag-a11y-announce');
 
     function isContrast() {
       return document.documentElement.getAttribute('data-theme') === 'contrast';
@@ -52,6 +53,9 @@
       }
       writeStorage(THEME_KEY, next ? 'contrast' : null);
       sync();
+      if (announce) {
+        announce.textContent = btn.getAttribute(next ? 'data-announce-on' : 'data-announce-off') || '';
+      }
     });
 
     sync();

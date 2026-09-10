@@ -262,11 +262,30 @@ html[data-text-size="lg"] {
 @import "./cag.css" layer(components);
 
 /* -- High-contrast overrides ------------------------------------------
-   Unlayered on purpose: plain rules always beat `layer(components)`
-   rules regardless of source order, so these win over cag.css without
-   needing !important. Two jobs: drop purely decorative gradients/glows/
-   shimmer, and force remaining accents onto theme tokens so nothing
-   renders in an off-palette brand color under data-theme="contrast". */
+   Unlayered on purpose: plain rules always beat `layer(components)` and
+   Tailwind utility-layer rules regardless of source order or selector
+   specificity, so this single block repaints every component to the
+   theme tokens without touching cag.css/shortcodes or reaching for
+   !important. Real <img>/<svg>/<video> content (photos, the logo, icon
+   glyphs painted with currentColor) is excluded so it renders unchanged;
+   everything else loses its own background/shadow/border color and
+   inherits the black/yellow pair down from <body>. */
+[data-theme="contrast"] :where(*):not(img, svg, video, picture, source, iframe) {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  border-color: var(--border);
+  color: inherit;
+}
+
+[data-theme="contrast"] body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
+
+/* Pseudo-elements aren't reachable by the `*` reset above; the same
+   purely decorative gradients/shimmer need an explicit rule each. */
 [data-theme="contrast"] .cag-game-cards li::before,
 [data-theme="contrast"] .cag-game-cards li:has(strong)::before,
 [data-theme="contrast"] .cag-card-frame::before,
@@ -277,35 +296,11 @@ html[data-text-size="lg"] {
   background: none;
 }
 
+/* The game-card cover art is real content and stays untouched (excluded
+   above); only its loading shimmer background is decorative. */
 [data-theme="contrast"] .cag-game-cards li > img {
   background-image: none;
   animation: none;
-}
-
-[data-theme="contrast"] .cag-game-cards li,
-[data-theme="contrast"] .cag-card-frame,
-[data-theme="contrast"] .cag-map-link,
-[data-theme="contrast"] .cag-social-card {
-  box-shadow: none;
-  border-color: var(--border);
-}
-
-[data-theme="contrast"] .cag-game-cards li a:hover,
-[data-theme="contrast"] .cag-server-badge,
-[data-theme="contrast"] .cag-game-cards li:has(strong) strong,
-[data-theme="contrast"] .prose-cag a:not([class]),
-[data-theme="contrast"] .cag-person h3,
-[data-theme="contrast"] .cag-faq h2,
-[data-theme="contrast"] .cag-stuff-bring h3,
-[data-theme="contrast"] .cag-stuff-skip h3,
-[data-theme="contrast"] .cag-map-link__handle,
-[data-theme="contrast"] .cag-social-card__handle {
-  color: var(--on-surface);
-}
-
-[data-theme="contrast"] .cag-faq h2 {
-  background: none;
-  border-left-color: var(--border);
 }
 
 [data-theme="contrast"] a {

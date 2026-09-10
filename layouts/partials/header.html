@@ -14,33 +14,38 @@
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
-{{- /* Accessibility toolbar: rendered unconditionally (independent of the
-       title/description/menu header below) so it is always the first
-       focusable control on every page, matching the "akadálymentes verzió"
-       pattern on Hungarian government sites. */ -}}
-<div id="cag-a11y-bar" class="bg-accent border-b border-border [color-scheme:dark]">
-    <div class="container flex flex-wrap items-center justify-center gap-2 py-2 text-sm">
-        <button
-            type="button"
-            id="cag-contrast-toggle"
-            aria-pressed="false"
-            class="inline-flex items-center gap-2 rounded-md px-3 py-1.5 font-medium text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand"
-        >
-            {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
-            <span>{{ i18n "contrast_toggle_label" }}</span>
-        </button>
+<header id="cag-site-header" class="bg-accent pt-2 pb-3 border-b border-border [color-scheme:dark]">
+    <div class="container">
+        {{- /* Accessibility toolbar: first in DOM/tab order (before the logo)
+               so it's reachable immediately by keyboard, but right-aligned
+               visually via flex, so it reads as an aside at the end of the
+               header row rather than a separate banner. */ -}}
+        <div class="flex flex-wrap items-center justify-end gap-1 py-1 text-sm" role="group" aria-label="{{ i18n `a11y_toolbar_label` }}">
+            <button
+                type="button"
+                id="cag-contrast-toggle"
+                aria-pressed="false"
+                data-announce-on="{{ i18n `contrast_toggle_on_announce` }}"
+                data-announce-off="{{ i18n `contrast_toggle_off_announce` }}"
+                class="inline-flex items-center gap-2 rounded-md px-3 py-1.5 font-medium text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand"
+            >
+                {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
+                <span>{{ i18n "contrast_toggle_label" }}</span>
+            </button>
 
-        <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
-            <button type="button" data-text-size="sm" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
-            <button type="button" data-text-size="md" aria-pressed="true" class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_reset` }}">A</button>
-            <button type="button" data-text-size="lg" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-base font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_increase` }}">A+</button>
+            <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
+                <button type="button" data-text-size="sm" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
+                <button type="button" data-text-size="md" aria-pressed="true" class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_reset` }}">A</button>
+                <button type="button" data-text-size="lg" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-base font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_increase` }}">A+</button>
+            </div>
         </div>
-    </div>
-</div>
 
-{{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-accent pt-5 pb-3 border-b border-border [color-scheme:dark]">
-        <div class="container">
+        {{- /* Announces the theme change to screen readers; the button's own
+               aria-pressed already covers the button itself, this covers
+               users who aren't focused on it (e.g. after tabbing onward). */ -}}
+        <div id="cag-a11y-announce" class="sr-only" role="status" aria-live="polite"></div>
+
+        {{ if or $description $menu $title }}
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
                 <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
@@ -113,7 +118,7 @@
                 </ul>
             </nav>
         {{ end }}
+        {{ end }}
 
-        </div>
-    </header>
-{{ end }}
+    </div>
+</header>
