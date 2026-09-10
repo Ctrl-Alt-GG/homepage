@@ -53,6 +53,10 @@
 {{- end -}}
 
 {{- /* Render */ -}}
+{{- /* Game covers already show the name as the link text right next to them; an alt would read it twice. */ -}}
+{{- if or $isGameImage $remoteURL -}}
+  {{- $alt = "" -}}
+{{- end -}}
 {{- if $resource -}}
   {{- $isSVG := in (lower $resource.MediaType.SubType) "svg" -}}
   {{- if $isSVG -}}

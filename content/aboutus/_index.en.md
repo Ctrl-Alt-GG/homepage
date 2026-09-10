@@ -2,7 +2,7 @@
 title: "About Us"
 ---
 
-{{< cag/image height="10rem" src="logo-turkix-hollow.svg" >}}
+{{< cag/image height="10rem" src="logo-turkix-hollow.svg" alt="Turkix logo emblem" >}}
 
 If you have any further questions about the event, the easiest way is to reach out to whoever invited you.
 

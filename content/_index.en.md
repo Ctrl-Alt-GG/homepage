@@ -3,7 +3,7 @@ title: "Ready?"
 summary: "The best gaming event of the year, surpassing our wildest imagination!"
 ---
 
-{{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" >}}
+{{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" alt="A fully set up LAN party gaming room with PCs and chairs" >}}
 
 {{< countdown target="2026-10-03" >}}
 

@@ -2,7 +2,7 @@
 title: "Rólunk"
 ---
 
-{{< cag/image height="10rem" src="logo-turkix-hollow.svg" >}}
+{{< cag/image height="10rem" src="logo-turkix-hollow.svg" alt="Turkix logó embléma" >}}
 
 Ha bármi további kérdésed merül fel a rendezvénnyel kapcsolatban, a legegyszerűbb ha megkeresed azt aki meghívott.
 

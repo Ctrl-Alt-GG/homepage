@@ -60,6 +60,8 @@
   translation: "Go to Care →"
 - id: care_cta_aria
   translation: "Open Ctrl-Alt-GG Care in a new tab"
+- id: opens_new_tab
+  translation: "opens in a new tab"
 - id: social_channels_heading
   translation: "Follow Us"
 - id: transit_mode_bus
