@@ -37,6 +37,24 @@
 
 <head>
     <meta charset="utf-8">
+
+    <script>
+    (function () {
+        var root = document.documentElement;
+        root.dataset.defaultTheme = root.getAttribute("data-theme") || "";
+        try {
+            var theme = localStorage.getItem("cag-theme");
+            if (theme === "contrast") {
+                root.setAttribute("data-theme", "contrast");
+            }
+            var size = localStorage.getItem("cag-text-size");
+            if (size === "sm" || size === "lg") {
+                root.setAttribute("data-text-size", size);
+            }
+        } catch {}
+    })();
+    </script>
+
     <meta content="{{ site.Title | markdownify | plainify | htmlUnescape }}" name="apple-mobile-web-app-title">
 
     {{ with $description }}

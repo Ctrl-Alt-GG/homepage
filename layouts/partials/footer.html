@@ -2,7 +2,7 @@
 
 {{ $copyright := and ($page.Param "cag.site.disable_copyright" | not) (site.Copyright | markdownify) }}
 
-<footer id="cag-site-footer" class="bg-linear-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] py-5 mt-12 border-t border-brand-600/20 text-white/40 text-sm [color-scheme:dark]">
+<footer id="cag-site-footer" class="bg-accent py-5 mt-12 border-t border-border text-on-accent-muted text-sm [color-scheme:dark]">
     <div class="container">
         {{ if $copyright }}
             <p class="my-4 text-center tracking-wider" id="cag-site-copyright">{{ $copyright }}</p>
@@ -10,8 +10,8 @@
 
         {{/* Social channels: YouTube + Twitch */}}
         <nav aria-label="{{ i18n `footer_social_label` }}" class="my-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <span class="text-white/60 text-xs uppercase tracking-widest font-semibold">{{ i18n "footer_social_label" }}</span>
-            <a class="inline-flex items-center gap-1.5 font-medium text-white/60 hover:text-white transition-colors"
+            <span class="text-on-accent-muted text-xs uppercase tracking-widest font-semibold">{{ i18n "footer_social_label" }}</span>
+            <a class="inline-flex items-center gap-1.5 font-medium text-on-accent-muted hover:text-on-accent transition-colors"
                href="https://www.youtube.com/@Ctrl-Alt-GG"
                target="_blank"
                rel="noopener noreferrer external"
@@ -21,8 +21,8 @@
                 </svg>
                 YouTube
             </a>
-            <span aria-hidden="true" class="text-white/30">·</span>
-            <a class="inline-flex items-center gap-1.5 font-medium text-white/60 hover:text-white transition-colors"
+            <span aria-hidden="true" class="text-on-accent-muted">·</span>
+            <a class="inline-flex items-center gap-1.5 font-medium text-on-accent-muted hover:text-on-accent transition-colors"
                href="https://www.twitch.tv/ctrl_alt_gg"
                target="_blank"
                rel="noopener noreferrer external"
@@ -35,12 +35,12 @@
         </nav>
 
         <nav aria-label="{{ i18n `footer_family_label` }}" class="my-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm">
-            <span class="text-white/60">{{ i18n "footer_family_label" }}:</span>
-            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://care.ctrl-alt-gg.hu/">{{ i18n "family_care" }}</a>
-            <span aria-hidden="true" class="text-white/30">·</span>
-            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://spawn.ctrl-alt-gg.hu/">{{ i18n "family_spawn" }}</a>
-            <span aria-hidden="true" class="text-white/30">·</span>
-            <a class="font-medium text-brand-300 hover:text-brand-200 transition-colors" href="https://lobby.ctrl-alt-gg.hu/">{{ i18n "family_lobby" }}</a>
+            <span class="text-on-accent-muted">{{ i18n "footer_family_label" }}:</span>
+            <a class="font-medium text-on-accent hover:opacity-85 transition-opacity" href="https://care.ctrl-alt-gg.hu/">{{ i18n "family_care" }}</a>
+            <span aria-hidden="true" class="text-on-accent-muted">·</span>
+            <a class="font-medium text-on-accent hover:opacity-85 transition-opacity" href="https://spawn.ctrl-alt-gg.hu/">{{ i18n "family_spawn" }}</a>
+            <span aria-hidden="true" class="text-on-accent-muted">·</span>
+            <a class="font-medium text-on-accent hover:opacity-85 transition-opacity" href="https://lobby.ctrl-alt-gg.hu/">{{ i18n "family_lobby" }}</a>
         </nav>
 
         {{/* Language selector */}}
@@ -49,15 +49,15 @@
              (used here to build the language switcher from the current page's translations). */}}
         {{ $rotated := $page.Rotate "language" }}
         {{ if gt (len $rotated) 1 }}
-            <div id="cag-language-selector" class="text-center mb-4 text-xs tracking-wider text-white/40">
+            <div id="cag-language-selector" class="text-center mb-4 text-xs tracking-wider text-on-accent-muted">
                 {{ range $i, $t := $rotated }}
                     {{ if eq $t.Site.Language.Lang $page.Language.Lang }}
-                        <span class="font-bold text-white/70">{{ $t.Site.Language.LanguageName }}</span>
+                        <span class="font-bold text-on-accent">{{ $t.Site.Language.LanguageName }}</span>
                     {{ else }}
-                        <a class="no-underline text-white/40 hover:text-white/80 transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
+                        <a class="no-underline text-on-accent-muted hover:text-on-accent transition-colors" href="{{ $t.RelPermalink }}">{{ $t.Site.Language.LanguageName }}</a>
                     {{ end }}
                     {{ if lt $i (sub (len $rotated) 1) }}
-                        <span aria-hidden="true" class="mx-2 text-white/20">·</span>
+                        <span aria-hidden="true" class="mx-2 text-on-accent-muted">·</span>
                     {{ end }}
                 {{ end }}
             </div>

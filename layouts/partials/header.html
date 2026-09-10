@@ -13,13 +13,15 @@
 {{ end }}
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
+{{ $controlClass := "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-current p-0 text-sm leading-none font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
 
-{{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-linear-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-5 pb-3 border-b border-white/20 [color-scheme:dark]">
-        <div class="container">
+<header id="cag-site-header" class="bg-accent py-4 border-b border-border">
+    <a href="#cag-page-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
+    <div class="container grid grid-cols-[minmax(0,1fr)_auto] items-center">
+        {{ if or $description $menu $title }}
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
-                <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
+            <div class="col-span-2 col-start-1 row-start-1 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
+                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
                         {{ $logo.Content | safeHTML }}
@@ -31,8 +33,30 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="text-xl font-light italic my-3 text-center text-white/75" id="cag-site-description">{{ . }}</div>
+            <div class="col-start-1 row-start-2 text-xl font-light italic mt-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
         {{ end }}
+
+        <aside id="cag-a11y-controls" class="col-start-2 row-start-2 mt-3 flex min-w-0 items-center justify-end gap-1 text-sm" aria-label="{{ i18n `a11y_toolbar_label` }}">
+            <button
+                type="button"
+                id="cag-contrast-toggle"
+                aria-label="{{ i18n `contrast_toggle_label` }}"
+                title="{{ i18n `contrast_toggle_label` }}"
+                aria-pressed="false"
+                data-announce-on="{{ i18n `contrast_toggle_on_announce` }}"
+                data-announce-off="{{ i18n `contrast_toggle_off_announce` }}"
+                class="{{ $controlClass }}"
+            >
+                {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
+            </button>
+
+            <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
+                <button type="button" data-text-size="sm" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
+                <button type="button" data-text-size="md" aria-pressed="true" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_reset` }}">A</button>
+                <button type="button" data-text-size="lg" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_increase` }}">A+</button>
+            </div>
+            <div id="cag-a11y-announce" class="sr-only" role="status"></div>
+        </aside>
 
         {{ if $menu }}
             {{ $pages := site.Sections }}
@@ -47,11 +71,11 @@
 
             {{/* Shared class list for every header nav link (active state via aria-current). */}}
             {{ $navLinkBaseClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-md" }}
-            {{ $navLinkInteractionClass := "text-white/[72%] hover:text-white hover:bg-white/15" }}
-            {{ $navLinkActiveClass := "aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+            {{ $navLinkInteractionClass := "text-on-accent-muted hover:text-on-accent hover:bg-(--on-accent)/15" }}
+            {{ $navLinkActiveClass := "aria-[current=page]:text-on-accent aria-[current=page]:font-semibold aria-[current=page]:bg-(--on-accent)/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="my-4" id="cag-site-menu">
+            <nav aria-label="{{ i18n `menu` }}" class="col-span-2 col-start-1 row-start-3 min-w-0 my-4" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
@@ -75,7 +99,7 @@
                         <li class="{{ if $children }}relative group{{ end }}">
                             <a {{ if $active }} aria-current="page" {{ end }}{{ if $children }} aria-haspopup="true"{{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                             {{ with $children }}
-                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-white/20 bg-brand-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block dark:bg-brand-950/95">
+                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-border bg-(--accent)/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
                                     {{ range . }}
                                         {{ $childActive := eq $page.RelPermalink .RelPermalink }}
                                         <li>
@@ -89,7 +113,6 @@
                 </ul>
             </nav>
         {{ end }}
-
-        </div>
-    </header>
-{{ end }}
+        {{ end }}
+    </div>
+</header>

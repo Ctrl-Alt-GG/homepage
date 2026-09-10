@@ -8,7 +8,7 @@
   }
   /* Fall back to OS preference when the user hasn't set an explicit theme */
   @media (prefers-color-scheme: dark) {
-    &:not([data-theme="light"], [data-theme="light"] *) {
+    &:where(html:not([data-theme]), html:not([data-theme]) *) {
       @slot;
     }
   }
@@ -117,10 +117,34 @@
   --border:       var(--color-gray-200);
   --link:         var(--color-blue-600);
   --link-hover:   var(--color-blue-700);
+
+  /* Branded chrome (header/footer/nav pills): kept separate from --surface
+     so header.html and footer.html never reach for raw brand-* utilities. */
+  --accent:            var(--color-brand-700);
+  --accent-alt:         var(--color-brand-800);
+  --on-accent:          var(--color-white);
+  --on-accent-muted:    color-mix(in srgb, var(--color-white) 72%, transparent);
+
+  --focus-ring: var(--link);
+  --logo-panel: var(--color-brand-600);
+  --logo-glyph: var(--color-white);
+  --contrast-icon-surface: #ff0;
+  --contrast-icon-dots: #000;
 }
 
 [data-theme="light"] {
   color-scheme: light;
+}
+
+/* ── Text-size control (A-/A/A+) ──────────────────────────────────────
+   Scales the root rem base; every component sized in rem grows/shrinks
+   with it. Persisted via cag-a11y-toggle.js + read pre-paint in head.html. */
+html[data-text-size="sm"] {
+  font-size: 87.5%;
+}
+
+html[data-text-size="lg"] {
+  font-size: 118.75%;
 }
 
 [data-theme="dark"],
@@ -134,11 +158,15 @@
   --border:       var(--color-gray-600);
   --link:         var(--color-blue-400);
   --link-hover:   var(--color-blue-300);
+
+  --accent:      #130404;
+  --accent-alt:  #1e0606;
+  --focus-ring:  var(--link);
 }
 
 /* Honour OS-level dark preference when no explicit data-theme has been set */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     --surface:      var(--color-gray-900);
     --on-surface:   var(--color-gray-200);
     --surface-alt:  var(--color-gray-800);
@@ -146,7 +174,35 @@
     --border:       var(--color-gray-600);
     --link:         var(--color-blue-400);
     --link-hover:   var(--color-blue-300);
+
+    --accent:      #130404;
+    --accent-alt:  #1e0606;
+    --focus-ring:  var(--link);
   }
+}
+
+html[data-theme="contrast"] {
+  color-scheme: light;
+
+  --surface:      #000;
+  --on-surface:   #ff0;
+  --surface-alt:  #000;
+  --surface-card: #000;
+  --border:       #ff0;
+  --link:         #ff0;
+  --link-hover:   #ff0;
+
+  --accent:            #000;
+  --accent-alt:        #000;
+  --on-accent:         #ff0;
+  --on-accent-muted:   #ff0;
+
+  --focus-ring: #ff0;
+  --logo-panel: var(--on-surface);
+  --logo-glyph: var(--surface);
+
+  background-color: var(--surface);
+  color: var(--on-surface);
 }
 
 /* Make adaptive tokens available as Tailwind utility classes
@@ -159,6 +215,10 @@
   --color-border:       var(--border);
   --color-link:         var(--link);
   --color-link-hover:   var(--link-hover);
+  --color-accent:       var(--accent);
+  --color-accent-alt:   var(--accent-alt);
+  --color-on-accent:    var(--on-accent);
+  --color-on-accent-muted: var(--on-accent-muted);
 }
 
 /* ── Container utility ───────────────────────────────────────────────
@@ -197,8 +257,118 @@
 }
 
 @utility focus-ring-brand {
-  @apply outline-2 outline-(--link) outline-offset-[3px];
+  outline: 0.1875rem solid var(--focus-ring);
+  outline-offset: 0.1875rem;
 }
 
 /* Component styles */
 @import "./cag.css" layer(components);
+
+.cag-logo-panel {
+  color: var(--logo-panel);
+}
+
+.cag-logo-glyph {
+  color: var(--logo-glyph);
+}
+
+.cag-contrast-icon-surface {
+  color: var(--contrast-icon-surface);
+}
+
+.cag-contrast-icon-dots {
+  color: var(--contrast-icon-dots);
+}
+
+:focus-visible {
+  outline: 0.1875rem solid currentColor;
+  outline-offset: 0.1875rem;
+}
+
+html[data-theme="contrast"] :where(body, body *) {
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  border-color: var(--border);
+}
+
+html[data-theme="contrast"] :where(body, body *):not(:where(svg, svg *, img, video, canvas, iframe)) {
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
+
+html[data-theme="contrast"] :where(svg, img) {
+  color: var(--on-surface);
+}
+
+html[data-theme="contrast"] ::before,
+html[data-theme="contrast"] ::after {
+  background: none;
+  border-color: var(--border);
+  color: var(--on-surface);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+html[data-theme="contrast"] ::marker {
+  color: var(--on-surface);
+}
+
+html[data-theme="contrast"] :where(a, .cag-card-desc, .cag-care-cta__desc, .cag-map-link__platform, .cag-social-card__platform, .cag-social-card__desc, .cag-transport-distance, .cag-timeline__note) {
+  opacity: 1;
+}
+
+html[data-theme="contrast"] .cag-card-icon {
+  display: none;
+}
+
+html[data-theme="contrast"] :where(img, .cag-card-frame, .cag-map-link, .cag-social-card) {
+  animation: none;
+}
+
+html[data-theme="contrast"] a {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.1875rem;
+}
+
+html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]) {
+  border: 0.125rem solid var(--border);
+}
+
+html[data-theme="contrast"] :focus-visible {
+  outline: 0.25rem solid var(--focus-ring);
+  outline-offset: 0.1875rem;
+}
+
+@media (forced-colors: active) {
+  :root:not([data-theme]),
+  html[data-theme] {
+    --surface: Canvas;
+    --on-surface: CanvasText;
+    --surface-alt: Canvas;
+    --surface-card: Canvas;
+    --border: ButtonText;
+    --link: LinkText;
+    --link-hover: LinkText;
+    --accent: Canvas;
+    --accent-alt: Canvas;
+    --on-accent: CanvasText;
+    --on-accent-muted: CanvasText;
+    --focus-ring: Highlight;
+    --logo-panel: CanvasText;
+    --logo-glyph: Canvas;
+    --contrast-icon-surface: CanvasText;
+    --contrast-icon-dots: Canvas;
+  }
+
+  :where(body, body *) {
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  :where(button, input, select, textarea, summary, [role="button"]) {
+    border: 0.125rem solid var(--border);
+  }
+}
