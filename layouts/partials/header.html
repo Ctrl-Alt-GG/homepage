@@ -13,22 +13,23 @@
 {{ end }}
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
-{{ $controlClass := "inline-flex min-h-10 min-w-10 max-w-full items-center justify-center gap-2 rounded-md border border-current px-3 py-1.5 text-sm font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
+{{ $controlClass := "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-current p-0 text-sm leading-none font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
 
 <header id="cag-site-header" class="bg-accent py-4 border-b border-border">
     <a href="#cag-page-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
-    <div class="container grid items-center gap-4 md:grid-cols-[minmax(0,1fr)_auto]">
-        <aside id="cag-a11y-controls" class="row-start-2 flex min-w-0 flex-wrap items-center justify-end gap-2 text-sm md:col-start-2 md:row-start-1 md:flex-col md:items-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
+    <div class="container grid grid-cols-[minmax(0,1fr)] items-center">
+        <aside id="cag-a11y-controls" class="col-start-1 row-start-4 mt-4 flex min-w-0 items-center justify-end gap-1 text-sm md:row-start-2 md:mt-0 md:justify-self-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
             <button
                 type="button"
                 id="cag-contrast-toggle"
+                aria-label="{{ i18n `contrast_toggle_label` }}"
+                title="{{ i18n `contrast_toggle_label` }}"
                 aria-pressed="false"
                 data-announce-on="{{ i18n `contrast_toggle_on_announce` }}"
                 data-announce-off="{{ i18n `contrast_toggle_off_announce` }}"
                 class="{{ $controlClass }}"
             >
                 {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
-                <span>{{ i18n "contrast_toggle_label" }}</span>
             </button>
 
             <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
@@ -39,10 +40,9 @@
             <div id="cag-a11y-announce" class="sr-only" role="status"></div>
         </aside>
 
-        <div class="row-start-1 min-w-0 md:col-start-1">
         {{ if or $description $menu $title }}
         {{ with $title }}
-            <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
+            <div class="col-start-1 row-start-1 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
                 <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
@@ -55,7 +55,7 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="text-xl font-light italic my-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
+            <div class="col-start-1 row-start-2 text-xl font-light italic mt-3 text-center text-on-accent-muted md:mx-48" id="cag-site-description">{{ . }}</div>
         {{ end }}
 
         {{ if $menu }}
@@ -75,7 +75,7 @@
             {{ $navLinkActiveClass := "aria-[current=page]:text-on-accent aria-[current=page]:font-semibold aria-[current=page]:bg-(--on-accent)/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="my-4" id="cag-site-menu">
+            <nav aria-label="{{ i18n `menu` }}" class="col-start-1 row-start-3 min-w-0 my-4" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
@@ -114,6 +114,5 @@
             </nav>
         {{ end }}
         {{ end }}
-        </div>
     </div>
 </header>
