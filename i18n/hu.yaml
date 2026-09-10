@@ -1,3 +1,5 @@
+- id: skip_to_content
+  translation: "Ugrás a tartalomra"
 - id: a11y_toolbar_label
   translation: "Kisegítő lehetőségek"
 - id: contrast_toggle_label

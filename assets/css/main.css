@@ -8,7 +8,7 @@
   }
   /* Fall back to OS preference when the user hasn't set an explicit theme */
   @media (prefers-color-scheme: dark) {
-    &:not([data-theme="light"], [data-theme="light"] *) {
+    &:where(html:not([data-theme]), html:not([data-theme]) *) {
       @slot;
     }
   }
@@ -125,8 +125,11 @@
   --on-accent:          var(--color-white);
   --on-accent-muted:    color-mix(in srgb, var(--color-white) 72%, transparent);
 
-  /* Strong, always-visible focus indicator; overridden per theme below. */
   --focus-ring: var(--link);
+  --logo-panel: var(--color-brand-600);
+  --logo-glyph: var(--color-white);
+  --contrast-icon-surface: #ff0;
+  --contrast-icon-dots: #000;
 }
 
 [data-theme="light"] {
@@ -163,7 +166,7 @@ html[data-text-size="lg"] {
 
 /* Honour OS-level dark preference when no explicit data-theme has been set */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     --surface:      var(--color-gray-900);
     --on-surface:   var(--color-gray-200);
     --surface-alt:  var(--color-gray-800);
@@ -178,12 +181,7 @@ html[data-text-size="lg"] {
   }
 }
 
-/* ── High-contrast theme ("Nagy kontrasztú nézet") ────────────────────
-   Explicit opt-in only (set by the header toggle + the anti-FOUC inline
-   script in head.html); never inferred from OS preference. Black/yellow
-   meets WCAG 2.2 AAA (19.6:1) and wins over any server-rendered
-   data-theme="dark" from the site's color_scheme build param. */
-[data-theme="contrast"] {
+html[data-theme="contrast"] {
   color-scheme: light;
 
   --surface:      #000;
@@ -200,6 +198,11 @@ html[data-text-size="lg"] {
   --on-accent-muted:   #ff0;
 
   --focus-ring: #ff0;
+  --logo-panel: var(--on-surface);
+  --logo-glyph: var(--surface);
+
+  background-color: var(--surface);
+  color: var(--on-surface);
 }
 
 /* Make adaptive tokens available as Tailwind utility classes
@@ -254,86 +257,118 @@ html[data-text-size="lg"] {
 }
 
 @utility focus-ring-brand {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 3px;
+  outline: 0.1875rem solid var(--focus-ring);
+  outline-offset: 0.1875rem;
 }
 
 /* Component styles */
 @import "./cag.css" layer(components);
 
-/* -- High-contrast overrides ------------------------------------------
-   Unlayered on purpose: plain rules always beat `layer(components)` and
-   Tailwind utility-layer rules regardless of source order or selector
-   specificity, so this single block repaints every component to the
-   theme tokens without touching cag.css/shortcodes or reaching for
-   !important. Real <img>/<svg>/<video> content (photos, the logo, icon
-   glyphs painted with currentColor) is excluded so it renders unchanged;
-   everything else loses its own background/shadow/border color and
-   inherits the black/yellow pair down from <body>. */
-[data-theme="contrast"] :where(*):not(img, svg, video, picture, source, iframe) {
-  background-color: transparent;
+.cag-logo-panel {
+  color: var(--logo-panel);
+}
+
+.cag-logo-glyph {
+  color: var(--logo-glyph);
+}
+
+.cag-contrast-icon-surface {
+  color: var(--contrast-icon-surface);
+}
+
+.cag-contrast-icon-dots {
+  color: var(--contrast-icon-dots);
+}
+
+:focus-visible {
+  outline: 0.1875rem solid currentColor;
+  outline-offset: 0.1875rem;
+}
+
+html[data-theme="contrast"] :where(body, body *) {
   background-image: none;
   box-shadow: none;
   text-shadow: none;
   border-color: var(--border);
-  color: inherit;
 }
 
-[data-theme="contrast"] body {
+html[data-theme="contrast"] :where(body, body *):not(:where(svg, svg *, img, video, canvas, iframe)) {
   background-color: var(--surface);
   color: var(--on-surface);
 }
 
-/* Pseudo-elements aren't reachable by the `*` reset above; the same
-   purely decorative gradients/shimmer need an explicit rule each. */
-[data-theme="contrast"] .cag-game-cards li::before,
-[data-theme="contrast"] .cag-game-cards li:has(strong)::before,
-[data-theme="contrast"] .cag-card-frame::before,
-[data-theme="contrast"] .cag-section-heading::after,
-[data-theme="contrast"] .prose-cag h2::after,
-[data-theme="contrast"] .cag-map-link::before,
-[data-theme="contrast"] .cag-social-card::before {
-  background: none;
+html[data-theme="contrast"] :where(svg, img) {
+  color: var(--on-surface);
 }
 
-/* The game-card cover art is real content and stays untouched (excluded
-   above); only its loading shimmer background is decorative. */
-[data-theme="contrast"] .cag-game-cards li > img {
-  background-image: none;
+html[data-theme="contrast"] ::before,
+html[data-theme="contrast"] ::after {
+  background: none;
+  border-color: var(--border);
+  color: var(--on-surface);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+html[data-theme="contrast"] ::marker {
+  color: var(--on-surface);
+}
+
+html[data-theme="contrast"] :where(a, .cag-card-desc, .cag-care-cta__desc, .cag-map-link__platform, .cag-social-card__platform, .cag-social-card__desc, .cag-transport-distance, .cag-timeline__note) {
+  opacity: 1;
+}
+
+html[data-theme="contrast"] .cag-card-icon {
+  display: none;
+}
+
+html[data-theme="contrast"] :where(img, .cag-card-frame, .cag-map-link, .cag-social-card) {
   animation: none;
 }
 
-[data-theme="contrast"] a {
+html[data-theme="contrast"] a {
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.1875rem;
 }
 
-[data-theme="contrast"] button,
-[data-theme="contrast"] input,
-[data-theme="contrast"] select,
-[data-theme="contrast"] textarea {
-  border: 1px solid var(--border);
+html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]) {
+  border: 0.125rem solid var(--border);
 }
 
-/* -- forced-colors (Windows High Contrast / OS-level) ------------------
-   Let the OS palette take over; only suppress the same purely decorative
-   layers above so they cannot paint over forced system colors. */
+html[data-theme="contrast"] :focus-visible {
+  outline: 0.25rem solid var(--focus-ring);
+  outline-offset: 0.1875rem;
+}
+
 @media (forced-colors: active) {
-  .cag-game-cards li::before,
-  .cag-game-cards li:has(strong)::before,
-  .cag-card-frame::before,
-  .cag-section-heading::after,
-  .prose-cag h2::after,
-  .cag-map-link::before,
-  .cag-social-card::before,
-  .cag-game-cards li > img {
-    background: none;
-    display: none;
+  :root:not([data-theme]),
+  html[data-theme] {
+    --surface: Canvas;
+    --on-surface: CanvasText;
+    --surface-alt: Canvas;
+    --surface-card: Canvas;
+    --border: ButtonText;
+    --link: LinkText;
+    --link-hover: LinkText;
+    --accent: Canvas;
+    --accent-alt: Canvas;
+    --on-accent: CanvasText;
+    --on-accent-muted: CanvasText;
+    --focus-ring: Highlight;
+    --logo-panel: CanvasText;
+    --logo-glyph: Canvas;
+    --contrast-icon-surface: CanvasText;
+    --contrast-icon-dots: Canvas;
   }
 
-  .focus-ring-brand,
-  a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid CanvasText;
+  :where(body, body *) {
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  :where(button, input, select, textarea, summary, [role="button"]) {
+    border: 0.125rem solid var(--border);
   }
 }

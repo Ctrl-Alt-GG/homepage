@@ -13,38 +13,33 @@
 {{ end }}
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
+{{ $controlClass := "inline-flex min-h-10 min-w-10 max-w-full items-center justify-center gap-2 rounded-md border border-current px-3 py-1.5 text-sm font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
 
-<header id="cag-site-header" class="bg-accent pt-2 pb-3 border-b border-border [color-scheme:dark]">
-    <div class="container">
-        {{- /* Accessibility toolbar: first in DOM/tab order (before the logo)
-               so it's reachable immediately by keyboard, but right-aligned
-               visually via flex, so it reads as an aside at the end of the
-               header row rather than a separate banner. */ -}}
-        <div class="flex flex-wrap items-center justify-end gap-1 py-1 text-sm" role="group" aria-label="{{ i18n `a11y_toolbar_label` }}">
+<header id="cag-site-header" class="bg-accent py-4 border-b border-border">
+    <a href="#cag-page-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
+    <div class="container grid items-center gap-4 md:grid-cols-[minmax(0,1fr)_auto]">
+        <aside id="cag-a11y-controls" class="row-start-2 flex min-w-0 flex-wrap items-center justify-end gap-2 text-sm md:col-start-2 md:row-start-1 md:flex-col md:items-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
             <button
                 type="button"
                 id="cag-contrast-toggle"
                 aria-pressed="false"
                 data-announce-on="{{ i18n `contrast_toggle_on_announce` }}"
                 data-announce-off="{{ i18n `contrast_toggle_off_announce` }}"
-                class="inline-flex items-center gap-2 rounded-md px-3 py-1.5 font-medium text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand"
+                class="{{ $controlClass }}"
             >
                 {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
                 <span>{{ i18n "contrast_toggle_label" }}</span>
             </button>
 
             <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
-                <button type="button" data-text-size="sm" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
-                <button type="button" data-text-size="md" aria-pressed="true" class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_reset` }}">A</button>
-                <button type="button" data-text-size="lg" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-base font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_increase` }}">A+</button>
+                <button type="button" data-text-size="sm" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
+                <button type="button" data-text-size="md" aria-pressed="true" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_reset` }}">A</button>
+                <button type="button" data-text-size="lg" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_increase` }}">A+</button>
             </div>
-        </div>
+            <div id="cag-a11y-announce" class="sr-only" role="status"></div>
+        </aside>
 
-        {{- /* Announces the theme change to screen readers; the button's own
-               aria-pressed already covers the button itself, this covers
-               users who aren't focused on it (e.g. after tabbing onward). */ -}}
-        <div id="cag-a11y-announce" class="sr-only" role="status" aria-live="polite"></div>
-
+        <div class="row-start-1 min-w-0 md:col-start-1">
         {{ if or $description $menu $title }}
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
@@ -119,6 +114,6 @@
             </nav>
         {{ end }}
         {{ end }}
-
+        </div>
     </div>
 </header>

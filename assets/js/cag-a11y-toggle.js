@@ -1,25 +1,10 @@
-/**
- * cag-a11y-toggle.js: high-contrast theme + text-size controls.
- *
- * The actual pre-paint application of a stored preference lives in a tiny
- * inline script in head.html (must run before <body> to avoid a flash of
- * the default theme); this file only wires up the header controls once the
- * DOM is ready and keeps localStorage in sync with user interaction.
- */
 (function () {
   'use strict';
 
   var THEME_KEY = 'cag-theme';
   var SIZE_KEY = 'cag-text-size';
   var SIZES = ['sm', 'md', 'lg'];
-
-  function readStorage(key) {
-    try {
-      return localStorage.getItem(key);
-    } catch (e) {
-      return null;
-    }
-  }
+  var root = document.documentElement;
 
   function writeStorage(key, value) {
     try {
@@ -28,7 +13,7 @@
       } else {
         localStorage.removeItem(key);
       }
-    } catch (e) {}
+    } catch {}
   }
 
   function initContrastToggle() {
@@ -37,7 +22,7 @@
     var announce = document.getElementById('cag-a11y-announce');
 
     function isContrast() {
-      return document.documentElement.getAttribute('data-theme') === 'contrast';
+      return root.getAttribute('data-theme') === 'contrast';
     }
 
     function sync() {
@@ -47,9 +32,11 @@
     btn.addEventListener('click', function () {
       var next = !isContrast();
       if (next) {
-        document.documentElement.setAttribute('data-theme', 'contrast');
+        root.setAttribute('data-theme', 'contrast');
+      } else if (root.dataset.defaultTheme === 'dark' || root.dataset.defaultTheme === 'light') {
+        root.setAttribute('data-theme', root.dataset.defaultTheme);
       } else {
-        document.documentElement.removeAttribute('data-theme');
+        root.removeAttribute('data-theme');
       }
       writeStorage(THEME_KEY, next ? 'contrast' : null);
       sync();
@@ -67,25 +54,25 @@
     var buttons = group.querySelectorAll('[data-text-size]');
 
     function current() {
-      var stored = readStorage(SIZE_KEY);
-      return SIZES.indexOf(stored) === -1 ? 'md' : stored;
+      var size = root.getAttribute('data-text-size');
+      return SIZES.indexOf(size) === -1 ? 'md' : size;
     }
 
     function apply(size) {
       if (size === 'md') {
-        document.documentElement.removeAttribute('data-text-size');
+        root.removeAttribute('data-text-size');
       } else {
-        document.documentElement.setAttribute('data-text-size', size);
+        root.setAttribute('data-text-size', size);
       }
       writeStorage(SIZE_KEY, size === 'md' ? null : size);
-      buttons.forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.dataset.textSize === size));
+      buttons.forEach(function (button) {
+        button.setAttribute('aria-pressed', String(button.dataset.textSize === size));
       });
     }
 
-    buttons.forEach(function (b) {
-      b.addEventListener('click', function () {
-        apply(b.dataset.textSize);
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        apply(button.dataset.textSize);
       });
     });
 
