@@ -20,7 +20,7 @@ If there's interest, we can pool money together and order pizzas or something si
 
 ## Will there be any refreshments provided?
 
-Since we have access to a fridge, of course there will be cold beer and soft drinks at cost. We'll also provide snacks in limited quantities, so the left mouse button stays nice and greasy.
+No. We will not provide food, drinks, or snacks at the venue, so please bring what you need.
 
 ## Will these be the only games?
 
@@ -34,6 +34,6 @@ Unfortunately, we organizers might not be able to help directly. But if you have
 
 ## Where can I sleep?
 
-You can sleep wherever you can find a suitable spot for yourself, but keep in mind that life goes on around you. Of course, the city won't be far enough that you couldn't slip away for a quick power nap. ;)
+You can sleep wherever you can find a suitable spot for yourself, but keep in mind that life goes on around you. The venue is in Budapest, so you can easily head home for a quick power nap. See the [Location page]({{< relref "/location" >}}) for the address and travel options.
 
 {{< /faq >}}
