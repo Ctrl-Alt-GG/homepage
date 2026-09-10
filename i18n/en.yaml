@@ -1,3 +1,13 @@
+- id: contrast_toggle_label
+  translation: "High-contrast view"
+- id: text_size_label
+  translation: "Text size"
+- id: text_size_decrease
+  translation: "Smaller text"
+- id: text_size_reset
+  translation: "Default text size"
+- id: text_size_increase
+  translation: "Larger text"
 - id: server_badge_tooltip
   translation: "A server for this game will be hosted at the event"
 - id: server_badge_aria

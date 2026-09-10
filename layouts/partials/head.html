@@ -37,6 +37,27 @@
 
 <head>
     <meta charset="utf-8">
+
+    {{- /* Anti-FOUC: apply the persisted a11y prefs before first paint, so
+           there is no flash of the default theme/font-size on reload.
+           Storage keys/values are the sole contract with cag-a11y-toggle.js;
+           only a small allow-list of literal values is ever read back, so
+           nothing user-supplied reaches the DOM. */ -}}
+    <script>
+    (function () {
+        try {
+            var theme = localStorage.getItem("cag-theme");
+            if (theme === "contrast") {
+                document.documentElement.setAttribute("data-theme", "contrast");
+            }
+            var size = localStorage.getItem("cag-text-size");
+            if (size === "sm" || size === "lg") {
+                document.documentElement.setAttribute("data-text-size", size);
+            }
+        } catch (e) {}
+    })();
+    </script>
+
     <meta content="{{ site.Title | markdownify | plainify | htmlUnescape }}" name="apple-mobile-web-app-title">
 
     {{ with $description }}

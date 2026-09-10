@@ -14,12 +14,36 @@
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
 
+{{- /* Accessibility toolbar: rendered unconditionally (independent of the
+       title/description/menu header below) so it is always the first
+       focusable control on every page, matching the "akadálymentes verzió"
+       pattern on Hungarian government sites. */ -}}
+<div id="cag-a11y-bar" class="bg-accent border-b border-border [color-scheme:dark]">
+    <div class="container flex flex-wrap items-center justify-center gap-2 py-2 text-sm">
+        <button
+            type="button"
+            id="cag-contrast-toggle"
+            aria-pressed="false"
+            class="inline-flex items-center gap-2 rounded-md px-3 py-1.5 font-medium text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand"
+        >
+            {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
+            <span>{{ i18n "contrast_toggle_label" }}</span>
+        </button>
+
+        <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
+            <button type="button" data-text-size="sm" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-xs font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
+            <button type="button" data-text-size="md" aria-pressed="true" class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_reset` }}">A</button>
+            <button type="button" data-text-size="lg" aria-pressed="false" class="rounded-md px-2.5 py-1.5 text-base font-semibold text-on-accent-muted transition-colors hover:text-on-accent hover:bg-(--on-accent)/15 focus-visible:focus-ring-brand" aria-label="{{ i18n `text_size_increase` }}">A+</button>
+        </div>
+    </div>
+</div>
+
 {{ if or $description $menu $title }}
-    <header id="cag-site-header" class="bg-linear-to-br from-brand-800 to-brand-700 dark:from-[#130404] dark:to-[#1e0606] pt-5 pb-3 border-b border-white/20 [color-scheme:dark]">
+    <header id="cag-site-header" class="bg-accent pt-5 pb-3 border-b border-border [color-scheme:dark]">
         <div class="container">
         {{ with $title }}
             <div class="{{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
-                <a class="no-underline text-white transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
+                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
                     {{ $logo := resources.Get "img/new_logo_long.svg" }}
                     {{ if $logo }}
                         {{ $logo.Content | safeHTML }}
@@ -31,7 +55,7 @@
         {{ end }}
 
         {{ with $description }}
-            <div class="text-xl font-light italic my-3 text-center text-white/75" id="cag-site-description">{{ . }}</div>
+            <div class="text-xl font-light italic my-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
         {{ end }}
 
         {{ if $menu }}
@@ -47,8 +71,8 @@
 
             {{/* Shared class list for every header nav link (active state via aria-current). */}}
             {{ $navLinkBaseClass := "block no-underline transition-colors text-sm tracking-[0.04em] font-normal py-[0.4rem] px-[0.85rem] rounded-md" }}
-            {{ $navLinkInteractionClass := "text-white/[72%] hover:text-white hover:bg-white/15" }}
-            {{ $navLinkActiveClass := "aria-[current=page]:text-white aria-[current=page]:font-semibold aria-[current=page]:bg-white/20" }}
+            {{ $navLinkInteractionClass := "text-on-accent-muted hover:text-on-accent hover:bg-(--on-accent)/15" }}
+            {{ $navLinkActiveClass := "aria-[current=page]:text-on-accent aria-[current=page]:font-semibold aria-[current=page]:bg-(--on-accent)/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
             <nav aria-label="{{ i18n `menu` }}" class="my-4" id="cag-site-menu">
@@ -75,7 +99,7 @@
                         <li class="{{ if $children }}relative group{{ end }}">
                             <a {{ if $active }} aria-current="page" {{ end }}{{ if $children }} aria-haspopup="true"{{ end }} class="{{ $navLinkClass }}" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                             {{ with $children }}
-                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-white/20 bg-brand-800/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block dark:bg-brand-950/95">
+                                <ul aria-label="{{ $.LinkTitle }}" class="absolute left-1/2 top-full z-20 hidden min-w-max -translate-x-1/2 list-none rounded-lg border border-border bg-(--accent)/95 p-2 shadow-xl backdrop-blur group-hover:block group-focus-within:block">
                                     {{ range . }}
                                         {{ $childActive := eq $page.RelPermalink .RelPermalink }}
                                         <li>
