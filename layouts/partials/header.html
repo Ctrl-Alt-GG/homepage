@@ -17,8 +17,26 @@
 
 <header id="cag-site-header" class="bg-accent py-4 border-b border-border">
     <a href="#cag-page-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
-    <div class="container grid grid-cols-[minmax(0,1fr)] items-center">
-        <aside id="cag-a11y-controls" class="col-start-1 row-start-4 mt-4 flex min-w-0 items-center justify-end gap-1 text-sm md:row-start-2 md:mt-0 md:justify-self-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
+    <div class="container grid grid-cols-[minmax(0,1fr)_auto] items-center">
+        {{ if or $description $menu $title }}
+        {{ with $title }}
+            <div class="col-span-2 col-start-1 row-start-1 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
+                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
+                    {{ $logo := resources.Get "img/new_logo_long.svg" }}
+                    {{ if $logo }}
+                        {{ $logo.Content | safeHTML }}
+                    {{ else }}
+                        {{ . }}
+                    {{ end }}
+                </a>
+            </div>
+        {{ end }}
+
+        {{ with $description }}
+            <div class="col-start-1 row-start-2 text-xl font-light italic mt-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
+        {{ end }}
+
+        <aside id="cag-a11y-controls" class="col-start-2 row-start-2 mt-3 flex min-w-0 items-center justify-end gap-1 text-sm" aria-label="{{ i18n `a11y_toolbar_label` }}">
             <button
                 type="button"
                 id="cag-contrast-toggle"
@@ -40,24 +58,6 @@
             <div id="cag-a11y-announce" class="sr-only" role="status"></div>
         </aside>
 
-        {{ if or $description $menu $title }}
-        {{ with $title }}
-            <div class="col-start-1 row-start-1 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
-                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
-                    {{ $logo := resources.Get "img/new_logo_long.svg" }}
-                    {{ if $logo }}
-                        {{ $logo.Content | safeHTML }}
-                    {{ else }}
-                        {{ . }}
-                    {{ end }}
-                </a>
-            </div>
-        {{ end }}
-
-        {{ with $description }}
-            <div class="col-start-1 row-start-2 text-xl font-light italic mt-3 text-center text-on-accent-muted md:mx-48" id="cag-site-description">{{ . }}</div>
-        {{ end }}
-
         {{ if $menu }}
             {{ $pages := site.Sections }}
 
@@ -75,7 +75,7 @@
             {{ $navLinkActiveClass := "aria-[current=page]:text-on-accent aria-[current=page]:font-semibold aria-[current=page]:bg-(--on-accent)/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="col-start-1 row-start-3 min-w-0 my-4" id="cag-site-menu">
+            <nav aria-label="{{ i18n `menu` }}" class="col-span-2 col-start-1 row-start-3 min-w-0 my-4" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 
