@@ -8,6 +8,8 @@ weight: 60
 
 {{< intro >}}
 Bárki bármikor bármelyik játékhoz csatlakozhat, és közben nyugodtan átválthat másikra is. Az időpontok azért vannak, hogy könnyebben találj társakat a közös játékokhoz.
+
+A teljes játéklistát és a szerverrel biztosan elérhető játékokat a [játékajánlóban]({{< relref "/program" >}}) találod.
 {{< /intro >}}
 
 {{< callout icon="📣" >}}A CS2-meccsek a kiírt időpontban kezdődnek. A következő meccset ezen az oldalon és a digitális kijelzőkön is jelezzük. Érj oda időben a nevezésre és a meccsedre.{{< /callout >}}

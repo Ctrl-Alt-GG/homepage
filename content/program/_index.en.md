@@ -1,12 +1,14 @@
 ---
-title: "Program"
+title: "Recommended Games"
 ---
 
 The true essence of a LAN party isn't just in the gaming itself, but in the communal experience of sitting together, playing together, and having fun together. Over two days we'll battle, compete, and cooperate through a local network. Just like in the good old days, when the online world wasn't so dominant.
 
 We welcome participants with a wide selection of games: from intense FPS battles to strategic challenges to hilarious party games, we've got something for everyone. Whether you're a hardcore gamer or just here to relax, there's a place for you here!
 
-Here's the complete game list so you know what to expect:
+Here's the complete list of games we recommend for the LAN party. Games marked with the server icon will definitely have at least one server hosted by us:
+
+See the [schedule]({{< relref "/schedule" >}}) for the suggested order and timing of the games.
 
 ## Free Games
 
