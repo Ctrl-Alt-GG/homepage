@@ -4,7 +4,7 @@ title: "Játékajánló"
 
 A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. A két napban helyi hálózaton keresztül csatázunk, versenyzünk és kooperálunk. Mindezt úgy, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
 
-A széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
+Széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
 
 Itt találod a LAN partyhoz ajánlott teljes játéklistát. A szerver ikonnal jelölt játékokhoz mi biztosítunk legalább egy szervert:
 
