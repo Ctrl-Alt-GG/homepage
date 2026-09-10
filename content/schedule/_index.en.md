@@ -9,7 +9,7 @@ weight: 60
 {{< intro >}}
 Anyone can join any game at any time, and you can switch to something else whenever you like. The times are there to make it easier to find people for each game.
 
-See [Recommended Games]({{< relref "/program" >}}) for the full game list and the games that will definitely have a server hosted by us.
+See <a href="{{< relref "/program" >}}">Recommended Games</a> for the full game list and the games that will definitely have a server hosted by us.
 {{< /intro >}}
 
 {{< callout icon="📣" >}}CS2 matches start at the listed times. We will announce the next one here and on the digital signage screens. Please arrive in time for registration and your match.{{< /callout >}}
