@@ -2,7 +2,28 @@ import params from '@params'
 
 const SELECTOR = '[data-cag-venue-map]'
 
+// MapLibre needs a WebGL2 context and throws a long way into its own startup
+// when there is none. Firefox hands one out far less readily than Chromium
+// does (a blocklisted driver, software rendering, webgl.disabled or
+// resistFingerprinting are all enough), so check before pulling in ~600 kB of
+// map code we would only throw away.
+function hasWebGL2() {
+  if (!('WebGL2RenderingContext' in window)) return false
+
+  try {
+    const canvas = document.createElement('canvas')
+    const gl = canvas.getContext('webgl2')
+    if (!gl) return false
+    gl.getExtension('WEBGL_lose_context')?.loseContext()
+    return true
+  } catch {
+    return false
+  }
+}
+
 async function createMap(element) {
+  if (!hasWebGL2()) throw new Error('WebGL2 is not available in this browser')
+
   const maplibregl = await import(params.moduleUrl)
 
   const lng = Number.parseFloat(element.dataset.lng)
@@ -34,6 +55,8 @@ async function createMap(element) {
 // text arrives, at an unpredictable point relative to the map's own events,
 // so undo it on that first expansion and then leave the control to the user.
 function collapseAttribution(attribution) {
+  if (!attribution) return
+
   const observer = new MutationObserver(() => {
     if (!attribution.classList.contains('maplibregl-compact-show')) return
     observer.disconnect()
@@ -51,10 +74,11 @@ function observe(element) {
         element.dataset.cagVenueMap = 'ready'
       })
       .catch((error) => {
-        // WebGL2 unavailable, blocked tiles, etc. The address and the map
-        // deep links below the frame remain usable, so just stop here.
+        // WebGL2 unavailable, blocked tiles, etc. The `failed` state reveals
+        // the message inside the frame; the address and the map deep links
+        // below it remain usable either way.
         element.dataset.cagVenueMap = 'failed'
-        console.warn('cag-venue-map: falling back to the static placeholder', error)
+        console.warn('cag-venue-map: showing the fallback instead of the map', error)
       })
   }
 

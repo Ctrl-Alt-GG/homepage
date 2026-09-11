@@ -16,6 +16,20 @@
   translation: "Alapértelmezett szövegméret"
 - id: text_size_increase
   translation: "Nagyobb szöveg"
+- id: theme_auto_label
+  translation: "Téma: a rendszer beállítása szerint"
+- id: theme_light_label
+  translation: "Téma: világos"
+- id: theme_dark_label
+  translation: "Téma: sötét"
+- id: theme_auto_announce
+  translation: "A téma a rendszer beállítását követi"
+- id: theme_light_announce
+  translation: "Világos téma bekapcsolva"
+- id: theme_dark_announce
+  translation: "Sötét téma bekapcsolva"
+- id: language_switch_label
+  translation: "Nyelvválasztó"
 - id: server_badge_tooltip
   translation: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
 - id: server_badge_aria
@@ -82,6 +96,8 @@
   translation: "járatok"
 - id: venue_map_noscript
   translation: "Az interaktív térképhez JavaScript szükséges, de a cím és a térkép-hivatkozások enélkül is működnek."
+- id: venue_map_failed
+  translation: "Az interaktív térképet nem sikerült betölteni ebben a böngészőben. A cím és az oldal alján lévő térkép-hivatkozások ettől még működnek."
 - id: map_zoom_in
   translation: "Nagyítás"
 - id: map_zoom_out

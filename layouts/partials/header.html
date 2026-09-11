@@ -13,30 +13,19 @@
 {{ end }}
 
 {{ $pagePath := strings.TrimPrefix $basePath $page.RelPermalink }}
-{{ $controlClass := "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-current p-0 text-sm leading-none font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
+{{/* Shared look for every control in the accessibility toolbar. `cursor-pointer`
+     is explicit because the UA default for <button> is an arrow, which gave no
+     hint that the toolbar is interactive. */}}
+{{ $controlClass := "inline-flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-md border border-current p-0 text-sm leading-none font-medium text-on-accent transition-colors hover:bg-(--on-accent)/15 aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 aria-[current=page]:underline aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-4 focus-visible:focus-ring-brand" }}
 
 <header id="cag-site-header" class="bg-accent py-4 border-b border-border">
     <a href="#cag-main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
     <div class="container grid grid-cols-1 items-center">
         {{ if or $description $menu $title }}
-        {{ with $title }}
-            <div class="col-span-2 col-start-1 row-start-1 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
-                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
-                    {{ $logo := resources.Get "img/new_logo_long.svg" }}
-                    {{ if $logo }}
-                        {{ $logo.Content | safeHTML }}
-                    {{ else }}
-                        {{ . }}
-                    {{ end }}
-                </a>
-            </div>
-        {{ end }}
-
-        {{ with $description }}
-            <div class="col-start-1 row-start-2 text-xl font-light italic mt-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
-        {{ end }}
-
-        <aside id="cag-a11y-controls" class="col-start-1 row-start-3 mt-3 flex min-w-0 items-center justify-end gap-1 text-sm md:row-start-2 md:mt-3 md:justify-self-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
+        {{/* Accessibility toolbar. Placed in the first grid row so it sits flush
+             with the top right corner of the header, above the wordmark, and
+             kept first in the DOM so its tab order matches that position. */}}
+        <aside id="cag-a11y-controls" class="col-start-1 row-start-1 flex min-w-0 flex-wrap items-center justify-center gap-1 text-sm sm:justify-end" aria-label="{{ i18n `a11y_toolbar_label` }}">
             <button
                 type="button"
                 id="cag-contrast-toggle"
@@ -50,13 +39,74 @@
                 {{ partial "icon.html" (dict "name" "accessible" "class" "size-5 shrink-0") }}
             </button>
 
+            {{/* Colour scheme. One button cycling system -> light -> dark, for
+                 visitors whose OS preference is wrong or who simply want to
+                 override it. The icon that shows is picked in CSS from
+                 html[data-color-scheme], so it is already correct on first
+                 paint; the labels below are swapped by cag-a11y-toggle.js. */}}
+            <button
+                type="button"
+                id="cag-theme-toggle"
+                aria-label="{{ i18n `theme_auto_label` }}"
+                title="{{ i18n `theme_auto_label` }}"
+                data-label-auto="{{ i18n `theme_auto_label` }}"
+                data-label-light="{{ i18n `theme_light_label` }}"
+                data-label-dark="{{ i18n `theme_dark_label` }}"
+                data-announce-auto="{{ i18n `theme_auto_announce` }}"
+                data-announce-light="{{ i18n `theme_light_announce` }}"
+                data-announce-dark="{{ i18n `theme_dark_announce` }}"
+                class="{{ $controlClass }}"
+            >
+                <span data-theme-icon="auto">{{ partial "icon.html" (dict "name" "theme-auto" "class" "size-5 shrink-0") }}</span>
+                <span data-theme-icon="light">{{ partial "icon.html" (dict "name" "theme-light" "class" "size-5 shrink-0") }}</span>
+                <span data-theme-icon="dark">{{ partial "icon.html" (dict "name" "theme-dark" "class" "size-5 shrink-0") }}</span>
+            </button>
+
             <div id="cag-text-size" role="group" aria-label="{{ i18n `text_size_label` }}" class="inline-flex items-center gap-1">
                 <button type="button" data-text-size="sm" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_decrease` }}">A-</button>
                 <button type="button" data-text-size="md" aria-pressed="true" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_reset` }}">A</button>
                 <button type="button" data-text-size="lg" aria-pressed="false" class="{{ $controlClass }}" aria-label="{{ i18n `text_size_increase` }}">A+</button>
             </div>
+
+            {{/* Language switcher. The footer keeps the long-form selector; this
+                 one is the quick toggle that sits with the other controls. */}}
+            {{ $translations := $page.AllTranslations }}
+            {{ if gt (len $translations) 1 }}
+                <nav id="cag-language-switch" aria-label="{{ i18n `language_switch_label` }}" class="inline-flex items-center gap-1">
+                    {{ range $translations }}
+                        {{ $current := eq .Language.Lang $page.Language.Lang }}
+                        <a
+                            class="{{ $controlClass }} uppercase aria-[current=page]:font-bold"
+                            href="{{ .RelPermalink }}"
+                            lang="{{ .Language.Lang }}"
+                            hreflang="{{ .Language.Lang }}"
+                            aria-label="{{ .Language.LanguageName }}"
+                            title="{{ .Language.LanguageName }}"
+                            {{ if $current }}aria-current="page"{{ end }}
+                        >{{ .Language.Lang }}</a>
+                    {{ end }}
+                </nav>
+            {{ end }}
+
             <div id="cag-a11y-announce" class="sr-only" role="status"></div>
         </aside>
+
+        {{ with $title }}
+            <div class="col-span-2 col-start-1 row-start-2 {{ if not (or $description $menu) }}my-4{{ end }} text-center" id="cag-site-title">
+                <a class="no-underline text-on-accent transition-opacity hover:opacity-85" href="{{ relLangURL `` }}" aria-label="{{ site.Title | markdownify | plainify | htmlUnescape }}">
+                    {{ $logo := resources.Get "img/new_logo_long.svg" }}
+                    {{ if $logo }}
+                        {{ $logo.Content | safeHTML }}
+                    {{ else }}
+                        {{ . }}
+                    {{ end }}
+                </a>
+            </div>
+        {{ end }}
+
+        {{ with $description }}
+            <div class="col-start-1 row-start-3 text-xl font-light italic mt-3 text-center text-on-accent-muted" id="cag-site-description">{{ . }}</div>
+        {{ end }}
 
         {{ if $menu }}
             {{ $pages := site.Sections }}
@@ -75,7 +125,7 @@
             {{ $navLinkActiveClass := "aria-[current=page]:text-on-accent aria-[current=page]:font-semibold aria-[current=page]:bg-(--on-accent)/20" }}
             {{ $navLinkClass := printf "%s %s %s" $navLinkBaseClass $navLinkInteractionClass $navLinkActiveClass }}
 
-            <nav aria-label="{{ i18n `menu` }}" class="col-start-1 row-start-4 min-w-0 my-4 md:row-start-3" id="cag-site-menu">
+            <nav aria-label="{{ i18n `menu` }}" class="col-start-1 row-start-4 min-w-0 my-4" id="cag-site-menu">
                 <ul class="flex flex-wrap list-none p-0 m-0 items-center justify-center">
                     {{ $active := eq $page.Section "" }}
 

@@ -17,7 +17,7 @@
 {{- $waze := .Get "waze" | default "" -}}
 {{- if not (and $google $apple) }}{{ errorf "cag/map-links: 'google' and 'apple' are both required (page: %s)" .Page.File.Path }}{{ end -}}
 {{- $action := i18n "map_link_action" -}}
-{{- $iconClass := "cag-map-link__icon flex size-11 shrink-0 items-center justify-center rounded-card bg-white [box-shadow:0_4px_14px_color-mix(in_srgb,var(--card-brand)_20%,transparent)]" -}}
+{{- $iconClass := "cag-map-link__icon cag-contrast-keep flex size-11 shrink-0 items-center justify-center rounded-card bg-white [box-shadow:0_4px_14px_color-mix(in_srgb,var(--card-brand)_20%,transparent)]" -}}
 {{- $iconImageClass := "cag-map-link__icon-img block bg-contain bg-center bg-no-repeat" -}}
 <div class="cag-map-links mx-auto mt-6 flex max-w-[56rem] flex-wrap justify-center gap-4">
   <a class="cag-map-link cag-map-link--google [--card-brand:#4285f4] [--card-handle:#4285f4]" href="{{ $google }}">

@@ -383,6 +383,19 @@ body.cag-lb-active {
     @apply rounded-lg shadow-none border border-border;
 }
 
+/* Shown only once cag-venue-map.js reports that the map could not start, so a
+   browser without a usable WebGL2 context gets an explanation rather than an
+   empty frame. Paints its own surface colours: the frame is exempt from the
+   high-contrast repaint, so this panel cannot inherit them. */
+.cag-venue-map__error {
+    @apply absolute inset-0 m-0 hidden items-center justify-center p-6 text-center text-sm;
+    @apply bg-surface text-on-surface;
+}
+
+.cag-venue-map__frame[data-cag-venue-map="failed"] .cag-venue-map__error {
+    @apply flex;
+}
+
 /* Three split cards stack 2:1 beside a card spanning both rows. */
 .cag-features--split .cag-grid:has(> .cag-card:nth-child(3)) > .cag-card:nth-child(1) {
     @apply lg:col-start-1 lg:row-start-1;

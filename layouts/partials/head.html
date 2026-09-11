@@ -38,13 +38,22 @@
 <head>
     <meta charset="utf-8">
 
+    {{/* Applies the stored accessibility preferences before the first paint, so
+         the page never flashes the wrong colour scheme or text size. Kept in
+         sync with assets/js/cag-a11y-toggle.js, which owns the same keys.
+         data-color-scheme is the manual light/dark choice and survives the
+         high-contrast view being turned on and off on top of it. */}}
     <script>
     (function () {
         var root = document.documentElement;
         root.dataset.defaultTheme = root.getAttribute("data-theme") || "";
         try {
-            var theme = localStorage.getItem("cag-theme");
-            if (theme === "contrast") {
+            var scheme = localStorage.getItem("cag-color-scheme");
+            if (scheme === "light" || scheme === "dark") {
+                root.setAttribute("data-color-scheme", scheme);
+                root.setAttribute("data-theme", scheme);
+            }
+            if (localStorage.getItem("cag-theme") === "contrast") {
                 root.setAttribute("data-theme", "contrast");
             }
             var size = localStorage.getItem("cag-text-size");

@@ -16,6 +16,20 @@
   translation: "Default text size"
 - id: text_size_increase
   translation: "Larger text"
+- id: theme_auto_label
+  translation: "Theme: follow the system setting"
+- id: theme_light_label
+  translation: "Theme: light"
+- id: theme_dark_label
+  translation: "Theme: dark"
+- id: theme_auto_announce
+  translation: "The theme now follows the system setting"
+- id: theme_light_announce
+  translation: "Light theme enabled"
+- id: theme_dark_announce
+  translation: "Dark theme enabled"
+- id: language_switch_label
+  translation: "Language"
 - id: server_badge_tooltip
   translation: "A server for this game will be hosted at the event"
 - id: server_badge_aria
@@ -82,6 +96,8 @@
   translation: "lines"
 - id: venue_map_noscript
   translation: "The interactive map needs JavaScript; the address and the map links below work without it."
+- id: venue_map_failed
+  translation: "The interactive map could not be loaded in this browser. The address and the map links at the bottom of the page still work."
 - id: map_zoom_in
   translation: "Zoom in"
 - id: map_zoom_out

@@ -280,29 +280,63 @@ html[data-theme="contrast"] {
   color: var(--contrast-icon-dots);
 }
 
+/* ── Interactive affordances ─────────────────────────────────────────
+   The UA default cursor for a <button> is an arrow, which left the header
+   controls looking like static decoration. Lives in the base layer so an
+   explicit cursor-* utility (the polaroid's zoom cursors, say) still wins. */
+@layer base {
+  :where(button, summary, [role="button"]):not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* ── Colour scheme button ────────────────────────────────────────────
+   The button ships all three glyphs and CSS picks the one matching the
+   current choice, so the right icon is there on the first paint (the
+   pre-paint script in head.html has already set data-color-scheme). */
+[data-theme-icon] {
+  display: none;
+}
+
+html:not([data-color-scheme]) [data-theme-icon="auto"],
+html[data-color-scheme="light"] [data-theme-icon="light"],
+html[data-color-scheme="dark"] [data-theme-icon="dark"] {
+  display: block;
+}
+
 :focus-visible {
   outline: 0.1875rem solid currentColor;
   outline-offset: 0.1875rem;
 }
 
-html[data-theme="contrast"] :where(body, body *) {
+/* ── High-contrast view ──────────────────────────────────────────────
+   The rules below repaint the whole page black on yellow. Anything carrying
+   `.cag-contrast-keep` (and its subtree) is exempt: those are pictures rather
+   than text, and are unreadable once flattened. Two things on the location
+   page needed it. Transit pictograms and map-link logos are CSS background
+   images, so `background-image: none` erased them outright, and the venue map
+   is a live MapLibre canvas whose zoom controls, attribution and marker are
+   its own chrome, which came out as dark glyphs on a black plate. Treating
+   them like <img> keeps them legible; the surrounding frame still gets the
+   high-contrast border. */
+html[data-theme="contrast"] :where(body, body *):not(:where(.cag-contrast-keep, .cag-contrast-keep *)) {
   background-image: none;
   box-shadow: none;
   text-shadow: none;
   border-color: var(--border);
 }
 
-html[data-theme="contrast"] :where(body, body *):not(:where(svg, svg *, img, video, canvas, iframe)) {
+html[data-theme="contrast"] :where(body, body *):not(:where(svg, svg *, img, video, canvas, iframe, .cag-contrast-keep, .cag-contrast-keep *)) {
   background-color: var(--surface);
   color: var(--on-surface);
 }
 
-html[data-theme="contrast"] :where(svg, img) {
+html[data-theme="contrast"] :where(svg, img):not(:where(.cag-contrast-keep, .cag-contrast-keep *)) {
   color: var(--on-surface);
 }
 
-html[data-theme="contrast"] ::before,
-html[data-theme="contrast"] ::after {
+html[data-theme="contrast"] :where(body, body *):not(:where(.cag-contrast-keep, .cag-contrast-keep *))::before,
+html[data-theme="contrast"] :where(body, body *):not(:where(.cag-contrast-keep, .cag-contrast-keep *))::after {
   background: none;
   border-color: var(--border);
   color: var(--on-surface);
@@ -326,13 +360,18 @@ html[data-theme="contrast"] :where(img, .cag-card-frame, .cag-map-link, .cag-soc
   animation: none;
 }
 
-html[data-theme="contrast"] a {
+html[data-theme="contrast"] a:not(:where(.cag-contrast-keep, .cag-contrast-keep *)) {
   text-decoration: underline;
   text-decoration-color: currentColor;
   text-underline-offset: 0.1875rem;
 }
 
-html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]) {
+html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]):not(:where(.cag-contrast-keep, .cag-contrast-keep *)) {
+  border: 0.125rem solid var(--border);
+}
+
+/* The map keeps its own look, so the frame carries the contrast boundary. */
+html[data-theme="contrast"] .cag-venue-map__frame {
   border: 0.125rem solid var(--border);
 }
 
