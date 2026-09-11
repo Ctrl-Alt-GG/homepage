@@ -43,24 +43,5 @@
             <a class="font-medium text-on-accent hover:opacity-85 transition-opacity" href="https://lobby.ctrl-alt-gg.hu/">{{ i18n "family_lobby" }}</a>
         </nav>
 
-        {{/* Language selector */}}
-        {{/* `Rotate` is a project/theme-specific page helper (not a standard Hugo Page method).
-             With the "language" key it returns this page's language variants in a rotated order
-             (used here to build the language switcher from the current page's translations). */}}
-        {{ $rotated := $page.Rotate "language" }}
-        {{ if gt (len $rotated) 1 }}
-            <div id="cag-language-selector" class="text-center mb-4 text-xs tracking-wider text-on-accent-muted">
-                {{ range $i, $t := $rotated }}
-                    {{ if eq $t.Site.Language.Lang $page.Language.Lang }}
-                        <span class="font-bold text-on-accent">{{ $t.Site.Language.LanguageName }}</span>
-                    {{ else }}
-                        <a class="no-underline text-on-accent-muted hover:text-on-accent transition-colors" href="{{ $t.RelPermalink }}" lang="{{ $t.Site.Language.Lang }}" hreflang="{{ $t.Site.Language.Lang }}">{{ $t.Site.Language.LanguageName }}</a>
-                    {{ end }}
-                    {{ if lt $i (sub (len $rotated) 1) }}
-                        <span aria-hidden="true" class="mx-2 text-on-accent-muted">·</span>
-                    {{ end }}
-                {{ end }}
-            </div>
-        {{ end }}
     </div>
 </footer>
