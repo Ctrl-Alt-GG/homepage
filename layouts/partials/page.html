@@ -46,7 +46,7 @@
 
 {{ $title := and ($page.Param "cag.pages.disable_title" | not) ($page.Title | markdownify) }}
 
-<main class="max-w-full prose-cag" id="cag-page-content" tabindex="-1" {{ if $title }}aria-labelledby="cag-page-title"{{ end }}>
+<main id="cag-main" tabindex="-1" {{ if $title }}aria-labelledby="cag-page-title"{{ end }}>
     <article class="{{ if $min }} flex flex-col items-center {{ end }} {{ $class }}" id="cag-page">
         {{ if $title }}
             <header class="max-w-full text-center pb-6 mb-2 border-b border-border" id="cag-page-header">
@@ -54,8 +54,10 @@
             </header>
         {{ end }}
 
-        {{ with $content }}
-            {{ . | safeHTML }}
-        {{ end }}
+        <div class="max-w-full prose-cag" id="cag-page-content">
+            {{ with $content }}
+                {{ . | safeHTML }}
+            {{ end }}
+        </div>
     </article>
 </main>

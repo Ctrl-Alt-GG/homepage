@@ -16,7 +16,7 @@
 {{ $controlClass := "inline-flex size-10 shrink-0 items-center justify-center rounded-md border border-current p-0 text-sm leading-none font-medium text-on-accent aria-[pressed=true]:underline aria-[pressed=true]:decoration-2 aria-[pressed=true]:underline-offset-4 focus-visible:focus-ring-brand" }}
 
 <header id="cag-site-header" class="bg-accent py-4 border-b border-border">
-    <a href="#cag-page-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
+    <a href="#cag-main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-on-surface">{{ i18n "skip_to_content" }}</a>
     <div class="container grid grid-cols-1 items-center">
         {{ if or $description $menu $title }}
         {{ with $title }}
