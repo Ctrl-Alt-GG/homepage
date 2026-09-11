@@ -62,6 +62,34 @@ params:
       x:
         enabled: false
         url: ""
+    countdown:
+      # Global countdown bar, pinned under the header on every page.
+      # Flip `enabled` to false to remove it site wide; nothing else needs
+      # touching, and no countdown markup or script is emitted at all.
+      #
+      # `target` is required while enabled and must be a date Hugo can parse.
+      # Keep the offset on it (+02:00 is CEST) so the deadline means the same
+      # moment for a visitor in any time zone.
+      #
+      # The three text blocks say what the bar is counting down to. They live
+      # here, one string per language, rather than in i18n/ because they are
+      # content: point the target at something else and all three have to be
+      # reworded with it. Every language needs all three or the build fails.
+      #   heading    the lead in shown beside the digits
+      #   complete   what replaces the digits once the target passes
+      #   dateLabel  introduces the full date, read by screen readers and
+      #              shown when JavaScript is unavailable
+      enabled: true
+      target: "2026-09-18T12:00:00+02:00"
+      heading:
+        hu: "A jelentkezési határidőig"
+        en: "Until registration closes"
+      complete:
+        hu: "Lezárult a jelentkezés!"
+        en: "Registration has closed!"
+      dateLabel:
+        hu: "A jelentkezési határidő:"
+        en: "Registration deadline:"
     site:
       description: "GL&HF, IRL."
       disable_credit: true

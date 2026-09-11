@@ -5,7 +5,8 @@
 
   Params (named):
     src     (string, required): page-resource filename, e.g. "entrance.webp".
-    alt     (string, optional, default ""): image alt text.
+    alt     (string, required): description of what the photo shows, for
+                                 readers who cannot see it.
     caption (string, optional, default ""): handwritten-style line printed on
                                             the polaroid's bottom border.
     kicker  (string, optional): small eyebrow line above the heading.
@@ -30,6 +31,7 @@
 {{- $page := .Page -}}
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
+{{- if not $alt }}{{ errorf "cag/polaroid: 'alt' is required and must describe what the photo shows (page: %s)" .Page.File.Path }}{{ end -}}
 {{- $caption := .Get "caption" | default "" -}}
 {{- $kicker := .Get "kicker" | default "" -}}
 {{- $heading := .Get "heading" | default "" -}}

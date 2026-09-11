@@ -50,6 +50,22 @@
   translation: "Fényképnézegető"
 - id: polaroid_viewer_close
   translation: "Bezárás"
+- id: countdown_unit_day
+  translation: "nap"
+- id: countdown_unit_days
+  translation: "nap"
+- id: countdown_unit_hour
+  translation: "óra"
+- id: countdown_unit_hours
+  translation: "óra"
+- id: countdown_unit_minute
+  translation: "perc"
+- id: countdown_unit_minutes
+  translation: "perc"
+- id: countdown_unit_second
+  translation: "másodperc"
+- id: countdown_unit_seconds
+  translation: "másodperc"
 - id: countdown_prefix
   translation: "Már csak "
 - id: countdown_suffix

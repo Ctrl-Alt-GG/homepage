@@ -103,13 +103,23 @@ General rules:
   `assets/css/main.css`.
 - Images should go through `cag/image` (it handles WebP/responsive sizes).
   Don't hand-write `<img>` tags in content.
+- Every image needs alt text describing what is actually visible in it, for
+  readers who cannot see it. It is **not** an i18n string: it belongs with
+  the image. Game covers carry theirs in `data/games.yaml` under `alt`;
+  page-bundle images carry theirs in the owning page's front matter under
+  `resources` as `params.alt`, which means each language file holds its own
+  wording. `cag/image` and `cag/polaroid` fail the build on an image with no
+  description, so the site cannot regress here.
 
 ## 7. Data files
 
-- `data/games.yaml` is a flat dictionary: `slug: "<image url>"`. The slug
-  is used as the filename stem referenced from Markdown. When adding a
-  game card, add the entry here **first**, then reference the image in
-  content via the `cag/image` shortcode using the same slug.
+- `data/games.yaml` maps a slug to `image` (the remote URL) and `alt`
+  (one description per site language). The slug is used as the filename
+  stem referenced from Markdown. When adding a game card, add the entry
+  here **first**, then reference the image in content via the `cag/image`
+  shortcode using the same slug.
+- Every entry needs a non-empty `alt.hu` and `alt.en`. `game-image.html`
+  aborts the build otherwise, on purpose: an undescribed image is a bug.
 - Prefer permanent, content-addressed sources (Steam CDN headers) over
   fragile hot-link URLs. Verify the URL returns `200` before committing.
 - Keep entries grouped and commented by source (Steam / official /

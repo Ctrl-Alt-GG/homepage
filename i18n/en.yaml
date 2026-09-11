@@ -50,6 +50,22 @@
   translation: "Photo viewer"
 - id: polaroid_viewer_close
   translation: "Close"
+- id: countdown_unit_day
+  translation: "day"
+- id: countdown_unit_days
+  translation: "days"
+- id: countdown_unit_hour
+  translation: "hour"
+- id: countdown_unit_hours
+  translation: "hours"
+- id: countdown_unit_minute
+  translation: "minute"
+- id: countdown_unit_minutes
+  translation: "minutes"
+- id: countdown_unit_second
+  translation: "second"
+- id: countdown_unit_seconds
+  translation: "seconds"
 - id: countdown_prefix
   translation: "Only "
 - id: countdown_suffix

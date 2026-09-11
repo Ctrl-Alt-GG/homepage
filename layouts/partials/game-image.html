@@ -1,8 +1,10 @@
 {{- /*
-  game-image.html: resolve a data/games.yaml slug to a fetched image resource.
+  game-image.html: resolve a data/games.yaml slug to a fetched image resource
+  plus its accessibility description.
 
   Shared by the Markdown image render hook and the schedule timeline so the
-  remote-fetch rules (User-Agent, error handling) live in exactly one place.
+  remote-fetch rules (User-Agent, error handling) and the alt lookup live in
+  exactly one place.
 
   Params (dict keys):
     slug (required): key in data/games.yaml.
@@ -10,13 +12,26 @@
   Returns a dict:
     url      remote URL from data/games.yaml, "" when the slug is unknown
     resource fetched resource, "" when unknown or when the fetch failed
+    alt      description of the artwork in the current site language
+
+  A known slug with no alt for the current language fails the build on purpose.
+  Alt text is the one thing here that cannot be derived or retried later, so a
+  new game must arrive with its description or not at all.
 */ -}}
 {{- $url := "" -}}
 {{- $resource := "" -}}
+{{- $alt := "" -}}
 {{- with index hugo.Data.games .slug -}}
-  {{- $url = . -}}
+  {{- $url = .image -}}
+  {{- $alt = index .alt site.Language.Lang -}}
+  {{- if not $url -}}
+    {{- errorf "game-image: data/games.yaml entry %q has no image URL" $.slug -}}
+  {{- end -}}
+  {{- if not $alt -}}
+    {{- errorf "game-image: data/games.yaml entry %q has no alt.%s text. Every image needs a description of what it shows." $.slug site.Language.Lang -}}
+  {{- end -}}
   {{- $ua := printf "Mozilla/5.0 (compatible; Hugo; +%s)" site.BaseURL -}}
-  {{- with try (resources.GetRemote . (dict "headers" (dict "User-Agent" $ua))) -}}
+  {{- with try (resources.GetRemote $url (dict "headers" (dict "User-Agent" $ua))) -}}
     {{- with .Err -}}
       {{- warnf "game-image: cannot fetch remote image for %q: %s" $.slug . -}}
     {{- else with .Value -}}
@@ -24,4 +39,4 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- return dict "url" $url "resource" $resource -}}
+{{- return dict "url" $url "resource" $resource "alt" $alt -}}

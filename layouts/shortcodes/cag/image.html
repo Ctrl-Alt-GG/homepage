@@ -1,3 +1,7 @@
+{{/* Alt text. An explicit alt= wins; otherwise it comes from the image's own
+     `params.alt` in the page bundle front matter, which is where gallery photos
+     carry their description in the page's language. An image with neither fails
+     the build: a picture nobody has described is a bug, not a default. */}}
 {{ $alt := .Get "alt" }}
 {{ $breakpoints := .Get "breakpoints" }}
 {{ $class := .Get "class" }}
@@ -33,6 +37,16 @@
     {{ else with resources.Get $src }}
         {{ $resource = . }}
     {{ end }}
+{{ end }}
+
+{{ if and (not $alt) $resource }}
+    {{ with $resource.Params.alt }}
+        {{ $alt = . }}
+    {{ end }}
+{{ end }}
+
+{{ if not $alt }}
+    {{ errorf "layouts/shortcodes/cag/image.html: %q has no alt text. Pass alt=\"...\" or give the resource a params.alt in the page front matter, describing what the image shows." $src }}
 {{ end }}
 
 {{/* Build inline style */}}

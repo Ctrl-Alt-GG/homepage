@@ -17,7 +17,8 @@
 
   If the image cannot be resolved, a plain <img src="..."> fallback is emitted.
   For game images (resolved via data/games.yaml), the fallback uses the original
-  remote URL so the page remains usable even when the remote fetch fails.
+  remote URL so the page remains usable even when the remote fetch fails, and the
+  alt comes from that entry's per-language description.
 */ -}}
 
 {{- $alt    := .PlainText | markdownify | plainify | htmlUnescape -}}
@@ -28,6 +29,7 @@
 {{- $resource := "" -}}
 {{- $isGameImage := false -}}
 {{- $remoteURL := "" -}}
+{{- $gameAlt := "" -}}
 
 {{- /* 1. Page-bundle resource */ -}}
 {{- with $page.Resources.Get $src -}}
@@ -46,6 +48,7 @@
   {{- $slug := path.Base $src | strings.TrimSuffix (path.Ext $src) -}}
   {{- $game := partial "game-image.html" (dict "slug" $slug) -}}
   {{- $remoteURL = $game.url -}}
+  {{- $gameAlt = $game.alt -}}
   {{- with $game.resource -}}
     {{- $resource = . -}}
     {{- $isGameImage = true -}}
@@ -53,9 +56,11 @@
 {{- end -}}
 
 {{- /* Render */ -}}
-{{- /* Game covers already show the name as the link text right next to them; an alt would read it twice. */ -}}
-{{- if or $isGameImage $remoteURL -}}
-  {{- $alt = "" -}}
+{{- /* Game covers describe the artwork from data/games.yaml rather than reusing the
+       markdown alt, which is only ever the game name that the adjacent link already
+       carries. The description is what a screen reader user actually gains here. */ -}}
+{{- with $gameAlt -}}
+  {{- $alt = . -}}
 {{- end -}}
 {{- if $resource -}}
   {{- $isSVG := in (lower $resource.MediaType.SubType) "svg" -}}

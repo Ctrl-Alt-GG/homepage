@@ -1,0 +1,92 @@
+{{- /*
+  countdown-bar.html: the site wide countdown, pinned under the header.
+
+  Renders nothing at all unless `params.cag.countdown.enabled` is true in
+  hugo.yaml, so turning it off costs no markup, no script and no layout space.
+  The target comes from `params.cag.countdown.target` and is emitted as an
+  RFC 3339 timestamp, which is what assets/js/cag-countdown-bar.js parses.
+
+  The wording comes from `heading`, `complete` and `dateLabel` in the same
+  config block, one string per language. It is not in i18n/ on purpose: these
+  strings describe whatever the target happens to be (a registration deadline,
+  the event start, a ticket release), so they have to change together with it.
+  The unit names below stay in i18n/, because "nap" and "days" mean the same
+  thing no matter what is being counted down to.
+
+  Accessibility notes:
+    - The digits tick once a second, so they are aria-hidden. A screen reader
+      announcing "44 seconds, 43 seconds, 42 seconds" forever would make the
+      site unusable. The same information is available as a single static
+      sentence carrying the full date, which is what assistive tech reads.
+    - Without JavaScript the digits never appear and that static sentence is
+      the whole bar, so the deadline is still legible.
+*/ -}}
+{{- $page := . -}}
+{{- if $page.Param "cag.countdown.enabled" -}}
+  {{- $target := $page.Param "cag.countdown.target" -}}
+  {{- if not $target -}}
+    {{- errorf "countdown-bar: cag.countdown.enabled is true but cag.countdown.target is empty. Set a target in hugo.yaml or disable the countdown." -}}
+  {{- end -}}
+  {{- /* time.AsTime fails the build on its own for a bad value, but with a bare
+         "unable to parse date". Catching it lets the message say what to do. */ -}}
+  {{- $targetDate := "" -}}
+  {{- with try (time.AsTime $target) -}}
+    {{- with .Err -}}
+      {{- errorf "countdown-bar: cag.countdown.target %q is not a date Hugo can parse (%s). Use an RFC 3339 value such as 2026-09-18T12:00:00+02:00." $target . -}}
+    {{- else -}}
+      {{- $targetDate = .Value -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $lang := $page.Language.Lang -}}
+
+  {{- /* Every language needs every string. A half translated countdown would
+         otherwise ship as a blank label that nobody notices until launch. */ -}}
+  {{- $text := dict -}}
+  {{- range $field := slice "heading" "complete" "dateLabel" -}}
+    {{- $value := index ($page.Param (printf "cag.countdown.%s" $field)) $lang -}}
+    {{- if not $value -}}
+      {{- errorf "countdown-bar: cag.countdown.%s has no %q text in hugo.yaml. Every enabled language needs its own wording for the countdown." $field $lang -}}
+    {{- end -}}
+    {{- $text = merge $text (dict $field $value) -}}
+  {{- end -}}
+
+  {{- $stamp := $targetDate.Format "2006-01-02T15:04:05Z07:00" -}}
+  {{- $readable := cond (eq $lang "hu") ($targetDate | time.Format "2006. 01. 02. 15:04") ($targetDate | time.Format "January 2, 2006, 15:04") -}}
+
+  {{- $units := slice
+        (dict "key" "days"    "one" (i18n "countdown_unit_day")    "many" (i18n "countdown_unit_days"))
+        (dict "key" "hours"   "one" (i18n "countdown_unit_hour")   "many" (i18n "countdown_unit_hours"))
+        (dict "key" "minutes" "one" (i18n "countdown_unit_minute") "many" (i18n "countdown_unit_minutes"))
+        (dict "key" "seconds" "one" (i18n "countdown_unit_second") "many" (i18n "countdown_unit_seconds"))
+  -}}
+
+<section
+  id="cag-countdown-bar"
+  class="cag-countdown-bar"
+  aria-labelledby="cag-countdown-heading"
+  data-cag-countdown
+  data-countdown-target="{{ $stamp }}"
+>
+  <div class="container cag-countdown-bar__inner">
+    <p class="cag-countdown-bar__heading" id="cag-countdown-heading">{{ $text.heading }}</p>
+
+    <p class="cag-countdown-bar__units" aria-hidden="true">
+      {{- range $units }}
+      <span class="cag-countdown-unit">
+        <span class="cag-countdown-unit__value" data-countdown-value="{{ .key }}">--</span>
+        <span class="cag-countdown-unit__label" data-countdown-label="{{ .key }}" data-one="{{ .one }}" data-many="{{ .many }}">{{ .many }}</span>
+      </span>
+      {{- end }}
+    </p>
+
+    <p class="cag-countdown-bar__done" aria-hidden="true">{{ $text.complete }}</p>
+
+    {{- /* The accessible, non-ticking version of the same fact. */ -}}
+    <p class="cag-countdown-bar__readable">
+      {{ $text.dateLabel }}
+      <time datetime="{{ $stamp }}">{{ $readable }}</time>
+    </p>
+  </div>
+</section>
+{{- end -}}

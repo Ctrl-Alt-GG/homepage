@@ -1,33 +1,135 @@
-# Game header image URLs, keyed by slug (filename stem used in markdown ![alt](slug.jpg))
-# Hugo fetches these at build time via resources.GetRemote and processes them to WebP.
+# Game header images, keyed by slug (the filename stem used in markdown ![](slug.jpg)).
+# Hugo fetches `image` at build time via resources.GetRemote and processes it to WebP.
+#
+# `alt` is the accessibility description of what the artwork actually shows, one string
+# per site language. It lives here rather than in i18n/ so it stays attached to the image
+# it describes. Every game MUST carry a non-empty alt for every language: layouts/partials/
+# game-image.html fails the build otherwise, which is what keeps the site free of
+# undescribed images.
 
 # Steam CDN headers (460x215 JPEG, permanent content-addressed URLs)
-cs2:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
-scp:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/700330/header.jpg"
-alien-swarm:          "https://cdn.cloudflare.steamstatic.com/steam/apps/630/header.jpg"
-trackmania:           "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg"
-css:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg"
-satisfactory:         "https://cdn.cloudflare.steamstatic.com/steam/apps/526870/header.jpg"
-garrys-mod:           "https://cdn.cloudflare.steamstatic.com/steam/apps/4000/header.jpg"
-dont-starve-together: "https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg"
-tempest-rising:       "https://cdn.cloudflare.steamstatic.com/steam/apps/1486920/header.jpg"
-vermintide2:          "https://cdn.cloudflare.steamstatic.com/steam/apps/552500/header.jpg"
-left4dead2:           "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg"
-tf2:                  "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg"
-dod-source:           "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
-factorio:             "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
-cod-mw2:              "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
-minecraft:            "https://linuxgsm.com/wp-content/uploads/2021/02/mcje-header.jpg"
+cs2:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+  alt:
+    hu: "Két felfegyverzett kommandós narancs lencséjű szemüvegben, szürke és narancssárga háttér előtt, jobbra a nagy 2-es és a Counter-Strike felirat"
+    en: "Two armed operators in orange-lensed goggles against split grey and orange panels, with a large 2 and the Counter-Strike wordmark"
+scp:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/700330/header.jpg"
+  alt:
+    hu: "A Secret Lab fehér logója mellett vörös vészfényben úszó földalatti folyosó, ahol egy hatalmas, húsos bőrű szörnyalak lépked el a korlát mentén"
+    en: "The Secret Lab logo beside a red-lit underground facility corridor where a hulking pale fleshy creature walks away along the railing"
+alien-swarm:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/630/header.jpg"
+  alt:
+    hu: "Nedves fémpadlón heverő repedt űrsisak, rátapadva egy csápos idegen lény, jobbra a világoskék Alien Swarm felirat"
+    en: "A cracked space helmet on a wet metal floor with a tentacled alien clamped over it, beside the glowing blue Alien Swarm logo"
+trackmania:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg"
+  alt:
+    hu: "Fekete, narancssárga csíkos nyitott kerekű versenyautó kockás zászló mintával, mellette a TrackMania Nations Forever logója fehér háttéren"
+    en: "Black open-wheel racing car with orange accents and a chequered flag pattern beside the TrackMania Nations Forever logo on white"
+css:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg"
+  alt:
+    hu: "Sisakos, maszkos kommandós gépkarabéllyal céloz szürke betonfal előtt, középen a Counter-Strike Source felirat"
+    en: "A helmeted, masked counter-terrorist aiming an assault rifle against a grey concrete wall, with the Counter-Strike Source logo across the middle"
+satisfactory:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/526870/header.jpg"
+  alt:
+    hu: "Sisakos munkás ül a kék ládákat szállító futószalagon, mögötte füstölő gyárkémények narancsszín égbolt alatt, jobbra a Satisfactory logó"
+    en: "A helmeted worker sits on a conveyor belt of blue crates in front of smoking factory towers under an orange sky, Satisfactory logo at the right"
+garrys-mod:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/4000/header.jpg"
+  alt:
+    hu: "Élénkkék, egyszínű kép egy megbillent platós autóról, a platón égnek emelt karral ülő alakkal, rajta a garry's mod fehér felirat"
+    en: "Monochrome blue scene of a figure with both arms raised on the bed of a tilting pickup truck, garry's mod written across in white lowercase"
+dont-starve-together:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg"
+  alt:
+    hu: "Kézzel rajzolt, szépiás gótikus rajz riadt szemű túlélőkkel, fabábuval és kúszó csáppal, mellettük a Don't Starve Together felirat"
+    en: "Hand drawn sepia artwork of wide eyed survivors, a wooden figure and a creeping tentacle beside the scratchy Don't Starve Together logo"
+tempest-rising:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1486920/header.jpg"
+  alt:
+    hu: "A Tempest Rising logója alatt kékre és vörösre hasított harci robot, alatta egymásnak feszülő tankok és katonák, az égen rakétacsíkokkal"
+    en: "Tempest Rising art with an armoured mech split blue and red down the middle, opposing tanks and troops below and missile trails above"
+vermintide2:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/552500/header.jpg"
+  alt:
+    hu: "Rácsos vassisakot viselő alak, akinek a feje lobogó lánggal ég, mellette a Warhammer Vermintide 2 logója sötét, füstös háttéren"
+    en: "Figure in a barred iron helmet whose head burns with flame, beside the Warhammer Vermintide 2 logo on a dark, smoky background"
+left4dead2:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg"
+  alt:
+    hu: "Négyujjú kéz tapad egy mocskos, zöldes falra a Left 4 Dead 2 felirat mellett, a négyes szám egy vörös vérfoltban"
+    en: "A four fingered hand pressed against a grimy green wall beside the Left 4 Dead 2 title, the numeral 4 sitting in a red blood splatter"
+tf2:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg"
+  alt:
+    hu: "A Team Fortress 2 felirata alatt rajzfilmes zsoldoscsapat sorakozik fel, jobb szélen egy termetes, gépágyús alak magasodik a többiek fölé"
+    en: "The Team Fortress 2 logo above a lineup of cartoon mercenaries, with a burly minigun-wielding figure looming large at the right"
+dod-source:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/300/header.jpg"
+  alt:
+    hu: "Két második világháborús katona acélsisakban, vörös háttér előtt, csillag és keresztjelvény között a Day of Defeat Source logója"
+    en: "Two World War Two soldiers in steel helmets against a red backdrop with star and cross emblems, the Day of Defeat Source logo between them"
+factorio:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
+  alt:
+    hu: "Felülnézetből mutatott, sűrűn telezsúfolt gyár csövekkel, tartályokkal, futószalagokkal és vonatsínekkel, középen a narancssárga Factorio logó"
+    en: "Top down view of a densely packed factory of pipes, tanks, conveyor belts and rail wagons, with the orange Factorio logo in the middle"
+cod-mw2:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
+  alt:
+    hu: "Kendővel és sisakkal maszkírozott katona puskával áll a poros, narancsos füstben, mellette a Call of Duty Modern Warfare 2 felirat"
+    en: "A masked soldier in helmet and scarf holding a rifle in swirling orange dust, next to the Call of Duty Modern Warfare 2 logo"
+minecraft:
+  image: "https://linuxgsm.com/wp-content/uploads/2021/02/mcje-header.jpg"
+  alt:
+    hu: "Két kockás Minecraft-karakter szerszámmal a kezében rohan kifelé egy sziklás barlangból, felül a Minecraft Java Edition felirat"
+    en: "Two blocky Minecraft characters running out of a stone cave with tools in hand, under the Minecraft Java Edition logo"
 
 # Non-Steam games, official sources verified
-lol:                  "https://prod.assets.earlygamecdn.com/images/League-of-Legends-Logo.jpg?x=0.5&y=0.5"
+lol:
+  image: "https://prod.assets.earlygamecdn.com/images/League-of-Legends-Logo.jpg?x=0.5&y=0.5"
+  alt:
+    hu: "A League of Legends aranyszínű logója sötét, ködös hegyvidék előtt, körülötte kéken izzó energiacsíkok kavarognak"
+    en: "The golden League of Legends logo over a dark misty mountain valley swirling with glowing blue energy trails"
 # Xonotic: official press screenshots used in Flatpak appstream
-xonotic:              "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
-openarena:            "https://4.bp.blogspot.com/_X56mregoBL4/TIMjeiFkHXI/AAAAAAAAB60/pEG6r8j24To/s1600/openarenalogo.png"
-supertuxkart:         "https://www.omgubuntu.co.uk/wp-content/uploads/2024/05/supertuxkart-logo-CARRINO.jpg"
-wz2100:               "https://img.itch.zone/aW1nLzM5NTM0MTIucG5n/original/6SwHkl.png"
+xonotic:
+  image: "https://xonotic.org/m/uploads/2012/07/frontpage_005.jpg"
+  alt:
+    hu: "Fekete-fehér páncélos harcos puskával a Xonotic ipari sci-fi arénájában, a távolban ellenfelek tüzelnek, a fémpadlón töltényhüvelyek"
+    en: "Armoured black and white fighter holding a rifle in a Xonotic arena, with distant opponents trading fire across an industrial sci-fi hall"
+openarena:
+  image: "https://4.bp.blogspot.com/_X56mregoBL4/TIMjeiFkHXI/AAAAAAAAB60/pEG6r8j24To/s1600/openarenalogo.png"
+  alt:
+    hu: "Az OpenArena fehér felirata és karcsú, A alakú emblémája mélyvörös háttéren, tükröződve, alatta az ingyenes játékot hirdető apró sorral"
+    en: "The OpenArena wordmark and slim A shaped emblem on a deep red background, mirrored below, with a small tagline calling it a free game"
+supertuxkart:
+  image: "https://www.omgubuntu.co.uk/wp-content/uploads/2024/05/supertuxkart-logo-CARRINO.jpg"
+  alt:
+    hu: "A SuperTuxKart vaskos, narancssárga rajzfilmes felirata egy hullámzó, fekete-fehér kockás célzászló előtt"
+    en: "The chunky orange cartoon SuperTuxKart logo set against a rippling black and white chequered racing flag"
+wz2100:
+  image: "https://img.itch.zone/aW1nLzM5NTM0MTIucG5n/original/6SwHkl.png"
+  alt:
+    hu: "Narancsszínű sivatagi dűnék között szétszórt bunkerek és ágyútornyok, jobbra magas radartorony, középen a Warzone 2100 logója"
+    en: "Bunkers and gun turrets dotted across orange desert dunes with a tall radar tower at right and the Warzone 2100 logo in the centre"
 # OpenTTD: Steam app 1536610 header (460×215, matches card aspect ratio exactly)
-openttd:              "https://cdn.cloudflare.steamstatic.com/steam/apps/1536610/header.jpg"
+openttd:
+  image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1536610/header.jpg"
+  alt:
+    hu: "Pixeles, felülnézeti városkép utakkal és piros szerelvényekkel, középen narancssárga rombuszban nagy dollárjel, két oldalán az OpenTTD felirat"
+    en: "Pixel art top down town of roads and long red trains, with a big white dollar sign in an orange diamond labelled OpenTTD"
 # Beyond All Reason: not yet on Steam; official website Webflow CDN screenshot (verified 200)
-beyond-all-reason:    "https://cdn.prod.website-files.com/5c68622246b367adf6f3041d/674708c97260fe2584e47e11_screen_2024-11-10_16-32-11-635.jpg"
-swat4:                "https://img.youtube.com/vi/ckoTyKG2ka0/hqdefault.jpg"
+beyond-all-reason:
+  image: "https://cdn.prod.website-files.com/5c68622246b367adf6f3041d/674708c97260fe2584e47e11_screen_2024-11-10_16-32-11-635.jpg"
+  alt:
+    hu: "Sivatagos csatatéren tömbszerű piros-fekete harci robotok lila lézersugarat lőnek, körülöttük narancssárga gépek raja, lent a BAR logó"
+    en: "Blocky red and black battle mechs on desert sand firing a violet laser beam amid swarms of small orange robots, with the BAR logo below"
+swat4:
+  image: "https://img.youtube.com/vi/ckoTyKG2ka0/hqdefault.jpg"
+  alt:
+    hu: "SWAT 4 Gold Edition borító: POLICE feliratú páncélt és sisakot viselő kommandósok nyomulnak előre vállhoz emelt fegyverrel, kékes füstben"
+    en: "SWAT 4 Gold Edition art showing helmeted officers in POLICE body armour pressing forward with weapons raised through blue haze"

@@ -2,6 +2,25 @@
 title: "First Episode"
 summary: "A recap of the first Ctrl-Alt-GG LAN with Counter-Strike, Minecraft, Prop Hunt, and shared pizza."
 weight: 10
+resources:
+  - src: "2025-01.jpg"
+    params:
+      alt: "About a dozen participants at laptops and PCs along the walls of a sunlit hall, cables snaking over the tiled floor and a server list on the projector screen"
+  - src: "2025-02.jpg"
+    params:
+      alt: "Three participants at a long table, one standing and working inside an open PC case, sticker-covered laptops in the foreground and a server list on the screen"
+  - src: "2025-03.jpg"
+    params:
+      alt: "A Juniper switch on the edge of a table, a dozen white network cables spilling from its ports down to the tiled floor, a participant blurred behind it"
+  - src: "2025-04.jpg"
+    params:
+      alt: "Improvised network corner on a cupboard shelf: an old laptop on two stacked Juniper switches, a router with green LEDs beside it, yellow and purple patch cables"
+  - src: "2025-05.jpg"
+    params:
+      alt: "Participants setting up the LAN in a hall strung with bare bulb lights, two of them assembling a monitor at the front"
+  - src: "2025-06.jpg"
+    params:
+      alt: "A young man in an orange headset plays on his laptop beside a curly haired friend at a keyboard, a blue lit PC case behind them"
 ---
 
 At the first Ctrl-Alt-GG event, we met downtown to spend an awesome Saturday together.

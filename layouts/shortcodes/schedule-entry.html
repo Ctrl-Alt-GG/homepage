@@ -38,8 +38,11 @@
 {{- if $isBreak }}{{ $bodyBackground = "[background:color-mix(in_srgb,var(--timeline-accent)_10%,var(--surface))]" }}{{ end -}}
 {{- if $isHighlight }}{{ $bodyBackground = "[background:color-mix(in_srgb,var(--timeline-accent)_16%,var(--surface))]" }}{{ end -}}
 {{- $art := "" -}}
+{{- $gameAlt := "" -}}
 {{- with $game -}}
-  {{- with (partial "game-image.html" (dict "slug" .)).resource -}}
+  {{- $resolved := partial "game-image.html" (dict "slug" .) -}}
+  {{- $gameAlt = $resolved.alt -}}
+  {{- with $resolved.resource -}}
     {{- $art = fingerprint (.Fill "240x112 webp") -}}
   {{- end -}}
 {{- end -}}
@@ -48,7 +51,7 @@
   <span class="cag-timeline__marker {{ $markerSize }} {{ $markerGlow }} justify-self-center rounded-full bg-(--timeline-accent) ring-4 ring-surface-card" aria-hidden="true"></span>
   <div class="cag-timeline__body {{ $borderWidth }} {{ $bodyBackground }} flex min-w-0 flex-col gap-2 rounded-card border border-border [border-left-color:var(--timeline-accent)] p-2.5 sm:flex-row sm:items-center sm:gap-3 sm:px-3">
     {{- with $art }}
-    <img class="cag-timeline__art aspect-[460/215] h-auto w-full shrink-0 rounded-md border border-border bg-surface-alt object-cover sm:h-[3.5rem] sm:w-[7.5rem] sm:aspect-auto" src="{{ .RelPermalink }}" alt="" loading="lazy" decoding="async" width="{{ .Width }}" height="{{ .Height }}">
+    <img class="cag-timeline__art aspect-[460/215] h-auto w-full shrink-0 rounded-md border border-border bg-surface-alt object-cover sm:h-[3.5rem] sm:w-[7.5rem] sm:aspect-auto" src="{{ .RelPermalink }}" alt="{{ $gameAlt }}" loading="lazy" decoding="async" width="{{ .Width }}" height="{{ .Height }}">
     {{- end }}
     <span class="cag-timeline__text flex min-w-0 flex-col gap-1">
       <span class="cag-timeline__title {{ $titleSize }} block leading-snug font-semibold">{{ $title }}</span>

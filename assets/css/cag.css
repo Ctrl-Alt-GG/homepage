@@ -378,6 +378,74 @@ body.cag-lb-active {
     @apply translate-x-0.5 -translate-y-0.5;
 }
 
+/* ── Global countdown bar ────────────────────────────────────────────
+   Sits directly under the header, then sticks to the top of the viewport
+   once the header scrolls away, so the deadline is on screen the whole time.
+   z-10 is deliberate: it must paint over page content but stay under the
+   header's nav dropdowns (z-20), which open across this band. */
+.cag-countdown-bar {
+    @apply sticky top-0 z-10 border-y border-border bg-accent-alt text-on-accent;
+}
+
+.cag-countdown-bar__inner {
+    @apply flex flex-wrap items-center justify-center gap-x-4 gap-y-1 py-2 text-center sm:gap-x-6;
+}
+
+.cag-countdown-bar__heading {
+    @apply m-0 text-xs font-bold tracking-[0.18em] text-on-accent-muted uppercase sm:text-sm;
+}
+
+.cag-countdown-bar__units {
+    @apply m-0 flex items-end justify-center gap-3 sm:gap-5;
+}
+
+.cag-countdown-unit {
+    @apply flex min-w-[2.75rem] flex-col items-center leading-none sm:min-w-[3.5rem];
+}
+
+.cag-countdown-unit__value {
+    /* Tabular figures stop the row jittering as the digits change. */
+    @apply text-2xl font-black tabular-nums sm:text-3xl;
+}
+
+.cag-countdown-unit__label {
+    @apply mt-1 text-[0.65rem] tracking-wider text-on-accent-muted uppercase sm:text-xs;
+}
+
+.cag-countdown-bar__done {
+    @apply m-0 hidden text-lg font-black tracking-wide sm:text-xl;
+}
+
+/* The date in words. Visible only as the no-JS fallback, but always present in
+   the accessibility tree so screen readers get the deadline without the digits
+   ticking at them once a second. */
+.cag-countdown-bar__readable {
+    @apply m-0 text-sm font-semibold;
+}
+
+.cag-countdown-bar[data-cag-countdown] .cag-countdown-bar__readable {
+    @apply sr-only;
+}
+
+.cag-countdown-bar[data-cag-countdown="complete"] .cag-countdown-bar__units,
+.cag-countdown-bar[data-cag-countdown="invalid"] .cag-countdown-bar__units {
+    @apply hidden;
+}
+
+.cag-countdown-bar[data-cag-countdown="complete"] .cag-countdown-bar__done {
+    @apply block;
+}
+
+.cag-countdown-bar[data-cag-countdown="invalid"] .cag-countdown-bar__readable {
+    @apply not-sr-only;
+}
+
+/* Anchor targets must clear the pinned bar, or the skip link and every heading
+   link would drop their target underneath it. */
+html:has(.cag-countdown-bar) {
+    scroll-padding-top: 5.5rem;
+}
+
 /* ── Header toolbar ──────────────────────────────────────────────────
    One border around a cluster of controls with hairline dividers between
    them, so the accessibility row reads as three segmented objects instead of

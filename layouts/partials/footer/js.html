@@ -19,6 +19,25 @@
 {{- end }}
 
 {{- /*
+  Global countdown bar. Gated on the same site flag as the markup, so a
+  disabled countdown ships no JavaScript at all.
+*/ -}}
+{{- if $page.Param "cag.countdown.enabled" }}
+  {{- with resources.Get "js/cag-countdown-bar.js" }}
+    {{- if eq hugo.Environment "development" }}
+      {{- with . | js.Build }}
+        <script src="{{ .RelPermalink }}" defer></script>
+      {{- end }}
+    {{- else }}
+      {{- $opts := dict "minify" true }}
+      {{- with . | js.Build $opts | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- /*
   Gallery lightbox. In development we ship the source unminified so the
   browser devtools show readable stacks; in production we minify + fingerprint
   and emit a subresource integrity hash.
