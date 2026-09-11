@@ -366,7 +366,7 @@ html[data-theme="contrast"] a:not(:where(.cag-contrast-keep, .cag-contrast-keep 
   text-underline-offset: 0.1875rem;
 }
 
-html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]):not(:where(.cag-contrast-keep, .cag-contrast-keep *)) {
+html[data-theme="contrast"] :where(button, input, select, textarea, summary, [role="button"]):not(:where(.cag-contrast-keep, .cag-contrast-keep *, .cag-a11y-control)) {
   border: 0.125rem solid var(--border);
 }
 

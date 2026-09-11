@@ -2,6 +2,8 @@
   translation: "Skip to content"
 - id: a11y_toolbar_label
   translation: "Accessibility options"
+- id: appearance_group_label
+  translation: "Appearance"
 - id: contrast_toggle_label
   translation: "High-contrast view"
 - id: contrast_toggle_on_announce
@@ -28,8 +30,8 @@
   translation: "Light theme enabled"
 - id: theme_dark_announce
   translation: "Dark theme enabled"
-- id: language_switch_label
-  translation: "Language"
+- id: language_switch_to
+  translation: "Switch to {{ .Language }}"
 - id: server_badge_tooltip
   translation: "A server for this game will be hosted at the event"
 - id: server_badge_aria

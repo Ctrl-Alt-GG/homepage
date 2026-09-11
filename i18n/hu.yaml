@@ -2,6 +2,8 @@
   translation: "Ugrás a tartalomra"
 - id: a11y_toolbar_label
   translation: "Kisegítő lehetőségek"
+- id: appearance_group_label
+  translation: "Megjelenés"
 - id: contrast_toggle_label
   translation: "Nagy kontrasztú nézet"
 - id: contrast_toggle_on_announce
@@ -28,8 +30,8 @@
   translation: "Világos téma bekapcsolva"
 - id: theme_dark_announce
   translation: "Sötét téma bekapcsolva"
-- id: language_switch_label
-  translation: "Nyelvválasztó"
+- id: language_switch_to
+  translation: "Váltás erre a nyelvre: {{ .Language }}"
 - id: server_badge_tooltip
   translation: "Ehhez a játékhoz szerver lesz biztosítva az eseményen"
 - id: server_badge_aria
