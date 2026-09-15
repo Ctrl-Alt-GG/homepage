@@ -450,13 +450,17 @@ html:has(.cag-countdown-bar) {
    One border around a cluster of controls with hairline dividers between
    them, so the accessibility row reads as three segmented objects instead of
    seven separate boxes. No overflow-hidden here on purpose: the focus ring is
-   an outline drawn outside the button and clipping it would hide focus. */
+   an outline drawn outside the button and clipping it would hide focus.
+   Outline and dividers both use the header's on-accent token rather than
+   currentColor: the group wrapper inherits the body text colour (near black in
+   light mode) while its buttons are on-accent, so currentColor gave a dark
+   outline around light dividers that vanished against the red header. */
 .cag-a11y-group {
-    @apply inline-flex items-center rounded-md border border-current;
+    @apply inline-flex items-center rounded-md border border-on-accent;
 }
 
 .cag-a11y-group > * + * {
-    @apply border-l border-current;
+    @apply border-l border-on-accent;
 }
 
 .cag-a11y-group > :first-child {

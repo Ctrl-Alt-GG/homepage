@@ -20,6 +20,10 @@
       sentence carrying the full date, which is what assistive tech reads.
     - Without JavaScript the digits never appear and that static sentence is
       the whole bar, so the deadline is still legible.
+
+  The unit label attributes must not start with "on" after the data- prefix
+  (data-one, data-once...). html/template treats those as event handlers and
+  JS-escapes the value, so the label would render wrapped in quotes.
 */ -}}
 {{- $page := . -}}
 {{- if $page.Param "cag.countdown.enabled" -}}
@@ -75,7 +79,7 @@
       {{- range $units }}
       <span class="cag-countdown-unit">
         <span class="cag-countdown-unit__value" data-countdown-value="{{ .key }}">--</span>
-        <span class="cag-countdown-unit__label" data-countdown-label="{{ .key }}" data-one="{{ .one }}" data-many="{{ .many }}">{{ .many }}</span>
+        <span class="cag-countdown-unit__label" data-countdown-label="{{ .key }}" data-singular="{{ .one }}" data-plural="{{ .many }}">{{ .many }}</span>
       </span>
       {{- end }}
     </p>

@@ -33,7 +33,7 @@
     valueNode.textContent = value < 10 ? '0' + value : String(value);
 
     if (labelNode) {
-      var word = value === 1 ? labelNode.dataset.one : labelNode.dataset.many;
+      var word = value === 1 ? labelNode.dataset.singular : labelNode.dataset.plural;
       if (word && labelNode.textContent !== word) {
         labelNode.textContent = word;
       }
