@@ -107,8 +107,14 @@ jobs:
       - name: Generate image metadata
         id: metadata
         uses: docker/metadata-action@v6
+        env:
+          DOCKER_METADATA_ANNOTATIONS_LEVELS: index,manifest
         with:
           images: ${{ steps.image.outputs.name }}
+          labels: |
+            org.opencontainers.image.description=Ctrl-Alt-GG brand homepage: program, location, FAQ, recap, and games, served as a static Hugo site by nginx.
+          annotations: |
+            org.opencontainers.image.description=Ctrl-Alt-GG brand homepage: program, location, FAQ, recap, and games, served as a static Hugo site by nginx.
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,format=long
@@ -119,8 +125,10 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name == 'push' }}
+          provenance: mode=max
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+          annotations: ${{ github.event_name == 'push' && steps.metadata.outputs.annotations || '' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Attest OCI image provenance
