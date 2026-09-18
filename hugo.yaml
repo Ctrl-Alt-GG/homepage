@@ -80,7 +80,7 @@ params:
       #   dateLabel  introduces the full date, read by screen readers and
       #              shown when JavaScript is unavailable
       enabled: true
-      target: "2026-09-18T12:00:00+02:00"
+      target: "2026-09-25T23:59:00+02:00"
       heading:
         hu: "A jelentkezési határidőig"
         en: "Until registration closes"
