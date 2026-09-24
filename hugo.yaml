@@ -62,6 +62,9 @@ params:
       x:
         enabled: false
         url: ""
+      steam:
+        enabled: true
+        url: "https://steamcommunity.com/groups/Ctrl-Alt-GG"
     countdown:
       # Global countdown bar, pinned under the header on every page.
       # Flip `enabled` to false to remove it site wide; nothing else needs

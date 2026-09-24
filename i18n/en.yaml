@@ -170,5 +170,11 @@
   translation: "@ctrl_alt_gg"
 - id: social_x_desc
   translation: "Latest news and updates"
+- id: social_steam_label
+  translation: "Steam group"
+- id: social_steam_handle
+  translation: "Ctrl-Alt-GG"
+- id: social_steam_desc
+  translation: "Our community group on Steam"
 - id: footer_social_label
   translation: "Social channels"

@@ -170,5 +170,11 @@
   translation: "@ctrl_alt_gg"
 - id: social_x_desc
   translation: "Friss hírek és frissítések"
+- id: social_steam_label
+  translation: "Steam csoport"
+- id: social_steam_handle
+  translation: "Ctrl-Alt-GG"
+- id: social_steam_desc
+  translation: "Közösségi csoportunk a Steamen"
 - id: footer_social_label
   translation: "Közösségi oldalak"
