@@ -8,8 +8,6 @@ We welcome participants with a wide selection of games: from intense FPS battles
 
 Here's the complete list of games we recommend for the LAN party. Games marked with the server icon will definitely have at least one server hosted by us:
 
-See the [schedule]({{< relref "/schedule" >}}) for the suggested order and timing of the games.
-
 ## Free Games
 
 - ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**

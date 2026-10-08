@@ -34,6 +34,6 @@ Sajnos ebben nem biztos, hogy mi, a szervezők, közvetlenül tudunk segíteni. 
 
 ## Hol tudok aludni?
 
-Alvásra nincs lehetőség a helyszínen. A helyszín Budapesten van, ezért könnyen haza tudsz ugrani. A címért és az odajutási lehetőségekért nézd meg a [helyszín oldalát]({{< relref "/location" >}}).
+Alvásra nincs lehetőség a helyszínen. A helyszín Budapesten van, ezért könnyen haza tudsz ugrani.
 
 {{< /faq >}}

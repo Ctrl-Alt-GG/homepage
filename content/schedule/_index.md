@@ -2,6 +2,7 @@
 title: "Menetrend"
 summary: "Itt találod a közös játékok, a CS2-verseny és a szünetek kezdési időpontjait."
 weight: 60
+draft: true
 ---
 
 {{< callout icon="⚠️" variant="warning" >}}Ez csak iránymutató, nem kötelező.{{< /callout >}}

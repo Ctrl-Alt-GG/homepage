@@ -1,8 +1,8 @@
 ---
+name: new-game-entry
 description: Add a game card entry to data/games.yaml
-mode: agent
+disable-model-invocation: true
 ---
-
 # New game entry
 
 Inputs:

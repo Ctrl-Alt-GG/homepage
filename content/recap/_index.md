@@ -11,6 +11,9 @@ Itt gyűjtjük a Ctrl-Alt-GG korábbi alkalmainak rövid összefoglalóit, képe
     Az első belvárosi összejövetelünk Counter-Strike-kal, Minecrafttal, Prop Hunttal és közös pizzával.
   {{< /card >}}
   {{< card icon="🎮" title="Második epizód" href="recap/second-episode/" >}}
-    Egy újabb közös LAN pillanatképei és egy rövid hangulatjelentés a legutóbbi találkozóról.
+    Egy újabb közös LAN pillanatképei és egy rövid hangulatjelentés a biatorbágyi találkozóról.
+  {{< /card >}}
+  {{< card icon="🏆" title="Harmadik epizód" href="recap/third-episode/" >}}
+    Egy egykori óbudai diszkó, ahol a Prop Hunt hajnalig ment.
   {{< /card >}}
 {{< /features >}}

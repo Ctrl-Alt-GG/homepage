@@ -2,6 +2,7 @@
 title: "Schedule"
 summary: "Find the start times for shared games, the CS2 tournament, and breaks."
 weight: 60
+draft: true
 ---
 
 {{< callout icon="⚠️" variant="warning" >}}This is only a guideline, not mandatory.{{< /callout >}}

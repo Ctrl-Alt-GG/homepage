@@ -1,8 +1,8 @@
 ---
+name: new-shortcode
 description: Create a new Hugo shortcode under layouts/shortcodes/
-mode: agent
+disable-model-invocation: true
 ---
-
 # New shortcode
 
 Inputs:

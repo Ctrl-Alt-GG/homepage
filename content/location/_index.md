@@ -2,6 +2,7 @@
 title: "Helyszín"
 summary: "A Ctrl-Alt-GG a budapesti DISTR3CT Event Cube-ban vár, könnyen elérhető autóval és tömegközlekedéssel."
 weight: 30
+draft: true
 ---
 
 A Ctrl-Alt-GG következő helyszíne a **DISTR3CT Event Cube** (Budapest III., Nagymihály utca 2.). Az eseménytér autóval és tömegközlekedéssel is könnyen megközelíthető.

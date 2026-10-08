@@ -8,8 +8,6 @@ Széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskekt�
 
 Itt találod a LAN partyhoz ajánlott teljes játéklistát. A szerver ikonnal jelölt játékokhoz mi biztosítunk legalább egy szervert:
 
-A játékok ajánlott sorrendjét és időpontjait a [menetrendben]({{< relref "/schedule" >}}) találod.
-
 ## Ingyenes játékok
 
 - ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**

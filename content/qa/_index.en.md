@@ -34,6 +34,6 @@ Unfortunately, we organizers might not be able to help directly. But if you have
 
 ## Where can I sleep?
 
-Sleeping at the venue is not possible. The venue is in Budapest, so you can easily head home. See the [Location page]({{< relref "/location" >}}) for the address and travel options.
+Sleeping at the venue is not possible. The venue is in Budapest, so you can easily head home.
 
 {{< /faq >}}

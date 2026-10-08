@@ -11,6 +11,9 @@ This is where we collect the short recaps, snapshots, and LAN-party atmosphere f
     The story of our first downtown meetup with Counter-Strike, Minecraft, Prop Hunt, and shared pizza.
   {{< /card >}}
   {{< card icon="🎮" title="Second Episode" href="recap/second-episode/" >}}
-    A fresh set of LAN snapshots and a short mood report from the latest meetup.
+    A fresh set of LAN snapshots and a short mood report from our meetup in Biatorbágy.
+  {{< /card >}}
+  {{< card icon="🏆" title="Third Episode" href="recap/third-episode/" >}}
+    A former disco in Óbuda where Prop Hunt ran until dawn.
   {{< /card >}}
 {{< /features >}}

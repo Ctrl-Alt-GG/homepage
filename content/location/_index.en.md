@@ -2,6 +2,7 @@
 title: "Location"
 summary: "Next Ctrl-Alt-GG venue is DISTR3CT Event Cube in Budapest, with easy access by car and public transport."
 weight: 30
+draft: true
 ---
 
 The next Ctrl-Alt-GG venue is **DISTR3CT Event Cube** (Budapest District III, Nagymihály utca 2). The event space is easy to reach by both car and public transport.

@@ -1,8 +1,8 @@
 ---
+name: new-section
 description: Scaffold a new bilingual content section under content/
-mode: agent
+disable-model-invocation: true
 ---
-
 # New content section
 
 Inputs:
