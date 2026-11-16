@@ -8,7 +8,7 @@ We welcome participants with a wide selection of games: from intense FPS battles
 
 Here's the list of games we recommend for the LAN party. We'll host at least one server for games marked with the server icon.
 
-[Before you arrive: games, updates and software preparation](https://care.ctrl-alt-gg.hu/software/)
+[Before you arrive: games, updates and software preparation](https://care.ctrl-alt-gg.hu/en/software/)
 
 ## Free Games
 
