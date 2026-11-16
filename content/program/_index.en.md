@@ -2,15 +2,17 @@
 title: "Recommended Games"
 ---
 
-The true essence of a LAN party isn't just in the gaming itself, but in the communal experience of sitting together, playing together, and having fun together. Over two days we'll battle, compete, and cooperate through a local network. Just like in the good old days, when the online world wasn't so dominant.
+The true essence of a LAN party isn't just in the gaming itself, but in the communal experience of sitting together, playing together, and having fun together. We can battle, compete, and cooperate over a local network, just like in the good old days, when the online world wasn't so dominant.
 
 We welcome participants with a wide selection of games: from intense FPS battles to strategic challenges to hilarious party games, we've got something for everyone. Whether you're a hardcore gamer or just here to relax, there's a place for you here!
 
-Here's the complete list of games we recommend for the LAN party. Games marked with the server icon will definitely have at least one server hosted by us:
+Here's the list of games we recommend for the LAN party. We'll host at least one server for games marked with the server icon.
+
+[Before you arrive: games, updates and software preparation](https://care.ctrl-alt-gg.hu/software/)
 
 ## Free Games
 
-- ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**
+- ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/)
 - ![League of Legends](lol.jpg) [League of Legends](https://www.leagueoflegends.com/)
 - ![SCP: Secret Laboratory](scp.jpg) [SCP: Secret Laboratory*](https://store.steampowered.com/app/700330/SCP_Secret_Laboratory/)
 - ![Alien Swarm](alien-swarm.jpg) [Alien Swarm](https://store.steampowered.com/app/630/Alien_Swarm/)
@@ -39,12 +41,8 @@ Here's the complete list of games we recommend for the LAN party. Games marked w
 - ![Call of Duty: Modern Warfare 2](cod-mw2.jpg) [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 {.cag-game-cards}
 
-{{< callout icon="server" >}}Games with the server icon in the card corner will definitely have at least one server available.{{< /callout >}}
-
-Anyone can join anything they want, nothing is mandatory besides the fun!
+Once you're there, join whichever game you feel like playing. Nothing is mandatory besides having fun!
 
 ## Console Corner
 
 We didn't just think about PC gamers! The event will also feature an Xbox Series X console for those who prefer a controller in their hands. With Game Pass Ultimate access, you can choose from tons of games. Two controllers are available, making it the perfect spot for split-screen matches or co-op adventures. Comfortable seating and a large screen guarantee a more relaxed, couch-based gaming experience.
-
-## And that's not all

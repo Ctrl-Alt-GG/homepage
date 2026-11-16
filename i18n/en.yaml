@@ -84,6 +84,12 @@
   translation: "Spawn"
 - id: family_lobby
   translation: "Lobby"
+- id: family_care_desc
+  translation: "Technical help and guides"
+- id: family_spawn_desc
+  translation: "LAN portal: servers, streams and tournaments"
+- id: family_lobby_desc
+  translation: "Sign in to Lobby"
 - id: care_cta_title
   translation: "Need a hand?"
 - id: care_cta_desc
