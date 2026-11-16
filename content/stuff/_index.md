@@ -10,6 +10,8 @@ title: "Praktikus tudnivalók"
 ### ✅ Hozd el
 
 - Saját **gaming PC** (asztali vagy laptop)
+- **Monitor**, ha asztali gépet hozol
+- **A monitorhoz megfelelő képkábel**, például HDMI vagy DisplayPort
 - **Tápkábel / töltő**
 - **Elosztó** (ha több eszközt hozol)
 - **Ethernet adapter** (ha nincs RJ-45 port)
@@ -30,7 +32,9 @@ title: "Praktikus tudnivalók"
 
 {{< callout icon="⚡" >}}<strong>Áramforrás:</strong> Résztvevőnként legfeljebb <strong>két hálózati aljzatot</strong> tudunk biztosítani. Ha több eszközt hozol, hozz elosztót is!{{< /callout >}}
 
-Az ülőhelyek az aki kapja marja alapon lesznek kiosztva, így akik korábban érkeznek több hely között tudnak válogatni. Ha valaki különleges igénnyel rendelkezik (pl. gerincprobléma miatt speciális szék szükséges), akkor jelezze előre felénk.
+[Érkezés előtt: játékok, frissítések és szoftveres felkészülés](https://care.ctrl-alt-gg.hu/software/)
+
+Az ülőhelyeket érkezési sorrendben osztjuk ki, így akik korábban érkeznek, több hely közül választhatnak. Ha különleges igényed van (például gerincprobléma miatt speciális székre van szükséged), jelezd előre.
 
 ---
 

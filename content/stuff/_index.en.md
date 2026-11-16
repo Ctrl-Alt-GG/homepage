@@ -10,6 +10,8 @@ title: "Practical information"
 ### ✅ Bring
 
 - Your **gaming PC** (desktop or laptop)
+- **A monitor**, if you are bringing a desktop computer
+- **A suitable display cable** for your monitor, such as HDMI or DisplayPort
 - **Power cable / charger**
 - **Power strip** (if you're bringing multiple devices)
 - **Ethernet adapter** (if your machine has no RJ-45 port)
@@ -29,6 +31,8 @@ title: "Practical information"
 {{< /stuff-columns >}}
 
 {{< callout icon="⚡" >}}<strong>Power outlets:</strong> We can offer at most <strong>two outlets per person</strong>. If you need more, bring a power strip.{{< /callout >}}
+
+[Before you arrive: games, updates and software preparation](https://care.ctrl-alt-gg.hu/software/)
 
 Seating is **first come, first served**, so early arrivals have more choice. If you have special needs (for example, a special chair due to back problems), let us know in advance.
 

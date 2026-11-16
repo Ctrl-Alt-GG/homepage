@@ -6,16 +6,19 @@ summary: "Az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos 
 {{< cag/image breakpoints=true class="mt-3 object-cover rounded-lg shadow" fetchpriority="high" height="20rem" loading="eager" width="100%" src="gamingroom.webp" alt="Berendezett gaming terem gépekkel és székekkel" >}}
 
 {{< intro >}}
-Felkészültél az év legnagyobb, minden képzeletet felülmúló, nagyszabású gaming eseményére, ahol mindenki ott lesz, aki számít? Nos ez nem az. De ne bánkódj, nekünk te is számítasz. <3
+Felkészültél az év legnagyobb, minden képzeletet felülmúló, nagyszabású gaming eseményére, ahol mindenki ott lesz, aki számít? Nos, ez nem az. De ne bánkódj, nekünk te is számítasz. <3
 {{< /intro >}}
+
+## A következő Ctrl-Alt-GG
+
+Az esemény részleteiért keresd azt, aki meghívott, vagy vedd fel a kapcsolatot a [szervezőkkel]({{< relref "/aboutus/" >}}).
 
 {{< care-cta >}}
 
-Ezért hívtunk meg az év legjobb, a mi képzeletünket biztosan felülmúló, kisiparos gaming rendezvényére - immár másodszor -, mert az első akkora siker volt, hogy nem is volt kérdés a folytatás. A célunk most is egyszerű: egy hétvégét lazán együtt tölteni hozzánk hasonló arcokkal, kedvenc játékaink és a magatokkal hozott sör társaságában. Közben pedig megszállottan azon leszünk, hogy a lehető legjobb hálózatot rakjuk össze, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi. És ki tudja: ha beindul a játékverseny, lehet, hogy egy-két meglepi nyeremény is gazdára talál.
+Egy hétvége közös játékkal, hozzánk hasonló arcokkal és gondosan összerakott hálózattal. Hozd a saját gépedet és a kedvenc játékaidat; a cél a jó társaság és a közös játék.
 
 {{< features heading="Miért gyere el?" >}}
   {{< card icon="🎮" title="Igazi LAN élmény" >}}Felejtsd el a lagot és az online bosszúságokat. LANon játszani teljesen más: csak a skill számít, meg persze a hangulat.{{< /card >}}
-  {{< card icon="🏆" title="CS2 Bajnokság" >}}Mutasd meg, ki a legjobb! Csapatban versenyeztek egymás ellen, a győztesek pedig meglepetés nyereménnyel zárhatják a napot.{{< /card >}}
   {{< card icon="🎲" title="Széles játékpaletta" >}}Izgalmas FPS meccsektől a stratégiai kihívásokon át a party játékokig, ingyenes és fizetős. Mindenki talál kedvencet.{{< /card >}}
   {{< card icon="🕹️" title="Konzol Kuckó" >}}Xbox Series X kényelmes ülőhellyel és nagy képernyővel vár. Kontroller vagy billentyűzet, te döntöd el.{{< /card >}}
   {{< card icon="🌐" title="Profi hálózat" >}}Keményen dolgozunk a lehető legjobb infrastruktúrán, mert tudjuk, hogy a jó hangulatot az alacsony ping is építi.{{< /card >}}

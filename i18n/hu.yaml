@@ -84,6 +84,12 @@
   translation: "Spawn"
 - id: family_lobby
   translation: "Lobby"
+- id: family_care_desc
+  translation: "Technikai segítség és útmutatók"
+- id: family_spawn_desc
+  translation: "LAN-portál: szerverek, közvetítések és versenyek"
+- id: family_lobby_desc
+  translation: "Bejelentkezés a Lobbyba"
 - id: care_cta_title
   translation: "Segítségre van szükséged?"
 - id: care_cta_desc

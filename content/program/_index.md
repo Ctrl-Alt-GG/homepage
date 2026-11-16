@@ -2,15 +2,17 @@
 title: "Játékajánló"
 ---
 
-A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. A két napban helyi hálózaton keresztül csatázunk, versenyzünk és kooperálunk. Mindezt úgy, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
+A LAN party igazi lényege nem csak a játékban rejlik, hanem abban a közösségi élményben, amikor együtt ülünk, együtt játszunk, és együtt szórakozunk. Helyi hálózaton keresztül csatázhatunk, versenyezhetünk és kooperálhatunk, ahogy a régi szép időkben, amikor az online világ még nem volt ilyen meghatározó.
 
-Széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccskektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
+Széles játékpalettával várjuk a résztvevőket: az intenzív FPS meccsektől kezdve a stratégiai kihívásokon át egészen a vicces party játékokig mindenkinek találunk valamit. Akár hardcore gamer vagy, akár csak lazítani jöttél, mindenkinek van helye nálunk!
 
-Itt találod a LAN partyhoz ajánlott teljes játéklistát. A szerver ikonnal jelölt játékokhoz mi biztosítunk legalább egy szervert:
+Itt találod a LAN partyhoz ajánlott játéklistát. A szerver ikonnal jelölt játékokhoz mi biztosítunk legalább egy szervert.
+
+[Érkezés előtt: játékok, frissítések és szoftveres felkészülés](https://care.ctrl-alt-gg.hu/software/)
 
 ## Ingyenes játékok
 
-- ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/) **Tournament!**
+- ![Counter-Strike 2](cs2.jpg) [Counter-Strike 2*](https://store.steampowered.com/app/730/CounterStrike_2/)
 - ![League of Legends](lol.jpg) [League of Legends](https://www.leagueoflegends.com/)
 - ![SCP: Secret Laboratory](scp.jpg) [SCP: Secret Laboratory*](https://store.steampowered.com/app/700330/SCP_Secret_Laboratory/)
 - ![Alien Swarm](alien-swarm.jpg) [Alien Swarm](https://store.steampowered.com/app/630/Alien_Swarm/)
@@ -39,12 +41,8 @@ Itt találod a LAN partyhoz ajánlott teljes játéklistát. A szerver ikonnal j
 - ![Call of Duty: Modern Warfare 2](cod-mw2.jpg) [Call of Duty: Modern Warfare 2](https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/)
 {.cag-game-cards}
 
-{{< callout icon="server" >}}A szerver ikonnal jelölt játékoknál garantáltan elérhető lesz legalább egy szerver.{{< /callout >}}
-
-Bárki bármihez csatlakozhat, ha van kedve, a szórakozáson kívül semmi sem kötelező!
+Ha már ott vagy, csatlakozz ahhoz a játékhoz, amihez kedved van. A szórakozáson kívül semmi sem kötelező!
 
 ## Konzol Kuckó
 
-Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen mecccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazabb, kanapéról játszható élményt.
-
-## És ez nem minden
+Nem csak PC-játékosokra gondoltunk! A rendezvényen egy Xbox Series X konzol is várja azokat, akik inkább kontrollerrel a kezükben érzik otthon magukat. A Game Pass Ultimate hozzáféréssel rengeteg játék közül válogathattok. Két kontroller áll rendelkezésre, így tökéletes helyszín split-screen meccsekhez vagy co-op kalandokhoz. A kényelmes ülőhely és nagy képernyő garantálja a lazabb, kanapéról játszható élményt.
